@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><title>Units 1 to 3 • Connect 4 Primary 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet"><style>
+  :root {
+    --en-primary: #0891b2;
+    --en-dark: #0e7490;
+    --en-light: #ecfeff;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', 'Cairo', sans-serif; background: var(--bg-page); color: var(--text-main); line-height: 1.6; padding-bottom: 60px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+  .header-box { background: linear-gradient(135deg, #0e7490, #0891b2); color: white; padding: 30px; border-radius: 20px; margin-bottom: 25px; text-align: center; box-shadow: 0 10px 25px rgba(8, 145, 178, 0.25); }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .nav-strip { display: flex; justify-content: space-between; align-items: center; background: white; padding: 12px 20px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); margin-bottom: 25px; }
+  .nav-btn { text-decoration: none; color: #475569; font-size: 13.5px; font-weight: 700; }
+  .nav-btn:hover { color: var(--en-primary); }
+  .section-block { background: white; border-radius: 18px; padding: 26px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+  .sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #ecfeff; }
+  .sec-icon { width: 38px; height: 38px; background: var(--en-light); color: var(--en-primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; }
+  .sec-title { font-size: 20px; font-weight: 800; color: #0f172a; }
+  .concept-card { background: #fff; border-left: 4px solid var(--en-primary); padding: 16px 20px; border-radius: 12px; margin-bottom: 16px; border: 1px solid #f8fafc; border-left-width: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+  .concept-card h3 { font-size: 16px; font-weight: 800; color: var(--en-dark); margin-bottom: 6px; }
+  .concept-card p { font-size: 14px; color: #334155; }
+  .golden-tip { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 4px solid #f59e0b; border-radius: 12px; padding: 14px 18px; margin: 14px 0; font-size: 13.5px; color: #78350f; }
+  .q-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+  .q-text { font-size: 14.5px; font-weight: 700; color: #1e293b; margin-bottom: 10px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .opt-btn { background: white; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 8px; font-size: 13px; text-align: left; }
+  .ans-box { background: #f0fdf4; border: 1.5px dashed #22c55e; border-radius: 14px; padding: 18px; margin-top: 15px; }
+  .ans-title { font-size: 15px; font-weight: 800; color: #15803d; margin-bottom: 10px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #166534; }
+  @media print { .nav-strip { display: none !important; } body { background: white; } .section-block { break-inside: avoid; border: 1px solid #ccc; } }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style></head>
+<body><div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس اللغة الإنجليزية (English)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header-box"><h1>Theme 1: I Discover Myself (Units 1, 2 & 3)</h1><p>Food & Farming, Desert Animals, and Why Plants Are Green • Illustrated Vocabulary & Grammar</p></div>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">1</div><h2 class="sec-title">Part 1: Key Vocabulary & Grammar Concepts</h2></div>
+    <div class="golden-tip"><strong>💡 Teacher's Golden Grammar Tip:</strong> When comparing 2 animals: Short adjective + ER + THAN (e.g. A camel is tall<strong>er than</strong> a horse). For long adjectives: MORE / LESS + adjective + THAN (e.g. A snake is <strong>more dangerous than</strong> a fox).</div>
+    <div class="concept-card"><h3>Unit 1: I feel good! (Food, Body & Digestion)</h3><p>• Key Words: chicken, rice, watermelon, digestive system, respiratory system, stomach, lungs, heart.<br>• Phonics: Prefix 're-' means to do again (repaint, rewrite, reclean).</p></div>
+    <div class="concept-card"><h3>Unit 2: Desert Animals (Adaptation & Wildlife)</h3><p>• Animals: Fennec fox (huge ears, thick fur), Camel (flat feet, hump for fat), Steppe eagle, Pelican.<br>• Grammar: Comparatives: faster than, bigger than, heavier than.</p></div>
+    <div class="concept-card"><h3>Unit 3: Why are plants green?</h3><p>• Concepts: Seeds, germination, roots, shoot, leaves, pollen, chloroplasts (make plants green).<br>• Grammar: Superlatives: The + adjective + EST (The biggest, the tallest).</p></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">2</div><h2 class="sec-title">Part 2: Governorate Exam Drills</h2></div>
+    <div class="q-item"><div class="q-text">1. The fennec fox has huge ears to .................... heat from its body.</div><div class="q-opts"><div class="opt-btn">lose</div><div class="opt-btn">eat</div><div class="opt-btn">drink</div><div class="opt-btn">catch</div></div></div>
+    <div class="q-item"><div class="q-text">2. A camel is .................... than a horse.</div><div class="q-opts"><div class="opt-btn">tall</div><div class="opt-btn">taller</div><div class="opt-btn">tallest</div><div class="opt-btn">more tall</div></div></div>
+    <div class="q-item"><div class="q-text">3. Plants need sunlight, water, and .................... to grow.</div><div class="q-opts"><div class="opt-btn">carbon dioxide</div><div class="opt-btn">juice</div><div class="opt-btn">milk</div><div class="opt-btn">plastic</div></div></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">3</div><h2 class="sec-title">Part 3: Model Answers</h2></div>
+    <div class="ans-box"><div class="ans-title">✅ Answer Key:</div><ul class="ans-list"><li>1. <strong>lose</strong> (large ears help radiate and lose heat).</li><li>2. <strong>taller</strong> (comparative with 'than').</li><li>3. <strong>carbon dioxide</strong> (for photosynthesis).</li></ul></div>
+  </section>
+</div></body></html>

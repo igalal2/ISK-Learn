@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --math-primary: #ec4899;
+    --math-dark: #be185d;
+    --text-main: #1e293b;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+  .header-box {
+    background: linear-gradient(135deg, #be185d, #ec4899);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px rgba(236, 72, 153, 0.25);
+    text-align: center;
+  }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .header-box p { font-size: 14.5px; opacity: 0.95; }
+  .nav-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 25px;
+  }
+  .nav-btn {
+    text-decoration: none;
+    color: #475569;
+    font-size: 13.5px;
+    font-weight: 700;
+  }
+  .nav-btn:hover { color: var(--math-primary); }
+  .exam-card {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 25px;
+    border: 1px solid #f1f5f9;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  }
+  .exam-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--math-dark);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fdf2f8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .q-group { margin-bottom: 16px; }
+  .q-group-title { font-size: 14.5px; font-weight: 800; color: #0f172a; margin-bottom: 8px; }
+  .q-row {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    font-size: 13.5px;
+  }
+  .ans-key-block {
+    background: #f0fdf4;
+    border: 1.5px dashed #22c55e;
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 30px;
+  }
+  .ans-key-title { font-size: 16px; font-weight: 900; color: #15803d; margin-bottom: 12px; }
+  .table-rules {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+  }
+  .table-rules th, .table-rules td {
+    border: 1px solid #e2e8f0;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    text-align: right;
+  }
+  .table-rules th { background: #fdf2f8; color: var(--math-dark); font-weight: 800; }
+  @media print {
+    .nav-strip { display: none !important; }
+    body { background: white !important; color: black !important; }
+    .exam-card { break-inside: avoid; border: 1px solid #ccc !important; }
+  }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+
+<title>امتحانات نهاية الترم الأول • Mathematics PRIM4</title>
+</head>
+<body>
+<div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الرياضيات (Math)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+
+  <div class="header-box">
+    <h1>🏆 امتحانات المحافظات الرسمية لنهاية الفصل الدراسي الأول</h1>
+    <p>6 امتحانات كاملة وفق الورقة الامتحانية الرسمية لوزارة التربية والتعليم بنماذج الإجابة</p>
+  </div>
+
+  <!-- Exam 1: Cairo -->
+  <div class="exam-card">
+    <div class="exam-title">
+      <span>امتحان محافظة القاهرة • مادة الرياضيات (Mathematics)</span>
+      <span style="font-size:12px; background:#fdf2f8; padding:3px 10px; border-radius:10px;">الزمن: ساعة ونصف • الدرجة: 30</span>
+    </div>
+    <div class="q-group">
+      <div class="q-group-title">السؤال الأول: اختر الإجابة الصحيحة من بين الإجابات المعطاة (7 درجات):</div>
+      <div class="q-row">1. أصغر عدد أولي زوجي هو: [ 0 / 1 / 2 / 4 ]</div>
+      <div class="q-row">2. 5 كيلومترات = ....... متراً: [ 50 / 500 / 5,000 / 50,000 ]</div>
+      <div class="q-row">3. مربع طول ضلعه 5 سم، فإن محيطه = ....... سم: [ 10 / 20 / 25 / 15 ]</div>
+      <div class="q-row">4. ناتج العملية: 18 - 3 × 4 يساوي: [ 60 / 6 / 24 / 12 ]</div>
+      <div class="q-row">5. العدد 450,000 = ....... ألفاً: [ 45 / 450 / 4,500 / 45,000 ]</div>
+      <div class="q-row">6. أي مما يلي يمثل خاصية الإبدال في الجمع؟ [ 4 + 0 = 4 / 3 + 5 = 5 + 3 / (2 + 1) + 3 = 6 / 5 × 1 = 5 ]</div>
+      <div class="q-row">7. العامل المشترك الأكبر للعددين 6 و 9 هو: [ 1 / 2 / 3 / 6 ]</div>
+    </div>
+    <div class="q-group">
+      <div class="q-group-title">السؤال الثاني: أكمل ما يأتي (8 درجات):</div>
+      <div class="q-row">8. قيمة الرقم 4 في العدد 34,512,089 هي .......................</div>
+      <div class="q-row">9. إذا كان x - 250 = 750 ، فإن قيمة x = .......................</div>
+      <div class="q-row">10. 4 لترات = ....................... مليلتر.</div>
+      <div class="q-row">11. مساحة مستطيل طوله 7 سم وعرضه 3 سم = ....................... سم².</div>
+    </div>
+  </div>
+
+  <!-- ANSWERS -->
+  <div class="ans-key-block">
+    <div class="ans-key-title">✅ نموذج إجابة امتحان محافظة القاهرة:</div>
+    <p>1. 2 | 2. 5,000 | 3. 20 (4 × 5) | 4. 6 (18 - 12) | 5. 450 | 6. 3 + 5 = 5 + 3 | 7. 3</p>
+    <p>8. 4,000,000 (أربعة ملايين) | 9. x = 1,000 (750 + 250) | 10. 4,000 mL | 11. 21 سم² (7 × 3 = 21).</p>
+  </div>
+</div>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

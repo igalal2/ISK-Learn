@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فهرس مادة Mathematics • الصف الرابع الابتدائي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --math-primary: #ec4899;
+    --math-dark: #be185d;
+    --bg-dark: #0f172a;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: #090d16;
+    color: #f8fafc;
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
+  .nav-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 14px 20px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-btn {
+    text-decoration: none;
+    color: #cbd5e1;
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .nav-btn:hover { color: var(--math-primary); }
+  .hero-box {
+    background: linear-gradient(135deg, #be185d, #ec4899);
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.3);
+  }
+  .hero-box h1 { font-size: 28px; font-weight: 900; margin-bottom: 8px; }
+  .hero-box p { font-size: 15px; opacity: 0.95; }
+
+  .booklets-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 35px;
+  }
+  .bk-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .bk-card h3 { font-size: 16px; font-weight: 800; color: #f472b6; }
+  .bk-card p { font-size: 12.5px; color: #94a3b8; }
+  .btn-link {
+    margin-top: auto;
+    background: var(--math-primary);
+    color: white;
+    text-align: center;
+    padding: 8px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .units-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 18px;
+  }
+  .unit-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s;
+  }
+  .unit-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--math-primary);
+  }
+  .unit-badge {
+    font-size: 11px;
+    font-weight: 800;
+    background: rgba(236, 72, 153, 0.2);
+    color: #f472b6;
+    padding: 2px 8px;
+    border-radius: 6px;
+    align-self: flex-start;
+  }
+  .unit-card h4 { font-size: 15px; font-weight: 800; color: white; }
+  .unit-card p { font-size: 12px; color: #94a3b8; line-height: 1.4; }
+  .unit-card a {
+    margin-top: auto;
+    background: #334155;
+    color: white;
+    text-align: center;
+    padding: 7px 0;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .unit-card a:hover { background: var(--math-primary); }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الرياضيات (Math)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+
+  <div class="hero-box">
+    <h1>📐 منصة مادة Mathematics • الصف الرابع الابتدائي</h1>
+    <p>شرح بالرسوم البيانية، تدريبات امتحانات المحافظات، نماذج الإجابات، وملازم الشهور والمراجعة النهائية</p>
+  </div>
+
+  <!-- BOOKLETS SHELF -->
+  <h2 style="font-size:18px; font-weight:800; margin-bottom:14px; color:#f472b6;">📑 الملازم التخصصية وبنك الامتحانات:</h2>
+  <div class="booklets-row">
+    <div class="bk-card">
+      <h3>📅 ملزمة امتحانات الشهور (أكتوبر ونوفمبر)</h3>
+      <p>6 نماذج تدريبية شاملة مقررات شهري أكتوبر ونوفمبر بالحلول النموذجية.</p>
+      <a href="Monthly_Exams_Math_PRIM4.html" class="btn-link">فتح ملزمة الشهور</a>
+    </div>
+    <div class="bk-card">
+      <h3>💡 كبسولة المراجعة النهائية (ليلة الامتحان)</h3>
+      <p>ملخص جميع القوانين الهندسية، التحويلات المترية، وأقوى التريكات الامتحانية.</p>
+      <a href="Final_Revision_Math_PRIM4.html" class="btn-link">فتح المراجعة النهائية</a>
+    </div>
+    <div class="bk-card">
+      <h3>🏆 امتحانات نهاية الفصل الدراسي الشاملة</h3>
+      <p>6 امتحانات محافظات كاملة مطابقة لمواصفات الورقة الوزارية مع نماذج الإجابة.</p>
+      <a href="Final_Term_Exams_Math_PRIM4.html" class="btn-link">فتح امتحانات الترم</a>
+    </div>
+  </div>
+
+  <!-- UNITS GRID -->
+  <h2 style="font-size:18px; font-weight:800; margin-bottom:14px; color:#f472b6;">📖 وحدات المنهج الدراسي (8 وحدات):</h2>
+  <div class="units-grid">
+    <div class="unit-card">
+      <span class="unit-badge">Unit 1</span>
+      <h4>Place Value</h4>
+      <p>القيمة المكانية، الأعداد الكبيرة حتى المليار، الصيغ المختلفة، والتقريب.</p>
+      <a href="Unit1_PlaceValue.html">عرض الوحدة</a>
+    </div>
+    <div class="unit-card">
+      <span class="unit-badge">Unit 2</span>
+      <h4>Addition & Subtraction</h4>
+      <p>خواص الجمع، الحساب الذهني، والنموذج الشريطي لحل المعادلات.</p>
+      <a href="Unit2_Addition_Subtraction_Strategies.html">عرض الوحدة</a>
+    </div>
+    <div class="unit-card">
+      <span class="unit-badge">Unit 3</span>
+      <h4>Measurement Concepts</h4>
+      <p>وحدات قياس الطول والكتلة والسعة والوقت والتحويلات المترية.</p>
+      <a href="Unit3_Concepts_of_Measurement.html">عرض الوحدة</a>
+    </div>
+    <div class="unit-card">
+      <span class="unit-badge">Unit 4</span>
+      <h4>Area & Perimeter</h4>
+      <p>محيط ومساحة المستطيل والمربع، الأبعاد المجهولة والأشكال المركبة.</p>
+      <a href="Unit4_Area_and_Perimeter.html">عرض الوحدة</a>
+    </div>
+    <div class="unit-card">
+      <span class="unit-badge">Unit 5</span>
+      <h4>Multiplication Relations</h4>
+      <p>المقارنة بالضرب، كتابة وحل المعادلات، وخواص عملية الضرب.</p>
+      <a href="Unit5_Multiplication_Comparisons.html">عرض الوحدة</a>
+    </div>
+    <div class="unit-card">
+      <span class="unit-badge">Unit 6</span>
+      <h4>Factors & Multiples</h4>
+      <p>العوامل والمضاعفات، الأعداد الأولية، والعامل المشترك الأكبر GCF.</p>
+      <a href="Unit6_Factors_and_Multiples.html">عرض الوحدة</a>
+    </div>
+    <div class="unit-card">
+      <span class="unit-badge">Unit 7</span>
+      <h4>Multiplication & Division</h4>
+      <p>نموذج مساحة المستطيل، خوارزميات الضرب المعيارية، والقسمة المطولة.</p>
+      <a href="Unit7_Multiplication_Division_Algorithms.html">عرض الوحدة</a>
+    </div>
+    <div class="unit-card">
+      <span class="unit-badge">Unit 8</span>
+      <h4>Order of Operations</h4>
+      <p>ترتيب العمليات الحسابية، فك الأقواس، وحل المسائل الكلامية المركبة.</p>
+      <a href="Unit8_Order_of_Operations.html">عرض الوحدة</a>
+    </div>
+  </div>
+</div>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

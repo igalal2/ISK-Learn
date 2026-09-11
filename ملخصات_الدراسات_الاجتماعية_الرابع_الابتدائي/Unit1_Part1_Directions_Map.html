@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الوحدة الأولى: الأماكن والاتجاهات والخريطة</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #1e293b;
+    background: #fdfbf7;
+    line-height: 1.40;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .module-header {
+    background: linear-gradient(135deg, #b45309, #d97706);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 9px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .module-header h1 { font-size: 17px; font-weight: 900; margin-bottom: 1px; }
+  .module-header .subtitle { font-size: 11.5px; font-weight: 700; opacity: 0.95; }
+  .meta-tags { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .tag { background: rgba(255,255,255,0.25); padding: 1px 7px; border-radius: 6px; font-size: 10px; font-weight: 700; }
+  .part-banner {
+    padding: 6px 12px;
+    border-radius: 7px;
+    margin: 5px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 12px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .banner-part1 { background: linear-gradient(135deg, #b45309, #d97706); }
+  .banner-part2 { background: linear-gradient(135deg, #4338ca, #6366f1); }
+  .banner-part3 { background: linear-gradient(135deg, #047857, #059669); }
+  .concept-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #d97706;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    break-inside: avoid;
+  }
+  .concept-title { font-size: 11.5px; font-weight: 800; color: #b45309; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 5px 9px;
+    margin: 4px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 11px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+  .figure-box {
+    text-align: center;
+    margin: 4px 0;
+    padding: 4px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .figure-caption { font-size: 9.5px; font-weight: 700; color: #475569; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 10px; break-inside: avoid; }
+  th { background: #d97706; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #d97706; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .question-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-right: 3.5px solid #6366f1;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .q-gov { background: #ede9fe; color: #5b21b6; font-size: 8.5px; font-weight: 800; padding: 1px 5px; border-radius: 4px; margin-left: 5px; }
+  .answer-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-right: 3.5px solid #10b981;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .ans-text { font-weight: 800; color: #065f46; }
+  .ans-why { font-size: 9px; color: #047857; margin-top: 1.5px; }
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الدراسات الاجتماعية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="module-header">
+  <h1>الوحدة الأولى: اتجاهاتنا ترسم خطواتنا • الجزء الأول</h1>
+  <div class="subtitle">الدرس الأول: الأماكن والاتجاهات حولنا • الدرس الثاني: الخريطة في حياتنا</div>
+  <div class="meta-tags">
+    <span class="tag">🧭 الاتجاهات الأصلية والفرعية</span>
+    <span class="tag">🗺️ عناصر الخريطة الخمسة</span>
+    <span class="tag">🎯 3 أجزاء متكاملة</span>
+    <span class="tag">⏱️ الصف الرابع الابتدائي</span>
+  </div>
+</div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الدرس الأول: الأماكن والاتجاهات حولنا</div>
+
+<div class="concept-card">
+  <div class="concept-title">🏠 ما هو المخطط (Plan)؟ وكيف يوضح تفاصيل المكان؟</div>
+  <p>المخطط هو <b>رسم توضيحي مصغر</b> للمكان (مثل مخطط المنزل أو المدرسة) كأننا ننظر إليه من أعلى، ليساعدنا في تحديد مواقع الغرف والأبواب والخدمات بسهولة ويسر.</p>
+</div>
+
+<div class="figure-box">
+  <img src="images/compass_rose_clean.png" alt="وردة البوصلة والاتجاهات">
+  <div class="figure-caption">شكل (1): وردة البوصلة موضحاً عليها الاتجاهات الأصلية والفرعية ومعالم المدينة</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">🧭 أنواع الاتجاهات وكيفية تحديدها:</div>
+  <table>
+    <tr>
+      <th style="width: 25%;">نوع الاتجاهات</th>
+      <th style="width: 35%;">الاتجاهات الأربعة</th>
+      <th style="width: 40%;">الموقع والتقابل</th>
+    </tr>
+    <tr>
+      <td><b>الاتجاهات الأصلية (4)</b></td>
+      <td>• الشمال (North ⬆️)<br>• الجنوب (South ⬇️)<br>• الشرق (East ➡️)<br>• الغرب (West ⬅️)</td>
+      <td>• الشمال يقابله الجنوب.<br>• الشرق يقابله الغرب.<br>• تشرق الشمس من الشرق وتغرب من الغرب.</td>
+    </tr>
+    <tr>
+      <td><b>الاتجاهات الفرعية (4)</b></td>
+      <td>• الشمال الشرقي ↗️<br>• الشمال الغربي ↖️<br>• الجنوب الشرقي ↘️<br>• الجنوب الغربي ↙️</td>
+      <td>• الشمال الشرقي يقابله الجنوب الغربي.<br>• الشمال الغربي يقابله الجنوب الشرقي.<br>• تقع بين اتجاهين أصليين دائماً.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="baladi-box">
+  <div class="baladi-title">💡 افهمها بالبلدي كده:</div>
+  <p>اقف الصبح وافرد إيدك اليمين ناحية طلوع الشمس: إيدك اليمين = <b>الشرق</b>.. إيدك الشمال = <b>الغرب</b>.. وشك باصص على = <b>الشمال</b>.. وضهرك وراك = <b>الجنوب</b>.. كده مستحيل تتوه أبداً في أي مكان!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الدرس الثاني: الخريطة في حياتنا</div>
+
+<div class="concept-card">
+  <div class="concept-title">🗺️ ما هي الخريطة؟ وما هي عناصرها الخمسة الأساسية؟</div>
+  <p><b>الخريطة:</b> هي رسم توضيحي لسطح الأرض أو جزء منه باستخدام مجموعة من <b>الرموز والألوان وبمقياس رسم محدد</b>.</p>
+</div>
+
+<div class="figure-box">
+  <img src="images/map_elements_egypt.png" alt="عناصر الخريطة في مصر">
+  <div class="figure-caption">شكل (2): عناصر الخريطة الأساسية (العنوان، مفتاح الخريطة، وردة البوصلة، مقياس الرسم، شبكة الإحداثيات)</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">⚡ وظيفة كل عنصر من عناصر الخريطة وأهميتها في حياتنا:</div>
+  <table>
+    <tr>
+      <th style="width: 25%;">عنصر الخريطة</th>
+      <th style="width: 75%;">الوظيفة والأهمية الاستخدامية</th>
+    </tr>
+    <tr>
+      <td><b>1- عنوان الخريطة</b></td>
+      <td>يشير إلى ما تحتويه الخريطة من بيانات ومعلومات (مثال: خريطة حدود مصر أو تضاريس مصر).</td>
+    </tr>
+    <tr>
+      <td><b>2- وردة البوصلة</b></td>
+      <td>توضح الاتجاهات الأصلية والفرعية وتساعدنا في <b>تحديد موقع معين</b> على الخريطة بالنسبة للمواقع الأخرى.</td>
+    </tr>
+    <tr>
+      <td><b>3- مقياس الرسم</b></td>
+      <td>هو <b>النسبة بين المسافة على الخريطة وما يقابلها على الطبيعة</b> (مثال: كل 1 سم على الخريطة = 100 كم على الطبيعة).</td>
+    </tr>
+    <tr>
+      <td><b>4- مفتاح الخريطة</b></td>
+      <td>دليل يوضح <b>معنى الألوان والرموز</b> الموجودة على الخريطة (الأزرق للمياه، البني للجبال، الخط الأحمر للحدود).</td>
+    </tr>
+    <tr>
+      <td><b>5- شبكة الإحداثيات</b></td>
+      <td>تتكون من <b>خطوط الطول</b> و<b>دوائر العرض</b> لتحديد الأماكن بدقة فلكية متناهية.</td>
+    </tr>
+  </table>
+  <div style="background:#e0f2fe; padding:5px 8px; border-radius:5px; margin-top:4px; font-weight:700;">
+    🌟 أهمية الخريطة: تساعد <b>السائح</b> للوصول للأماكن السياحية، و<b>الفلاح</b> لتحديد ملكية الأرض، و<b>الطيار والقبطان</b> لتحديد مسار الرحلات، و<b>التلميذ</b> في مذاكرة دروسه.
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات • الموديول الأول</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">📝 السؤال الأول: اكتب المصطلح الجغرافي الدال على كل عبارة:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> رسم توضيحي لسطح الأرض أو جزء منه باستخدام الرموز والألوان وبمقياس رسم محدد. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> النسبة بين المسافة على الخريطة وما يقابلها على الطبيعة. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(3)</b> رمز يوضح الاتجاهات الأصلية والفرعية على الخريطة لتحديد المواقع. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الشرقية 2024</span> <b>(4)</b> دليل يوضح معنى الرموز والألوان المستخدمة داخل الخريطة. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2023</span> <b>(5)</b> شبكة تتكون من خطوط الطول ودوائر العرض لتحديد المواقع بدقة. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">🎯 السؤال الثاني: اختر الإجابة الصحيحة من بين القوسين:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> يقابل اتجاه الشمال اتجاه: <br>
+    ( أ- الشرق &nbsp;|&nbsp; ب- الجنوب &nbsp;|&nbsp; جـ- الغرب &nbsp;|&nbsp; د- الشمال الشرقي )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> الاتجاه الواقع بين الشمال والشرق يُسمى: <br>
+    ( أ- الجنوب الشرقي &nbsp;|&nbsp; ب- الشمال الغربي &nbsp;|&nbsp; جـ- الشمال الشرقي &nbsp;|&nbsp; د- الجنوب الغربي )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">القليوبية 2024</span> <b>(3)</b> لمعرفة ما تحتويه الخريطة من معلومات وبيانات نقرأ: <br>
+    ( أ- عنوان الخريطة &nbsp;|&nbsp; ب- مقياس الرسم &nbsp;|&nbsp; جـ- وردة البوصلة &nbsp;|&nbsp; د- خطوط الطول )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(4)</b> يستخدم ..................... الخريطة لتحديد ملكية الأراضي الزراعية: <br>
+    ( أ- السائح &nbsp;|&nbsp; ب- الفلاح &nbsp;|&nbsp; جـ- الطيار &nbsp;|&nbsp; د- الضابط )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">أسيوط 2024</span> <b>(5)</b> إذا كانت المسافة بين مدينتين على الخريطة 2 سم، ومقياس الرسم 1 سم = 100 كم، فإن المسافة على الطبيعة تساوي: <br>
+    ( أ- 50 كم &nbsp;|&nbsp; ب- 100 كم &nbsp;|&nbsp; جـ- 200 كم &nbsp;|&nbsp; د- 300 كم )
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات (تابع الأسئلة المتنوعة)</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✔️ السؤال الثالث: ضع علامة (✓) أو علامة (✗) مع تصويب الخطأ:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> الاتجاهات الأصلية عددها خمسة اتجاهات بينما الاتجاهات الفرعية أربعة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> تشرق الشمس صباحاً من جهة الشرق وتغرب مساءً من جهة الغرب. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(3)</b> تساعد الخريطة السائح في التعرف على المواقع السياحية والأثرية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2024</span> <b>(4)</b> يمكن رسم خريطة بدون مقياس رسم وتكون المسافات فيها دقيقة تماماً. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">المنيا 2024</span> <b>(5)</b> اللون الأزرق على الخريطة يدل على المرتفعات والجبال العالية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✏️ السؤال الرابع: صوّب ما تحته خط في العبارات التالية:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> يقابل اتجاه الشرق اتجاه <u>الشمال</u>. <span style="color:#6366f1;">(................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> نستخدم <u>مفتاح الخريطة</u> لتصغير المسافات الحقيقية ورسمها على الورق. <span style="color:#6366f1;">(................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">💡 السؤال الخامس: علل لما يأتي (بم تفسر):</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1) أهمية وجود وردة البوصلة على كل خريطة؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(2) أهمية الخريطة في حياة كل من الفلاح والطيار؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">⚙️ السؤال السادس: ماذا يحدث إذا:</div>
+  <div class="question-item">
+    <span class="q-gov">قنا 2024</span> <b>(1) رسمت خريطة لمدينة بدون عنوان وبدون مفتاح للخريطة؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part3">الجزء الثالث: نموذج الإجابات النموذجية مع الشرح والتعليل • الموديول الأول</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الأول: المصطلح الجغرافي:</div>
+  <p><b>1- الخريطة</b> <span class="ans-why">(الرسم التوضيحي المعتمد بالرموز والألوان ومقياس الرسم).</span></p>
+  <p><b>2- مقياس الرسم</b> <span class="ans-why">(حساب نسبة التصغير بين الورقة والطبيعة الحقيقية).</span></p>
+  <p><b>3- وردة البوصلة</b> <span class="ans-why">(تحدد الاتجاهات الأصلية الأربعة والفرعية الأربعة).</span></p>
+  <p><b>4- مفتاح الخريطة</b> <span class="ans-why">(المربع أو المستطيل التوضيحي لرموز وألوان الخريطة).</span></p>
+  <p><b>5- شبكة الإحداثيات (خطوط الطول ودوائر العرض)</b> <span class="ans-why">(لتحديد المواقع الفلكية الجغرافية بدقة).</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثاني: الاختيار من متعدد:</div>
+  <p><b>(1) ب- الجنوب</b> <span class="ans-why">| لأن الشمال والجنوب اتجاهان أصليان متقابلان.</span></p>
+  <p><b>(2) جـ- الشمال الشرقي</b> <span class="ans-why">| اتجاه فرعي يجمع بين الشمال والشرق.</span></p>
+  <p><b>(3) أ- عنوان الخريطة</b> <span class="ans-why">| يوضح موضوع الخريطة وما تدور حوله من بيانات.</span></p>
+  <p><b>(4) ب- الفلاح</b> <span class="ans-why">| لمعرفة مساحات وحدود أراضيه الزراعية بدقة.</span></p>
+  <p><b>(5) جـ- 200 كم</b> <span class="ans-why">| الحساب: 2 سم × 100 كم = 200 كم على الطبيعة.</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثالث: صح وخطأ مع التصويب:</div>
+  <p><b>(1) ( ✗ ) خطأ.</b> التصويب: الاتجاهات الأصلية عددها <b>أربعة</b> (شمال، جنوب، شرق، غرب).</p>
+  <p><b>(2) ( ✓ ) صواب.</b> حقيقة جغرافية وفلكية ثابتة.</p>
+  <p><b>(3) ( ✓ ) صواب.</b> ترشده إلى الأماكن السياحية ومسارات الطرق إليها.</p>
+  <p><b>(4) ( ✗ ) خطأ.</b> التصويب: لا يمكن معرفة المسافات الحقيقية بدقة بدون <b>مقياس الرسم</b>.</p>
+  <p><b>(5) ( ✗ ) خطأ.</b> التصويب: اللون الأزرق يدل على <b>المسطحات المائية والبحار والأنهار</b>، بينما البني للمرتفعات.</p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة الأسئلة المقالية (الرابع والخامس والسادس):</div>
+  <p><b>السؤال الرابع:</b> (1) الغرب | (2) مقياس الرسم.</p>
+  <p><b>السؤال الخامس (بم تفسر):</b><br>
+  (1) لأنها توضح الاتجاهات الأصلية والفرعية وتساعدنا في تحديد موقع أي مكان بدقة على الخريطة بالنسبة للأماكن الأخرى.<br>
+  (2) الفلاح: في تحديد ملكية الأراضي الزراعية • الطيار: في تحديد مسار الطائرة واتجاهات الهبوط والمطارات.</p>
+  <p><b>السؤال السادس (ماذا يحدث إذا):</b><br>
+  (1) لن نعرف موضوع الخريطة أو عما تعبر عنه، وسيصعب فهم الرموز والألوان وقراءة معلوماتها بالشكل الصحيح.</p>
+</div>
+
+</div>
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+</body>
+</html>

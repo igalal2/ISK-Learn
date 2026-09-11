@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الموديول الثالث: المشكلات التكنولوجية الشائعة وجمع البيانات</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #1e293b;
+    background: #f1f5f9;
+    line-height: 1.40;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .module-header {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 9px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .module-header h1 { font-size: 17px; font-weight: 900; margin-bottom: 1px; }
+  .module-header .subtitle { font-size: 11.5px; font-weight: 700; opacity: 0.95; }
+  .meta-tags { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .tag { background: rgba(255,255,255,0.22); padding: 1px 7px; border-radius: 6px; font-size: 10px; font-weight: 700; }
+  .part-banner {
+    padding: 6px 12px;
+    border-radius: 7px;
+    margin: 5px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 12px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .banner-part1 { background: linear-gradient(135deg, #0369a1, #0284c7); }
+  .banner-part2 { background: linear-gradient(135deg, #6d28d9, #4f46e5); }
+  .banner-part3 { background: linear-gradient(135deg, #047857, #059669); }
+  .concept-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #0284c7;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    break-inside: avoid;
+  }
+  .concept-title { font-size: 11.5px; font-weight: 800; color: #0369a1; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 5px 9px;
+    margin: 4px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 11px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+  .figure-box {
+    text-align: center;
+    margin: 4px 0;
+    padding: 4px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .figure-caption { font-size: 9.5px; font-weight: 700; color: #475569; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 10px; break-inside: avoid; }
+  th { background: #0284c7; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #0284c7; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .question-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-right: 3.5px solid #6366f1;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .q-gov { background: #ede9fe; color: #5b21b6; font-size: 8.5px; font-weight: 800; padding: 1px 5px; border-radius: 4px; margin-left: 5px; }
+  .answer-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-right: 3.5px solid #10b981;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .ans-text { font-weight: 800; color: #065f46; }
+  .ans-why { font-size: 9px; color: #047857; margin-top: 1.5px; }
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس تكنولوجيا المعلومات (ICT)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="module-header">
+  <h1>الموديول الثالث: المشكلات التكنولوجية الشائعة وجمع البيانات</h1>
+  <div class="subtitle">الوحدة الأولى: دور تكنولوجيا المعلومات والاتصالات في حياتنا • الصف الرابع الابتدائي</div>
+  <div class="meta-tags">
+    <span class="tag">🔧 الدرس 5: حل المشكلات الشائعة</span>
+    <span class="tag">📊 الدرس 6: جمع البيانات ورسمها في Excel</span>
+    <span class="tag">🎯 3 أجزاء متكاملة</span>
+    <span class="tag">⏱️ الترم الأول</span>
+  </div>
+</div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الدرس الخامس: المشكلات التكنولوجية وحلولها</div>
+
+<div class="concept-card">
+  <div class="concept-title">🛠️ خطوات حل أي مشكلة تكنولوجية تواجهك:</div>
+  <p>عندما يتعطل برنامج أو جهاز، اتبع أسلوب مهندسي الكمبيوتر الذكي: <b>1- حدد المشكلة بدقة</b>، <b>2- فكر في الحلول الممكنة وجربها خطوة بخطوة</b>، <b>3- إذا لم تنجح، اطلب المساعدة من معلمك أو أحد والديك</b>.</p>
+</div>
+
+<div class="figure-box">
+  <img src="images/ict_tech_problems.png" alt="حل المشكلات التكنولوجية">
+  <div class="figure-caption">شكل (1): خطوات استكشاف الأعطال وحلها بأسلوب تكنولوجي منظم</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">⚡ دليل المشكلات الشائعة والحلول السحرية:</div>
+  <table>
+    <tr>
+      <th style="width: 28%;">المشكلة التكنولوجية</th>
+      <th style="width: 25%;">السبب المحتمل</th>
+      <th style="width: 47%;">الحل المقترح السليم</th>
+    </tr>
+    <tr>
+      <td><b>التطبيق لا يفتح (App won't open)</b></td>
+      <td>عطل مؤقت في الذاكرة أو ملفات التطبيق</td>
+      <td>1- أعد تشغيل الجهاز (Restart).<br>2- تأكد من تحديث البرنامج.<br>3- احذف التطبيق وأعد تثبيته من جديد.</td>
+    </tr>
+    <tr>
+      <td><b>مؤشر الفأرة (Mouse) لا يتحرك</b></td>
+      <td>انفصال الكابل أو نفاد البطارية</td>
+      <td>1- تأكد من توصيل سلك الفأرة بمنفذ USB.<br>2- غير بطارية الفأرة اللاسلكية، أو أعد تشغيل الحاسب.</td>
+    </tr>
+    <tr>
+      <td><b>لوحة المفاتيح لا تكتب</b></td>
+      <td>كابل مفصول أو خطأ في التعريف</td>
+      <td>تأكد من توصيل الكابل جيداً في مكانه، وأعد تشغيل الجهاز.</td>
+    </tr>
+    <tr>
+      <td><b>الشاشة متوقفة / متجمدة (Screen Freeze)</b></td>
+      <td>برنامج علق ويستهلك موارد الجهاز</td>
+      <td>اضغط على مفاتيح <b>(Ctrl + Alt + Del)</b> معاً وافتح إدارة المهام (Task Manager) لإغلاق البرنامج، أو أعد التشغيل.</td>
+    </tr>
+    <tr>
+      <td><b>بطء شديد في فتح الإنترنت</b></td>
+      <td>خلل في الراوتر أو إشارة Wi-Fi</td>
+      <td>أعد تشغيل جهاز الراوتر (Router) وتأكد من اتصال الكابلات.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="baladi-box">
+  <div class="baladi-title">💡 السر بالبلدي:</div>
+  <p>أول وأهم خطوة في عالم صيانة الكمبيوتر: <b>«اقفل الجهاز وافتحه تاني (Restart)»</b>! الحركة دي بتفضي الذاكرة المؤقتة وبتحل 90% من المشاكل فجأة كأن الجهاز لسه مولود!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الدرس السادس: مصادر جمع البيانات وتحليلها</div>
+
+<div class="concept-card">
+  <div class="concept-title">📊 كيف نقوم بجمع البيانات ومعالجتها؟</div>
+  <p>لإعداد أي بحث أو مشروع علمي، نمر بـ 3 مراحل رئيسية: <b>(1) جمع البيانات</b> ⬅️ <b>(2) تحليل البيانات</b> ⬅️ <b>(3) تمثيل البيانات برسم بياني</b>.</p>
+</div>
+
+<div class="figure-box">
+  <img src="images/ict_excel_charts.png" alt="الرسم البياني في برنامج Excel">
+  <div class="figure-caption">شكل (2): إنشاء الرسم البياني العمودي (Bar Chart) باستخدام برنامج الجداول الحسابية Excel</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">🔍 مراحل العمل خطوة بخطوة:</div>
+  <table>
+    <tr>
+      <th style="width: 25%;">المرحلة</th>
+      <th style="width: 35%;">أهم الطرق والوسائل</th>
+      <th style="width: 40%;">الهدف والناتج</th>
+    </tr>
+    <tr>
+      <td><b>1- جمع البيانات (Data Collection)</b></td>
+      <td>• استطلاعات الرأي (Surveys)<br>• المقابلات الشخصية (Interviews)<br>• السجلات والكتب والمقالات ومواقع الإنترنت الموثوقة.</td>
+      <td>الحصول على معلومات دقيقة وحقيقية ومراجعتها للتأكد من صحتها.</td>
+    </tr>
+    <tr>
+      <td><b>2- تحليل البيانات (Data Analysis)</b></td>
+      <td>• تنظيم البيانات وتصنيفها في جداول.<br>• استخراج النتائج الأكثر شيوعاً وتفسير معانيها.</td>
+      <td>فهم ما تعنيه الأرقام وتحويلها إلى أفكار واضحة.</td>
+    </tr>
+    <tr>
+      <td><b>3- تمثيل البيانات (Data Visualization)</b></td>
+      <td>• استخدام الرسم البياني العمودي <b>(Bar Chart)</b>.<br>• استخدام برنامج <b>Excel</b> لإدخال البيانات وصنع الرسم بضغطة واحدة.</td>
+      <td>تسهيل قراءة ومقارنة النتائج والبيانات بمجرد النظر السريع.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="baladi-box">
+  <div class="baladi-title">💡 الزتونة بالبلدي:</div>
+  <p>لو سألت زمايلك في الفصل عن لعبتهم المفضلة: جمعت إجاباتهم = <b>جمع بيانات</b>.. عديت وشوفت مين أكتر لعبة كسبت = <b>تحليل بيانات</b>.. رسمت عواميد ملونة توضح النتيجة في ورقة = <b>رسم بياني Bar Chart</b>!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات • الموديول الثالث</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">📝 السؤال الأول: اكتب المصطلح العلمي / التكنولوجي الدال على كل عبارة:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> الضغط على أزرار (Ctrl + Alt + Del) لفتح نافذة تساعد في إغلاق البرامج العالقة. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> طريقة لجمع البيانات من خلال توجيه أسئلة لمجموعة من الأشخاص لمعرفة آرائهم. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(3)</b> البرنامج الأكثر استخداماً لإنشاء الجداول الحسابية والرسوم البيانية بالأعمدة. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الشرقية 2024</span> <b>(4)</b> تمثيل بصري للبيانات في صورة أعمدة يسهل قراءتها ومقارنتها بمجرد النظر. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2023</span> <b>(5)</b> محادثة موجهة بين شخصين أو أكثر للحصول على معلومات دقيقة ومباشرة. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">🎯 السؤال الثاني: اختر الإجابة الصحيحة من بين القوسين:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> عندما يتوقف أحد التطبيقات فجأة ولا يستجيب لأوامرك، فإن الحل الأولي هو: <br>
+    ( أ- كسر الشاشة &nbsp;|&nbsp; ب- إعادة تشغيل الجهاز (Restart) &nbsp;|&nbsp; جـ- نزع لوحة المفاتيح &nbsp;|&nbsp; د- شراء جهاز جديد )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> يُعد الرسم البياني ..................... هو الأكثر شيوعاً وسهولة في قراءة البيانات ومقارنتها: <br>
+    ( أ- العمودي (Bar Chart) &nbsp;|&nbsp; ب- الدائري الصعب &nbsp;|&nbsp; جـ- المنقط &nbsp;|&nbsp; د- الخطي الرمادي )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">القليوبية 2024</span> <b>(3)</b> جميع ما يلي يعتبر من مصادر جمع البيانات الموثوقة ما عدا: <br>
+    ( أ- استطلاعات الرأي &nbsp;|&nbsp; ب- المقابلات &nbsp;|&nbsp; جـ- الشائعات مجهولة المصدر &nbsp;|&nbsp; د- الكتب والسجلات )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(4)</b> إذا توقفت الفأرة (Mouse) عن التحرك على الشاشة، يجب أولاً: <br>
+    ( أ- التأكد من توصيل كابل الفأرة بمنفذ USB &nbsp;|&nbsp; ب- مسح ملفات الويندوز &nbsp;|&nbsp; جـ- قفل الشاشة &nbsp;|&nbsp; د- تغيير لوحة المفاتيح )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">أسيوط 2024</span> <b>(5)</b> برنامج ..................... من حزمة مايكروسوفت أوفيس يستخدم لإنشاء الرسوم البيانية: <br>
+    ( أ- Excel &nbsp;|&nbsp; ب- Word &nbsp;|&nbsp; جـ- Paint &nbsp;|&nbsp; د- Media Player )
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات (تابع الأسئلة المتنوعة)</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✔️ السؤال الثالث: ضع علامة (✓) أو علامة (✗) مع تصويب الخطأ:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> الرسم البياني العمودي هو وسيلة معقدة تصعب من قراءة نتائج استطلاعات الرأي. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> عند تجميد الشاشة، يمكنك الضغط على مفاتيح (Ctrl + Alt + Del) لحل المشكلة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(3)</b> تعتبر المقابلات واستطلاعات الرأي من أهم مصادر جمع البيانات في الأبحاث. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2024</span> <b>(4)</b> لا يشترط التأكد من دقة وصحة البيانات التي نحصل عليها من شبكة الإنترنت. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">قنا 2024</span> <b>(5)</b> بعد جمع البيانات تأتي خطوة تحليلها وتصنيفها قبل رسمها بيانياً. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✏️ السؤال الرابع: صوّب ما تحته خط في العبارات التالية:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> نستخدم برنامج <u>Word</u> لرسم الأعمدة البيانية وحساب الجداول الرقمية. <span style="color:#6366f1;">(................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> تسمى عملية توجيه الأسئلة للجمهور لجمع المعلومات بـ <u>الفيروسات</u>. <span style="color:#6366f1;">(................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">💡 السؤال الخامس: علل لما يأتي (اذكر السبب التكنولوجي):</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1) يُفضل الباحثون استخدام الرسم البياني بالأعمدة (Bar Chart)؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(2) أهمية مراجعة وتحليل البيانات بعد جمعها من الإنترنت؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">⚙️ السؤال السادس: ماذا يحدث إذا:</div>
+  <div class="question-item">
+    <span class="q-gov">المنيا 2024</span> <b>(1) قمت بتمثيل نتائج دراسة على 50 شخصاً باستخدام جدول نصوص فقط دون رسم بياني؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part3">الجزء الثالث: نموذج الإجابات النموذجية مع الشرح والتعليل • الموديول الثالث</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الأول: المصطلح العلمي:</div>
+  <p><b>1- مدير المهام (Task Manager)</b> <span class="ans-why">(يُفتح عبر Ctrl+Alt+Del لإغلاق البرامج العالقة والمتجمدة).</span></p>
+  <p><b>2- استطلاعات الرأي (Surveys)</b> <span class="ans-why">(طريقة ممتازة لجمع آراء مجموعة كبيرة من الناس).</span></p>
+  <p><b>3- برنامج Excel (الجداول الحسابية)</b> <span class="ans-why">(البرنامج المتخصص في الحسابات والرسم البياني).</span></p>
+  <p><b>4- الرسم البياني العمودي (Bar Chart)</b> <span class="ans-why">(يوضح المقارنات بين الفئات بسهولة وسرعة).</span></p>
+  <p><b>5- المقابلة الشخصية (Interview)</b> <span class="ans-why">(لقاء مباشر لجمع معلومات متعمقة).</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثاني: الاختيار من متعدد:</div>
+  <p><b>(1) ب- إعادة تشغيل الجهاز (Restart)</b> <span class="ans-why">| لأن إعادة التشغيل تحذف المشاكل المؤقتة في الذاكرة.</span></p>
+  <p><b>(2) أ- العمودي (Bar Chart)</b> <span class="ans-why">| لأنه الأكثر وضوحاً في المقارنة وتسهل قراءته لجميع الأعمار.</span></p>
+  <p><b>(3) جـ- الشائعات مجهولة المصدر</b> <span class="ans-why">| لأنها تنشر معلومات كاذبة وغير دقيقة.</span></p>
+  <p><b>(4) أ- التأكد من توصيل كابل الفأرة بمنفذ USB</b> <span class="ans-why">| فحص التوصيل المادي هو أول خطوة منطقية دائماً.</span></p>
+  <p><b>(5) أ- Excel</b> <span class="ans-why">| البرنامج الرائد عالمياً في معالجة الجداول وصنع الشارت.</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثالث: صح وخطأ مع التصويب:</div>
+  <p><b>(1) ( ✗ ) خطأ.</b> التصويب: الرسم البياني وسيلة <b>سهلة ومريحة</b> توضح المقارنات بوضوح فائق.</p>
+  <p><b>(2) ( ✓ ) صواب.</b> تفتح إدارة المهام لإنهاء البرنامج المتسبب في التعليق.</p>
+  <p><b>(3) ( ✓ ) صواب.</b> هما من أفضل الطرق الميدانية لجمع بيانات دقيقة ومباشرة.</p>
+  <p><b>(4) ( ✗ ) خطأ.</b> التصويب: يجب <b>دائماً</b> التحقق من صحة وموثوقية المصادر على الإنترنت.</p>
+  <p><b>(5) ( ✓ ) صواب.</b> الترتيب الصحيح: جمع البيانات ⬅️ تحليلها ⬅️ تمثيلها بالرسم البياني.</p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة الأسئلة المقالية (الرابع والخامس والسادس):</div>
+  <p><b>السؤال الرابع:</b> (1) Excel | (2) استطلاعات الرأي (Surveys).</p>
+  <p><b>السؤال الخامس (علل):</b><br>
+  (1) لأنه يسهل قراءة ومقارنة البيانات والنتائج بسرعة بمجرد النظر للأعمدة دون الحاجة لقراءة جداول طويلة معقدة.<br>
+  (2) للتأكد من أنها بيانات صحيحة وموثوقة وخالية من الأخطاء والشائعات، ولاستخراج معلومات مفيدة منها تبنى عليها القرارات.</p>
+  <p><b>السؤال السادس (ماذا يحدث إذا):</b><br>
+  (1) سيصعب على القارئ فهم النتائج بسرعة وسيحتاج وقتاً طويلاً وجهداً لقراءة الأرقام ومقارنتها مقارنة بالرسم البياني.</p>
+</div>
+
+</div>
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

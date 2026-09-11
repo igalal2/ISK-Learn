@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملزمة اللغة الإنجليزية والأصوات KG2 • Connect & Phonics 2025 / 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0284c7;
+    --primary-dark: #0369a1;
+    --bg-page: #f8fafc;
+    --text-main: #0f172a;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+  .container { max-width: 950px; margin: 0 auto; padding: 20px; }
+
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #bae6fd;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .nav-btn {
+    background: #f0f9ff;
+    color: var(--primary-dark);
+    border: 1px solid #bae6fd;
+    padding: 7px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  .nav-btn:hover { background: var(--primary); color: white; }
+
+  .booklet-header {
+    background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #1e40af 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px -5px rgba(2, 132, 199, 0.3);
+  }
+  .booklet-header h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .booklet-header p { font-size: 14px; opacity: 0.95; }
+  .year-badge {
+    display: inline-block;
+    background: #fef08a;
+    color: #854d0e;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+
+  /* TALKING PHONICS THEATER */
+  .theater-card {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 2.5px solid #93c5fd;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.12);
+  }
+  .stage-box {
+    background: white;
+    border: 2px solid #bfdbfe;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 15px rgba(2, 132, 199, 0.3);
+  }
+  .avatar-icon { font-size: 60px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #7dd3fc;
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 0.2; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+  .speech-balloon {
+    flex: 1;
+    min-width: 250px;
+    background: #f0fdf4;
+    border: 2px solid #bbf7d0;
+    border-radius: 16px;
+    padding: 16px 20px;
+  }
+  .speech-title { font-weight: 900; font-size: 16px; color: #166534; margin-bottom: 6px; font-family:'Poppins', sans-serif; }
+  .speech-text { font-size: 15px; font-weight: 700; color: #0f172a; line-height: 1.6; font-family:'Poppins', sans-serif; direction:ltr; text-align:left; }
+
+  .char-selector {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 4px 4px 4px;
+    margin-top: 14px;
+  }
+  .char-pill {
+    background: white;
+    border: 2px solid #bae6fd;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: #0369a1;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+    font-family: 'Poppins', sans-serif;
+  }
+  .char-pill:hover, .char-pill.active {
+    background: #0284c7;
+    color: white;
+    border-color: #0369a1;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+  }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary-dark);
+    border-bottom: 2px dashed #bae6fd;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .phonics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+  }
+  .phonics-card {
+    background: #f0f9ff;
+    border: 2px solid #bae6fd;
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .phonics-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 18px rgba(2, 132, 199, 0.2);
+  }
+  .letter-big { font-size: 32px; font-weight: 900; color: var(--primary); font-family: 'Poppins', sans-serif; }
+  .letter-word { font-size: 14px; font-weight: 800; color: #0f172a; margin-top: 4px; font-family: 'Poppins', sans-serif; }
+  .letter-icon { font-size: 32px; margin-top: 6px; }
+  .speak-btn {
+    margin-top: 8px;
+    background: #0284c7;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  .speak-btn:hover { background: #0369a1; transform: scale(1.05); }
+
+  .visual-card {
+    background: #f0f9ff;
+    border: 2px dashed #7dd3fc;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .visual-card img {
+    max-width: 100%;
+    max-height: 280px;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+
+  @media print {
+    .sticky-nav, .theater-card, .speak-btn { display: none !important; }
+    body { background: white !important; }
+    .section-card { break-inside: avoid; border: 1px solid #ccc !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sticky-nav">
+  <a href="../بوابة_رياض_الأطفال_KG2.html" class="nav-btn">🧸 Back to KG2 Portal</a>
+  <span style="font-weight:800; font-size:14px; color:var(--primary-dark);">🔤 Talking Phonics & Letters • KG2</span>
+  <button class="nav-btn" style="background:#0f172a; color:white;" onclick="window.print()">🖨️ Print Booklet</button>
+</div>
+
+<div class="container">
+  <div class="booklet-header">
+    <h1>🔤 Connect Phonics & Alphabet Playbook • KG2</h1>
+    <p>KG2 Curriculum • Interactive Talking Letters, Phonics Sounds, and Vocabulary</p>
+    <div class="year-badge">✨ New Academic Year 2025 / 2026</div>
+  </div>
+
+  <!-- TALKING THEATER HERO -->
+  <div class="theater-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <span style="font-size:16px; font-weight:900; color:#1e40af;">🎭 Talking Phonics Studio (Click & Listen!)</span>
+      <span style="font-size:12px; font-weight:800; background:#0284c7; color:white; padding:3px 10px; border-radius:15px;">Listen & Repeat</span>
+    </div>
+
+    <div class="stage-box">
+      <div class="avatar-wrap">
+        <div class="pulse-ring"></div>
+        <div class="avatar-icon" id="stageAvatar">🍎</div>
+      </div>
+      <div class="speech-balloon">
+        <div class="speech-title" id="stageTitle">Letter A says /æ/!</div>
+        <div class="speech-text" id="stageText">Hi superstar! I am Letter A. A makes the /æ/ sound. A is for Apple! Crisp, sweet, and yummy apple!</div>
+        <div style="margin-top:10px; display:flex; gap:8px;">
+          <button class="speak-btn" style="font-size:13px; padding:6px 16px;" onclick="speakCurrent()">🔊 Hear Phonics Sound & Words!</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="char-selector">
+      <div class="char-pill active" onclick="selectLetter('A', '🍎', 'Letter A says /æ/!', 'Hi superstar! I am Letter A. A says aah. A is for Apple! Ant, Alligator!')">Letter A 🍎</div>
+      <div class="char-pill" onclick="selectLetter('B', '🐝', 'Letter B says /b/!', 'Hello! I am Letter B. B says buh. B is for Bee! Ball, Book, Bear!')">Letter B 🐝</div>
+      <div class="char-pill" onclick="selectLetter('C', '🐱', 'Letter C says /k/!', 'Meow! I am Letter C. C says kuh. C is for Cat! Car, Cup, Cake!')">Letter C 🐱</div>
+      <div class="char-pill" onclick="selectLetter('D', '🐶', 'Letter D says /d/!', 'Woof! I am Letter D. D says duh. D is for Dog! Duck, Door, Doll!')">Letter D 🐶</div>
+      <div class="char-pill" onclick="selectLetter('E', '🥚', 'Letter E says /e/!', 'Hello! I am Letter E. E says eh. E is for Egg! Elephant, Eye!')">Letter E 🥚</div>
+      <div class="char-pill" onclick="selectLetter('F', '🐟', 'Letter F says /f/!', 'Splash! I am Letter F. F says fuh. F is for Fish! Frog, Fan, Flag!')">Letter F 🐟</div>
+      <div class="char-pill" onclick="selectLetter('S', '☀️', 'Letter S says /s/!', 'Shine bright! I am Letter S. S says sss. S is for Sun! Star, Ship!')">Letter S ☀️</div>
+    </div>
+  </div>
+
+  <!-- VISUAL POSTER -->
+  <div class="visual-card">
+    <div style="font-weight:900; font-size:14.5px; color:#0369a1; margin-bottom:8px;">🎨 Phonics Alphabet Poster (A to Z)</div>
+    <img src="images/kg2_phonics_alphabet.png" alt="Phonics Alphabet KG2">
+    <div style="font-size:12px; color:#64748b; margin-top:6px;">Connect letters with cute visual characters and phonics sounds</div>
+  </div>
+
+  <!-- PHONICS GRID -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>🔤</span>
+      <span>Alphabet Phonics Gallery (A - Z) • Click any card to hear pronunciation!</span>
+    </div>
+    
+    <div class="phonics-grid" id="phonicsGrid">
+      <!-- Dynamic populated -->
+    </div>
+  </div>
+
+</div>
+
+<script>
+const alphabetData = [
+  { l: 'Aa', w: 'Apple', icon: '🍎', speech: 'Letter A says /æ/. Apple, Ant, Alligator!' },
+  { l: 'Bb', w: 'Bee', icon: '🐝', speech: 'Letter B says /b/. Bee, Ball, Book!' },
+  { l: 'Cc', w: 'Cat', icon: '🐱', speech: 'Letter C says /k/. Cat, Car, Cup!' },
+  { l: 'Dd', w: 'Dog', icon: '🐶', speech: 'Letter D says /d/. Dog, Duck, Door!' },
+  { l: 'Ee', w: 'Egg', icon: '🥚', speech: 'Letter E says /e/. Egg, Elephant, Eye!' },
+  { l: 'Ff', w: 'Fish', icon: '🐟', speech: 'Letter F says /f/. Fish, Frog, Flower!' },
+  { l: 'Gg', w: 'Giraffe', icon: '🦒', speech: 'Letter G says /g/. Giraffe, Girl, Grapes!' },
+  { l: 'Hh', w: 'Hat', icon: '🎩', speech: 'Letter H says /h/. Hat, Horse, House!' },
+  { l: 'Ii', w: 'Igloo', icon: '🧊', speech: 'Letter I says /i/. Igloo, Insect, Ink!' },
+  { l: 'Jj', w: 'Juice', icon: '🧃', speech: 'Letter J says /j/. Juice, Jam, Jellyfish!' },
+  { l: 'Kk', w: 'Kite', icon: '🪁', speech: 'Letter K says /k/. Kite, Kangaroo, Key!' },
+  { l: 'Ll', w: 'Lion', icon: '🦁', speech: 'Letter L says /l/. Lion, Lemon, Leaf!' },
+  { l: 'Mm', w: 'Monkey', icon: '🐵', speech: 'Letter M says /m/. Monkey, Moon, Milk!' },
+  { l: 'Nn', w: 'Nest', icon: '🪺', speech: 'Letter N says /n/. Nest, Nut, Nose!' },
+  { l: 'Oo', w: 'Orange', icon: '🍊', speech: 'Letter O says /ɒ/. Orange, Owl, Octopus!' },
+  { l: 'Pp', w: 'Pen', icon: '🖊️', speech: 'Letter P says /p/. Pen, Pencil, Panda!' },
+  { l: 'Qq', w: 'Queen', icon: '👑', speech: 'Letter Q says /kw/. Queen, Quiet, Quilt!' },
+  { l: 'Rr', w: 'Rabbit', icon: '🐰', speech: 'Letter R says /r/. Rabbit, Ring, Rainbow!' },
+  { l: 'Ss', w: 'Sun', icon: '☀️', speech: 'Letter S says /s/. Sun, Star, Ship!' },
+  { l: 'Tt', w: 'Tree', icon: '🌳', speech: 'Letter T says /t/. Tree, Tiger, Tomato!' },
+  { l: 'Uu', w: 'Umbrella', icon: '☂️', speech: 'Letter U says /ʌ/. Umbrella, Up, Uncle!' },
+  { l: 'Vv', w: 'Van', icon: '🚐', speech: 'Letter V says /v/. Van, Vase, Violin!' },
+  { l: 'Ww', w: 'Watch', icon: '⌚', speech: 'Letter W says /w/. Watch, Water, Watermelon!' },
+  { l: 'Xx', w: 'Xylophone', icon: '🎵', speech: 'Letter X says /ks/. Xylophone, Box, Fox!' },
+  { l: 'Yy', w: 'Yoyo', icon: '🪀', speech: 'Letter Y says /j/. Yoyo, Yellow, Yacht!' },
+  { l: 'Zz', w: 'Zebra', icon: '🦓', speech: 'Letter Z says /z/. Zebra, Zoo, Zipper!' }
+];
+
+let currentSpeechText = 'Letter A says /æ/. Apple, Ant, Alligator!';
+
+function renderGrid() {
+  const grid = document.getElementById('phonicsGrid');
+  grid.innerHTML = '';
+  alphabetData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'phonics-card';
+    card.innerHTML = `
+      <div class="letter-big">${item.l}</div>
+      <div class="letter-word">${item.w}</div>
+      <div class="letter-icon">${item.icon}</div>
+      <button class="speak-btn" onclick="event.stopPropagation(); speakItem('${item.speech}')">🔊 Listen</button>
+    `;
+    card.onclick = () => {
+      selectLetter(item.l, item.icon, `Letter ${item.l} says ...`, item.speech);
+      speakItem(item.speech);
+    };
+    grid.appendChild(card);
+  });
+}
+
+function selectLetter(letter, icon, title, speech) {
+  document.getElementById('stageAvatar').innerText = icon;
+  document.getElementById('stageTitle').innerText = title;
+  document.getElementById('stageText').innerText = speech;
+  currentSpeechText = speech;
+}
+
+function speakItem(text) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const ut = new SpeechSynthesisUtterance(text);
+    ut.lang = 'en-US';
+    ut.rate = 0.85;
+    ut.pitch = 1.1;
+    window.speechSynthesis.speak(ut);
+  } else {
+    alert(text);
+  }
+}
+
+function speakCurrent() {
+  speakItem(currentSpeechText);
+}
+
+renderGrid();
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

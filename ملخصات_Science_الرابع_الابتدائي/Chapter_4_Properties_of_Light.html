@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 4: Properties of Light - Science Primary 4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', 'Cairo', system-ui, sans-serif;
+    color: #1e293b;
+    background: #f8fafc;
+    line-height: 1.42;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  /* CHAPTER HEADER */
+  .chapter-header {
+    background: linear-gradient(135deg, #1e3a8a, #0284c7);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .chapter-header h1 { font-size: 18px; font-weight: 800; margin-bottom: 1px; }
+  .chapter-header .subtitle { font-size: 12px; font-family: 'Cairo', sans-serif; font-weight: 600; opacity: 0.95; }
+  .characters-bar { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .char-badge {
+    background: rgba(255,255,255,0.22);
+    padding: 1px 7px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  /* 3-PART BANNERS */
+  .part-banner {
+    padding: 7px 12px;
+    border-radius: 8px;
+    margin: 6px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .part-banner h2 { font-size: 13.5px; font-weight: 800; }
+  .part-banner p { font-size: 10px; opacity: 0.95; margin-top: 1px; }
+
+  .part-1-banner { background: linear-gradient(90deg, #1e3a8a, #0284c7); margin-top: 2px; }
+  .part-2-banner {
+    background: linear-gradient(90deg, #b45309, #d97706);
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 8px;
+  }
+  .part-3-banner {
+    background: linear-gradient(90deg, #15803d, #10b981);
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 8px;
+  }
+
+  .part-end-badge {
+    text-align: center;
+    padding: 5px 8px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    margin: 6px 0 3px;
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    break-inside: avoid !important;
+  }
+
+  .speech-bubble {
+    background: #fffde7;
+    border: 1.5px solid #fff59d;
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .speech-bubble.smarty { background: #e0f2fe; border-color: #7dd3fc; }
+  .speech-bubble.genius { background: #f3e8ff; border-color: #d8b4fe; }
+  .speech-avatar { font-size: 18px; line-height: 1; flex-shrink: 0; }
+  .speech-name { font-weight: bold; font-size: 10px; color: #1e293b; }
+
+  .section-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin: 6px 0 4px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .section-title .icon { font-size: 14px; }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    border-left: 4px solid #0284c7;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .card-orange { border-left-color: #f59e0b; }
+  .card-green { border-left-color: #10b981; }
+  .card-purple { border-left-color: #8b5cf6; }
+  .card-blue { border-left-color: #3b82f6; }
+
+  .card h3 {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bilingual-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin: 3px 0;
+    background: #f8fafc;
+    padding: 4px 6px;
+    border-radius: 6px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    font-size: 10.5px;
+  }
+  .en-side { border-right: 1.5px dashed #cbd5e1; padding-right: 5px; direction: ltr; text-align: left; }
+  .ar-side { padding-left: 5px; direction: rtl; text-align: right; font-family: 'Cairo', sans-serif; }
+  .vocab-tag {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 9px;
+    margin: 1px;
+  }
+
+  /* FIGURE BOX - HIGH QUALITY & ENLARGED FOR 4TH GRADE VISIBILITY */
+  .figure-box {
+    text-align: center;
+    margin: 6px auto 8px auto;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 5px 7px 6px 7px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    max-width: 96%;
+  }
+  .figure-box img {
+    width: auto;
+    max-width: 100%;
+    max-height: 215px; /* Large, crisp, easy to read */
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .figure-box .caption {
+    font-size: 10.5px;
+    color: #1e293b;
+    margin-top: 4px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.3;
+  }
+
+  table.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0;
+    font-size: 10px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  table.summary-table th, table.summary-table td {
+    border: 1px solid #cbd5e1;
+    padding: 3px 5px;
+    text-align: left;
+  }
+  table.summary-table th { background: #f1f5f9; color: #1e3a8a; font-weight: 700; }
+
+  .game-box {
+    background: #fffde7;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 8px;
+    padding: 5px 8px;
+    margin: 5px 0;
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', sans-serif;
+    font-size: 10.5px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .game-box .game-title {
+    font-weight: 800;
+    color: #b45309;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* EXAM & ANSWER SECTIONS */
+  .exam-container, .answers-container {
+    margin-top: 6px;
+    direction: ltr;
+    text-align: left;
+  }
+  .exam-box {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .exam-box.highlight { border-color: #d97706; background: #fffbeb; }
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+  }
+  .exam-title { font-weight: 800; font-size: 11.5px; color: #b45309; }
+  .exam-badge {
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .q-block { margin-bottom: 4px; break-inside: avoid !important; font-size: 10.5px; }
+  .q-title { font-weight: 700; color: #1e293b; margin-bottom: 2px; }
+  .q-item { margin-left: 10px; margin-bottom: 2px; color: #334155; }
+  .q-ar-hint { font-family: 'Cairo', sans-serif; color: #64748b; font-size: 9px; margin-top: 1px; }
+
+  .answer-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #10b981;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    font-size: 10px;
+  }
+  .ans-title { font-weight: 700; color: #047857; margin-bottom: 1px; }
+  .ans-why {
+    background: #f0fdf4;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-top: 2px;
+    font-size: 9.5px;
+    color: #166534;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 6px;
+  }
+
+  @media print {
+    body { background: #ffffff !important; padding: 0 !important; font-size: 10.5px !important; }
+    .page-container {
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      border-radius: 0 !important;
+    }
+    .print-page-break {
+      page-break-before: always !important;
+      break-before: page !important;
+    }
+    .figure-box img {
+      max-height: 215px !important;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 8mm 11mm 8mm 11mm;
+    }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس العلوم (Science)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+    <!-- Nav Bar -->
+    <div class="nav-bar no-print">
+        <a href="Chapter_3_How_Plants_Grow.html" class="nav-btn">⬅️ Prev: Chapter 3</a>
+        <a href="Index.html" class="nav-btn">🏠 Main Dashboard / الفهرس</a>
+        <button onclick="document.querySelectorAll('details.answers-box').forEach(d => d.open = true); window.print();" class="nav-btn print-btn">🖨️ Print / حفظ كـ PDF كامل بالإجابات</button>
+        <a href="Chapter_5_Properties_of_Sound.html" class="nav-btn">Next: Chapter 5 ➡️</a>
+    </div>
+
+    <!-- Chapter Header -->
+    <div class="chapter-header">
+        <h1>CHAPTER 4: Properties of Light</h1>
+        <div class="subtitle">خصائص الضوء - مسار الضوء، الانعكاس، العدسات، والظلال وحركة الشمس</div>
+        <div class="characters-bar">
+            <span class="char-badge">🐱 Brainy</span>
+            <span class="char-badge">🐶 Smarty</span>
+            <span class="char-badge">🐔 Genius</span>
+        </div>
+    </div>
+
+<div class="part-banner part-1-banner">
+
+    <!-- AL-MOASSER CURATED VISUAL SECTION -->
+    <div style="background:linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border:2px solid #3b82f6; border-radius:16px; padding:18px; margin:18px 0; box-shadow:0 4px 15px rgba(37,99,235,0.08);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+        <h3 style="font-size:15px; font-weight:900; color:#1e3a8a; display:flex; align-items:center; gap:6px;">
+          <span>🖼️</span><span>مخططات الشرح المصورة فائقة الدقة (من كتاب المعاصر ساينس):</span>
+        </h3>
+        <span style="font-size:11.5px; background:white; color:#2563eb; padding:4px 10px; border-radius:12px; font-weight:800; border:1px solid #bfdbfe;">كتاب المعاصر المعتمد</span>
+      </div>
+      
+      
+    <!-- ORGANIZED THEMATIC MULTI-IMAGE GALLERY -->
+    <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); border: 2px solid #bae6fd; border-radius: 16px; padding: 18px; margin-bottom: 24px; box-shadow: 0 4px 15px rgba(2, 132, 199, 0.08);">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; border-bottom:2px dashed #93c5fd; padding-bottom:8px;">
+        <span style="font-weight:900; font-size:15px; color:#0369a1;">📚 أطلس خواص الضوء وانعكاسه • التجارب البصرية للمنهج الحديث</span>
+        <span style="font-size:11.5px; font-weight:700; background:#0284c7; color:white; padding:3px 10px; border-radius:20px;">منهج 2025 / 2026</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px;">
+
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">1. ارتداد أشعة الشمس بالمرآة (Sunlight Reflection)</div>
+          <div style="cursor:zoom-in; height:130px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch4_mirror_bouncing_sunlight.png', '1. ارتداد أشعة الشمس بالمرآة (Sunlight Reflection)')">
+            <img src="images/moasser/ch4_mirror_bouncing_sunlight.png" alt="1. ارتداد أشعة الشمس بالمرآة (Sunlight Reflection)" style="max-height:120px; max-width:100%; border-radius:6px; object-fit:contain;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px; line-height:1.4;">توجيه أشعة الشمس الساقطة بالمرآة المستوية لإضاءة الأماكن المظلمة.</div>
+        </div>
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">2. تركيز الضوء بالمكبرة (Gathering Sunlight)</div>
+          <div style="cursor:zoom-in; height:130px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch4_magnifying_glass_warm_spot.png', '2. تركيز الضوء بالمكبرة (Gathering Sunlight)')">
+            <img src="images/moasser/ch4_magnifying_glass_warm_spot.png" alt="2. تركيز الضوء بالمكبرة (Gathering Sunlight)" style="max-height:120px; max-width:100%; border-radius:6px; object-fit:contain;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px; line-height:1.4;">تجميع أشعة الشمس في بقعة مضيئة ودافئة توضح تركيز الطاقة الضوئية والحرارية.</div>
+        </div>
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">3. مسار الشعاع الضوئي (Light Reflection Path)</div>
+          <div style="cursor:zoom-in; height:130px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch4_mirror_reflection_diagram.png', '3. مسار الشعاع الضوئي (Light Reflection Path)')">
+            <img src="images/moasser/ch4_mirror_reflection_diagram.png" alt="3. مسار الشعاع الضوئي (Light Reflection Path)" style="max-height:120px; max-width:100%; border-radius:6px; object-fit:contain;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px; line-height:1.4;">سقوط الأشعة الضوئية وارتدادها المنتظم بزوايا دقيقة عند ملامسة سطح عاكس.</div>
+        </div>
+      </div>
+    </div>
+
+      </div>
+
+    </div>
+
+  <h2>📘 PART 1: ILLUSTRATED EXPLANATION & CONCEPTS</h2>
+  <p>الجزء الأول: الشرح المصور والمفصل والتطبيقات العملية</p>
+</div>
+
+
+    <!-- Dialogue -->
+    <div class="speech-bubble smarty">
+        <div class="speech-avatar">🐶</div>
+        <div class="speech-content">
+            <div class="speech-name">Smarty's Shadow Mystery:</div>
+            <p><strong>"Look at my shadow on the ground!</strong> In the morning it looks super tall like a giant, but at noon it shrinks! Why does my shadow move and change size? Let's investigate the secrets of light!"</p>
+            <p class="ar-side" style="margin-top:6px; color:#555;">بصوا يا أصدقائي على ظلي في الأرض! الصبح بدري بيكون طويل جداً زي العملاق، وفي الظهر بيبقى قصير وصغير أوي! يا ترى الظل بيتكون إزاي؟ وليه الشمس بتتحكم فيه؟</p>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2 class="section-title"><span class="icon">☀️</span> 4-1 How Light Travels & Bounces (مسار وانعكاس الضوء)</h2>
+<div class="figure-box"><img src="images/ch4_light_reflection.png" alt="Light Reflection"><div class="caption">الشكل (1): ارتداد وانعكاس أشعة الضوء عند سقوطها على المرآة (Reflection on Smooth Mirrors)</div></div>
+    <div class="card">
+        <h3>🔦 Light Sources & Straight Lines (مصادر الضوء والخطوط المستقيمة)</h3>
+        
+        <div class="bilingual-box">
+            <div class="en-side">
+                <strong style="color:var(--primary-dark);">1. Light Sources (مصادر الضوء):</strong>
+                <p>Objects that emit their own light: <strong>The Sun, Lamps, Flashlights, Fire, Candles</strong>.</p>
+                <p><em>*Note: The Moon is NOT a light source; it reflects sunlight like a mirror!</em></p>
+            </div>
+            <div class="ar-side">
+                <strong style="color:var(--primary-dark);">١. مصادر الضوء:</strong>
+                <p>الأجسام التي تشع ضوءها بنفسها مثل: <strong>الشمس، المصابيح، الكشاف، النار، والشموع</strong>.</p>
+                <p><em>*ملاحظة هامة: القمر ليس مصدراً للضوء، بل يعكس ضوء الشمس كمرآة!</em></p>
+            </div>
+        </div>
+
+        <div class="bilingual-box">
+            <div class="en-side">
+                <strong style="color:var(--secondary);">2. Light Travels in Straight Lines:</strong>
+                <p>Light ALWAYS travels in <span class="vocab-tag">Straight Lines</span>! It never bends around corners on its own.</p>
+            </div>
+            <div class="ar-side">
+                <strong style="color:var(--secondary);">٢. الضوء يسير في خطوط مستقيمة:</strong>
+                <p>يسير الضوء دائماً في <span class="vocab-tag">خطوط مستقيمة (Straight lines)</span> ولا ينحني بنفسه حول الزوايا.</p>
+            </div>
+        </div>
+
+        <div class="bilingual-box">
+            <div class="en-side">
+                <strong style="color:var(--primary-dark);">3. Reflection (الانعكاس):</strong>
+                <p>When sunlight hits a smooth, shiny surface like a <strong>Mirror</strong>, it bounces back and continues traveling in straight lines. We can use mirrors to redirect light to dark places!</p>
+            </div>
+            <div class="ar-side">
+                <strong style="color:var(--primary-dark);">٣. انعكاس الضوء (Reflection):</strong>
+                <p>ارتداد الضوء عندما يسقط على سطح أملس ولامع مثل <strong>المرآة</strong>، فيرتد ويسير في خطوط مستقيمة، ويمكننا به توجيه الضوء للأماكن المظلمة!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    
+
+<div class="print-page-break"></div><h2 class="section-title"><span class="icon">🔍</span> 4-2 Gathering Light (تجميع الضوء بالعدسة)</h2>
+    <div class="card card-blue">
+        <h3>🔥 What happens when you gather sunlight?</h3>
+        <p>Using a <strong>magnifying glass (convex lens)</strong>, you can gather sunlight from a wide area into a single focal point (spot).</p>
+        
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Property (الخاصية)</th>
+                    <th>What happens at the gathered point? (ماذا يحدث عند النقطة المجمعة؟)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Brightness (السطوع)</strong></td>
+                    <td>The spot becomes <strong>much brighter</strong> (أكثر سطوعاً ولمعاناً).</td>
+                </tr>
+                <tr>
+                    <td><strong>Temperature / Warmth (الحرارة)</strong></td>
+                    <td>The temperature rises and the spot becomes <strong>much warmer / hotter</strong> (أكثر دفئاً وسخونة).</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 3 -->
+    <h2 class="section-title"><span class="icon">👤</span> 4-3 & 4-4 Shadows and the Sun (قواعد الظلال وحركة الشمس)</h2>
+<div class="figure-box"><img src="images/ch4_shadows_sun.png" alt="Shadows and Sun Position"><div class="caption">الشكل (2): حركة الشمس الظاهرية وتغير طول واتجاه الظلال (Sun Movement & Shadow Direction)</div></div>
+    <div class="card card-purple">
+        <h3>📐 Why and How Shadows Form? (كيف تتكون الظلال؟)</h3>
+        
+        <div class="bilingual-box">
+            <div class="en-side">
+                <strong style="color:var(--accent-purple);">What is a Shadow? (ما هو الظل؟)</strong>
+                <p>Because sunlight travels in <strong>straight lines</strong>, when it hits an opaque object (like your body or a tree), the light is blocked. A dark area forms behind it called a <span class="vocab-tag">Shadow</span>.</p>
+            </div>
+            <div class="ar-side">
+                <strong style="color:var(--accent-purple);">ما هو الظل وكيف يتكون؟</strong>
+                <p>لأن الضوء يسير في <strong>خطوط مستقيمة</strong>، فعندما يقابل جسماً معتماً (كجسمك أو شجرة)، يُحجب الضوء وتتكون منطقة مظلمة خلفه تسمى <span class="vocab-tag">الظل (Shadow)</span>.</p>
+            </div>
+        </div>
+
+        <h4 style="margin:16px 0 10px; color:#D84315;">🌟 Golden Rule 1: Opposite Direction (عكس الاتجاه دائماً):</h4>
+        <p style="background:#FFF3E0; padding:12px; border-radius:10px; border-left:4px solid #D84315;">
+            The shadow is ALWAYS made in the <strong>OPPOSITE direction</strong> to the light source!<br>
+            • If the Sun is on the <strong>Right</strong> ➔ Shadow is on the <strong>Left</strong>.<br>
+            • If the Sun is in the <strong>East</strong> ➔ Shadow points to the <strong>West</strong>.
+        </p>
+
+        <h4 style="margin:20px 0 10px; color:#D84315;">⏰ Golden Rule 2: Movement of Shadows during the Day (ساعة الظل اليومية):</h4>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Time of Day (الوقت)</th>
+                    <th>Sun Position (موقع الشمس)</th>
+                    <th>Shadow Direction & Length (اتجاه وطول الظل)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Morning (الصباح)</strong></td>
+                    <td>Rises low in the <strong>East (الشرق)</strong></td>
+                    <td>Shadow is <strong>LONG</strong> and points to the <strong>WEST (الغرب)</strong></td>
+                </tr>
+                <tr>
+                    <td><strong>Noon (الظهيرة)</strong></td>
+                    <td>High directly overhead in the sky</td>
+                    <td>Shadow is the <strong>SHORTEST</strong> (أقصر ظل في اليوم)</td>
+                </tr>
+                <tr>
+                    <td><strong>Afternoon (بعد الظهر)</strong></td>
+                    <td>Moves low towards the <strong>West (الغرب)</strong></td>
+                    <td>Shadow is <strong>LONG</strong> and points to the <strong>EAST (الشرق)</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- SECTION 4 -->
+    
+
+<div class="print-page-break"></div><h2 class="section-title"><span class="icon">🌡️</span> 4-5 Sun vs Shade (الفرق بين المشمس والظل)</h2>
+    <div class="card">
+        <h3>⛱️ Sunny Ground vs Shady Ground:</h3>
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>Sunny Ground (الأرض المشمسة)</th>
+                    <th>Shady Ground (الأرض في الظل)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Temperature (الحرارة)</strong></td>
+                    <td><strong>Warmer (higher temperature)</strong><br><em>أكثر دفئاً وسخونة بسبب أشعة الشمس</em></td>
+                    <td><strong>Cooler (lower temperature)</strong><br><em>أبرد لأن الشمس محجوبة عنها</em></td>
+                </tr>
+                <tr>
+                    <td><strong>Moisture (الرطوبة)</strong></td>
+                    <td><strong>Dry</strong> (dries quickly)<br><em>جافة لأن الشمس تبخر الماء</em></td>
+                    <td><strong>Damper / Moister</strong><br><em>أكثر رطوبة وبللاً وتحتفظ بالماء</em></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- GAME SECTION -->
+    <div class="game-box">
+        <div class="game-header">🎮 Play & Learn / العب واكتشف مع أصدقائك!</div>
+        <p style="font-size:16px; margin-bottom:12px;"><strong>Game: "The Balcony Sundial" (اصنع ساعتك الشمسية بالبلكونة)</strong></p>
+        <div style="background:white; padding:16px; border-radius:12px; margin-bottom:12px;">
+            <p><strong>الأدوات:</strong> ورقة كرتون بيضاء + قلم رصاص مثبت في المنتصف بعجينة صلصال + شمس الصباح.</p>
+            <p><strong>طريقة اللعبة:</strong></p>
+            <ol style="margin-right:20px; line-height:1.8; direction:rtl; text-align:right;">
+                <li>ضع الكرتون في مكان مشمس بالبلكونة الساعة 9 صباحاً وارسم خطاً على طرف ظل القلم واكتب "9:00".</li>
+                <li>عد الساعة 12 ظهراً وسترى أن الظل أصبح قصيراً جداً وفي اتجاه مختلف، علم عليه واكتب "12:00".</li>
+                <li>عد الساعة 3 عصراً وسترى الظل طال في الاتجاه المعاكس واكتب "3:00".</li>
+                <li><strong>السر العلمي:</strong> لقد صنعت للتو ساعة شمسية (Sundial) مثل التي استخدمها الفراعنة لمعرفة الوقت بدقة!</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- PRACTICE EXERCISES -->
+    
+
+<div class="part-end-badge">🌟 End of Part 1: Illustrated Explanation | نهاية الجزء الأول: الشرح المصور 🌟</div>
+<div class="part-banner part-2-banner">
+  <h2>📝 PART 2: PRACTICE & GOVERNORATE EXAMS BANK</h2>
+  <p>الجزء الثاني: بنك التدريبات وأسئلة امتحانات المحافظات (مخصص لحل الطالب واختبار الفهم)</p>
+</div>
+<h2 class="section-title"><span class="icon">📝</span> Quick Practice (تدريبات سريعة لتثبيت الفهم)</h2>
+    <div class="card">
+        <h4 style="color:var(--primary-dark); margin-bottom:12px;">A) Complete the sentences with: [ straight / opposite / shortest / warmer / bounces ]:</h4>
+        <ol style="margin-left:22px; line-height:2;">
+            <li>Sunlight always travels in .............................. lines.</li>
+            <li>When light hits a mirror, it .............................. back.</li>
+            <li>The shadow is always formed in the .............................. direction to the sun.</li>
+            <li>At noon, the shadow of an object is at its .............................. length.</li>
+            <li>The ground in sunny places is .............................. than in shady places.</li>
+        </ol>
+
+        <h4 style="color:var(--primary-dark); margin:20px 0 12px;">B) True or False:</h4>
+        <ol style="margin-left:22px; line-height:2;">
+            <li>( &nbsp;&nbsp; ) The Moon is a natural source of light like the Sun.</li>
+            <li>( &nbsp;&nbsp; ) Using a magnifying glass to gather sunlight increases warmth and brightness.</li>
+            <li>( &nbsp;&nbsp; ) Shady ground is warmer and drier than sunny ground.</li>
+        </ol>
+    </div>
+
+    <!-- GOVERNORATE EXAMS -->
+    <div class="exam-section">
+        <h2 style="color:#D84315; display:flex; align-items:center; gap:10px; margin-bottom:15px; font-size:22px;">
+            <span>🏆</span> Official Governorate Exam Questions (أسئلة امتحانات المحافظات)
+        </h2>
+
+        <div class="question-item">
+            <span class="gov-badge">Cairo 2024 / القاهرة</span>
+            <strong>Write the scientific term (المصطلح العلمي):</strong>
+            <p>1. The bouncing back of light rays when they hit a smooth reflective surface like a mirror. &nbsp; ( .............................. )</p>
+            <p>2. A dark area formed behind an opaque object when light falls on it. &nbsp; ( .............................. )</p>
+        </div>
+
+        <div class="question-item">
+            <span class="gov-badge">Giza 2024 / الجيزة</span>
+            <strong>Choose the correct answer:</strong>
+            <p>1. Light travels in:
+                <br>a) Curved lines &nbsp;&nbsp;&nbsp; b) Zigzag lines &nbsp;&nbsp;&nbsp; c) Straight lines &nbsp;&nbsp;&nbsp; d) Circular lines
+            </p>
+            <p>2. When the sun is in the East, the shadow points to the:
+                <br>a) East &nbsp;&nbsp;&nbsp; b) West &nbsp;&nbsp;&nbsp; c) North &nbsp;&nbsp;&nbsp; d) South
+            </p>
+            <p>3. At noon, the length of an object's shadow is:
+                <br>a) Longest &nbsp;&nbsp;&nbsp; b) Shortest &nbsp;&nbsp;&nbsp; c) Disappears completely &nbsp;&nbsp;&nbsp; d) Unchanged
+            </p>
+        </div>
+
+        <div class="question-item">
+            <span class="gov-badge">Alexandria 2023 / الإسكندرية</span>
+            <strong>Give reasons for (علل):</strong>
+            <p>1. Shadows are formed when light hits your body.
+                <br><em>Reason:</em> ............................................................................................................
+            </p>
+            <p>2. The spot of light gathered by a magnifying glass becomes hot.
+                <br><em>Reason:</em> ............................................................................................................
+            </p>
+        </div>
+    </div>
+
+    <!-- MODEL ANSWERS -->
+    
+
+<div class="part-end-badge">📝 End of Part 2: Question Bank | نهاية الجزء الثاني: بنك الأسئلة والتدريبات 📝</div>
+<div class="part-banner part-3-banner">
+  <h2>🔑 PART 3: EXPLANATORY MODEL ANSWERS KEY</h2>
+  <p>الجزء الثالث: نموذج الإجابات النموذجية والتفسيرات العلمية (لمراجعة المعلم وولي الأمر)</p>
+</div>
+<details class="answers-box" open>
+        <summary>
+            <span>🔑 Click to reveal Model Answers (اضغط هنا لإظهار نموذج الإجابات للتأكد من الحل)</span>
+        </summary>
+        <div class="answers-content">
+            <h3 style="color:#E65100; margin-bottom:15px; border-bottom:2px solid #FFECB3; padding-bottom:6px;">
+                ✅ Quick Practice Answers
+            </h3>
+            <div class="answer-row">
+                <div class="answer-key">A) Complete:</div>
+                <p>1. <strong>straight</strong> &nbsp;&nbsp; 2. <strong>bounces</strong> &nbsp;&nbsp; 3. <strong>opposite</strong> &nbsp;&nbsp; 4. <strong>shortest</strong> &nbsp;&nbsp; 5. <strong>warmer</strong></p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">B) True or False:</div>
+                <p>1. <strong>✘ False</strong> (The Moon is not a light source; it reflects sunlight).</p>
+                <p>2. <strong>✔ True</strong></p>
+                <p>3. <strong>✘ False</strong> (Shady ground is cooler and damper).</p>
+            </div>
+
+            <h3 style="color:#D84315; margin:20px 0 15px; border-bottom:2px solid #FFECB3; padding-bottom:6px;">
+                🏆 Governorate Exam Model Answers
+            </h3>
+            <div class="answer-row">
+                <div class="answer-key">Cairo 2024 (Scientific Term):</div>
+                <p>1. <strong>Reflection of light</strong> (انعكاس الضوء).</p>
+                <p>2. <strong>Shadow</strong> (الظل).</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Giza 2024 (Choose):</div>
+                <p>1. <strong>c) Straight lines</strong> (الضوء يسير في خطوط مستقيمة).</p>
+                <p>2. <strong>b) West</strong> (الظل دائماً في عكس اتجاه الشمس).</p>
+                <p>3. <strong>b) Shortest</strong> (في الظهيرة يكون الظل أقصر ما يمكن).</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Alexandria 2023 (Give Reasons):</div>
+                <p>1. <strong>Because light travels in straight lines and cannot pass through the opaque body, so a dark area is formed behind it.</strong><br>
+                <span class="answer-why">لأن الضوء يسير في خطوط مستقيمة ويُحجب عندما يقابل جسماً معتماً فيتكون خلفه ظل.</span></p>
+                <p>2. <strong>Because the magnifying glass gathers sunlight and thermal energy from a wide area into a single focal point.</strong><br>
+                <span class="answer-why">لأن العدسة المكبرة تجمع أشعة الشمس والحرارة من مساحة واسعة في نقطة واحدة مركزة.</span></p>
+            </div>
+        </div>
+    </details>
+</div>
+
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+</body>
+</html>

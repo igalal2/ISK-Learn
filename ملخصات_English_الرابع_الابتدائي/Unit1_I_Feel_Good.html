@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><title>Unit 1: I Feel Good! • Connect 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c-primary: #06b6d4;
+    --c-dark: #0e7490;
+    --c-light: #ecfeff;
+    --c-border: #cffafe;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding-bottom: 70px;
+    font-size: 15px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 20px; }
+
+  /* PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--c-primary);
+    padding: 12px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #1e293b;
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  .btn-portal-back:hover { background: #0f172a; }
+  .btn-index-back {
+    background: var(--c-light);
+    color: var(--c-dark) !important;
+    border: 1.5px solid var(--c-primary);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: var(--c-primary); color: white !important; }
+  .btn-print-action {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .btn-print-action:hover { border-color: var(--c-primary); color: var(--c-primary); }
+
+  .header-box {
+    background: linear-gradient(135deg, var(--c-dark), var(--c-primary));
+    color: white;
+    padding: 34px 28px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .header-box p { font-size: 15px; opacity: 0.95; max-width: 800px; margin: 0 auto; }
+
+  .section-block {
+    background: white;
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    border: 1.5px solid #f1f5f9;
+  }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--c-light);
+  }
+  .sec-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--c-light);
+    color: var(--c-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .sec-title { font-size: 21px; font-weight: 900; color: #0f172a; }
+
+  .concept-card {
+    background: #fff;
+    border-right: 5px solid var(--c-primary);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #f1f5f9;
+    border-right-width: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .concept-card h3 { font-size: 17.5px; font-weight: 800; color: var(--c-dark); margin-bottom: 8px; }
+  .concept-card p { font-size: 14.5px; color: #334155; line-height: 1.65; }
+
+  .golden-tip {
+    background: linear-gradient(135deg, #fef3c7, #fef9c3);
+    border-right: 5px solid #f59e0b;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 14.5px;
+    color: #78350f;
+    font-weight: 700;
+  }
+
+  .q-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .q-text { font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  .opt-btn {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .ans-box {
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .ans-title { font-size: 16px; font-weight: 900; color: #15803d; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #166534; font-weight: 700; }
+
+  @media print {
+    .sticky-nav-strip { display: none !important; }
+    body { background: white; }
+    .section-block { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 16px; padding: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة للبوابة الرئيسية</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس Connect 4</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header-box">
+    <h1>Unit 1: I Feel Good! • Connect 4</h1>
+    <p>Digestive System, Respiratory System, Healthy Habits, and Present Simple</p>
+  </div>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">1</div><h2 class="sec-title">Part 1: Key Vocabulary &amp; Grammar Focus</h2></div>
+    <div class="golden-tip">💡 Grammar &amp; Science Tip: The food moves from the esophagus to the stomach! The stomach churns food with gastric juice to give us energy and nutrients!</div>
+     <div class="concept-card"><h3>1. The Human Digestive System</h3><p>• <strong>Mouth:</strong> We chew food with our teeth and mix it with saliva.<br>• <strong>Esophagus:</strong> Tube that moves food from mouth to stomach.<br>• <strong>Stomach:</strong> Gastric juice breaks down food into simpler forms.<br>• <strong>Small &amp; Large Intestines:</strong> Small intestine absorbs nutrients; large intestine takes water/salts and removes waste.</p></div>
+     <div class="concept-card"><h3>2. The Respiratory System</h3><p>• We breathe in oxygen through our nose and mouth.<br>• The <strong>diaphragm</strong> moves down and pulls air into the lungs.<br>• In the lungs, blood absorbs oxygen and pumps it around the body.<br>• The diaphragm moves up to push out carbon dioxide.</p></div>
+     <div class="concept-card"><h3>3. Language Focus: Conjunctions (and / but)</h3><p>• Use <strong>and</strong> to add similar ideas: "I eat fruit, and I exercise."<br>• Use <strong>but</strong> to show contrast: "I want to play football, but I hurt my leg."</p></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">2</div><h2 class="sec-title">Part 2: Official Exam Practice</h2></div>
+    <div class="q-item"><div class="q-text">Q1: Which organ pumps blood around the entire body?</div><div class="q-opts"><div class="opt-btn">Stomach</div><div class="opt-btn">Heart</div><div class="opt-btn">Lungs</div><div class="opt-btn">Diaphragm</div></div></div>
+     <div class="q-item"><div class="q-text">Q2: Complete: I like playing tennis, [ and / but / so / because ] I cannot find my racket.</div><div class="q-opts"><div class="opt-btn">and</div><div class="opt-btn">but</div><div class="opt-btn">so</div><div class="opt-btn">or</div></div></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">3</div><h2 class="sec-title">Part 3: Model Answers &amp; Solutions</h2></div>
+    <div class="ans-box">
+      <div class="ans-title">✅ Answer Key:</div>
+      <ul class="ans-list"><li>Q1: <strong>Heart</strong> (pumps oxygen-rich blood through arteries).</li><li>Q2: <strong>but</strong> (expresses contrast between wanting to play and lacking the racket).</li></ul>
+    </div>
+  </section>
+</div></body></html>

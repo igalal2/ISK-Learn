@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>ملزمة امتحانات الشهور • الدراسات الاجتماعية • الصف الرابع الابتدائي</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #0f172a;
+    background: #fdfbf7;
+    line-height: 1.38;
+    font-size: 10.5px;
+    padding: 8px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .booklet-header {
+    background: linear-gradient(135deg, #b45309, #d97706);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .booklet-header h1 { font-size: 19px; font-weight: 900; margin-bottom: 2px; }
+  .booklet-header .subtitle { font-size: 12px; font-weight: 700; opacity: 0.95; }
+  
+  .section-banner {
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin: 6px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 11.5px;
+    break-inside: avoid;
+  }
+  .banner-oct { background: linear-gradient(135deg, #b45309, #d97706); }
+  .banner-nov { background: linear-gradient(135deg, #4338ca, #6366f1); }
+  .banner-ans { background: linear-gradient(135deg, #047857, #059669); }
+  .banner-rev { background: linear-gradient(135deg, #b45309, #d97706); }
+
+  .exam-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #d97706;
+    border-radius: 7px;
+    padding: 7px 11px;
+    margin-bottom: 7px;
+    break-inside: avoid;
+  }
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #e2e8f0;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+  }
+  .exam-title { font-size: 12px; font-weight: 800; color: #92400e; }
+  .marks-badge { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 4px; font-size: 9px; font-weight: 800; }
+
+  .q-item {
+    padding: 3px 0;
+    border-bottom: 1px dashed #f1f5f9;
+    font-size: 10px;
+  }
+  .q-item:last-child { border-bottom: none; }
+
+  /* MAP LAYOUT */
+  .map-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+  .map-img-box {
+    flex: 0 0 130px;
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 2px;
+  }
+  .map-img-box img {
+    max-width: 100%;
+    max-height: 105px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+  .map-questions { flex: 1; }
+
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 9.5px; break-inside: avoid; }
+  th { background: #d97706; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #d97706; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+
+  .figure-box {
+    text-align: center;
+    margin: 6px auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+  .figure-box .caption {
+    font-size: 9.5px;
+    color: #475569;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin: 5px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 10.5px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الدراسات الاجتماعية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="booklet-header">
+  <h1>ملزمة امتحانات الشهور الشاملة • الدراسات الاجتماعية</h1>
+  <div class="subtitle">امتحانات شهري أكتوبر ونوفمبر الرسمية مع الخرائط الصماء • الصف الرابع الابتدائي</div>
+  <div style="margin-top: 5px; font-size: 10px; background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 6px; display: inline-block;">
+    🎯 طبقاً لمواصفات وزارة التربية والتعليم وامتحانات الإدارات التعليمية (15 درجة للاختبار)
+  </div>
+</div>
+
+<div class="figure-box" style="margin: 8px auto;">
+  <img src="images/egypt_topography_landforms.png" alt="Egypt Topography 3D" style="max-height: 190px;">
+  <div class="caption">الشكل: مجسم تضاريس مصر والبيئات الطبيعية المتنوعة (Egypt Landforms)</div>
+</div>
+
+<div class="exam-box" style="border-right-color: #d97706; padding: 10px; margin-bottom: 6px;">
+  <div class="exam-title" style="color: #92400e; font-size: 12px;">📋 إرشادات ومواصفات الورقة الامتحانية لشهري أكتوبر ونوفمبر:</div>
+  <ul style="margin-right: 20px; font-size: 10px; line-height: 1.6; color: #334155; font-weight: 600;">
+    <li><b>اختبار شهر أكتوبر (15 درجة):</b> يغطي الوحدة الأولى (أدوات تحديد المواقع، والمصادر الأولية والثانوية) + درس مدينتنا وتطور وسائل النقل.</li>
+    <li><b>اختبار شهر نوفمبر (15 درجة):</b> يغطي الخدمات والمدن الذكية، محافظتي والعيد القومي والشعار، وعلم مصر وموقعها بين قارات العالم ومظاهر السطح.</li>
+    <li><b>السؤال الأول إجباري:</b> خريطة صماء لجمهورية مصر العربية لتثبيت المواقع الجغرافية المهمة.</li>
+    <li><b>زمن الاختبار:</b> 45 دقيقة (حصة دراسية واحدة).</li>
+  </ul>
+</div>
+
+<div class="baladi-box">
+  <div class="baladi-title">💡 نصيحة الماستر لتقفيل درجات الشهر (15 / 15):</div>
+  <p style="font-size: 10px; line-height: 1.5;">سؤال الخريطة مضمون في جيبك يا بطل لما تبص على الأرقام بتركيز وتعرف مكان البحر ونهر النيل وسيناء والصحراء الغربية.. حل الاختبارات دي بتركيز ومبروك عليك الـ 15 من 15!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-oct">
+  🍂 القسم الأول: اختبارات شهر أكتوبر النموذجية • الدراسات الاجتماعية (15 درجة لكل اختبار)
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر أكتوبر (النموذج الأول) • إدارة مصر الجديدة</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1- أمامك خريطة صماء، اكتب مدلول الأرقام: (4 درجات)</b></div>
+      <div class="q-item"><b>1-</b> البحر: ........................................ (شمال مصر)</div>
+      <div class="q-item"><b>2-</b> قناة مائية عالمية: قناة ........................................</div>
+      <div class="q-item"><b>3-</b> شريان الحياة في مصر: نهر ........................................</div>
+    </div>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: اكتب المصطلح العلمي: (6 درجات)</b><br>
+    1- رسم توضيحي لسطح الأرض أو جزء منه باستخدام مجموعة من الرموز والألوان ومقياس رسم: <span style="color:#b45309;">(............................)</span><br>
+    2- كل ما تم نقشه أو تدوينه من قبل أشخاص عاصروا الحدث في زمن وقوعه: <span style="color:#b45309;">(............................)</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: ضع علامة (✓) أو (✗): (5 درجات)</b><br>
+    1- وردة البوصلة توضح الاتجاهات الأصلية والفرعية وتساعد في تحديد المواقع. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    2- تميز الريف المصري بوجود المباني الشاهقة ووسائل النقل الحديثة كالقطار الكهربائي. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    3- الصور الفضائية تلتقط بواسطة الطائرات وتتميز بالدقة العالية والتفاصيل. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر أكتوبر (النموذج الثاني) • إدارة الدقي</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: اختر الإجابة الصحيحة مما بين القوسين: (6 درجات)</b><br>
+    1- النسبة بين المسافة على الخريطة وما يقابلها على الطبيعة تسمى:<br>
+    ( أ- مقياس الرسم &nbsp;|&nbsp; ب- وردة البوصلة &nbsp;|&nbsp; جـ- مفتاح الخريطة &nbsp;|&nbsp; د- خط الاستواء )<br>
+    2- من المصادر الأولية التي وثقت تاريخ مصر القديم:<br>
+    ( أ- برديات ونقوش الأهرامات &nbsp;|&nbsp; ب- الكتب الحديثة &nbsp;|&nbsp; جـ- الموسوعات &nbsp;|&nbsp; د- مقالات الجرائد اليوم )<br>
+    3- وسيلة نقل حديثة وصديقة للبيئة تعمل بالكهرباء تسير على خط أحادي مرتفع هي:<br>
+    ( أ- المونوريل &nbsp;|&nbsp; ب- الدواب &nbsp;|&nbsp; جـ- سيارات الديزل &nbsp;|&nbsp; د- المراكب الشراعية )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: صوّب ما تحته خط: (5 درجات)</b><br>
+    1- تقع مصر في الركن الشمالي الشرقي لقارة <u>أوروبا</u>. &nbsp; (التصويب: ....................)<br>
+    2- الاتجاه المقابل لاتجاه الشرق على وردة البوصلة هو اتجاه <u>الشمال</u>. &nbsp; (التصويب: ....................)
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: بم تفسر: (4 درجات)</b><br>
+    • أهمية وجود وردة البوصلة على أي خريطة جغرافية؟
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر أكتوبر (النموذج الثالث) • إدارة الزقازيق</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: ضع علامة (✓) أو (✗) أمام العبارات الآتية: (6 درجات)</b><br>
+    1- تعتبر الأفلام التسجيلية التي صورت أثناء حرب أكتوبر 1973 مصدراً أولياً. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    2- تعد مدينة القاهرة هي العاصمة التاريخية والسياسية لجمهورية مصر العربية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    3- الحقيقة هي تعبير عما يشعر به الشخص تجاه موضوع معين وقد تختلف من شخص لآخر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: اكتب المصطلح الجغرافي: (5 درجات)</b><br>
+    1- خطوط وهمية رأسية رسمها العلماء لتحديد المواقع شرق وغرب خط جرينتش: <span style="color:#b45309;">(............................)</span><br>
+    2- معلومات أو أحداث تم التأكد من صحتها ودقتها بالتجربة والبحث: <span style="color:#b45309;">(............................)</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: قارن باختصار: (4 درجات)</b><br>
+    • بين الصور الجوية والصور الفضائية من حيث وسيلة الالتقاط والمساحة المغطاة.
+  </div>
+</div>
+
+<div class="section-banner banner-nov">
+  🍁 القسم الثاني: اختبارات شهر نوفمبر النموذجية • الدراسات الاجتماعية (15 درجة لكل اختبار)
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر نوفمبر (النموذج الأول) • إدارة المنتزه</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1- أمامك خريطة صماء، اكتب مدلول الأرقام: (4 درجات)</b></div>
+      <div class="q-item"><b>1-</b> البحر: ........................................ (شرق مصر)</div>
+      <div class="q-item"><b>2-</b> شبه جزيرة: ................................ (أرض الفيروز)</div>
+      <div class="q-item"><b>3-</b> عاصمة مصر: محافظة ........................................</div>
+    </div>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: اختر الإجابة الصحيحة: (6 درجات)</b><br>
+    1- يتكون علم جمهورية مصر العربية من ثلاثة ألوان، يدل اللون الأبيض فيه على:<br>
+    ( أ- السلام &nbsp;|&nbsp; ب- دماء الشهداء &nbsp;|&nbsp; جـ- الظلم والاستعمار &nbsp;|&nbsp; د- الحرب )<br>
+    2- تحتفل محافظة القاهرة بعيدها القومي يوم 6 يوليو تخليداً لـ:<br>
+    ( أ- وضع جوهر الصقلي حجر الأساس لمدينة القاهرة &nbsp;|&nbsp; ب- بناء السد العالي &nbsp;|&nbsp; جـ- ثورة يوليو &nbsp;|&nbsp; د- افتتاح القناة )<br>
+    3- هضبة تقع في جنوب غرب مصر بالصحراء الغربية هي هضبة:<br>
+    ( أ- الجلف الكبير &nbsp;|&nbsp; ب- التيه &nbsp;|&nbsp; جـ- المقطم &nbsp;|&nbsp; د- العوينات )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: بم تفسر: (5 درجات)</b><br>
+    • اتخاذ محافظة القاهرة جامع الأزهر الشريف وشمس ساطعة شعاراً رسمياً لها؟
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر نوفمبر (النموذج الثاني) • إدارة المنصورة</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: ضع علامة (✓) أو (✗) أمام العبارات الآتية: (6 درجات)</b><br>
+    1- تقاس سرعة الرياح بجهاز يسمى الأنيمومتر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    2- تلون المنخفضات على خريطة التضاريس باللون البني الداكن. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    3- مبادرة حياة كريمة تهدف إلى تحسين معيشة سكان القرى وتوفير السكن اللائق والخدمات. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: اكتب المصطلح الجغرافي: (5 درجات)</b><br>
+    1- مساحة واسعة من اليابس تحيط بها المياه من جميع الجهات مثل جزيرة شدوان: <span style="color:#b45309;">(............................)</span><br>
+    2- وصف حالة الجو لفترة زمنية طويلة (فصل أو سنة) لمعرفة نوع المحاصيل الزراعية: <span style="color:#b45309;">(............................)</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: ما النتائج المترتبة على: (4 درجات)</b><br>
+    • حفر وافتتاح قناة السويس الجديدة عام 2015 بالنسبة لحركة الملاحة والتجارة؟
+  </div>
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر نوفمبر (النموذج الثالث) • إدارة أسيوط</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: اختر الإجابة الصحيحة مما بين القوسين: (6 درجات)</b><br>
+    1- أعلى قمة جبلية في جمهورية مصر العربية هي قمة جبل:<br>
+    ( أ- سانت كاترين &nbsp;|&nbsp; ب- العوينات &nbsp;|&nbsp; جـ- الشايب &nbsp;|&nbsp; د- علبة )<br>
+    2- تدخل الرمال البيضاء المنتشرة في الصحراء المصرية في صناعة:<br>
+    ( أ- الزجاج والخلايا الشمسية &nbsp;|&nbsp; ب- الفخار &nbsp;|&nbsp; جـ- السجاد اليدوي &nbsp;|&nbsp; د- الخيامية )<br>
+    3- محطة الزعفرانة في محافظة البحر الأحمر متخصصة في توليد الكهرباء النظيفة من:<br>
+    ( أ- طاقة الرياح &nbsp;|&nbsp; ب- الطاقة الشمسية &nbsp;|&nbsp; جـ- الفحم &nbsp;|&nbsp; د- الغاز الطبيعي )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: صوّب ما تحته خط: (5 درجات)</b><br>
+    1- يحد جمهورية مصر العربية من جهة الجنوب دولة <u>ليبيا</u>. &nbsp; (التصويب: ....................)<br>
+    2- تقع هضبة التيه في <u>الصحراء الغربية</u>. &nbsp; (التصويب: ....................)
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: فكر وأجب: (4 درجات)</b><br>
+    • ماذا يحدث إذا: لم يتم بناء السد العالي في جنوب مصر عند أسوان؟
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-ans">
+  ✅ نماذج الإجابات الرسمية وتوزيع الدرجات لشهري أكتوبر ونوفمبر • الدراسات الاجتماعية
+</div>
+
+<div class="exam-box" style="font-size: 9.5px; border-right-color: #10b981;">
+  <div class="exam-title" style="color: #047857; font-size: 11.5px;">🍂 إجابات اختبارات شهر أكتوبر النموذجية:</div>
+  <p><b>النموذج الأول (15 درجة):</b><br>
+  السؤال الأول: 1- البحر المتوسط (درجة وثلث) | 2- قناة السويس (درجة وثلث) | 3- نهر النيل (درجة وثلث).<br>
+  السؤال الثاني: 1- الخريطة (3 درجات) | 2- المصدر الأولي (3 درجات).<br>
+  السؤال الثالث: 1- (✓) صواب (درجتان) | 2- (✗) خطأ - هذا تميز الحضر والمدن (درجة ونصف) | 3- (✗) خطأ - الصور الجوية هي التي تلتقط بالطائرات (درجة ونصف).</p>
+
+  <p><b>النموذج الثاني (15 درجة):</b><br>
+  السؤال الأول: 1- مقياس الرسم (درجتان) | 2- برديات ونقوش الأهرامات (درجتان) | 3- المونوريل (درجتان).<br>
+  السؤال الثاني: 1- قارة أفريقيا (درجتان ونصف) | 2- اتجاه الغرب (درجتان ونصف).<br>
+  السؤال الثالث: تساعد في تحديد الاتجاهات الأصلية والفرعية ومعرفة موقع أي مكان بالنسبة للأماكن الأخرى بدقة (4 درجات).</p>
+
+  <p><b>النموذج الثالث (15 درجة):</b><br>
+  السؤال الأول: 1- (✓) صواب (درجتان) | 2- (✓) صواب (درجتان) | 3- (✗) خطأ - هذا تعريف الرأي وليس الحقيقة (درجتان).<br>
+  السؤال الثاني: 1- خطوط الطول (درجتان ونصف) | 2- الحقائق (درجتان ونصف).<br>
+  السؤال الثالث: الصور الجوية: تلتقط بالطائرات وتغطي مساحات محدودة وتظهر تفاصيل دقيقة. الصور الفضائية: بالأقمار الصناعية وتغطي مساحات شاسعة وتلتقط صوراً كروية أكبر (4 درجات).</p>
+</div>
+
+<div class="exam-box" style="font-size: 9.5px; border-right-color: #10b981;">
+  <div class="exam-title" style="color: #047857; font-size: 11.5px;">🍁 إجابات اختبارات شهر نوفمبر النموذجية:</div>
+  <p><b>النموذج الأول (15 درجة):</b><br>
+  السؤال الأول: 1- البحر الأحمر (درجة وثلث) | 2- شبه جزيرة سيناء (درجة وثلث) | 3- محافظة القاهرة (درجة وثلث).<br>
+  السؤال الثاني: 1- السلام (درجتان) | 2- وضع جوهر الصقلي حجر الأساس للقاهرة (درجتان) | 3- هضبة الجلف الكبير (درجتان).<br>
+  السؤال الثالث: جامع الأزهر لأنه أهم معالمها التاريخية والإسلامية، والشمس الساطعة ترمز إلى أن الأزهر منارة الإسلام التي تنير العالم أجمع (5 درجات).</p>
+
+  <p><b>النموذج الثاني (15 درجة):</b><br>
+  السؤال الأول: 1- (✓) صواب (درجتان) | 2- (✗) خطأ - تلون بالأخضر الداكن (درجتان) | 3- (✓) صواب (درجتان).<br>
+  السؤال الثاني: 1- الجزيرة (درجتان ونصف) | 2- المناخ (درجتان ونصف).<br>
+  السؤال الثالث: تقليل زمن مرور السفن من 20 إلى 11 ساعة، استيعاب سفن أكبر حجماً، والسماح بالمرور في الاتجاهين دون توقف وزيادة الدخل القومي (4 درجات).</p>
+
+  <p><b>النموذج الثالث (15 درجة):</b><br>
+  السؤال الأول: 1- سانت كاترين (درجتان) | 2- الزجاج والخلايا الشمسية (درجتان) | 3- طاقة الرياح (درجتان).<br>
+  السؤال الثاني: 1- دولة السودان (درجتان ونصف) | 2- شبه جزيرة سيناء (درجتان ونصف).<br>
+  السؤال الثالث: لتعرضت القرى والمدن للغرق بالفيضانات ولأصيبت مصر بالجفاف في سنوات انخفاض النيل ولما تمكنا من توليد الكهرباء المائية (4 درجات).</p>
+</div>
+
+</div>
+</body>
+</html>

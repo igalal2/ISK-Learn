@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><title>الوحدة الأولى: العقيدة (الإيمان بالله وملائكته • سورة التين) • تربية إسلامية الصف الرابع</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c-primary: #059669;
+    --c-dark: #065f46;
+    --c-light: #ecfdf5;
+    --c-border: #a7f3d0;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding-bottom: 70px;
+    font-size: 15px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 20px; }
+
+  /* PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--c-primary);
+    padding: 12px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #1e293b;
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  .btn-portal-back:hover { background: #0f172a; }
+  .btn-index-back {
+    background: var(--c-light);
+    color: var(--c-dark) !important;
+    border: 1.5px solid var(--c-primary);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: var(--c-primary); color: white !important; }
+  .btn-print-action {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .btn-print-action:hover { border-color: var(--c-primary); color: var(--c-primary); }
+
+  .header-box {
+    background: linear-gradient(135deg, var(--c-dark), var(--c-primary));
+    color: white;
+    padding: 34px 28px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .header-box p { font-size: 15px; opacity: 0.95; max-width: 800px; margin: 0 auto; }
+
+  .section-block {
+    background: white;
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    border: 1.5px solid #f1f5f9;
+  }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--c-light);
+  }
+  .sec-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--c-light);
+    color: var(--c-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .sec-title { font-size: 21px; font-weight: 900; color: #0f172a; }
+
+  .concept-card {
+    background: #fff;
+    border-right: 5px solid var(--c-primary);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #f1f5f9;
+    border-right-width: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .concept-card h3 { font-size: 17.5px; font-weight: 800; color: var(--c-dark); margin-bottom: 8px; }
+  .concept-card p { font-size: 14.5px; color: #334155; line-height: 1.65; }
+
+  .golden-tip {
+    background: linear-gradient(135deg, #fef3c7, #fef9c3);
+    border-right: 5px solid #f59e0b;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 14.5px;
+    color: #78350f;
+    font-weight: 700;
+  }
+
+  .q-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .q-text { font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  .opt-btn {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .ans-box {
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .ans-title { font-size: 16px; font-weight: 900; color: #15803d; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #166534; font-weight: 700; }
+
+  @media print {
+    .sticky-nav-strip { display: none !important; }
+    body { background: white; }
+    .section-block { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 16px; padding: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة للبوابة الرئيسية</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس التربية الإسلامية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header-box">
+    <h1>الوحدة الأولى: العقيدة (الإيمان بالله وملائكته • سورة التين)</h1>
+    <p>صفات الملائكة ومهامهم، تفسير سورة التين، وبديع صنع الله في خلقه</p>
+  </div>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">1</div><h2 class="sec-title">الجزء الأول: كبسولات العقيدة والسير والعبادات</h2></div>
+    <div class="golden-tip">💡 كبسولة المستر الإيمانية: الملائكة خُلقوا من نور لا يعصون الله ما أمرهم ويفعلون ما يؤمرون، والإنسان ميزه الله بالعقل والتفكير والقدرة على الاختيار والإعمار في الأرض!</div>
+     <div class="concept-card"><h3>1. الإيمان بالله وملائكته الكرام</h3><p>• الإيمان بالملائكة ركن من أركان الإيمان الستة.<br>• أشهر الملائكة ووظائفهم: <strong>سيدنا جبريل</strong> (أمين الوحي للأنبياء)، <strong>ميكائيل</strong> (موكل بإنزال المطر والأرزاق)، <strong>إسرافيل</strong> (موكل بالنفخ في الصور يوم القيامة)، و<strong>ملك الموت</strong> (لقبض الأرواح).</p></div>
+     <div class="concept-card"><h3>2. تفسير سورة التين المباركة</h3><p>• أقسم الله تعالى بأربعة أمكنة مقدسة مهبط الرسالات: (التين والزيتون في بيت المقدس بفلسطين مهبط عيسى عليه السلام، طور سينين جبل الطور بسيناء حيث كلم الله موسى، والبلد الأمين مكة المكرمة مهبط النبي محمد صلى الله عليه وسلم).<br>• (لقد خلقنا الإنسان في أحسن تقويم): أي في أجمل صورة وأكمل هيئة سوية.</p></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">2</div><h2 class="sec-title">الجزء الثاني: تدريبات امتحانات المحافظات</h2></div>
+    <div class="q-item"><div class="q-text">س1: الملك الموكل بإنزال المطر بأمر الله تعالى هو:</div><div class="q-opts"><div class="opt-btn">جبريل عليه السلام</div><div class="opt-btn">ميكائيل عليه السلام</div><div class="opt-btn">إسرافيل عليه السلام</div><div class="opt-btn">مالك</div></div></div>
+     <div class="q-item"><div class="q-text">س2: المقصود بـ (البلد الأمين) في سورة التين:</div><div class="q-opts"><div class="opt-btn">المدينة المنورة</div><div class="opt-btn">مكة المكرمة</div><div class="opt-btn">القدس الشريف</div><div class="opt-btn">سيناء</div></div></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">3</div><h2 class="sec-title">الجزء الثالث: نماذج الإجابات الرسمية</h2></div>
+    <div class="ans-box">
+      <div class="ans-title">✅ الإجابات النموذجية:</div>
+      <ul class="ans-list"><li>س1: سيدنا <strong>ميكائيل عليه السلام</strong>.</li><li>س2: <strong>مكة المكرمة</strong> (أمن الله بيته الحرام وجعله بلداً آمناً مباركاً).</li></ul>
+    </div>
+  </section>
+</div></body></html>

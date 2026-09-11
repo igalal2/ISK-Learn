@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>ملزمة المراجعة النهائية ليلة الامتحان • ICT • الصف الرابع الابتدائي</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #0f172a;
+    background: #f8fafc;
+    line-height: 1.38;
+    font-size: 10.5px;
+    padding: 8px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .booklet-header {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .booklet-header h1 { font-size: 19px; font-weight: 900; margin-bottom: 2px; }
+  .booklet-header .subtitle { font-size: 12px; font-weight: 700; opacity: 0.95; }
+  
+  .section-banner {
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin: 6px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 11.5px;
+    break-inside: avoid;
+  }
+  .banner-oct { background: linear-gradient(135deg, #0284c7, #0369a1); }
+  .banner-nov { background: linear-gradient(135deg, #b45309, #d97706); }
+  .banner-ans { background: linear-gradient(135deg, #047857, #059669); }
+  .banner-rev { background: linear-gradient(135deg, #4338ca, #6366f1); }
+
+  .exam-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #0284c7;
+    border-radius: 7px;
+    padding: 7px 11px;
+    margin-bottom: 7px;
+    break-inside: avoid;
+  }
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #e2e8f0;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+  }
+  .exam-title { font-size: 12px; font-weight: 800; color: #0369a1; }
+  .marks-badge { background: #e0f2fe; color: #0369a1; padding: 1px 6px; border-radius: 4px; font-size: 9px; font-weight: 800; }
+
+  .q-item {
+    padding: 3px 0;
+    border-bottom: 1px dashed #f1f5f9;
+    font-size: 10px;
+  }
+  .q-item:last-child { border-bottom: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 9.5px; break-inside: avoid; }
+  th { background: #0284c7; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #0284c7; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+
+  .figure-box {
+    text-align: center;
+    margin: 6px auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+  .figure-box .caption {
+    font-size: 9.5px;
+    color: #475569;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin: 5px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 10.5px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس تكنولوجيا المعلومات (ICT)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="booklet-header" style="background: linear-gradient(135deg, #0369a1, #0284c7);">
+  <h1>ملزمة المراجعة النهائية ليلة الامتحان • تكنولوجيا المعلومات (ICT)</h1>
+  <div class="subtitle">الصف الرابع الابتدائي • الفصل الدراسي الأول 2025 / 2026</div>
+  <div style="margin-top: 5px; font-size: 10px; background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 6px; display: inline-block;">
+    🌟 الكبسولة الذهبية: خلاصة جميع أجهزة الإدخال والإخراج، نظام التشغيل، وأسرار التفوق
+  </div>
+</div>
+
+<div class="figure-box" style="margin: 6px auto;">
+  <img src="images/ict_operating_system_cpu.png" alt="Operating System and CPU" style="max-height: 180px;">
+  <div class="caption">الشكل: مسار معالجة البيانات وتفاعل نظام التشغيل والـ CPU مع الشاشة ولوحة المفاتيح</div>
+</div>
+
+<div class="exam-box" style="border-right-color: #0284c7; padding: 8px;">
+  <div class="exam-title" style="color: #0369a1; font-size: 11.5px;">🔑 جدول مقارنة وحدات الإدخال والإخراج الشامل:</div>
+  <table>
+    <tr><th style="width:25%; background:#0284c7;">نوع الوحدة</th><th style="width:35%; background:#0284c7;">اسم الجهاز / الأداة</th><th style="background:#0284c7;">الوظيفة ونوع البيانات</th></tr>
+    <tr><td><b>وحدات الإدخال (Input)</b></td><td>لوحة المفاتيح (Keyboard)</td><td>إدخال الحروف والأرقام والنصوص المكتوبة.</td></tr>
+    <tr><td><b>وحدات الإدخال (Input)</b></td><td>الفأرة وشاشة اللمس (Mouse/Touch)</td><td>إدخال أوامر التوجيه والاختيار والتحكم في المؤشر.</td></tr>
+    <tr><td><b>وحدات الإدخال (Input)</b></td><td>الميكروفون (Microphone)</td><td>إدخال الأصوات والتسجيلات الصوتية إلى الكمبيوتر.</td></tr>
+    <tr><td><b>وحدات الإدخال (Input)</b></td><td>الماسح الضوئي (Scanner) والكاميرا</td><td>إدخال الصور والمستندات الورقية إلى الكمبيوتر.</td></tr>
+    <tr><td><b>وحدات الإخراج (Output)</b></td><td>شاشة العرض (Screen)</td><td>إخراج وعرض المعلومات المرئية (نصوص، صور، فيديو).</td></tr>
+    <tr><td><b>وحدات الإخراج (Output)</b></td><td>الطابعة (Printer)</td><td>إخراج النصوص والصور مطبوعة على الورق.</td></tr>
+    <tr><td><b>وحدات الإخراج (Output)</b></td><td>مكبر الصوت وسماعات الرأس (Speakers)</td><td>إخراج المعلومات المسموعة والصوتيات.</td></tr>
+    <tr><td><b>وحدات الإخراج (Output)</b></td><td>مركب الكلام وطريقة برايل الطرفية</td><td>إخراج نصوص مسموعة أو رموز بارزة لذوي الهمم.</td></tr>
+  </table>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-rev">
+  🛠️ جدول حل المشكلات الشائعة ومهارات البحث المتقدم على الإنترنت
+</div>
+
+<div class="exam-box" style="border-right-color: #4338ca; font-size: 9.5px;">
+  <div class="exam-title" style="color: #3730a3; font-size: 11px;">💻 حلول المشكلات التكنولوجية الشائعة ليلة الامتحان:</div>
+  <table>
+    <tr><th style="background:#4338ca; width:35%;">المشكلة التكنولوجية</th><th style="background:#4338ca;">خطوات الحل الصحيحة المعتمدة</th></tr>
+    <tr><td><b>عدم عمل لوحة المفاتيح أو الفأرة</b></td><td>1) التأكد من توصيل كابل الجهاز في المنفذ الصحيح. 2) إعادة تشغيل جهاز الكمبيوتر. 3) استبدالها بجهاز آخر في حالة التلف.</td></tr>
+    <tr><td><b>توقف الشاشة وتجمد التطبيقات (Freezing)</b></td><td>1) الضغط معاً على مفاتيح (Ctrl + Alt + Del) وإغلاق البرنامج المتوقف من إدارة المهام. 2) إعادة تشغيل الجهاز.</td></tr>
+    <tr><td><b>صعوبة العثور على ملف تم حفظه</b></td><td>1) البحث في مجلد التنزيلات (Downloads). 2) استخدام صندوق البحث (Search Box) في شريط المهام وكتابة اسم الملف.</td></tr>
+    <tr><td><b>عدم القدرة على فتح تطبيق معين</b></td><td>1) إعادة تشغيل الجهاز. 2) التأكد من تحديث البرنامج. 3) حذف البرنامج وإعادة تثبيته مجدداً.</td></tr>
+  </table>
+</div>
+
+<div class="figure-box" style="margin: 6px auto;">
+  <img src="images/ict_cybersecurity_passwords.png" alt="Cybersecurity and Strong Passwords" style="max-height: 175px;">
+  <div class="caption">الشكل: الحماية السيبرانية وكلمات المرور القوية لحماية الحسابات من المخترقين</div>
+</div>
+
+<div class="exam-box" style="border-right-color: #10b981; font-size: 9.5px;">
+  <div class="exam-title" style="color: #065f46; font-size: 11px;">🔍 علامات محرك البحث الذكية (Smart Search Operators):</div>
+  <ul style="margin-right: 18px; line-height: 1.5; font-weight: 600; color: #334155;">
+    <li><b>علامات التنصيص (" "):</b> لحصر البحث في جملة مطابقة تماماً دون تغيير أي كلمة (مثال: "بنك المعرفة المصري").</li>
+    <li><b>علامة الزائد (+):</b> للتأكد من شمول نتائج البحث لكلمة ضرورية (مثال: الحيوانات + الصحراء).</li>
+    <li><b>علامة الناقص (-):</b> لاستبعاد كلمة معينة وتجنب ظهورها في النتائج (مثال: نسر - صلاح الدين).</li>
+  </ul>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-ans">
+  🛡️ قواعد المواطنة الرقمية والأمان السيبراني + نصائح الامتحان
+</div>
+
+<div class="exam-box" style="border-right-color: #059669; font-size: 9.5px;">
+  <div class="exam-title" style="color: #047857; font-size: 11px;">🌟 الوصايا الذهبية للأمان على الإنترنت:</div>
+  <ul style="margin-right: 18px; line-height: 1.6; font-weight: 600; color: #334155;">
+    <li><b>كلمة المرور القوية:</b> لا تقل عن 8 خانات، وتتكون من خليط من (حروف كبيرة وصغيرة + أرقام + رموز خاصة مثل @, #, $).</li>
+    <li><b>كلمات مرور مختلفة:</b> لا تستخدم نفس كلمة المرور لأكثر من حساب لمنع اختراق جميع حساباتك في حال تسريب أحدها.</li>
+    <li><b>الخصوصية والأمان:</b> لا تشارك معلوماتك الشخصية (رقم الهاتف، العنوان، المدرسة، صورك الخاصة) مع الغرباء عبر الإنترنت.</li>
+    <li><b>التعامل مع المتنمرين:</b> في حال التعرض لأي إساءة، قم فوراً بعمل حجب (Block) للشخص وأبلغ والديك أو معلمك دون تردد.</li>
+    <li><b>احترام الملكية الفكرية:</b> اذكر دائماً المصدر وصاحب الفكرة الأصلية عند استخدام أي معلومات أو صور من الإنترنت في أبحاثك.</li>
+  </ul>
+</div>
+
+<div class="baladi-box" style="text-align: center; padding: 8px;">
+  <div class="baladi-title" style="font-size: 11px;">🏆 رسالة التفوق وضمان الدرجة النهائية (30 / 30):</div>
+  <p style="font-size: 10px; line-height: 1.5;">التكنولوجيا وسيلة عشان تطور نفسك وتتعلم وتبدع.. اقرأ كل سؤال بتركيز، ركز في المصطلحات والفرق بين أجهزة الإدخال والإخراج، وتوكل على الله.. الدرجة النهائية في جيبك يا بطل!</p>
+</div>
+
+</div>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

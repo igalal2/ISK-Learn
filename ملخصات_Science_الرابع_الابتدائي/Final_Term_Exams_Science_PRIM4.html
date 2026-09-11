@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Science Primary 4 - Term 1 Final Exams Booklet</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Fredoka:wght@400;500;600;700&display=swap');
+  
+  :root {
+    --primary: #1e3a8a;
+    --secondary: #0284c7;
+    --accent: #d97706;
+    --border: #cbd5e1;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Fredoka', 'Cairo', sans-serif;
+    background: #f1f5f9;
+    color: #0f172a;
+    line-height: 1.35;
+    padding: 15px;
+    direction: ltr;
+  }
+
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  }
+
+  /* COVER PAGE */
+  .cover {
+    text-align: center;
+    padding: 40px 25px;
+    border: 3px double #1e3a8a;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    margin-bottom: 25px;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .cover-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #0284c7;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #0369a1;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+  }
+  .cover-badge {
+    display: inline-block;
+    background: #d97706;
+    color: #fff;
+    font-weight: 700;
+    padding: 6px 20px;
+    border-radius: 30px;
+    font-size: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(217,119,6,0.3);
+  }
+  .cover-title {
+    font-size: 32px;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .cover-subtitle {
+    font-size: 18px;
+    color: #0284c7;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  .cover-desc {
+    font-size: 15px;
+    font-weight: 700;
+    color: #334155;
+    margin: 15px 0;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+  }
+  .cover-characters {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+  }
+  .char-badge {
+    background: #fff;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: 2px solid #bae6fd;
+    font-weight: 700;
+    font-size: 13px;
+    font-family: 'Cairo', sans-serif;
+  }
+  .student-card {
+    background: #ffffff;
+    border: 2px dashed #0284c7;
+    border-radius: 12px;
+    padding: 15px;
+    max-width: 500px;
+    margin: 20px auto 0;
+    direction: rtl;
+    font-size: 14px;
+    font-family: 'Cairo', sans-serif;
+  }
+  .student-card .field {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  .student-card .field span {
+    font-weight: bold;
+    color: #1e3a8a;
+    width: 100px;
+    text-align: right;
+  }
+  .student-card .line {
+    flex: 1;
+    border-bottom: 1px dotted #64748b;
+    height: 18px;
+  }
+
+  /* SECTION DIVIDERS */
+  .section-divider {
+    background: linear-gradient(90deg, #1e3a8a, #0284c7);
+    color: #ffffff;
+    padding: 10px 16px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    break-after: avoid !important;
+  }
+  .section-divider.answers-theme {
+    background: linear-gradient(90deg, #15803d, #10b981);
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 15px;
+  }
+
+  /* EXAM PAPER STYLING */
+  .exam-page {
+    border: 2px solid #64748b;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 18px;
+    background: #fff;
+    page-break-after: always !important;
+    break-after: page !important;
+  }
+  .exam-page:last-of-type {
+    page-break-after: auto !important;
+    break-after: auto !important;
+  }
+  
+  .exam-header {
+    border-bottom: 2px solid #1e293b;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    font-weight: 700;
+  }
+  .exam-title-bar {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .exam-title-bar h2 {
+    font-size: 17px;
+    color: #1e3a8a;
+    font-weight: 800;
+  }
+  .exam-title-bar .meta {
+    font-size: 12px;
+    color: #475569;
+    font-weight: 600;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .question-block {
+    margin-bottom: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 8px 12px;
+    break-inside: avoid;
+  }
+  .q-head {
+    font-weight: 700;
+    font-size: 13px;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #cbd5e1;
+    padding-bottom: 3px;
+  }
+  .q-score {
+    color: #b45309;
+    font-size: 11px;
+    background: #fef3c7;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .q-item {
+    font-size: 12px;
+    margin-bottom: 6px;
+    break-inside: avoid;
+  }
+  .q-text {
+    font-weight: 600;
+    color: #0f172a;
+  }
+  .q-text-ar {
+    font-size: 11px;
+    color: #475569;
+    margin: 1px 0 3px 0;
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', sans-serif;
+  }
+  .options {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 3px;
+    font-size: 11.5px;
+  }
+  .opt {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 1px 8px;
+    border-radius: 5px;
+  }
+  .answer-line {
+    border-bottom: 1px dotted #94a3b8;
+    height: 16px;
+    margin-top: 2px;
+  }
+
+  /* ANSWER KEY SECTION */
+  .answer-key-box {
+    background: #f0fdf4;
+    border: 2px solid #86efac;
+    border-radius: 10px;
+    padding: 12px 15px;
+    margin-bottom: 12px;
+    break-inside: avoid;
+  }
+  .answer-key-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #15803d;
+    border-bottom: 2px solid #bbf7d0;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Cairo', sans-serif;
+  }
+  .ans-item {
+    font-size: 12px;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .ans-num {
+    font-weight: 700;
+    color: #166534;
+    display: inline-block;
+    min-width: 25px;
+  }
+  .ans-correct {
+    font-weight: 600;
+    color: #0f172a;
+  }
+  .ans-why {
+    color: #0369a1;
+    font-size: 11px;
+    margin-top: 2px;
+    padding-left: 25px;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* PRINT RULES */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .container { max-width: 100%; box-shadow: none; padding: 0; }
+    .cover {
+      border: 3px double #1e3a8a;
+      padding: 40px 20px;
+      page-break-after: always !important;
+      break-after: page !important;
+    }
+    .exam-page {
+      border: 1.5px solid #334155;
+      margin-bottom: 0;
+      padding: 12px 15px;
+      page-break-after: always !important;
+      break-after: page !important;
+    }
+    .section-divider.answers-theme {
+      page-break-before: always !important;
+      break-before: page !important;
+    }
+    .question-block, .answer-key-box {
+      break-inside: avoid !important;
+      page-break-inside: avoid !important;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 10mm 12mm 12mm 12mm;
+    }
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    .no-print { display: none !important; }
+  }
+
+  .print-btn-bar {
+    position: sticky;
+    top: 10px;
+    z-index: 999;
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .btn {
+    background: #1e3a8a;
+    color: #fff;
+    padding: 8px 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+  }
+  .btn:hover { background: #0284c7; }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+
+<div class="print-btn-bar no-print">
+  <button class="btn" onclick="window.print()">🖨️ Print / Save as PDF (طباعة أو حفظ الملزمة PDF)</button>
+  <a class="btn" style="background:#0d9488; margin-left:10px;" href="Index.html">🏠 Home Portal (الرئيسية)</a>
+</div>
+
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس العلوم (Science)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+
+  <!-- COVER PAGE (PAGE 1) -->
+  <div class="cover">
+    <div class="cover-header">
+      <div>جمهورية مصر العربية<br>وزارة التربية والتعليم والتعليم الفني</div>
+      <div>مادة العلوم (لغات) - Science<br>الصف الرابع الابتدائي - الفصل الدراسي الأول</div>
+    </div>
+
+    <div class="cover-badge">🏆 Official Governorate Final Exams (ملزمة الامتحانات النهائية)</div>
+    <h1 class="cover-title">Science Primary 4 - Term 1</h1>
+    <div class="cover-subtitle">Official Curriculum Standards (SPRIX & Egyptian Ministry)</div>
+    
+    <div class="cover-desc">
+      تضم 6 امتحانات نموذجية شاملة من واقع امتحانات المحافظات الرسمية والسنوات السابقة مع نموذج الإجابة المعتمد وتوزيع الدرجات
+    </div>
+
+    <div class="cover-characters">
+      <div class="char-badge">🐱 Brainy (مفكر العلوم)</div>
+      <div class="char-badge">🐶 Smarty (مستكشف الاختبارات)</div>
+      <div class="char-badge">🐔 Genius (العبقري وحلال الألغاز)</div>
+    </div>
+
+    <div class="student-card">
+      <div class="field"><span>اسم الطالب:</span><div class="line"></div></div>
+      <div class="field"><span>المدرسة:</span><div class="line"></div></div>
+      <div class="field"><span>رقم الجلوس:</span><div class="line"></div></div>
+      <div class="field"><span>المحافظة / الإدارة:</span><div class="line"></div></div>
+    </div>
+  </div>
+
+  <!-- EXAM 1: CAIRO (STARTS PAGE 2) -->
+  <div class="exam-page">
+    <div class="section-divider">
+      📝 Part 1: Official Governorate Exam Papers (أوراق الامتحانات الشاملة للحل)
+    </div>
+
+    <div class="exam-header">
+      <div><strong>Cairo Governorate</strong><br>Heliopolis Educational Admin.</div>
+      <div style="text-align:center;"><strong>First Term Examination</strong><br>Science - Grade 4 (Time: 1.5 Hours)</div>
+      <div style="text-align:right;"><strong>Max Marks: 15</strong><br>School Year: 2025 / 2026</div>
+    </div>
+
+    <div class="exam-title-bar">
+      <h2>Exam (1) - Cairo Governorate (محافظة القاهرة)</h2>
+      <div class="meta">Answer All the Following Questions - أجب عن جميع الأسئلة الآتية</div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question I: Choose the correct answer:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Which of the following is an example of an adult insect?</div>
+        <div class="q-text-ar">أي مما يلي يُعد مثالاً لحشرة كاملة؟</div>
+        <div class="options">
+          <span class="opt">(a) Butterfly</span>
+          <span class="opt">(b) Tadpole</span>
+          <span class="opt">(c) Seed</span>
+          <span class="opt">(d) Plant root</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. When the amount of vibration of a ruler increases, the sound becomes:</div>
+        <div class="q-text-ar">عندما تزداد سعة اهتزاز المسطرة، فإن الصوت يصبح:</div>
+        <div class="options">
+          <span class="opt">(a) softer</span>
+          <span class="opt">(b) louder</span>
+          <span class="opt">(c) lower pitch</span>
+          <span class="opt">(d) stops completely</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. The energy stored in a stretched rubber band is called:</div>
+        <div class="q-text-ar">الطاقة المخزنة في الشريط المطاطي المشدود تسمى:</div>
+        <div class="options">
+          <span class="opt">(a) Light energy</span>
+          <span class="opt">(b) Stored elastic force</span>
+          <span class="opt">(c) Sound energy</span>
+          <span class="opt">(d) Wind force</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Ancient Egyptians transported heavy stone statues by adding water to:</div>
+        <div class="q-text-ar">قام المصريون القدماء بنقل التماثيل الحجرية الضخمة بإضافة الماء إلى:</div>
+        <div class="options">
+          <span class="opt">(a) clay</span>
+          <span class="opt">(b) dry sand</span>
+          <span class="opt">(c) rocks</span>
+          <span class="opt">(d) wood logs</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question II: Put (✓) or (✗):</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. All living organisms have the ability to grow and reproduce. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. An adult butterfly's body consists of 4 main parts. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. A larger sail on a toy car makes it travel a longer distance. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Clay soil particles are larger than sandy soil particles. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question III: Complete the following sentences:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Shadows are formed when light is blocked by ................................. objects.</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. The body of an adult insect has ................................. legs attached to the thorax.</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. The first part to emerge from a germinating sunflower seed is the .................................</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Sound is produced due to the ................................. of objects.</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question IV: Give reasons for: (علل لما يأتي)</span>
+        <span class="q-score">[3 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. The position of an object's shadow changes throughout the day.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. The Scarab beetle (dung beetle) looks at the night sky while moving its dung ball.</div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM 2: GIZA -->
+  <div class="exam-page">
+    <div class="exam-header">
+      <div><strong>Giza Governorate</strong><br>Dokki Educational Admin.</div>
+      <div style="text-align:center;"><strong>First Term Examination</strong><br>Science - Grade 4 (Time: 1.5 Hours)</div>
+      <div style="text-align:right;"><strong>Max Marks: 15</strong><br>School Year: 2025 / 2026</div>
+    </div>
+
+    <div class="exam-title-bar">
+      <h2>Exam (2) - Giza Governorate (محافظة الجيزة)</h2>
+      <div class="meta">Answer All the Following Questions - أجب عن جميع الأسئلة الآتية</div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question I: Write the scientific term: (اكتب المصطلح العلمي)</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. The place where a living organism lives and finds food, water, and shelter.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. The stage in an insect life cycle inside a cocoon before becoming an adult.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. Rapid back-and-forth movement that produces sound.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Soil that has small particles and retains water for a long time.</div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question II: Choose the correct answer:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. When light hits a smooth, shiny mirror, it:</div>
+        <div class="options">
+          <span class="opt">(a) passes through</span>
+          <span class="opt">(b) reflects (bounces back)</span>
+          <span class="opt">(c) disappears</span>
+          <span class="opt">(d) turns into sound</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. The more we stretch a rubber band on a toy car, the distance it travels:</div>
+        <div class="options">
+          <span class="opt">(a) increases</span>
+          <span class="opt">(b) decreases</span>
+          <span class="opt">(c) remains constant</span>
+          <span class="opt">(d) becomes zero</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. Which part of the plant absorbs water and minerals from the soil?</div>
+        <div class="options">
+          <span class="opt">(a) Leaves</span>
+          <span class="opt">(b) Flowers</span>
+          <span class="opt">(c) Stem</span>
+          <span class="opt">(d) Roots</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. If wind blows in the opposite direction of a sailing boat, the boat will:</div>
+        <div class="options">
+          <span class="opt">(a) speed up</span>
+          <span class="opt">(b) slow down or stop</span>
+          <span class="opt">(c) fly</span>
+          <span class="opt">(d) turn into a car</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question III: Put (✓) or (✗):</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Water, rocks, and soil are all non-living things. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. Plants do not produce seeds; only animals reproduce. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. In the morning, shadows point toward the West because the sun rises in the East. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Soil with large particles drains water very slowly. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question IV: What happens if...? (ماذا يحدث إذا...؟)</span>
+        <span class="q-score">[3 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. An opaque object is placed in front of a beam of light.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. We blow gently on a wind car vs blowing strongly on it.</div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM 3: ALEXANDRIA -->
+  <div class="exam-page">
+    <div class="exam-header">
+      <div><strong>Alexandria Governorate</strong><br>East Alexandria Admin.</div>
+      <div style="text-align:center;"><strong>First Term Examination</strong><br>Science - Grade 4 (Time: 1.5 Hours)</div>
+      <div style="text-align:right;"><strong>Max Marks: 15</strong><br>School Year: 2025 / 2026</div>
+    </div>
+
+    <div class="exam-title-bar">
+      <h2>Exam (3) - Alexandria Governorate (محافظة الإسكندرية)</h2>
+      <div class="meta">Answer All the Following Questions - أجب عن جميع الأسئلة الآتية</div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question I: Match column (A) with column (B):</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div style="font-size:11.5px; line-height:1.6;">
+        (1) <strong>Larva</strong> &nbsp;&rarr;&nbsp; [ &nbsp; ] (a) Generates pure sound vibrations when struck.<br>
+        (2) <strong>Cotyledons</strong> &nbsp;&rarr;&nbsp; [ &nbsp; ] (b) First leaves feeding the young sprouting plant.<br>
+        (3) <strong>Tuning Fork</strong> &nbsp;&rarr;&nbsp; [ &nbsp; ] (c) Retains moisture and is very fertile for agriculture.<br>
+        (4) <strong>Clay Soil</strong> &nbsp;&rarr;&nbsp; [ &nbsp; ] (d) Caterpillar stage that eats voraciously to grow.
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question II: Choose the correct answer:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. All adult insects have how many legs?</div>
+        <div class="options">
+          <span class="opt">(a) 4 legs</span>
+          <span class="opt">(b) 6 legs (3 pairs)</span>
+          <span class="opt">(c) 8 legs</span>
+          <span class="opt">(d) 10 legs</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. When you touch your throat while speaking, you feel:</div>
+        <div class="options">
+          <span class="opt">(a) coldness</span>
+          <span class="opt">(b) vibrations of vocal cords</span>
+          <span class="opt">(c) light rays</span>
+          <span class="opt">(d) wind</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. What happens when a rubber band is released after being stretched?</div>
+        <div class="options">
+          <span class="opt">(a) Stored energy converts into kinetic motion</span>
+          <span class="opt">(b) Turns into water</span>
+          <span class="opt">(c) Stops</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. The River Nile provides Egypt with fresh water and fertile:</div>
+        <div class="options">
+          <span class="opt">(a) rocks</span>
+          <span class="opt">(b) silt (alluvial soil)</span>
+          <span class="opt">(c) pure salt</span>
+          <span class="opt">(d) snow</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question III: Put (✓) or (✗):</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Light travels in curved lines. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. The pupa of a butterfly is protected inside a chrysalis or cocoon. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. A car with a smaller sail moves faster than a car with a larger sail under the same wind. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Adding water to sand reduces the friction force when sliding heavy sledges. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question IV: Cross out the odd word: (استخرج الكلمة غير المناسبة)</span>
+        <span class="q-score">[3 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Cat - Sunflower - Rock - Butterfly. &nbsp;&nbsp;&nbsp; [ Odd word: ................................. ]</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. Head - Thorax - Wings - Abdomen. &nbsp;&nbsp;&nbsp; [ Odd word: ................................. ]</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. Clay soil - Sandy soil - Plastic - Silt. &nbsp;&nbsp;&nbsp; [ Odd word: ................................. ]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM 4: DAKAHLIA -->
+  <div class="exam-page">
+    <div class="exam-header">
+      <div><strong>Dakahlia Governorate</strong><br>Mansoura Educational Admin.</div>
+      <div style="text-align:center;"><strong>First Term Examination</strong><br>Science - Grade 4 (Time: 1.5 Hours)</div>
+      <div style="text-align:right;"><strong>Max Marks: 15</strong><br>School Year: 2025 / 2026</div>
+    </div>
+
+    <div class="exam-title-bar">
+      <h2>Exam (4) - Dakahlia Governorate (محافظة الدقهلية)</h2>
+      <div class="meta">Answer All the Following Questions - أجب عن جميع الأسئلة الآتية</div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question I: Complete the following sentences:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. An insect's body consists of three main regions: ...................., ...................., and ....................</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. Plants produce food through the process called .................................</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. Sound cannot travel through a ................................. (empty space with no air).</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. When the wind blows stronger, the force exerted on the sail .................................</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question II: Choose the correct answer:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. The scarab beetle rolls balls of:</div>
+        <div class="options">
+          <span class="opt">(a) mud</span>
+          <span class="opt">(b) animal dung</span>
+          <span class="opt">(c) honey</span>
+          <span class="opt">(d) sand</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. At noon (12:00 PM), shadows cast by the sun are:</div>
+        <div class="options">
+          <span class="opt">(a) very long</span>
+          <span class="opt">(b) at their shortest length</span>
+          <span class="opt">(c) pointing East</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. The speed of water soaking into sand is:</div>
+        <div class="options">
+          <span class="opt">(a) faster than clay</span>
+          <span class="opt">(b) slower than clay</span>
+          <span class="opt">(c) zero</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Which of the following is an observation tool used by scientists?</div>
+        <div class="options">
+          <span class="opt">(a) Hand lens</span>
+          <span class="opt">(b) Ruler</span>
+          <span class="opt">(c) Thermometer</span>
+          <span class="opt">(d) All of the above</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question III: Put (✓) or (✗):</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Roots grow upward into the air to catch sunlight. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. Soft sounds are produced by small vibrations. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. Stretching a rubber band 10 cm gives more stored force than stretching it 5 cm. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Non-living things need water and air to stay alive. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question IV: Give a scientific reason for: (اذكر السبب العلمي)</span>
+        <span class="q-score">[3 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Leaves are very important parts of a plant.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. Clay soil is better for growing rice and crops than sandy soil in Egypt.</div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM 5: QALYUBIA -->
+  <div class="exam-page">
+    <div class="exam-header">
+      <div><strong>Qalyubia Governorate</strong><br>Primary Education Dept.</div>
+      <div style="text-align:center;"><strong>First Term Examination</strong><br>Science - Grade 4 (Time: 1.5 Hours)</div>
+      <div style="text-align:right;"><strong>Max Marks: 15</strong><br>School Year: 2025 / 2026</div>
+    </div>
+
+    <div class="exam-title-bar">
+      <h2>Exam (5) - Qalyubia Governorate (محافظة القليوبية)</h2>
+      <div class="meta">Answer All the Following Questions - أجب عن جميع الأسئلة الآتية</div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question I: Choose the correct answer:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. The stages of butterfly development in order are:</div>
+        <div class="options">
+          <span class="opt">(a) Egg -> Larva -> Pupa -> Adult</span>
+          <span class="opt">(b) Egg -> Pupa -> Larva -> Adult</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. When you strike a triangle instrument hard, it makes:</div>
+        <div class="options">
+          <span class="opt">(a) a loud sound</span>
+          <span class="opt">(b) a soft sound</span>
+          <span class="opt">(c) no sound</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. What type of energy propels a rubber band car forward?</div>
+        <div class="options">
+          <span class="opt">(a) Kinetic energy from released elastic tension</span>
+          <span class="opt">(b) Heat energy</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. The silt soil deposited by the Nile comes from:</div>
+        <div class="options">
+          <span class="opt">(a) the Ethiopian plateau during floods</span>
+          <span class="opt">(b) the Mediterranean sea</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question II: Correct the underlined words: (صوب ما تحته خط)</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. An insect has <u>eight</u> legs on its thorax. &nbsp;&nbsp;&nbsp; [ ................................. ]</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. Light travels in <u>zigzag</u> lines. &nbsp;&nbsp;&nbsp; [ ................................. ]</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. <u>Sandy</u> soil retains more water than clay soil. &nbsp;&nbsp;&nbsp; [ ................................. ]</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. The first green structure to emerge above soil from a seed is the <u>root</u>. &nbsp;&nbsp;&nbsp; [ ................................. ]</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question III: Put (✓) or (✗):</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Both animals and plants are living organisms that require nourishment. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. When an object does not vibrate, it still makes a loud sound. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. Wind power can be used to generate electricity using wind turbines. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Scarab beetles use the Milky Way galaxy stars to maintain a straight path. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question IV: What happens when: (ماذا يحدث عندما...)</span>
+        <span class="q-score">[3 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. A person touches a vibrating guitar string with their finger.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. We increase the size of the sail on a sailboat under a steady breeze.</div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAM 6: MINISTRY MOCK EXAM -->
+  <div class="exam-page">
+    <div class="exam-header">
+      <div><strong>Ministry of Education</strong><br>General Directorate of Science</div>
+      <div style="text-align:center;"><strong>Term 1 Comprehensive Standard Mock Exam</strong><br>Science - Grade 4 (Time: 1.5 Hours)</div>
+      <div style="text-align:right;"><strong>Max Marks: 15</strong><br>Official Model Exam</div>
+    </div>
+
+    <div class="exam-title-bar">
+      <h2>Exam (6) - Comprehensive Ministry Mock Exam (امتحان الوزارة الاسترشادي الشامل)</h2>
+      <div class="meta">Full Term Coverage - شامل لجميع وحدات وفصول الفصل الدراسي الأول</div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question I: Write the scientific concept:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. The transformation process of an insect from egg to larva, pupa, and adult.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. The dark area formed behind an opaque object when it blocks light.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. The force produced by moving air that can push sails and windmills.</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. The dark, organic-rich soil layer in the Nile Valley that helps crops thrive.</div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question II: Choose the correct answer:</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. Which of the following organs allows insects to sense smells and touch?</div>
+        <div class="options">
+          <span class="opt">(a) Antennae</span>
+          <span class="opt">(b) Legs</span>
+          <span class="opt">(c) Wings</span>
+          <span class="opt">(d) Thorax</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. When light bounces off a mirror into your eyes, this property is called:</div>
+        <div class="options">
+          <span class="opt">(a) Reflection</span>
+          <span class="opt">(b) Absorption</span>
+          <span class="opt">(c) Vibration</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. A rubber band car released with a twist of 20 turns travels:</div>
+        <div class="options">
+          <span class="opt">(a) farther than 5 turns</span>
+          <span class="opt">(b) shorter than 5 turns</span>
+          <span class="opt">(c) does not move</span>
+        </div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Plants require which of the following to manufacture food?</div>
+        <div class="options">
+          <span class="opt">(a) Sunlight, water, and air</span>
+          <span class="opt">(b) Darkness and ice</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question III: Put (✓) or (✗):</span>
+        <span class="q-score">[4 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. An insect's wings are attached to its abdomen. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. Sounds can be classified into high/low pitch and loud/soft volume. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">3. Moving air has kinetic energy that can be utilized to do work. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">4. Clay soil particles drain water very quickly compared to sand. ( &nbsp;&nbsp;&nbsp;&nbsp; )</div>
+      </div>
+    </div>
+
+    <div class="question-block">
+      <div class="q-head">
+        <span>Question IV: Answer the following questions:</span>
+        <span class="q-score">[3 Marks]</span>
+      </div>
+      <div class="q-item">
+        <div class="q-text">1. How did wetting the sand help ancient Egyptian workers transport massive statues?</div>
+        <div class="answer-line"></div>
+      </div>
+      <div class="q-item">
+        <div class="q-text">2. What is the evidence that sound is caused by vibration? Give one simple classroom proof.</div>
+        <div class="answer-line"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: MODEL ANSWERS (PAGE BREAK BEFORE) -->
+  <div class="section-divider answers-theme">
+    🌟 Part 2: Complete Model Answers & Marking Scheme (نماذج الإجابة المعتمدة وتوزيع الدرجات)
+  </div>
+
+  <!-- ANSWERS EXAM 1 -->
+  <div class="answer-key-box">
+    <div class="answer-key-title">
+      <span>Exam (1) - Cairo Model Answers [Total: 15 Marks]</span>
+      <span>نموذج إجابة امتحان محافظة القاهرة</span>
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q1:</span> <span class="ans-correct">1. (a) Butterfly &nbsp;|&nbsp; 2. (b) louder &nbsp;|&nbsp; 3. (b) Stored elastic force &nbsp;|&nbsp; 4. (b) dry sand</span> [4 Marks]
+      <div class="ans-why">💡 تفسير: زيادة سعة الاهتزاز تزيد من طاقة الصوت فيصبح أعلى (louder). خلط الرمل بالماء يقلل الاحتكاك بنسبة 50%.</div>
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q2:</span> <span class="ans-correct">1. (✓) &nbsp;|&nbsp; 2. (✗ - 3 parts: Head, Thorax, Abdomen) &nbsp;|&nbsp; 3. (✓) &nbsp;|&nbsp; 4. (✗ - Clay particles are smaller)</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q3:</span> <span class="ans-correct">1. opaque &nbsp;|&nbsp; 2. 6 (six / 3 pairs) &nbsp;|&nbsp; 3. root (primary root) &nbsp;|&nbsp; 4. vibration</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q4:</span>
+      <div class="ans-correct">1. Because the apparent position of the sun changes across the sky from East to West. [1.5 M]</div>
+      <div class="ans-correct">2. To navigate and roll its dung ball in a straight line using stars and the Milky Way. [1.5 M]</div>
+    </div>
+  </div>
+
+  <!-- ANSWERS EXAM 2 -->
+  <div class="answer-key-box">
+    <div class="answer-key-title">
+      <span>Exam (2) - Giza Model Answers [Total: 15 Marks]</span>
+      <span>نموذج إجابة امتحان محافظة الجيزة</span>
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q1:</span> <span class="ans-correct">1. Habitat &nbsp;|&nbsp; 2. Pupa &nbsp;|&nbsp; 3. Vibration &nbsp;|&nbsp; 4. Clay soil</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q2:</span> <span class="ans-correct">1. (b) reflects &nbsp;|&nbsp; 2. (a) increases &nbsp;|&nbsp; 3. (d) Roots &nbsp;|&nbsp; 4. (b) slow down or stop</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q3:</span> <span class="ans-correct">1. (✓) &nbsp;|&nbsp; 2. (✗ - Plants produce seeds to reproduce) &nbsp;|&nbsp; 3. (✓) &nbsp;|&nbsp; 4. (✗ - drains fast)</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q4:</span>
+      <div class="ans-correct">1. A dark shadow is formed behind the opaque object because it blocks light rays from passing. [1.5 M]</div>
+      <div class="ans-correct">2. Gentle blowing pushes the car a short distance; strong blowing makes it travel much farther. [1.5 M]</div>
+    </div>
+  </div>
+
+  <!-- ANSWERS EXAM 3 -->
+  <div class="answer-key-box">
+    <div class="answer-key-title">
+      <span>Exam (3) - Alexandria Model Answers [Total: 15 Marks]</span>
+      <span>نموذج إجابة امتحان محافظة الإسكندرية</span>
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q1:</span> <span class="ans-correct">Match: (1) &rarr; (d) &nbsp;|&nbsp; (2) &rarr; (b) &nbsp;|&nbsp; (3) &rarr; (a) &nbsp;|&nbsp; (4) &rarr; (c)</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q2:</span> <span class="ans-correct">1. (b) 6 legs &nbsp;|&nbsp; 2. (b) vibrations of vocal cords &nbsp;|&nbsp; 3. (a) Stored energy converts into motion &nbsp;|&nbsp; 4. (b) silt</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q3:</span> <span class="ans-correct">1. (✗ - Light travels in straight lines) &nbsp;|&nbsp; 2. (✓) &nbsp;|&nbsp; 3. (✗ - larger sail moves farther) &nbsp;|&nbsp; 4. (✓)</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q4:</span>
+      <div class="ans-correct">1. Rock (non-living) &nbsp;|&nbsp; 2. Wings (not a main body division) &nbsp;|&nbsp; 3. Plastic (not natural soil) [3 Marks]</div>
+    </div>
+  </div>
+
+  <!-- ANSWERS EXAM 4 -->
+  <div class="answer-key-box">
+    <div class="answer-key-title">
+      <span>Exam (4) - Dakahlia Model Answers [Total: 15 Marks]</span>
+      <span>نموذج إجابة امتحان محافظة الدقهلية</span>
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q1:</span> <span class="ans-correct">1. Head, Thorax, Abdomen &nbsp;|&nbsp; 2. Photosynthesis &nbsp;|&nbsp; 3. Vacuum &nbsp;|&nbsp; 4. increases</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q2:</span> <span class="ans-correct">1. (b) animal dung &nbsp;|&nbsp; 2. (b) at their shortest length &nbsp;|&nbsp; 3. (a) faster than clay &nbsp;|&nbsp; 4. (d) All of the above</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q3:</span> <span class="ans-correct">1. (✗ - Roots grow downward) &nbsp;|&nbsp; 2. (✓) &nbsp;|&nbsp; 3. (✓) &nbsp;|&nbsp; 4. (✗ - non-living don't need food)</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q4:</span>
+      <div class="ans-correct">1. Because leaves absorb sunlight and carbon dioxide to make food through photosynthesis. [1.5 M]</div>
+      <div class="ans-correct">2. Because clay soil holds water and nutrients tightly, keeping moisture for plant roots. [1.5 M]</div>
+    </div>
+  </div>
+
+  <!-- ANSWERS EXAM 5 -->
+  <div class="answer-key-box">
+    <div class="answer-key-title">
+      <span>Exam (5) - Qalyubia Model Answers [Total: 15 Marks]</span>
+      <span>نموذج إجابة امتحان محافظة القليوبية</span>
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q1:</span> <span class="ans-correct">1. (a) Egg -> Larva -> Pupa -> Adult &nbsp;|&nbsp; 2. (a) a loud sound &nbsp;|&nbsp; 3. (a) Kinetic energy &nbsp;|&nbsp; 4. (a) Ethiopian plateau</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q2:</span> <span class="ans-correct">1. six (6) &nbsp;|&nbsp; 2. straight &nbsp;|&nbsp; 3. Clay &nbsp;|&nbsp; 4. stem / cotyledon</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q3:</span> <span class="ans-correct">1. (✓) &nbsp;|&nbsp; 2. (✗ - no vibration = no sound) &nbsp;|&nbsp; 3. (✓) &nbsp;|&nbsp; 4. (✓)</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q4:</span>
+      <div class="ans-correct">1. Vibration stops and the sound ceases immediately. [1.5 M]</div>
+      <div class="ans-correct">2. The sail catches more wind force, and the boat travels farther and faster. [1.5 M]</div>
+    </div>
+  </div>
+
+  <!-- ANSWERS EXAM 6 -->
+  <div class="answer-key-box">
+    <div class="answer-key-title">
+      <span>Exam (6) - Ministry Comprehensive Mock Exam [Total: 15 Marks]</span>
+      <span>نموذج إجابة امتحان الوزارة الاسترشادي الشامل</span>
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q1:</span> <span class="ans-correct">1. Metamorphosis / Life cycle &nbsp;|&nbsp; 2. Shadow &nbsp;|&nbsp; 3. Wind force &nbsp;|&nbsp; 4. Nile Silt / Alluvial clay</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q2:</span> <span class="ans-correct">1. (a) Antennae &nbsp;|&nbsp; 2. (a) Reflection &nbsp;|&nbsp; 3. (a) farther than 5 turns &nbsp;|&nbsp; 4. (a) Sunlight, water, and air</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q3:</span> <span class="ans-correct">1. (✗ - Wings and legs attached to thorax) &nbsp;|&nbsp; 2. (✓) &nbsp;|&nbsp; 3. (✓) &nbsp;|&nbsp; 4. (✗ - Sand drains faster)</span> [4 Marks]
+    </div>
+    <div class="ans-item">
+      <span class="ans-num">Q4:</span>
+      <div class="ans-correct">1. Wetting the sand creates water bridges that make it firm, reducing friction by nearly 50%. [1.5 M]</div>
+      <div class="ans-correct">2. Rice grains jumping on a beaten drum, or feeling vocal cords vibrating in the throat while speaking. [1.5 M]</div>
+    </div>
+  </div>
+
+  <div style="text-align:center; padding:15px 0; font-size:12px; color:#64748b; font-family:'Cairo', sans-serif;">
+    🏆 مع تمنياتنا لجميع طلاب الصف الرابع الابتدائي بالتفوق والدرجات النهائية في مادة الساينس 🌟
+  </div>
+
+</div>
+
+</body>
+</html>

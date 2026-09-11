@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><title>امتحانات الشهور • لغة عربية الصف الرابع</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><style>
+  :root {
+    --ar-primary: #7c3aed;
+    --ar-dark: #5b21b6;
+    --ar-light: #f5f3ff;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Cairo', sans-serif; background: var(--bg-page); color: var(--text-main); line-height: 1.7; padding-bottom: 60px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+  .header-box { background: linear-gradient(135deg, #5b21b6, #7c3aed); color: white; padding: 30px; border-radius: 20px; margin-bottom: 25px; text-align: center; box-shadow: 0 10px 25px rgba(124, 58, 237, 0.25); }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .nav-strip { display: flex; justify-content: space-between; align-items: center; background: white; padding: 12px 20px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); margin-bottom: 25px; }
+  .nav-btn { text-decoration: none; color: #475569; font-size: 13.5px; font-weight: 700; }
+  .nav-btn:hover { color: var(--ar-primary); }
+  .section-block { background: white; border-radius: 18px; padding: 26px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+  .sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #f5f3ff; }
+  .sec-icon { width: 38px; height: 38px; background: var(--ar-light); color: var(--ar-primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; }
+  .sec-title { font-size: 20px; font-weight: 800; color: #0f172a; }
+  .concept-card { background: #fff; border-right: 4px solid var(--ar-primary); padding: 16px 20px; border-radius: 12px; margin-bottom: 16px; border: 1px solid #f8fafc; border-right-width: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+  .concept-card h3 { font-size: 16px; font-weight: 800; color: var(--ar-dark); margin-bottom: 6px; }
+  .concept-card p { font-size: 14px; color: #334155; }
+  .golden-tip { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-right: 4px solid #f59e0b; border-radius: 12px; padding: 14px 18px; margin: 14px 0; font-size: 13.5px; color: #78350f; }
+  .q-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+  .q-text { font-size: 14.5px; font-weight: 700; color: #1e293b; margin-bottom: 10px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .opt-btn { background: white; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 8px; font-size: 13px; text-align: right; }
+  .ans-box { background: #f0fdf4; border: 1.5px dashed #22c55e; border-radius: 14px; padding: 18px; margin-top: 15px; }
+  .ans-title { font-size: 15px; font-weight: 800; color: #15803d; margin-bottom: 10px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #166534; }
+  @media print { .nav-strip { display: none !important; } body { background: white; } .section-block { break-inside: avoid; border: 1px solid #ccc; } }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style></head>
+<body><div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس اللغة العربية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header-box"><h1>📅 امتحانات شهري أكتوبر ونوفمبر • لغة عربية</h1><p>6 نماذج امتحانية مطابقة للورقة الوزارية مع الإجابات النموذجية</p></div>
+  <div class="section-block">
+    <h3 style="color:var(--ar-dark); margin-bottom:12px;">نموذج امتحان شهر أكتوبر (1)</h3>
+    <div class="q-item"><div class="q-text">أولاً القراءة المتحررة: عاد مجدي يعقوب ليخدم وطنه، فالوطن له فضل عظيم على أبنائه. هات مرادف (يخدم): [ يعاون / يساعد / يكرم / يعلم ]</div></div>
+    <div class="q-item"><div class="q-text">ثانياً القواعد النحوية: "الحدائقُ جميلةٌ" .. الحدائق مبتدأ مرفوع وعلامة رفعه: [ الألف / الواو / الضمة / الياء ]</div></div>
+    <div class="q-item"><div class="q-text">ثالثاً التعبير الكتابي: اكتب جملة ختامية لرسالة شكر إلى معلمك: ............................................................</div></div>
+  </div>
+  <div class="ans-box"><div class="ans-title">✅ الإجابات:</div><p>1. يساعد ويعاون | 2. الضمة (لأنه جمع تكسير) | 3. ولك مني كل التقدير والاحترام يا معلمي الفاضل.</p></div>
+</div>
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+# Ignore giant files over 100MB
+*ذاكرولي*.pdf
+الامتحان*.pdf
+المعاصر*.pdf
+*.zip
+scratch/
+temp_*
+__pycache__/
+.system_generated/
+*.log

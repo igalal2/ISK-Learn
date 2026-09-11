@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منظومة الدراسات الاجتماعية • الصف الرابع الابتدائي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: #1c1917;
+    color: #f5f5f4;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .header {
+    text-align: center;
+    background: linear-gradient(135deg, #b45309, #d97706);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(217, 119, 6, 0.3);
+    margin-bottom: 25px;
+  }
+  .header h1 { font-size: 26px; font-weight: 900; margin-bottom: 4px; color: #ffffff; }
+  .header p { font-size: 14px; opacity: 0.95; color: #fef3c7; }
+
+  .banner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+    margin-bottom: 25px;
+  }
+  .special-card {
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .card-exams { background: linear-gradient(135deg, #047857, #059669); border: 1.5px solid #34d399; }
+  .card-monthly { background: linear-gradient(135deg, #b45309, #d97706); border: 1.5px solid #f59e0b; }
+  .card-revision { background: linear-gradient(135deg, #4338ca, #3730a3); border: 1.5px solid #818cf8; }
+  
+  .special-card h2 { font-size: 16.5px; font-weight: 900; margin-bottom: 3px; color: #ffffff; }
+  .special-card p { font-size: 11.5px; color: #e2e8f0; opacity: 0.95; }
+  .btn-group { display: flex; gap: 8px; }
+  .btn {
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+  }
+  .btn-white { background: #ffffff; color: #92400e; }
+  .btn-white:hover { background: #fffbeb; transform: translateY(-2px); }
+  .btn-amber { background: #f59e0b; color: #451a03; }
+  .btn-amber:hover { background: #fbbf24; transform: translateY(-2px); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #292524;
+    border: 1px solid #44403c;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s;
+  }
+  .card:hover {
+    border-color: #f59e0b;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  .card-badge {
+    background: #b45309;
+    color: white;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .card h3 { font-size: 14.5px; font-weight: 800; margin-bottom: 6px; color: #fafaf9; }
+  .card p { font-size: 11.5px; color: #a8a29e; line-height: 1.5; margin-bottom: 12px; }
+  .card-actions { display: flex; gap: 8px; }
+  .btn-view { background: #44403c; color: #e7e5e4; flex: 1; text-align: center; justify-content: center; }
+  .btn-view:hover { background: #57534e; }
+  .btn-pdf { background: #d97706; color: white; flex: 1; text-align: center; justify-content: center; }
+  .btn-pdf:hover { background: #b45309; }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الدراسات الاجتماعية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>منظومة مذكرات الدراسات الاجتماعية الشاملة</h1>
+    <p>الصف الرابع الابتدائي • الفصل الدراسي الأول • إعداد احترافي متكامل (شرح + خرائط صماء + بنك أسئلة + إجابات نموذجية)</p>
+  </div>
+
+  <div class="banner-grid">
+    <div class="special-card card-exams">
+      <div>
+        <h2>🏆 ملزمة امتحانات نهاية الترم الشاملة</h2>
+        <p>6 امتحانات محافظات رسمية بالخرائط الصماء (30 درجة) + الحل الكامل</p>
+      </div>
+      <div class="btn-group">
+        <a href="Final_Term_Exams_Social_Studies_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Final_Term_Exams_Social_Studies_PRIM4.pdf" target="_blank" class="btn btn-amber" style="background:#34d399; color:#064e3b;">تحميل PDF</a>
+      </div>
+    </div>
+    
+    <div class="special-card card-monthly">
+      <div>
+        <h2>📅 ملزمة امتحانات الشهور (أكتوبر & نوفمبر)</h2>
+        <p>6 اختبارات شهرية نموذجية بالخرائط الصماء (15 درجة) + نماذج الحل</p>
+      </div>
+      <div class="btn-group">
+        <a href="Monthly_Exams_Social_Studies_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Monthly_Exams_Social_Studies_PRIM4.pdf" target="_blank" class="btn btn-amber">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="special-card card-revision">
+      <div>
+        <h2>💡 ملزمة المراجعة النهائية ليلة الامتحان</h2>
+        <p>الدليل الذهبي الشامل للخريطة وأهم 25 موقعاً + أهم أسئلة بم تفسر</p>
+      </div>
+      <div class="btn-group">
+        <a href="Final_Revision_Social_Studies_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Final_Revision_Social_Studies_PRIM4.pdf" target="_blank" class="btn btn-amber" style="background:#818cf8; color:#1e1b4b;">تحميل PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الأولى • الدرس 1</span>
+        <h3>الموقع والاتجاهات وعناصر الخريطة</h3>
+        <p>عناصر الخريطة الخمسة، وردة البوصلة، مقياس الرسم، خطوط الطول ودوائر العرض، وشرح مبسط بالبلدي.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit1_Part1_Directions_Map.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit1_Part1_Directions_Map.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الأولى • الدرس 2</span>
+        <h3>تطور الخريطة والمصادر الأولية والثانوية</h3>
+        <p>البرديات، الصور الجوية والفضائية، التمييز بين المصادر الأولية والثانوية، والتفرقة بين الحقيقة والرأي.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit1_Part2_MapDev_Sources.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit1_Part2_MapDev_Sources.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الثانية • الدرس 1</span>
+        <h3>مدينتنا وتطور وسائل النقل والعمران</h3>
+        <p>سكان الريف والحضر، تطور وسائل النقل من الدواب إلى المونوريل والقطار الكهربائي السريع.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit2_Part1_OurCity_Evolution.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit2_Part1_OurCity_Evolution.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الثانية • الدرس 2</span>
+        <h3>الخدمات والمدن الذكية والمستدامة</h3>
+        <p>الفرق بين الخدمات والسلع، مبادرة حياة كريمة، والعاصمة الإدارية الجديدة كنموذج للمدن الخضراء المستدامة.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit2_Part2_Services_FutureCities.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit2_Part2_Services_FutureCities.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الثانية • الدرس 3</span>
+        <h3>محافظتي (الحدود الإدارية والعيد القومي والشعار)</h3>
+        <p>محافظات مصر الـ 27 وتقسيمها الإداري، قصة العيد القومي للقاهرة وجوهر الصقلي، وتفاصيل شعار العاصمة.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit2_Part3_MyGovernorate.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit2_Part3_MyGovernorate.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الثالثة • الدرس 1</span>
+        <h3>علم مصر وموقعها بين قارات العالم</h3>
+        <p>موقع مصر في قلب قارات العالم القديم، قناة السويس القديمة والجديدة، دلالات ألوان علم مصر، والنشيد الوطني.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit3_Part1_EgyptFlag_WorldMap.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit3_Part1_EgyptFlag_WorldMap.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الثالثة • الدرس 2</span>
+        <h3>مظاهر سطح مصر وبيئاتها وتضاريسها</h3>
+        <p>الجبال والهضاب والسهول والمنخفضات، خريطة مستويات الارتفاع، البيئات المصرية الثلاث، والطقس والمناخ.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit3_Part2_Egypt_Landforms.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit3_Part2_Egypt_Landforms.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">الوحدة الثالثة • الدرس 3</span>
+        <h3>الموارد الطبيعية والتراث والرواد الوطنيين</h3>
+        <p>الموارد المائية والنباتية والمعدنية، الحرف التراثية، التنمية المستدامة، ورواد الوطنية كجمال حمدان وطلعت حرب.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Unit3_Part3_Resources_Monuments.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Unit3_Part3_Resources_Monuments.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

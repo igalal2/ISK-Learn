@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 4: My Busy Day! • Connect KG2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      padding-bottom: 80px;
+    }
+    .en { font-family: 'Poppins', sans-serif; direction: ltr; display: inline-block; font-weight: 700; }
+    .container { max-width: 1060px; margin: 0 auto; padding: 15px 20px; }
+    
+    /* NAV STRIP */
+    .nav-bar {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border);
+      position: sticky; top: 0; z-index: 1000;
+      padding: 12px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .nav-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .nav-brand { font-weight: 900; font-size: 15.5px; color: var(--text); display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-nav {
+      text-decoration: none; padding: 6px 14px; border-radius: 20px;
+      font-size: 12.5px; font-weight: 800; transition: all 0.2s;
+    }
+    .btn-home { background: #0f172a; color: white; }
+    .btn-portal { background: var(--primary); color: white; }
+    .btn-nav:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    /* HERO HEADER */
+    .hero-box {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      border-radius: 24px;
+      padding: 35px 28px;
+      margin: 20px 0 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 800;
+      margin-bottom: 12px; backdrop-filter: blur(6px);
+    }
+    .hero-title { font-size: 26px; font-weight: 900; line-height: 1.35; margin-bottom: 8px; }
+    .hero-sub { font-size: 14.5px; opacity: 0.95; max-width: 860px; line-height: 1.6; }
+
+    /* CONTENT SECTIONS */
+    .content-card {
+      background: white;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      padding: 26px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.25s ease;
+    }
+    .content-card:hover { border-color: var(--primary); }
+    .card-title {
+      font-size: 19px; font-weight: 900; color: var(--primary-dark);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+      border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;
+    }
+
+    /* EDUCATIONAL IMAGE BOX */
+    .edu-img-wrap {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 18px 0;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .edu-img-wrap:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .edu-img-wrap img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      max-height: 500px;
+      object-fit: contain;
+    }
+    .edu-img-caption {
+      background: #ffffff;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #334155;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* VOCAB / INFO GRID */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .info-pill {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .info-pill:hover {
+      background: white;
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    }
+    .info-icon { font-size: 34px; margin-bottom: 8px; }
+    .info-title { font-size: 15.5px; font-weight: 900; color: #0f172a; margin-bottom: 4px; }
+    .info-desc { font-size: 13px; color: var(--text-muted); font-weight: 700; margin-bottom: 8px; }
+
+    /* AUDIO BUTTON */
+    .audio-btn {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+    .audio-btn:hover { background: #fde047; transform: scale(1.04); }
+
+    /* STORY CARD */
+    .story-box {
+      background: #fffbeb;
+      border: 2px dashed #fcd34d;
+      border-radius: 18px;
+      padding: 22px;
+      margin: 18px 0;
+    }
+    .story-title { font-size: 17px; font-weight: 900; color: #92400e; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .story-text { font-size: 15px; line-height: 1.9; color: #78350f; font-weight: 600; }
+
+    /* LETTER BADGES (TASHKEEL) */
+    .letters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .letter-card {
+      background: white;
+      border: 2px solid #e0f2fe;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+    .letter-big {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .harakat-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .haraka-tag {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 3px 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    /* EXAM & MODEL ANSWER */
+    .exam-question {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .q-head { font-size: 15.5px; font-weight: 900; color: #0f172a; margin-bottom: 10px; }
+    .q-options { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+    .q-opt {
+      background: white; border: 1px solid #cbd5e1;
+      padding: 10px 16px; border-radius: 12px; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+    }
+    .q-opt:hover { background: #eff6ff; border-color: #93c5fd; }
+    .btn-reveal {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      transition: all 0.2s;
+    }
+    .btn-reveal:hover { opacity: 0.92; transform: translateY(-1px); }
+    .model-answer {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 18px;
+      background: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      color: #065f46;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 22px; }
+      .info-grid, .letters-grid { grid-template-columns: 1fr; }
+    }
+  
+  /* PRINT OPTIMIZATION FOR PDF EXPORT */
+  @media print {
+    .nav-bar, .sticky-nav-strip, #universalLightboxModal, .btn-reveal, .speak-btn { display: none !important; }
+    body { background: white !important; color: #000 !important; padding: 0 !important; font-size: 14px !important; }
+    .container { max-width: 100% !important; padding: 0 !important; width: 100% !important; }
+    .hero-box, .header-box { box-shadow: none !important; break-inside: avoid; border-radius: 12px !important; }
+    .card, .story-card, .activity-box, .vocab-card, .exam-question, .rule-box { break-inside: avoid; box-shadow: none !important; border: 1px solid #ddd !important; }
+    .model-answer { display: block !important; border: 1px solid #10b981 !important; }
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <span>🎓</span>
+      <span>منظومة رياض الأطفال KG2 • Connect & تواصل 2.0</span>
+    </a>
+    <div class="nav-links">
+        <button onclick="window.print()" class="btn-nav btn-print" style="background:#f1f5f9; color:#0f172a; border:1.5px solid #cbd5e1; cursor:pointer; font-weight:800;" title="طباعة أو حفظ الدرس كملف PDF">🖨️ طباعة / حفظ PDF</button>
+      <a href="../index.html" class="btn-nav btn-home">🏠 البوابة الشاملة</a>
+      <a href="../بوابة_رياض_الأطفال_KG2.html" class="btn-nav btn-home">🌟 بوابة KG2 الرئيسية</a>
+      <a href="Index.html" class="btn-nav btn-portal">📋 فهرس وحدات KG2</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero-box">
+    <div class="hero-badge">✨ Connect KG2 • Unit 4 • روتين يومي ووجبات وعادات صحية</div>
+    <h1 class="hero-title">Unit 4: My Busy Day! (يومي الحافل بالنشاط والعمل)</h1>
+    <p class="hero-sub">منهج كونكت كى جى 2 المعتمد • كتاب المعاصر • الروتين اليومي والوجبات والحروف Ww و Cc و Rr و Uu مع النطق التفاعلي</p>
+  </div>
+
+
+  <!-- SECTION 1: BANNER & OVERVIEW -->
+  <div class="content-card">
+    <div class="card-title"><span>🌟</span><span>كتاب المعاصر: غلاف ومخرجات الوحدة الرابعة</span></div>
+    <div class="edu-img-wrap">
+      <img src="images/u4_my_busy_day_banner.png" alt="Unit 4 Banner">
+      <div class="edu-img-caption"><span>📸</span><span>غلاف الوحدة الرابعة رسمياً من كتاب المعاصر: My Busy Day!</span></div>
+    </div>
+    <p style="font-size: 15px;">في هذه الوحدة يتعرف الطفل على روتينه اليومي الصحي منذ الاستيقاظ في الصباح وحتى النوم ليلاً، ووجبات اليوم الثلاث (الفطور والغداء والعشاء)، وعادات النظافة وشرب الماء النظيف، والحروف Ww, Cc, Rr, Uu.</p>
+  </div>
+
+  <!-- SECTION 2: DAILY ROUTINE & MEALS -->
+  <div class="content-card">
+    <div class="card-title"><span>⏰</span><span>الروتين اليومي والوجبات الصحية (Daily Routine & Meals) من المعاصر</span></div>
+    <div class="edu-img-wrap">
+      <img src="images/u4_daily_routine_moasser.png" alt="Daily Routine Illustrated">
+      <div class="edu-img-caption"><span>📸</span><span>كتاب المعاصر: الاستيقاظ، الوجبات، وغسيل الأسنان وتنظيم اليوم</span></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-pill">
+        <div class="info-icon">🌅</div>
+        <div class="info-title en">morning</div>
+        <div class="info-desc">الصباح الباكر (وقت الاستيقاظ)</div>
+        <button class="audio-btn" onclick="speak('morning', 'en-US')">🔊 نطق الكلمة</button>
+        <button class="audio-btn" onclick="speak('Good morning!', 'en-US')">💬 جملة كاملة</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🍳</div>
+        <div class="info-title en">breakfast</div>
+        <div class="info-desc">وجبة الفطور اللذيذة</div>
+        <button class="audio-btn" onclick="speak('breakfast', 'en-US')">🔊 نطق الكلمة</button>
+        <button class="audio-btn" onclick="speak('I eat breakfast in the morning', 'en-US')">💬 جملة كاملة</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🍲</div>
+        <div class="info-title en">lunch</div>
+        <div class="info-desc">وجبة الغداء في الظهيرة</div>
+        <button class="audio-btn" onclick="speak('lunch', 'en-US')">🔊 نطق الكلمة</button>
+        <button class="audio-btn" onclick="speak('I have lunch in the afternoon', 'en-US')">💬 جملة كاملة</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🥗</div>
+        <div class="info-title en">dinner</div>
+        <div class="info-desc">وجبة العشاء الخفيفة</div>
+        <button class="audio-btn" onclick="speak('dinner', 'en-US')">🔊 نطق الكلمة</button>
+        <button class="audio-btn" onclick="speak('I eat healthy dinner', 'en-US')">💬 جملة كاملة</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🪥</div>
+        <div class="info-title en">brush teeth</div>
+        <div class="info-desc">أغسل أسناني بالفرشاة</div>
+        <button class="audio-btn" onclick="speak('brush my teeth', 'en-US')">🔊 نطق الكلمة</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">💧</div>
+        <div class="info-title en">water</div>
+        <div class="info-desc">ماء نقي للشرب والانتعاش</div>
+        <button class="audio-btn" onclick="speak('drink water', 'en-US')">🔊 نطق الكلمة</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🌙</div>
+        <div class="info-title en">night / sleep</div>
+        <div class="info-desc">الليل ووقت النوم المريح</div>
+        <button class="audio-btn" onclick="speak('good night, go to sleep', 'en-US')">🔊 نطق الكلمة</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: PHONICS WW, CC, RR, UU -->
+  <div class="content-card">
+    <div class="card-title"><span>🔤</span><span>صوتيات الوحدة الرابعة من المعاصر: الحروف Ww, Cc, Rr, Uu</span></div>
+    <div class="edu-img-wrap">
+      <img src="images/u4_phonics_ww_cc_rr_uu.png" alt="Phonics Letters Ww Cc Rr Uu">
+      <div class="edu-img-caption"><span>📸</span><span>كتاب المعاصر: نطق وتدريبات الحروف Ww و Cc و Rr و Uu</span></div>
+    </div>
+    <div class="info-grid">
+      <div class="info-pill">
+        <div class="letter-big en">W w</div>
+        <div class="info-title en">Sound: /w/</div>
+        <div class="info-desc">صوت الواو:</div>
+        <div style="margin: 8px 0;"><span class="en" style="font-weight: 800; color: #0284c7;">water • watch • wolf</span></div>
+        <button class="audio-btn" onclick="speak('water, watch, wolf', 'en-US')">🔊 استمع للكلمات</button>
+      </div>
+      <div class="info-pill">
+        <div class="letter-big en">C c</div>
+        <div class="info-title en">Sound: /k/</div>
+        <div class="info-desc">صوت الكاف:</div>
+        <div style="margin: 8px 0;"><span class="en" style="font-weight: 800; color: #0284c7;">cat • camel • colors</span></div>
+        <button class="audio-btn" onclick="speak('cat, camel, colors', 'en-US')">🔊 استمع للكلمات</button>
+      </div>
+      <div class="info-pill">
+        <div class="letter-big en">R r</div>
+        <div class="info-title en">Sound: /r/</div>
+        <div class="info-desc">صوت الراء:</div>
+        <div style="margin: 8px 0;"><span class="en" style="font-weight: 800; color: #0284c7;">rabbit • ruler • rice</span></div>
+        <button class="audio-btn" onclick="speak('rabbit, ruler, rice', 'en-US')">🔊 استمع للكلمات</button>
+      </div>
+      <div class="info-pill">
+        <div class="letter-big en">U u</div>
+        <div class="info-title en">Sound: /ʌ/</div>
+        <div class="info-desc">صوت الفتحة القصيرة (آه):</div>
+        <div style="margin: 8px 0;"><span class="en" style="font-weight: 800; color: #0284c7;">umbrella • under</span></div>
+        <button class="audio-btn" onclick="speak('umbrella, under', 'en-US')">🔊 استمع للكلمات</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: HEALTHY HABITS -->
+  <div class="content-card">
+    <div class="card-title"><span>🌟</span><span>قيم وعادات يومية صحية (Healthy Daily Habits)</span></div>
+    <div style="background: #f0fdfa; border: 1.5px solid #99f6e4; border-radius: 16px; padding: 20px;">
+      <h3 style="color: #0f766e; font-size: 16px; margin-bottom: 8px;">كيف أحافظ على صحتي ونشاطي طوال اليوم؟</h3>
+      <ul style="margin: 8px 24px; font-size: 14.5px; color: #115e59;">
+        <li><span class="en">I drink clean water.</span> (أشرب الكثير من الماء النقي)</li>
+        <li><span class="en">I wash my hands with soap.</span> (أغسل يدي بالماء والصابون قبل وبعد الأكل)</li>
+        <li><span class="en">I brush my teeth twice a day.</span> (أغسل أسناني صباحاً ومساءً)</li>
+        <li><span class="en">I sleep early at night.</span> (أنام مبكراً لأستيقظ بكامل الحيوية)</li>
+      </ul>
+      <button class="audio-btn" onclick="speak('I drink water. I brush my teeth. I sleep early at night.', 'en-US')">🔊 استمع للعادات الصحية</button>
+    </div>
+  </div>
+
+  <!-- SECTION 5: UNIT SONG -->
+  <div class="content-card">
+    <div class="card-title"><span>🎵</span><span>أنشودة الوحدة: Brush Your Teeth Chant</span></div>
+    <div class="story-box">
+      <div class="story-title"><span>🎤</span><span class="en">Sing and brush together!</span></div>
+      <div class="story-text en" style="direction: ltr; text-align: left; line-height: 2;">
+        Up and down, round and round,<br>
+        Brush your teeth with a happy sound!<br>
+        Wash your face, drink your water,<br>
+        Bright happy son and lovely daughter!
+      </div>
+      <button class="audio-btn" style="margin-top: 12px;" onclick="speak('Up and down, round and round, brush your teeth with a happy sound! Wash your face, drink your water, bright happy son and lovely daughter!', 'en-US')">🔊 استمع للأنشودة</button>
+    </div>
+  </div>
+
+  <!-- SECTION 6: INTERACTIVE PRACTICE & EXAM -->
+  <div class="content-card">
+    <div class="card-title"><span>📝</span><span>اختبار الوحدة التفاعلي (Interactive Unit Quiz) مع الحل النموذجي</span></div>
+    
+    <div class="exam-question">
+      <div class="q-head">1. الوجبة التي نتناولها في الصباح الباكر بعد الاستيقاظ هي:</div>
+      <div class="q-options">
+        <div class="q-opt" onclick="speak('breakfast', 'en-US')">A) breakfast (الفطور) 🍳</div>
+        <div class="q-opt" onclick="speak('dinner', 'en-US')">B) dinner (العشاء) 🌙</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_u4_1')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_u4_1">الإجابة الصحيحة: <strong>A) breakfast (الفطور)</strong> - نأكل الفطور الصحي لنبدأ يومنا بالنشاط.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">2. ما الحرف الأول في كلمة <span class="en">water</span> (ماء) وكلمة <span class="en">watch</span> (ساعة يد)؟</div>
+      <div class="q-options">
+        <div class="q-opt">A) Letter Ww 💧</div>
+        <div class="q-opt">B) Letter Cc 🐱</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_u4_2')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_u4_2">الإجابة الصحيحة: <strong>A) Letter Ww</strong> بصوت /w/ مثل <span class="en">water, watch, wolf</span>.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">3. حيوان الصحراء الشهير <span class="en">camel</span> يبدأ بحرف:</div>
+      <div class="q-options">
+        <div class="q-opt">A) Letter Cc 🐪</div>
+        <div class="q-opt">B) Letter Rr 🐰</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_u4_3')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_u4_3">الإجابة الصحيحة: <strong>A) Letter Cc</strong> بصوت /k/ مثل <span class="en">camel, cat, colors</span>.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">4. كلمة <span class="en">umbrella</span> (شمسية المطر ☂️) تبدأ بحرف:</div>
+      <div class="q-options">
+        <div class="q-opt">A) Letter Uu ☂️</div>
+        <div class="q-opt">B) Letter Bb 🚌</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_u4_4')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_u4_4">الإجابة الصحيحة: <strong>A) Letter Uu</strong> بصوت /ʌ/ مثل <span class="en">umbrella, under</span>.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">5. كلمة <span class="en">rabbit</span> (أرنب 🐰) تبدأ بحرف:</div>
+      <div class="q-options">
+        <div class="q-opt">A) Letter Rr 🐇</div>
+        <div class="q-opt">B) Letter Ww 🐺</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_u4_5')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_u4_5">الإجابة الصحيحة: <strong>A) Letter Rr</strong> مثل <span class="en">rabbit, ruler, rice</span>.</div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<script>
+function speak(text, lang = 'ar-SA') {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  } else {
+    alert('خاصية النطق غير مدعومة في متصفحك.');
+  }
+}
+
+function toggleAnswer(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.style.display === 'block') {
+    el.style.display = 'none';
+  } else {
+    el.style.display = 'block';
+  }
+}
+</script>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

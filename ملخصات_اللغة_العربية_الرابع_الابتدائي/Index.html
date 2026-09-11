@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head><meta charset="UTF-8"><title>فهرس اللغة العربية • الصف الرابع الابتدائي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet"><style>
+  :root {
+    --c-primary: #8b5cf6;
+    --c-dark: #6d28d9;
+    --c-light: #f5f3ff;
+    --c-border: #ddd6fe;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding-bottom: 70px;
+    font-size: 15px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 20px; }
+
+  /* PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--c-primary);
+    padding: 12px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #1e293b;
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  .btn-portal-back:hover { background: #0f172a; }
+  .btn-index-back {
+    background: var(--c-light);
+    color: var(--c-dark) !important;
+    border: 1.5px solid var(--c-primary);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: var(--c-primary); color: white !important; }
+  .btn-print-action {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .btn-print-action:hover { border-color: var(--c-primary); color: var(--c-primary); }
+
+  .header-box {
+    background: linear-gradient(135deg, var(--c-dark), var(--c-primary));
+    color: white;
+    padding: 34px 28px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .header-box p { font-size: 15px; opacity: 0.95; max-width: 800px; margin: 0 auto; }
+
+  .section-block {
+    background: white;
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    border: 1.5px solid #f1f5f9;
+  }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--c-light);
+  }
+  .sec-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--c-light);
+    color: var(--c-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .sec-title { font-size: 21px; font-weight: 900; color: #0f172a; }
+
+  .concept-card {
+    background: #fff;
+    border-right: 5px solid var(--c-primary);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #f1f5f9;
+    border-right-width: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .concept-card h3 { font-size: 17.5px; font-weight: 800; color: var(--c-dark); margin-bottom: 8px; }
+  .concept-card p { font-size: 14.5px; color: #334155; line-height: 1.65; }
+
+  .golden-tip {
+    background: linear-gradient(135deg, #fef3c7, #fef9c3);
+    border-right: 5px solid #f59e0b;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 14.5px;
+    color: #78350f;
+    font-weight: 700;
+  }
+
+  .q-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .q-text { font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  .opt-btn {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .ans-box {
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .ans-title { font-size: 16px; font-weight: 900; color: #15803d; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #166534; font-weight: 700; }
+
+  @media print {
+    .sticky-nav-strip { display: none !important; }
+    body { background: white; }
+    .section-block { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 16px; padding: 18px; }
+  }
+</style></head>
+<body><div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة للبوابة الرئيسية</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس اللغة العربية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header-box">
+    <h1>📖 منصة اللغة العربية • الصف الرابع الابتدائي</h1>
+    <p>الشرح الكامل والمفصل للوحدات، القواعد النحوية الشاملة، قوالب التعبير الكتابي، وبنك الملازم والامتحانات</p>
+  </div>
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:18px;">
+    <div class="concept-card"><h3>الوحدة 1: وطني</h3><p>د. مجدي يعقوب، مريم ومريم، الاسم والجملة الاسمية، وصف حدث.</p><a href="Unit1_Watani.html" style="color:var(--c-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+    <div class="concept-card"><h3>الوحدة 2: فكري عملي</h3><p>كرة السرعة، رفع المبتدأ والخبر بالألف والواو، كتابة نص وصفي.</p><a href="Unit2_Fekri_Amali.html" style="color:var(--c-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+    <div class="concept-card"><h3>الوحدة 3: حقوقي وواجباتي</h3><p>وثيقة حقوق الطفل، الضمائر بأنواعها، أسماء الإشارة، كتابة رسالة.</p><a href="Unit3_Child_Rights.html" style="color:var(--c-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+    <div class="concept-card"><h3>الوحدة 4: التطوع وإعادة التدوير</h3><p>طائر النورس، إعادة التدوير، الجملة الفعلية ورفع الفاعل، كتابة إعلان.</p><a href="Unit4_Community_Recycling.html" style="color:var(--c-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+    <div class="concept-card"><h3>📅 امتحانات الشهور (أكتوبر ونوفمبر)</h3><p>نماذج اختبارات شهرية نموذجية مع الإجابات.</p><a href="Monthly_Exams_Arabic_PRIM4.html" style="color:var(--c-primary); font-weight:800; text-decoration:none;">فتح الملزمة ➡️</a></div>
+    <div class="concept-card"><h3>💡 المراجعة النهائية ليلة الامتحان</h3><p>كبسولة القواعد النحوية والإملائية الشاملة.</p><a href="Final_Revision_Arabic_PRIM4.html" style="color:var(--c-primary); font-weight:800; text-decoration:none;">فتح الملزمة ➡️</a></div>
+    <div class="concept-card"><h3>🏆 امتحانات المحافظات ونهاية الترم</h3><p>6 امتحانات محافظات كاملة مع الحلول الرسمية.</p><a href="Final_Term_Exams_Arabic_PRIM4.html" style="color:var(--c-primary); font-weight:800; text-decoration:none;">فتح الملزمة ➡️</a></div>
+  </div>
+</div>
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body></html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Final Revision Booklet • Science Primary 4</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', 'Cairo', sans-serif;
+    color: #0f172a;
+    background: #f8fafc;
+    line-height: 1.38;
+    font-size: 10.5px;
+    padding: 8px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .booklet-header {
+    background: linear-gradient(135deg, #065f46, #059669);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .booklet-header h1 { font-size: 19px; font-weight: 900; margin-bottom: 2px; }
+  .booklet-header .subtitle { font-size: 12px; font-family: 'Cairo', sans-serif; font-weight: 700; opacity: 0.95; }
+  
+  .section-banner {
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin: 6px 0;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 800;
+    font-size: 11.5px;
+    break-inside: avoid;
+  }
+  .banner-oct { background: linear-gradient(135deg, #0284c7, #0369a1); }
+  .banner-nov { background: linear-gradient(135deg, #b45309, #d97706); }
+  .banner-ans { background: linear-gradient(135deg, #047857, #059669); }
+  .banner-rev { background: linear-gradient(135deg, #4338ca, #6366f1); }
+
+  .exam-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid #059669;
+    border-radius: 7px;
+    padding: 7px 11px;
+    margin-bottom: 7px;
+    break-inside: avoid;
+  }
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #e2e8f0;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+  }
+  .exam-title { font-size: 12px; font-weight: 800; color: #065f46; font-family: 'Cairo', sans-serif; }
+  .marks-badge { background: #dcfce7; color: #166534; padding: 1px 6px; border-radius: 4px; font-size: 9px; font-weight: 700; }
+
+  .q-item {
+    padding: 3px 0;
+    border-bottom: 1px dashed #f1f5f9;
+    font-size: 10px;
+  }
+  .q-item:last-child { border-bottom: none; }
+  .ar-hint { font-family: 'Cairo', sans-serif; color: #64748b; font-size: 9px; margin-top: 1px; }
+
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 9.5px; break-inside: avoid; }
+  th { background: #059669; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #059669; font-family: 'Cairo', sans-serif; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+
+  .figure-box {
+    text-align: center;
+    margin: 6px auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+  .figure-box .caption {
+    font-size: 9.5px;
+    color: #475569;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin: 5px 0;
+    font-family: 'Cairo', sans-serif;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 10.5px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس العلوم (Science)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="booklet-header" style="background: linear-gradient(135deg, #4338ca, #6366f1);">
+  <h1>Comprehensive Final Revision • ملزمة المراجعة النهائية ليلة الامتحان</h1>
+  <div class="subtitle">مادة العلوم (Science) • الصف الرابع الابتدائي • الفصل الدراسي الأول 2025 / 2026</div>
+  <div style="margin-top: 5px; font-size: 10px; background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 6px; display: inline-block;">
+    🌟 الكبسولة الذهبية: أهم المفاهيم، جداول المقارنات، وأشهر أسئلة علل المتوقعة 100%
+  </div>
+</div>
+
+<div class="figure-box" style="margin: 6px auto;">
+  <img src="images/ch4_light_reflection.png" alt="Light Reflection" style="max-height: 180px;">
+  <div class="caption">الشكل: قوانين الضوء وانعكاسه على الأسطح اللامعة والخشنة (Light Reflection)</div>
+</div>
+
+<div class="exam-box" style="border-left-color: #6366f1; padding: 8px;">
+  <div class="exam-title" style="color: #4338ca; font-size: 11.5px;">🔑 Essential Definitions & Scientific Terms (المفاهيم والمصطلحات الأساسية):</div>
+  <table>
+    <tr><th style="width:28%; background:#4338ca;">Term</th><th style="width:42%; background:#4338ca;">Scientific Definition</th><th style="background:#4338ca;">المعنى بالبلدي والشرح</th></tr>
+    <tr><td><b>Adaptation</b></td><td>A characteristic that helps organisms survive and reproduce.</td><td>ميزة في جسم الحيوان أو تصرف بيعمله عشان يعيش في بيئته.</td></tr>
+    <tr><td><b>Structural Adaptation</b></td><td>A physical change in the body structure of an organism.</td><td>تغير في تركيب الجسم (مثل فراء الدب أو خياشيم السمكة).</td></tr>
+    <tr><td><b>Behavioral Adaptation</b></td><td>A change in the behavior or action of an organism.</td><td>تغير في سلوك وتصرف الكائن (مثل هجرة الطيور أو الاختباء في الجحور).</td></tr>
+    <tr><td><b>Echolocation</b></td><td>Using reflected sound waves to detect prey and obstacles in the dark.</td><td>إطلاق موجات صوتية ترجع زي الصدى لمعرفة مكان الهدف في الظلام.</td></tr>
+    <tr><td><b>Tapetum Lucidum</b></td><td>A mirror-like layer behind the retina of nocturnal animals for night sight.</td><td>بساط شفاف يشبه المرايا ورا العين يجمع الضوء عشان يشوف في الليل.</td></tr>
+    <tr><td><b>Potential Energy</b></td><td>The stored energy in an object due to its position or height.</td><td>طاقة كامنة متخزنة جوة الجسم (زي عربية الملاهي في أعلى نقطة).</td></tr>
+    <tr><td><b>Kinetic Energy</b></td><td>The energy of an object due to its motion.</td><td>طاقة الحركة الناتجة عن حركة وسرعة الجسم.</td></tr>
+  </table>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-rev">
+  💡 TOP 15 "GIVE REASONS" (أشهر أسئلة علل المتكررة في امتحانات المحافظات)
+</div>
+
+<div class="exam-box" style="border-left-color: #6366f1; font-size: 9.5px;">
+  <div class="q-item">
+    <b>1. Give reason: Fennec fox has extra-large ears.</b><br>
+    <span style="color:#059669; font-weight:700;">Answer:</span> To help it lose excess heat and cool down its body in the scorching desert.<br>
+    <div class="ar-hint">الترجمة: لتساعده على التخلص من الحرارة الزائدة وتبريد جسمه في الصحراء الحارة.</div>
+  </div>
+  <div class="q-item">
+    <b>2. Give reason: Penguins do not freeze while standing all day on Antarctic ice.</b><br>
+    <span style="color:#059669; font-weight:700;">Answer:</span> Because warm blood vessels weave around cold blood vessels, warming the blood going to its feet.<br>
+    <div class="ar-hint">الترجمة: بسبب التفاف الأوعية الدموية الدافئة حول الباردة فتدفئ الدم الصاعد من أقدامه.</div>
+  </div>
+  <div class="q-item">
+    <b>3. Give reason: Bats can hunt and fly safely in complete pitch darkness.</b><br>
+    <span style="color:#059669; font-weight:700;">Answer:</span> Because they use echolocation: they emit high-pitch sounds and listen to the returning echo.<br>
+    <div class="ar-hint">الترجمة: لأنها تستخدم خاصية تحديد الموقع بالصدى لاستشعار الحشرات والعوائق.</div>
+  </div>
+  <div class="q-item">
+    <b>4. Give reason: Clear glass is a transparent material, but wood is opaque.</b><br>
+    <span style="color:#059669; font-weight:700;">Answer:</span> Glass allows light rays to pass through completely, while wood blocks and absorbs light, casting shadows.<br>
+    <div class="ar-hint">الترجمة: لأن الزجاج يسمح بمرور الضوء، بينما الخشب يمنع مرور الضوء ويكون ظلاً.</div>
+  </div>
+  <div class="q-item">
+    <b>5. Give reason: Modern cars are equipped with seatbelts and airbags.</b><br>
+    <span style="color:#059669; font-weight:700;">Answer:</span> Seatbelts stop passengers from flying forward, and airbags cushion the impact and absorb crash energy.<br>
+    <div class="ar-hint">الترجمة: حزام الأمان يمنع اندفاع الركاب للأمام، والوسادة الهوائية تمتص طاقة الصدمة لحمايتهم.</div>
+  </div>
+</div>
+
+<div class="baladi-box">
+  <div class="baladi-title">🌟 كبسولة المقارنات الذهبية (Golden Comparisons):</div>
+  <table style="font-size: 9px; margin-top: 3px;">
+    <tr><th>المقارنة</th><th>التكيف التركيبي (Structural)</th><th>التكيف السلوكي (Behavioral)</th></tr>
+    <tr><td><b>المفهوم</b></td><td>تغير جسدي وتشريحي في جسم الكائن</td><td>فعل أو سلوك يقوم به الكائن الحي</td></tr>
+    <tr><td><b>أمثلة</b></td><td>طبقة الدهون السميكة، الفراء الأبيض، الخياشيم</td><td>هجرة الطيور، البيات الشتوي، الاختباء في الجحور</td></tr>
+  </table>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-ans">
+  ⚡ ENERGY, MOTION & COLLISIONS REVISION • مراجعة الطاقة والحركة والتصادم
+</div>
+
+<div class="figure-box" style="margin: 6px auto;">
+  <img src="images/ch8_car_crash_airbag.png" alt="Safety devices in collision" style="max-height: 180px;">
+  <div class="caption">الشكل: أجهزة السلامة عند التصادم - الوسادة الهوائية وحزام الأمان (Safety Devices)</div>
+</div>
+
+<div class="exam-box" style="border-left-color: #10b981; font-size: 9.5px;">
+  <div class="exam-title" style="color: #065f46; font-size: 11px;">🚀 Important Speed & Collision Laws (أهم قوانين السرعة والتصادم):</div>
+  <ul style="margin-left: 18px; line-height: 1.5; font-weight: 600; color: #334155;">
+    <li><b>Speed Formula:</b> $\text{Speed} = \frac{\text{Distance}}{\text{Time}}$ (Measured in $\text{km/h}$ or $\text{m/s}$).</li>
+    <li><b>Faster Objects:</b> Have greater kinetic energy, causing heavier damage in collisions than slow objects.</li>
+    <li><b>Mass & Kinetic Energy:</b> Doubling the mass of a truck doubles its kinetic energy at the same speed.</li>
+    <li><b>Collision Energy Transfer:</b> During a collision, kinetic energy transfers between objects and turns into heat, sound, and deformation.</li>
+  </ul>
+</div>
+
+<div class="baladi-box" style="text-align: center; padding: 8px;">
+  <div class="baladi-title" style="font-size: 11px;">🏆 روشتة التفوق ليلة الامتحان:</div>
+  <p style="font-size: 10px; line-height: 1.5;">اقرأ السؤال بهدوء، افتكر الكلمات المفتاحية (Keywords) في كل درس، حل بهدوء وراجع ورقتك قبل ما تسلم.. بالتوفيق والنجاح يا دكاترة وعلماء المستقبل!</p>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الوحدة الثانية: أين تقع محافظتي وعاصمة مصر</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #1e293b;
+    background: #fdfbf7;
+    line-height: 1.40;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .module-header {
+    background: linear-gradient(135deg, #b45309, #d97706);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 9px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .module-header h1 { font-size: 17px; font-weight: 900; margin-bottom: 1px; }
+  .module-header .subtitle { font-size: 11.5px; font-weight: 700; opacity: 0.95; }
+  .meta-tags { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .tag { background: rgba(255,255,255,0.25); padding: 1px 7px; border-radius: 6px; font-size: 10px; font-weight: 700; }
+  .part-banner {
+    padding: 6px 12px;
+    border-radius: 7px;
+    margin: 5px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 12px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .banner-part1 { background: linear-gradient(135deg, #b45309, #d97706); }
+  .banner-part2 { background: linear-gradient(135deg, #4338ca, #6366f1); }
+  .banner-part3 { background: linear-gradient(135deg, #047857, #059669); }
+  .concept-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #d97706;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    break-inside: avoid;
+  }
+  .concept-title { font-size: 11.5px; font-weight: 800; color: #b45309; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 5px 9px;
+    margin: 4px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 11px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+  .figure-box {
+    text-align: center;
+    margin: 4px 0;
+    padding: 4px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .figure-caption { font-size: 9.5px; font-weight: 700; color: #475569; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 10px; break-inside: avoid; }
+  th { background: #d97706; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #d97706; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .question-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-right: 3.5px solid #6366f1;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .q-gov { background: #ede9fe; color: #5b21b6; font-size: 8.5px; font-weight: 800; padding: 1px 5px; border-radius: 4px; margin-left: 5px; }
+  .answer-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-right: 3.5px solid #10b981;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .ans-text { font-weight: 800; color: #065f46; }
+  .ans-why { font-size: 9px; color: #047857; margin-top: 1.5px; }
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الدراسات الاجتماعية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="module-header">
+  <h1>الوحدة الثانية: مدينتنا وحياتنا اليومية • الجزء الثالث</h1>
+  <div class="subtitle">الدرس الخامس: أين تقع محافظتي؟ • محافظات مصر وشعار العاصمة</div>
+  <div class="meta-tags">
+    <span class="tag">🗺️ خريطة محافظات مصر الـ 27</span>
+    <span class="tag">🕌 القاهرة العاصمة وشعارها</span>
+    <span class="tag">🎯 3 أجزاء متكاملة</span>
+    <span class="tag">⏱️ الصف الرابع الابتدائي</span>
+  </div>
+</div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الدرس الخامس: أين تقع محافظتي؟</div>
+
+<div class="concept-card">
+  <div class="concept-title">📍 ما هي المحافظة والحدود الإدارية؟</div>
+  <p><b>المحافظة:</b> هي مساحة من الأرض تضم مجموعة من المراكز أو الأحياء، ولكل محافظة حدود إدارية تفصلها عن جيرانها.<br>
+  ويبلغ عدد محافظات جمهورية مصر العربية <b>(27 محافظة)</b> تنقسم بحسب موقعها الجغرافي إلى 3 مجموعات رئيسية.</p>
+</div>
+
+<div class="figure-box">
+  <img src="images/egypt_governorates_map.png" alt="خريطة محافظات مصر">
+  <div class="figure-caption">شكل (1): التقسيم الإداري لمحافظات مصر الـ 27 (الوجه البحري، الوجه القبلي، ومحافظات الحدود)</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">🗺️ تصنيف محافظات مصر الـ 27:</div>
+  <table>
+    <tr>
+      <th style="width: 30%;">المجموعة الجغرافية</th>
+      <th style="width: 15%;">العدد</th>
+      <th style="width: 55%;">أسماء المحافظات التابعة لها</th>
+    </tr>
+    <tr>
+      <td><b>1- محافظات الوجه البحري</b></td>
+      <td style="text-align:center; font-weight:800;">13</td>
+      <td>القاهرة، الإسكندرية، البحيرة، كفر الشيخ، الغربية، المنوفية، القليوبية، الشرقية، الدقهلية، دمياط، بورسعيد، الإسماعيلية، السويس.</td>
+    </tr>
+    <tr>
+      <td><b>2- محافظات الوجه القبلي</b></td>
+      <td style="text-align:center; font-weight:800;">9</td>
+      <td>الجيزة، الفيوم، بني سويف، المنيا، أسيوط، سوهاج، قنا، الأقصر، أسوان.</td>
+    </tr>
+    <tr>
+      <td><b>3- محافظات الحدود الصحراوية</b></td>
+      <td style="text-align:center; font-weight:800;">5</td>
+      <td><b>مطروح، الوادي الجديد</b> (أكبر محافظات مصر مساحة)، <b>البحر الأحمر، شمال سيناء، جنوب سيناء</b>.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • عاصمة مصر وشعارها الرسمي</div>
+
+<div class="concept-card">
+  <div class="concept-title">🏛️ القاهرة.. عاصمة مصر عبر التاريخ:</div>
+  <p>تُعد مدينة <b>القاهرة</b> من أقدم وأعرق العواصم في العالم؛ بناها القائد جوهر الصقلي عام 969م. وتم اختيارها عاصمة لأسباب استراتيجية هامة:</p>
+  <ul style="margin-right:18px; margin-top:3px; font-weight:600;">
+    <li><b>موقعها المركزي:</b> نقطة التقاء وربط حيوية بين الوجه البحري والوجه القبلي.</li>
+    <li><b>المركز السياسي والتجاري:</b> تتجمع فيها مقار الوزارات، مجلس النواب، السفارات، والبنوك والمؤسسات الكبرى.</li>
+    <li><b>المركز الثقافي والتراثي:</b> تضم مئات المعالم التاريخية كقلعة صلاح الدين، والجامع الأزهر، والكنائس الأثرية.</li>
+  </ul>
+</div>
+
+<div class="figure-box">
+  <img src="images/cairo_governorate_emblem.png" alt="شعار محافظة القاهرة">
+  <div class="figure-caption">شكل (2): شعار محافظة القاهرة الرسمي متضمناً الجامع الأزهر الشريف والشمس الساطعة</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">🕌 دلالات مكونات شعار محافظة القاهرة:</div>
+  <table>
+    <tr>
+      <th style="width: 35%;">عنصر الشعار</th>
+      <th style="width: 65%;">الدلالة والرمزية التاريخية والدينية</th>
+    </tr>
+    <tr>
+      <td><b>الجامع الأزهر الشريف</b></td>
+      <td>منارة العلم والإسلام في العالم، ويشير إلى مكانة القاهرة التاريخية والإسلامية.</td>
+    </tr>
+    <tr>
+      <td><b>قاعدة الجامع (مكتوب عليها: القاهرة)</b></td>
+      <td>اسم العاصمة التاريخية ليعبر عن ثباتها وأصالتها.</td>
+    </tr>
+    <tr>
+      <td><b>الشمس الساطعة خلف الجامع</b></td>
+      <td>ترمز إلى أن <b>الأزهر الشريف هو منارة العلم التي تشع نور الهداية والمعرفة</b> على العالم أجمع.</td>
+    </tr>
+  </table>
+  <div style="background:#fffbeb; padding:5px 8px; border-radius:5px; margin-top:4px;">
+    <b>🎉 العيد القومي لمحافظة القاهرة:</b> تحتفل به في <b>6 يوليو</b> من كل عام، وهو ذكرى وضع القائد جوهر الصقلي حجر الأساس لبناء مدينة القاهرة عام 969م.
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات • الموديول الثالث من الوحدة 2</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">📝 السؤال الأول: اكتب المصطلح الجغرافي الدال على كل عبارة:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> مساحة من الأرض تضم مجموعة من المراكز أو الأحياء وتفصلها حدود إدارية عن جيرانها. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> خطوط تفصل بين المحافظات المختلفة داخل الدولة الواحدة. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(3)</b> عاصمة جمهورية مصر العربية ونقطة الالتقاء بين الوجهين البحري والقبلي. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الشرقية 2024</span> <b>(4)</b> أكبر محافظات مصر مساحة وتقع في الصحراء الغربية. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2023</span> <b>(5)</b> راية تتخذها المحافظة رمزاً لها لتعبر عن نشاط سكانها أو جزء من تاريخها. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">🎯 السؤال الثاني: اختر الإجابة الصحيحة من بين القوسين:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> يبلغ عدد محافظات جمهورية مصر العربية: <br>
+    ( أ- 25 محافظة &nbsp;|&nbsp; ب- 27 محافظة &nbsp;|&nbsp; جـ- 30 محافظة &nbsp;|&nbsp; د- 20 محافظة )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> تُعد محافظة ..................... من محافظات الحدود الصحراوية في مصر: <br>
+    ( أ- الوادي الجديد &nbsp;|&nbsp; ب- الغربية &nbsp;|&nbsp; جـ- القليوبية &nbsp;|&nbsp; د- سوهاج )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">القليوبية 2024</span> <b>(3)</b> يتضمن شعار محافظة القاهرة منارة إسلامية تاريخية هي: <br>
+    ( أ- جامع محمد علي &nbsp;|&nbsp; ب- الجامع الأزهر الشريف &nbsp;|&nbsp; جـ- مسجد الرفاعي &nbsp;|&nbsp; د- مسجد الحسين )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(4)</b> تم اختيار القاهرة عاصمة لمصر بسبب: <br>
+    ( أ- موقعها المركزي بين الدلتا والصعيد &nbsp;|&nbsp; ب- كثرة مصانعها فقط &nbsp;|&nbsp; جـ- بعدها عن النيل &nbsp;|&nbsp; د- مساحتها الصغيرة )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">أسيوط 2024</span> <b>(5)</b> تحتفل محافظة القاهرة بعيدها القومي في يوم 6 يوليو تخليداً لـ: <br>
+    ( أ- افتتاح قناة السويس &nbsp;|&nbsp; ب- وضع حجر أساس بنائها عام 969م &nbsp;|&nbsp; جـ- نصر أكتوبر &nbsp;|&nbsp; د- بناء السد العالي )
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات (تابع الأسئلة المتنوعة)</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✔️ السؤال الثالث: ضع علامة (✓) أو علامة (✗) مع تصويب الخطأ:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> تقع محافظة الإسكندرية ضمن محافظات الوجه القبلي في مصر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> ترمز الشمس الساطعة في شعار القاهرة إلى أن الأزهر منارة العلم في العالم. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(3)</b> الحدود الدولية هي الخطوط التي تفصل بين المحافظات داخل الدولة الواحدة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2024</span> <b>(4)</b> يبلغ عدد محافظات الحدود الصحراوية في مصر خمس محافظات. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">المنيا 2024</span> <b>(5)</b> أنشأت الدولة العاصمة الإدارية الجديدة بهدف تخفيف الضغط السكاني عن القاهرة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✏️ السؤال الرابع: صنف المحافظات الآتية في الجدول المخصص:</div>
+  <p style="margin-bottom:4px; font-weight:700;">( مطروح - أسوان - الشرقية - بورسعيد - سوهاج - الوادي الجديد )</p>
+  <table>
+    <tr><th>محافظات الوجه البحري</th><th>محافظات الوجه القبلي</th><th>محافظات الحدود الصحراوية</th></tr>
+    <tr><td>..................................................</td><td>..................................................</td><td>..................................................</td></tr>
+  </table>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">💡 السؤال الخامس: علل لما يأتي (بم تفسر):</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1) استمرار اختيار القاهرة عاصمة لمصر على مر العصور؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(2) وجود شمس ساطعة خلف الجامع الأزهر في شعار محافظة القاهرة؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part3">الجزء الثالث: نموذج الإجابات النموذجية مع الشرح والتعليل • الموديول الثالث من الوحدة 2</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الأول: المصطلح الجغرافي:</div>
+  <p><b>1- المحافظة</b> <span class="ans-why">(وحدة إدارية جغرافية تضم أحياء ومراكز).</span></p>
+  <p><b>2- الحدود الإدارية</b> <span class="ans-why">(الحدود الداخلية الفاصلة بين المحافظات).</span></p>
+  <p><b>3- مدينة القاهرة</b> <span class="ans-why">(العاصمة المركزية لمصر ومركز الحكم والإدارة).</span></p>
+  <p><b>4- محافظة الوادي الجديد</b> <span class="ans-why">(أكبر محافظات مصر وتبلغ أكثر من 40% من مساحة الدولة).</span></p>
+  <p><b>5- الشعار</b> <span class="ans-why">(راية تعبر عن هوية المحافظة وتاريخها ونشاط أهلها).</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثاني: الاختيار من متعدد:</div>
+  <p><b>(1) ب- 27 محافظة</b> <span class="ans-why">| إجمالي عدد المحافظات في التقسيم الإداري الرسمي.</span></p>
+  <p><b>(2) أ- الوادي الجديد</b> <span class="ans-why">| تقع على الحدود الغربية الجنوبية مع ليبيا والسودان.</span></p>
+  <p><b>(3) ب- الجامع الأزهر الشريف</b> <span class="ans-why">| المنارة الدينية والعلمية الشامخة في قلب القاهرة.</span></p>
+  <p><b>(4) أ- موقعها المركزي بين الدلتا والصعيد</b> <span class="ans-why">| موقع فريد يربط كافة أقاليم مصر براً ونهرياً.</span></p>
+  <p><b>(5) ب- وضع حجر أساس بنائها عام 969م</b> <span class="ans-why">| على يد القائد جوهر الصقلي في العصر الفاطمي.</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثالث: صح وخطأ مع التصويب:</div>
+  <p><b>(1) ( ✗ ) خطأ.</b> التصويب: محافظة الإسكندرية من محافظات <b>الوجه البحري</b> الساحلية.</p>
+  <p><b>(2) ( ✓ ) صواب.</b> ترمز لنور العلم والوسطية الذي يضيء به الأزهر العالم.</p>
+  <p><b>(3) ( ✗ ) خطأ.</b> التصويب: <b>الحدود الإدارية</b> هي التي تفصل بين المحافظات، بينما الحدود الدولية تفصل بين الدول.</p>
+  <p><b>(4) ( ✓ ) صواب.</b> مطروح، الوادي الجديد، البحر الأحمر، شمال سيناء، جنوب سيناء.</p>
+  <p><b>(5) ( ✓ ) صواب.</b> لتخفيف الازدحام ونقل الوزارات والهيئات الحكومية لمدينة ذكية عصرية.</p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة الأسئلة المقالية (الرابع والخامس):</div>
+  <p><b>السؤال الرابع (التصنيف):</b><br>
+  • الوجه البحري: <b>الشرقية - بورسعيد</b>.<br>
+  • الوجه القبلي: <b>أسوان - سوهاج</b>.<br>
+  • الحدود الصحراوية: <b>مطروح - الوادي الجديد</b>.</p>
+  <p><b>السؤال الخامس (بم تفسر):</b><br>
+  (1) بسبب موقعها الجغرافي المركزي المتميز كنقطة التقاء بين الوجهين البحري والقبلي، ولكونها مركزاً سياسياً واقتصادياً وثقافياً حيوياً.<br>
+  (2) ليدل على أن الجامع الأزهر الشريف هو منارة الإسلام وقبلة العلم التي تشع نور المعرفة والهداية على العالم الإسلامي والعالم بأسره.</p>
+</div>
+
+</div>
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+</body>
+</html>

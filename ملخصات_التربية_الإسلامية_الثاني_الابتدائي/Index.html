@@ -1,0 +1,232 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><title>منصة التربية الإسلامية • الصف الثاني</title><style>
+  :root {
+    --p2-primary: #10b981;
+    --p2-dark: #047857;
+    --p2-light: #ecfdf5;
+    --p2-border: #a7f3d0;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding-bottom: 60px;
+    font-size: 15px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+  
+  .nav-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+    margin-bottom: 22px;
+    border: 1px solid #e2e8f0;
+  }
+  .nav-btn {
+    text-decoration: none;
+    color: #475569;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-btn:hover { color: var(--p2-primary); }
+  
+  .header-box {
+    background: linear-gradient(135deg, var(--p2-dark), var(--p2-primary));
+    color: white;
+    padding: 30px 24px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .header-box p { font-size: 15px; opacity: 0.95; max-width: 750px; margin: 0 auto; }
+  
+  .section-block {
+    background: white;
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    border: 1.5px solid #f1f5f9;
+  }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--p2-light);
+  }
+  .sec-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--p2-light);
+    color: var(--p2-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .sec-title { font-size: 20px; font-weight: 900; color: #0f172a; }
+  
+  .concept-card {
+    background: #fff;
+    border-right: 5px solid var(--p2-primary);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    border: 1px solid #f1f5f9;
+    border-right-width: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .concept-card h3 { font-size: 17px; font-weight: 800; color: var(--p2-dark); margin-bottom: 8px; }
+  .concept-card p { font-size: 14.5px; color: #334155; line-height: 1.6; }
+  
+  .fun-box {
+    background: linear-gradient(135deg, #fef3c7, #fef9c3);
+    border-right: 5px solid #f59e0b;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: #78350f;
+    font-weight: 700;
+  }
+  
+  .q-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .q-text { font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  .opt-btn {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+  
+  .ans-box {
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 18px;
+  }
+  .ans-title { font-size: 16px; font-weight: 900; color: #15803d; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #166534; font-weight: 700; }
+  
+  @media print {
+    .nav-strip { display: none !important; }
+    body { background: white; }
+    .section-block { break-inside: avoid; border: 1px solid #ddd; margin-bottom: 15px; padding: 18px; }
+  }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style></head><body><div class="container">
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الثاني_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الثاني</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس التربية الدينية الإسلامية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+<div class="header-box"><h1>🕌 منصة التربية الإسلامية • الصف الثاني الابتدائي</h1><p>الوحدات الرسمية الثلاث المعتمدة (التوكل على الله، من نعم الله، الشكر لله) مع الملازم والامتحانات ونماذج الإجابات</p></div>
+<div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
+<div class="concept-card"><h3>الوحدة الأولى: التوكل على الله تعالى</h3><p>السميع، سورة القدر والبينة، الأذان، نزول الوحي، شعيب عليه السلام، وخلق التوكل.</p><a href="Unit1_Tawakkul_Ala_Allah.html" style="color:var(--p2-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+<div class="concept-card"><h3>الوحدة الثانية: من نعم الله تعالى</h3><p>البصير، سورة التين والعلق، الإقامة، الدعوة السرية، موسى عليه السلام، وأمانة الجوارح.</p><a href="Unit2_Min_Niam_Allah.html" style="color:var(--p2-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+<div class="concept-card"><h3>الوحدة الثالثة: الشكر لله تعالى</h3><p>الشكور، سورة الشرح والضحى، صلاة الجماعة، الدعوة الجهرية، داود عليه السلام، والشكر.</p><a href="Unit3_Ash_Shukr_Lillah.html" style="color:var(--p2-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+<div class="concept-card"><h3>المحور الأول: من أكون؟ (شامل)</h3><p>الله الخالق، سورة الفاتحة، قصة نوح، ومولد النبي والوضوء.</p><a href="Theme1_Aqeedah_Seerah.html" style="color:var(--p2-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+<div class="concept-card"><h3>المحور الثاني: العالم من حولي (شامل)</h3><p>سورة الإخلاص والفلق، أصحاب الفيل، بر الوالدين والصدق.</p><a href="Theme2_Ethics_Worship.html" style="color:var(--p2-primary); font-weight:800; text-decoration:none;">فتح الدرس ➡️</a></div>
+<div class="concept-card" style="border-right-color:#0284c7;"><h3>📅 امتحانات الشهور</h3><p>نماذج اختبارات شهرية نموذجية مع الحلول الكاملة.</p><a href="Monthly_Exams_Islamic_PRIM2.html" style="color:#0284c7; font-weight:800; text-decoration:none;">فتح الملزمة ➡️</a></div>
+<div class="concept-card" style="border-right-color:#f59e0b;"><h3>💡 المراجعة النهائية</h3><p>ملخص الإيمان وقصص الأنبياء ليلة الامتحان.</p><a href="Final_Revision_Islamic_PRIM2.html" style="color:#f59e0b; font-weight:800; text-decoration:none;">فتح الملزمة ➡️</a></div>
+<div class="concept-card" style="border-right-color:#10b981;"><h3>🏆 امتحانات نهاية الترم</h3><p>نماذج امتحانات المحافظات الرسمية مع الإجابات النموذجية.</p><a href="Final_Term_Exams_Islamic_PRIM2.html" style="color:#10b981; font-weight:800; text-decoration:none;">فتح الملزمة ➡️</a></div>
+</div>
+</div>
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body></html>

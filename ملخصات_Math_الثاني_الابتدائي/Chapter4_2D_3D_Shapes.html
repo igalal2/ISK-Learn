@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><title>Chapter 4: Geometry (2D & 3D Shapes) • Math Primary 2</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Cairo:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --p2-primary: #ec4899;
+    --p2-dark: #be185d;
+    --p2-light: #fdf2f8;
+    --p2-border: #fbcfe8;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding-bottom: 60px;
+    font-size: 15px;
+  }
+  .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+  
+  .nav-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 12px 20px;
+    border-radius: 16px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+    margin-bottom: 22px;
+    border: 1px solid #e2e8f0;
+  }
+  .nav-btn {
+    text-decoration: none;
+    color: #475569;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .nav-btn:hover { color: var(--p2-primary); }
+  
+  .header-box {
+    background: linear-gradient(135deg, var(--p2-dark), var(--p2-primary));
+    color: white;
+    padding: 30px 24px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .header-box p { font-size: 15px; opacity: 0.95; max-width: 750px; margin: 0 auto; }
+  
+  .section-block {
+    background: white;
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    border: 1.5px solid #f1f5f9;
+  }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--p2-light);
+  }
+  .sec-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--p2-light);
+    color: var(--p2-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .sec-title { font-size: 20px; font-weight: 900; color: #0f172a; }
+  
+  .concept-card {
+    background: #fff;
+    border-right: 5px solid var(--p2-primary);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+    border: 1px solid #f1f5f9;
+    border-right-width: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .concept-card h3 { font-size: 17px; font-weight: 800; color: var(--p2-dark); margin-bottom: 8px; }
+  .concept-card p { font-size: 14.5px; color: #334155; line-height: 1.6; }
+  
+  .fun-box {
+    background: linear-gradient(135deg, #fef3c7, #fef9c3);
+    border-right: 5px solid #f59e0b;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 16px 0;
+    font-size: 14.5px;
+    color: #78350f;
+    font-weight: 700;
+  }
+  
+  .q-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .q-text { font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  .opt-btn {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+  
+  .ans-box {
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 18px;
+  }
+  .ans-title { font-size: 16px; font-weight: 900; color: #15803d; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #166534; font-weight: 700; }
+  
+  @media print {
+    .nav-strip { display: none !important; }
+    body { background: white; }
+    .section-block { break-inside: avoid; border: 1px solid #ddd; margin-bottom: 15px; padding: 18px; }
+  }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+
+  /* VISUAL EDUCATIONAL FIGURES */
+  .visual-figure-card {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 16px;
+    margin: 18px 0;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+  }
+  .visual-figure-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #f1f5f9;
+  }
+  .visual-figure-card .caption {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: #475569;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الثاني_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الثاني</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الرياضيات (Math)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header-box">
+    <h1>Chapter 4: Geometry (2D & 3D Shapes)</h1>
+    <p>Triangles, Quadrilaterals, Cubes, Cylinders, Faces & Vertices</p>
+  </div>
+
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">1</div><h2 class="sec-title">Part 1: Concept Explanations &amp; Visual Rules</h2></div>
+    <div class="fun-box">🎈 Shapes Tip: A 2D shape is flat on paper. A 3D shape is solid and you can hold it!</div>
+     <div class="concept-card"><h3>1. 2D Shapes (Polygons)</h3><p>• <strong>Triangle:</strong> 3 sides, 3 vertices.<br>• <strong>Square:</strong> 4 equal sides, 4 vertices.<br>• <strong>Rectangle:</strong> 4 sides (opposite sides equal), 4 vertices.<br>• <strong>Pentagon:</strong> 5 sides, 5 vertices | <strong>Hexagon:</strong> 6 sides, 6 vertices.</p></div>
+     <div class="concept-card"><h3>2. 3D Solid Shapes</h3><p>• <strong>Cube:</strong> 6 flat square faces, 12 edges, 8 vertices.<br>• <strong>Cylinder:</strong> 2 circular faces, 0 vertices, rolls smoothly.<br>• <strong>Sphere:</strong> 0 faces, 0 edges, 0 vertices (like a ball!).<br>• <strong>Cone:</strong> 1 circular face, 1 vertex (pointy top).</p></div>
+  
+    <div class="visual-figure-card">
+      <img src="images/chapters/ch4_2d_shapes_chart.png" alt="2D Shapes Sides and Vertices">
+      <div class="caption">🔺 Figure (1): 2D Plane Shapes • Identifying sides and vertices for Circle, Triangle, Square, Rectangle, Pentagon, and Hexagon (الأشكال المستوية).</div>
+    </div>
+    <div class="visual-figure-card">
+      <img src="images/chapters/ch4_3d_solids_chart.png" alt="3D Solids Faces Edges Vertices">
+      <div class="caption">📦 Figure (2): 3D Geometric Solids • Cube, Sphere, Cylinder, and Cone with Faces, Edges, and Vertices (المجسمات الهندسية وخواصها).</div>
+    </div>
+</section>
+
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">2</div><h2 class="sec-title">Part 2: Fun Practice &amp; Exam Questions</h2></div>
+    <div class="q-item"><div class="q-text">Q1: Which 2D shape has exactly 5 sides and 5 vertices?</div><div class="q-opts"><div class="opt-btn">Triangle</div><div class="opt-btn">Square</div><div class="opt-btn">Pentagon</div><div class="opt-btn">Hexagon</div></div></div>
+     <div class="q-item"><div class="q-text">Q2: How many faces does a cube have?</div><div class="q-opts"><div class="opt-btn">4 faces</div><div class="opt-btn">6 faces</div><div class="opt-btn">8 faces</div><div class="opt-btn">12 faces</div></div></div>
+  </section>
+
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">3</div><h2 class="sec-title">Part 3: Model Answers &amp; Solutions</h2></div>
+    <div class="ans-box">
+      <div class="ans-title">✅ Answer Key:</div>
+      <ul class="ans-list"><li>Q1: <strong>Pentagon</strong> (Penta = 5).</li><li>Q2: <strong>6 faces</strong> (all identical squares).</li></ul>
+    </div>
+  </section>
+</div>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

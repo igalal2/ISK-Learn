@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"><title>الموضوع الأول: وطني (حوار مجدي يعقوب • مريم ومريم • يا مصر) • لغة عربية الصف الرابع</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --c-primary: #8b5cf6;
+    --c-dark: #6d28d9;
+    --c-light: #f5f3ff;
+    --c-border: #ddd6fe;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.7;
+    padding-bottom: 70px;
+    font-size: 15px;
+  }
+  .container { max-width: 980px; margin: 0 auto; padding: 20px; }
+
+  /* PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(10px);
+    border: 2px solid var(--c-primary);
+    padding: 12px 20px;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #1e293b;
+    color: white !important;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: background 0.2s;
+  }
+  .btn-portal-back:hover { background: #0f172a; }
+  .btn-index-back {
+    background: var(--c-light);
+    color: var(--c-dark) !important;
+    border: 1.5px solid var(--c-primary);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: var(--c-primary); color: white !important; }
+  .btn-print-action {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .btn-print-action:hover { border-color: var(--c-primary); color: var(--c-primary); }
+
+  .header-box {
+    background: linear-gradient(135deg, var(--c-dark), var(--c-primary));
+    color: white;
+    padding: 34px 28px;
+    border-radius: 24px;
+    margin-bottom: 25px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .header-box p { font-size: 15px; opacity: 0.95; max-width: 800px; margin: 0 auto; }
+
+  .section-block {
+    background: white;
+    border-radius: 20px;
+    padding: 26px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    border: 1.5px solid #f1f5f9;
+  }
+  .sec-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--c-light);
+  }
+  .sec-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--c-light);
+    color: var(--c-primary);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 900;
+  }
+  .sec-title { font-size: 21px; font-weight: 900; color: #0f172a; }
+
+  .concept-card {
+    background: #fff;
+    border-right: 5px solid var(--c-primary);
+    padding: 18px 22px;
+    border-radius: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #f1f5f9;
+    border-right-width: 5px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+  }
+  .concept-card h3 { font-size: 17.5px; font-weight: 800; color: var(--c-dark); margin-bottom: 8px; }
+  .concept-card p { font-size: 14.5px; color: #334155; line-height: 1.65; }
+
+  .golden-tip {
+    background: linear-gradient(135deg, #fef3c7, #fef9c3);
+    border-right: 5px solid #f59e0b;
+    border-radius: 14px;
+    padding: 16px 20px;
+    margin: 18px 0;
+    font-size: 14.5px;
+    color: #78350f;
+    font-weight: 700;
+  }
+
+  .q-item {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .q-text { font-size: 15px; font-weight: 800; color: #1e293b; margin-bottom: 12px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; }
+  .opt-btn {
+    background: white;
+    border: 1.5px solid #cbd5e1;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    text-align: right;
+  }
+
+  .ans-box {
+    background: #f0fdf4;
+    border: 2px dashed #22c55e;
+    border-radius: 16px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .ans-title { font-size: 16px; font-weight: 900; color: #15803d; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: #166534; font-weight: 700; }
+
+  @media print {
+    .sticky-nav-strip { display: none !important; }
+    body { background: white; }
+    .section-block { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 16px; padding: 18px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة للبوابة الرئيسية</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس اللغة العربية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header-box">
+    <h1>الموضوع الأول: وطني (حوار مجدي يعقوب • مريم ومريم • يا مصر)</h1>
+    <p>نصوص الاستماع والقراءة، قواعد الاسم والجملة الاسمية، والتعبير: وصف حدث</p>
+  </div>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">1</div><h2 class="sec-title">الجزء الأول: كبسولات الشرح والقواعد والتعبير</h2></div>
+    <div class="golden-tip">💡 كبسولة المستر النحوية: الجملة الاسمية تبدأ باسم! والاسم اللي بنبدأ بيه اسمه (مبتدأ)، واللي بيكمل المعنى وبيفهمنا ماله اسمه (خبر)، والاثنين مرفوعين دايماً! وعلامات الاسم: الـ، التاء المربوطة، التنوين، وحرف الجر!</div>
+     <div class="concept-card"><h3>1. نص الاستماع: حوار مع الدكتور مجدي يعقوب</h3><p>• جراح القلوب العالمي عاد لمصر عام 2009 لينشئ مركزاً لجراحات القلب بأسوان؛ ليرد فضل وطنه عليه.<br>• أهم صفاته: الهدوء الشديد الذي يساعد على نجاح العمليات الجراحية الدقيقة، العمل في صمت، والوطنية الصادقة.</p></div>
+     <div class="concept-card"><h3>2. قصة (مريم ومريم) والعالمة مريم الإسطرلابي</h3><p>• العالمة المسلمة مريم الإسطرلابي عاشت في القرن العاشر الميلادي، وطورت جهاز (الإسطرلاب المعقد) الذي كان يستخدم لحساب الزمن وتحديد مواقع النجوم واتجاهات السفر، وهو الأساس العلمي لنظام تحديد المواقع العالمي المعاصر (GPS).</p></div>
+     <div class="concept-card"><h3>3. القواعد النحوية: أقسام الكلام والجملة الاسمية</h3><p>• <strong>أقسام الكلام:</strong> اسم (يدل على إنسان أو حيوان أو جماد أو صفة)، فعل (ماضٍ، مضارع، أمر)، وحرف (جر، عطف).<br>• <strong>ركنا الجملة الاسمية:</strong> المبتدأ (الاسم الأول) + الخبر (يتمم معنى الجملة).<br>• مثال: (الوطنُ عظيمٌ) -> الوطنُ: مبتدأ مرفوع بالضمة، عظيمٌ: خبر مرفوع بالضمة.</p></div>
+     <div class="concept-card"><h3>4. التعبير الكتابي: كتابة وصف حدث</h3><p>عناصر وصف الحدث الستة: اسم الحدث، الجملة الافتتاحية (صوت، سؤال، وصف وقت ومكان)، زمان ومكان الحدث، قبل الحدث، أثناء الحدث، والجملة الختامية (درس تعلمته أو أمنية).</p></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">2</div><h2 class="sec-title">الجزء الثاني: تدريبات امتحانات المحافظات</h2></div>
+    <div class="q-item"><div class="q-text">س1: أنشأ الدكتور مجدي يعقوب مركزه لجراحات القلب في مدينة:</div><div class="q-opts"><div class="opt-btn">الإسكندرية</div><div class="opt-btn">أسوان</div><div class="opt-btn">القاهرة</div><div class="opt-btn">شرم الشيخ</div></div></div>
+     <div class="q-item"><div class="q-text">س2: الجملة الاسمية في الجمل الآتية هي:</div><div class="q-opts"><div class="opt-btn">يقرأ التلميذ القصة</div><div class="opt-btn">العلمُ نورٌ يضيء العقول</div><div class="opt-btn">استمع للدرس جيداً</div><div class="opt-btn">في الحديقة أشجار</div></div></div>
+  </section>
+  <section class="section-block">
+    <div class="sec-head"><div class="sec-icon">3</div><h2 class="sec-title">الجزء الثالث: نماذج الإجابات الرسمية</h2></div>
+    <div class="ans-box">
+      <div class="ans-title">✅ الإجابات النموذجية:</div>
+      <ul class="ans-list"><li>س1: في مدينة <strong>أسوان</strong> (لهدوء أجوائها وجمالها وخدمة أهل الصعيد).</li><li>س2: <strong>العلمُ نورٌ يضيء العقول</strong> (بدأت باسم وهو العلم).</li></ul>
+    </div>
+  </section>
+</div>
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body></html>

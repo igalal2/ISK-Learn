@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة الصف الثاني الابتدائي الذكية • المنظومة التعليمية الشاملة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-light: #f8fafc;
+    --card-white: #ffffff;
+    --card-border: #e2e8f0;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    
+    /* Grade 2 Vibrant Colors */
+    --math-color: #ec4899;
+    --math-bg: #fdf2f8;
+    --ar-color: #8b5cf6;
+    --ar-bg: #f5f3ff;
+    --en-color: #06b6d4;
+    --en-bg: #ecfeff;
+    --isl-color: #10b981;
+    --isl-bg: #ecfdf5;
+    
+    --primary-blue: #2563eb;
+    --dark-blue: #1e40af;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 0 0 90px 0;
+    line-height: 1.6;
+    background-image: 
+      radial-gradient(at 15% 15%, rgba(236, 72, 153, 0.06) 0px, transparent 40%),
+      radial-gradient(at 85% 85%, rgba(6, 182, 212, 0.06) 0px, transparent 40%),
+      radial-gradient(at 50% 50%, rgba(139, 92, 246, 0.05) 0px, transparent 40%),
+      radial-gradient(at 80% 20%, rgba(16, 185, 129, 0.05) 0px, transparent 40%);
+  }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+  /* GRADE SWITCHER BAR */
+  .grade-switcher-bar {
+    background: #0f172a;
+    color: white;
+    padding: 9px 0;
+    font-size: 13px;
+  }
+  .grade-switcher-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .grade-tabs { display: flex; gap: 8px; }
+  .grade-tab {
+    background: rgba(255,255,255,0.14);
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: all 0.2s;
+  }
+  .grade-tab.active, .grade-tab:hover {
+    background: #ec4899;
+    color: white;
+    box-shadow: 0 0 12px rgba(236, 72, 153, 0.6);
+  }
+
+  /* TOP NAVBAR */
+  .navbar {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1.5px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 12px 0;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.03);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand-logo {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #ec4899, #8b5cf6);
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: white;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+  }
+  .brand-text h1 { font-size: 19px; font-weight: 900; color: #0f172a; }
+  .brand-text p { font-size: 11.5px; color: #64748b; font-weight: 600; }
+  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav-btn {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    padding: 7px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 800;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover {
+    background: #ec4899;
+    color: white;
+    border-color: #ec4899;
+    transform: translateY(-2px);
+  }
+
+  /* ROYAL BLUE HERO BANNER (مع لمسات مرحة للأطفال) */
+  .hero-blue {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+    border-radius: 26px;
+    padding: 40px 30px;
+    color: white;
+    margin: 25px 0 35px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(30, 58, 138, 0.25);
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #e0f2fe;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 800;
+    display: inline-block;
+    margin-bottom: 12px;
+  }
+  .hero-blue h2 {
+    font-size: 32px;
+    font-weight: 900;
+    margin-bottom: 12px;
+    color: #ffffff;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .hero-blue p {
+    font-size: 15.5px;
+    color: #dbeafe;
+    max-width: 800px;
+    margin: 0 auto 22px auto;
+    line-height: 1.6;
+  }
+  .quick-dock {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .dock-item {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.25);
+    padding: 8px 16px;
+    border-radius: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+  }
+  .dock-item:hover {
+    background: white;
+    color: #1e40af;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+  }
+
+  /* COLORFUL STATS BAR */
+  .stats-bar {
+    background: var(--card-white);
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 16px 24px;
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  }
+  .stat-group { display: flex; gap: 12px; flex-wrap: wrap; }
+  .stat-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 6px 14px;
+    border-radius: 12px;
+  }
+  .stat-pill.math { background: var(--math-bg); color: var(--math-color); border: 1px solid rgba(236, 72, 153, 0.2); }
+  .stat-pill.ar { background: var(--ar-bg); color: var(--ar-color); border: 1px solid rgba(139, 92, 246, 0.2); }
+  .stat-pill.en { background: var(--en-bg); color: var(--en-color); border: 1px solid rgba(6, 182, 212, 0.2); }
+  .stat-pill.isl { background: var(--isl-bg); color: var(--isl-color); border: 1px solid rgba(16, 185, 129, 0.2); }
+  .pill-dot { width: 8px; height: 8px; border-radius: 50%; }
+
+  .progress-info { display: flex; align-items: center; gap: 12px; font-size: 13.5px; font-weight: 800; color: #1e293b; }
+  .prog-track { width: 140px; height: 9px; background: #e2e8f0; border-radius: 5px; overflow: hidden; }
+  .prog-fill { height: 100%; width: 0%; background: linear-gradient(90deg, #ec4899, #8b5cf6, #06b6d4, #10b981); transition: width 0.3s; }
+
+  /* SECTION HEADINGS */
+  .sec-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 40px 0 20px 0;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .sec-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 900;
+    color: #0f172a;
+  }
+  .sec-badge {
+    background: #f1f5f9;
+    border: 1px solid #cbd5e1;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 12px;
+    color: #475569;
+  }
+
+  /* SCHEDULE SECTION */
+  .schedule-container {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.03);
+  }
+  .schedule-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .schedule-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-notify {
+    background: #ec4899;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.25);
+  }
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+  .day-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    position: relative;
+    transition: transform 0.2s;
+  }
+  .day-card:hover { transform: translateY(-3px); border-color: #ec4899; }
+  .day-card.today { background: #fdf2f8; border-color: #ec4899; }
+  .day-name { font-size: 15px; font-weight: 900; color: #0f172a; margin-bottom: 10px; display: flex; justify-content: space-between; }
+  .day-task { font-size: 12.5px; color: #475569; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+
+  /* INTERACTIVE HUB (QUIZ & FLASHCARDS) */
+  .interactive-hub-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  @media (max-width: 860px) { .interactive-hub-grid { grid-template-columns: 1fr; } }
+
+  .hub-box {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hub-box-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .hub-box-title { font-size: 17px; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 8px; }
+  .quiz-q-text { font-size: 16px; font-weight: 800; color: #1e293b; margin-bottom: 16px; min-height: 48px; }
+  .quiz-options { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-btn {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    padding: 12px 18px;
+    border-radius: 12px;
+    text-align: right;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .quiz-btn:hover { background: #fdf2f8; border-color: #ec4899; color: #be185d; }
+  .quiz-btn.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #15803d !important; }
+  .quiz-btn.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c !important; }
+  .quiz-feedback { margin-top: 14px; font-size: 13.5px; font-weight: 800; min-height: 24px; }
+
+  /* 3D FLASHCARDS */
+  .flashcard-card {
+    perspective: 1000px;
+    height: 180px;
+    margin-bottom: 14px;
+    cursor: pointer;
+  }
+  .flashcard-inner {
+    position: relative;
+    width: 100%; height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    border-radius: 16px;
+  }
+  .flashcard-card.flipped .flashcard-inner { transform: rotateY(180deg); }
+  .flashcard-front, .flashcard-back {
+    position: absolute; inset: 0;
+    border-radius: 16px;
+    padding: 22px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    text-align: center;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  }
+  .flashcard-front { background: linear-gradient(135deg, #fdf2f8, #fbcfe8); border: 2px solid #f472b6; color: #831843; }
+  .flashcard-back { background: linear-gradient(135deg, #f5f3ff, #ddd6fe); border: 2px solid #8b5cf6; color: #4c1d95; transform: rotateY(180deg); }
+  .fc-controls { display: flex; justify-content: space-between; }
+  .btn-fc-nav {
+    background: #f1f5f9; border: 1px solid #cbd5e1;
+    padding: 8px 18px; border-radius: 10px;
+    font-family: inherit; font-size: 13px; font-weight: 800; cursor: pointer;
+  }
+
+  /* BOOKLETS SHELVES */
+  .shelves-container { margin-bottom: 45px; }
+  .shelf-block {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.03);
+  }
+  .shelf-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #f8fafc;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .shelf-head-title { font-size: 17px; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 8px; }
+  .shelf-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+  }
+  .booklet-card {
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.2s;
+  }
+  .booklet-card:hover { transform: translateY(-3px); border-color: #ec4899; box-shadow: 0 6px 15px rgba(0,0,0,0.05); }
+  .subj-tag {
+    align-self: flex-start;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 8px;
+  }
+  .subj-tag.math { background: var(--math-bg); color: var(--math-color); border: 1px solid rgba(236, 72, 153, 0.2); }
+  .subj-tag.ar { background: var(--ar-bg); color: var(--ar-color); border: 1px solid rgba(139, 92, 246, 0.2); }
+  .subj-tag.en { background: var(--en-bg); color: var(--en-color); border: 1px solid rgba(6, 182, 212, 0.2); }
+  .subj-tag.isl { background: var(--isl-bg); color: var(--isl-color); border: 1px solid rgba(16, 185, 129, 0.2); }
+
+  .bk-title { font-size: 14.5px; font-weight: 900; color: #0f172a; }
+  .bk-desc { font-size: 12.5px; color: #64748b; line-height: 1.5; }
+  .bk-actions { display: flex; gap: 8px; margin-top: auto; }
+  .btn-view-html {
+    flex: 1; text-align: center; padding: 8px 0; border-radius: 8px;
+    font-size: 12px; font-weight: 800; text-decoration: none;
+    background: #2563eb; color: white;
+  }
+  .btn-dl-pdf {
+    flex: 1; text-align: center; padding: 8px 0; border-radius: 8px;
+    font-size: 12px; font-weight: 800; text-decoration: none;
+    background: white; color: #334155; border: 1px solid #cbd5e1;
+  }
+
+  /* MODULES GRID */
+  .controls-row { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .search-box { flex: 1; min-width: 280px; position: relative; }
+  .search-box input {
+    width: 100%; background: white; border: 1.5px solid #cbd5e1;
+    border-radius: 12px; padding: 12px 42px 12px 16px;
+    font-family: inherit; font-size: 14px; outline: none;
+  }
+  .search-box input:focus { border-color: #ec4899; box-shadow: 0 0 10px rgba(236, 72, 153, 0.15); }
+  .search-icon { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); color: #94a3b8; }
+
+  .filter-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .filter-tab {
+    background: white; border: 1px solid #cbd5e1;
+    color: #475569; padding: 9px 16px; border-radius: 12px;
+    font-family: inherit; font-size: 13px; font-weight: 800; cursor: pointer;
+  }
+  .filter-tab.active, .filter-tab:hover {
+    background: #0f172a; color: white; border-color: #0f172a;
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 45px;
+  }
+  .module-card {
+    background: white;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    transition: transform 0.2s;
+  }
+  .module-card:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+  .module-card.subj-math { border-top: 4px solid var(--math-color); }
+  .module-card.subj-ar { border-top: 4px solid var(--ar-color); }
+  .module-card.subj-en { border-top: 4px solid var(--en-color); }
+  .module-card.subj-isl { border-top: 4px solid var(--isl-color); }
+
+  .mod-body { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .mod-badge {
+    align-self: flex-start; font-size: 11px; font-weight: 800;
+    padding: 3px 9px; border-radius: 6px; color: white;
+  }
+  .subj-math .mod-badge { background: var(--math-color); }
+  .subj-ar .mod-badge { background: var(--ar-color); }
+  .subj-en .mod-badge { background: var(--en-color); }
+  .subj-isl .mod-badge { background: var(--isl-color); }
+
+  .mod-title { font-size: 15px; font-weight: 900; color: #0f172a; }
+  .mod-desc { font-size: 13px; color: #64748b; line-height: 1.5; }
+  .mod-footer {
+    padding: 12px 18px; background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .chk-wrap { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #64748b; cursor: pointer; font-weight: 700; }
+
+  /* FLOATING BAR */
+  .floating-bar {
+    position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+    background: white; border: 1px solid #cbd5e1;
+    border-radius: 30px; padding: 8px 18px;
+    display: flex; gap: 12px; z-index: 999;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  }
+  .float-btn {
+    background: transparent; border: none; color: #334155;
+    font-family: inherit; font-size: 12.5px; font-weight: 800;
+    cursor: pointer; display: flex; align-items: center; gap: 6px;
+    padding: 6px 12px; border-radius: 20px; text-decoration: none;
+  }
+  .float-btn:hover { background: #fdf2f8; color: #ec4899; }
+
+  #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 10001; }
+
+  @media print {
+    .grade-switcher-bar, .navbar, .quick-dock, .floating-bar, .btn-notify, .quiz-options, .filter-tabs, .search-box {
+      display: none !important;
+    }
+    body { background: white !important; color: black !important; }
+    .hero-blue { background: #1e40af !important; color: white !important; }
+    .schedule-container, .booklet-card, .module-card {
+      border: 1px solid #ccc !important; background: white !important; break-inside: avoid;
+    }
+  }
+
+  /* CURATED VISUAL GALLERY & LIGHTBOX */
+  .gallery-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+    border-color: #3b82f6;
+  }
+  .gallery-zoom-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    opacity: 0;
+    transition: opacity 0.2s;
+    gap: 6px;
+  }
+  .gallery-card:hover .gallery-zoom-overlay {
+    opacity: 1;
+  }
+
+  /* LIGHTBOX MODAL */
+  .img-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 999999;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+  .img-modal.open {
+    display: flex;
+  }
+  .img-modal-content {
+    background: #ffffff;
+    border-radius: 18px;
+    max-width: 95vw;
+    max-height: 94vh;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #cbd5e1;
+    animation: modalPop 0.2s ease-out;
+  }
+  @keyframes modalPop {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .img-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .img-modal-title {
+    font-size: 15.5px;
+    font-weight: 800;
+    color: #0f172a;
+  }
+  .img-modal-actions {
+    display: flex;
+    gap: 8px;
+  }
+  .img-btn {
+    background: #e2e8f0;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .img-btn:hover {
+    filter: brightness(0.95);
+    transform: translateY(-1px);
+  }
+  .img-modal-body {
+    overflow: auto;
+    max-height: 70vh;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+  }
+  .img-modal-body img {
+    max-width: 100%;
+    max-height: 66vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+  }
+  .img-modal-caption {
+    padding: 12px 18px;
+    font-size: 13px;
+    color: #334155;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    line-height: 1.5;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- MASTER PORTAL NAVIGATION BANNER -->
+<div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 12px 20px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 800; border-bottom: 2px solid #3b82f6; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; z-index: 99999; position: relative;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 20px;">🎓</span>
+        <span>المنصة التعليمية المركزية الموحدة (جميع الصفوف والمواد)</span>
+    </div>
+    <a href="البوابة_الرئيسية_الشاملة.html" style="background: linear-gradient(135deg, #2563eb, #3b82f6); color: white; padding: 6px 18px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 4px 12px rgba(37,99,235,0.3); display: flex; align-items: center; gap: 6px;">
+        <span>🏠</span>
+        <span>العودة للبوابة الرئيسية الشاملة</span>
+    </a>
+</div>
+
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- GRADE SWITCHER BAR -->
+<div class="grade-switcher-bar">
+  <div class="grade-switcher-inner">
+    <div style="font-weight:800;">🎓 منصة المراحل التعليمية الذكية:</div>
+    <div class="grade-tabs">
+      <a href="بوابة_الصف_الرابع_الابتدائي.html" class="grade-tab">🌟 الصف الرابع الابتدائي</a>
+      <a href="بوابة_الصف_الثاني_الابتدائي.html" class="grade-tab active">🎈 الصف الثاني الابتدائي</a>
+      <a href="بوابة_رياض_الأطفال_KG2.html" class="grade-tab">🧸 مرحلة رياض الأطفال KG2</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <div class="brand-logo">🎈</div>
+      <div class="brand-text">
+        <h1>بوابة الصف الثاني الابتدائي</h1>
+        <p>المنظومة التعليمية المرحة لتأسيس وتفوق أبطال الصف الثاني</p>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#schedule" class="nav-btn">📅 جدول المذاكرة</a>
+      <a href="#quiz" class="nav-btn" style="background:#fdf2f8; color:#ec4899; border-color:#fbcfe8;">⚡ كويز الأبطال</a>
+      <a href="#booklets" class="nav-btn">📚 بنك الملازم والامتحانات</a>
+      <a href="#modules" class="nav-btn">📖 فصول المواد</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO BANNER -->
+  <header class="hero-blue">
+    <span class="hero-tag">🎈 مرحباً بكم في عالم التعلم والمرح • 2025 / 2026</span>
+    <h2>بوابة التفوق الذكية لأبطال الصف الثاني الابتدائي</h2>
+    <p>شرح مبسط وملون يناسب عمر 7 و 8 سنوات، تدريبات امتحانية خفيفة وممتعة، ملازم الشهور والترم بالحلول النموذجية، وجدول زمني ذكي للمتابعة اليومية مع أولياء الأمور.</p>
+    <div class="quick-dock">
+      <a href="#schedule" class="dock-item">⏰ جدول الحصص اليومي</a>
+      <a href="#quiz" class="dock-item">⚡ تحدي الأبطال اليومي</a>
+      <a href="#booklets" class="dock-item">📑 ملازم الامتحانات الشاملة</a>
+      <a href="#modules" class="dock-item">📖 وحدات المواد الأربعة</a>
+    </div>
+  </header>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stat-group">
+      <div class="stat-pill math"><span class="pill-dot" style="background:var(--math-color);"></span><span>الرياضيات: 9 فصول معتمدة</span></div>
+      <div class="stat-pill ar"><span class="pill-dot" style="background:var(--ar-color);"></span><span>اللغة العربية: 3 وحدات معتمدة</span></div>
+      <div class="stat-pill en"><span class="pill-dot" style="background:var(--en-color);"></span><span>Connect 2: 6 وحدات معتمدة</span></div>
+      <div class="stat-pill isl"><span class="pill-dot" style="background:var(--isl-color);"></span><span>التربية الإسلامية: 3 وحدات معتمدة</span></div>
+    </div>
+    <div class="progress-info">
+      <span>مستوى الإنجاز العام:</span>
+      <div class="prog-track"><div class="prog-fill" id="total-progress-fill"></div></div>
+      <span id="total-progress-text">0%</span>
+    </div>
+  </div>
+
+  <!-- SCHEDULE SECTION -->
+    <!-- SCHEDULE SECTION -->
+  <section id="schedule" class="schedule-container">
+    <div class="schedule-top">
+      <div>
+        <h3 style="font-size:18px; font-weight:900; color:#0f172a;">📅 جدول المذاكرة والحصص الأسبوعي (الصف الثاني الابتدائي)</h3>
+        <p style="font-size:13px; color:#64748b;">مقسم بانتظام وفقاً لمواعيد الدروس الأساسية: الإثنين (كونكت بلس وماث) والخميس (عربي وإنجليزي)</p>
+      </div>
+      <div class="schedule-actions">
+        <button class="btn-notify" onclick="requestNotificationPermission()">🔔 تفعيل تنبيهات الحصص</button>
+        <button class="btn-notify" style="background:#0284c7;" onclick="window.print()">🖨️ طباعة الجدول للغرفة</button>
+      </div>
+    </div>
+    <div class="schedule-grid">
+      <div class="day-card" data-day="6">
+        <div class="day-name"><span>السبت</span><span>🎨</span></div>
+        <div class="day-task">🎨 رسم وتلوين وحل أنشطة المعاصر</div>
+        <div class="day-task">📖 قراءة قصة قصيرة مصورة</div>
+      </div>
+      <div class="day-card" data-day="0">
+        <div class="day-name"><span>الأحد</span><span>⭐</span></div>
+        <div class="day-task">📐 مراجعة الأرقام والجمع الذهني</div>
+        <div class="day-task">🔤 مراجعة كلمات Connect Plus</div>
+      </div>
+      <div class="day-card" data-day="1">
+        <div class="day-name"><span>الإثنين</span><span>🚀</span></div>
+        <div class="day-task" style="background:#fce7f3; color:#be185d; font-weight:800;">⭐ موعد درس كونكت بلس وماث</div>
+        <div class="day-task">📐 حل تمارين كتاب المعاصر ماث</div>
+        <div class="day-task">🔤 قراءة ومحادثة درس Connect Plus</div>
+      </div>
+      <div class="day-card" data-day="2">
+        <div class="day-name"><span>الثلاثاء</span><span>📐</span></div>
+        <div class="day-task">📐 تطبيق على الرسوم البيانية والأشكال</div>
+        <div class="day-task">🗂️ بطاقات الكلمات السريعة وتطبيق الكويز</div>
+      </div>
+      <div class="day-card" data-day="3">
+        <div class="day-name"><span>الأربعاء</span><span>📖</span></div>
+        <div class="day-task">📖 تحضير درس القراءة وقواعد الإملاء</div>
+        <div class="day-task">🔤 مراجعة مفردات Connect 2</div>
+      </div>
+      <div class="day-card" data-day="4">
+        <div class="day-name"><span>الخميس</span><span>🏆</span></div>
+        <div class="day-task" style="background:#f3e8ff; color:#6d28d9; font-weight:800;">⭐ موعد درس عربي وإنجليزي</div>
+        <div class="day-task">📖 قراءة النص وحل تدريبات اللغة العربية</div>
+        <div class="day-task">🔤 إتقان أصوات وجمل درس Connect 2</div>
+      </div>
+      <div class="day-card" data-day="5">
+        <div class="day-name"><span>الجمعة</span><span>🕌</span></div>
+        <div class="day-task" style="background:#dcfce7; color:#166534; font-weight:800;">⭐ تربية إسلامية وقرآن كريم</div>
+        <div class="day-task">🕌 حفظ سورة الفاتحة وقصار السور</div>
+        <div class="day-task">🌟 قصص الأنبياء وآداب المعاملات</div>
+      </div>
+    </div>
+  </section>
+
+    <!-- CURATED VISUAL GALLERY (GRADE 2 MOASSER) -->
+  <section id="visual-gallery" style="margin-top:40px; background:white; border:1px solid #e2e8f0; border-radius:18px; padding:24px; box-shadow:0 4px 20px rgba(0,0,0,0.03);">
+    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:18px;">
+      <div>
+        <h3 style="font-size:18px; font-weight:900; color:#0f172a;">🖼️ مكتبة الرسوم التوضيحية والانفوجرافيك التعليمي (من كتب المعاصر 2 ابتدائي)</h3>
+        <p style="font-size:13px; color:#64748b;">رسوم ملونة واضحة وممتعة من كتابي المعاصر ماث وكونكت بلس لتثبيت المعلومات بصرياً</p>
+      </div>
+      <span style="font-size:12px; background:#eff6ff; color:#2563eb; padding:5px 12px; border-radius:20px; font-weight:800;">🔍 اضغط لتكبير أي رسم وفحصه</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:18px;">
+      <div class="gallery-card" onclick="openImageModal('ملخصات_الصف_الثاني_الابتدائي/images/moasser_math/g2_math_bar_graphs.png', 'التمثيل البياني بالأعمدة ومقياس الرسم • كتاب المعاصر ماث', 'رسم توضيحي ملون لكيفية تمثيل البيانات وقراءة الأعمدة الأفقية والرأسية والمقارنة بين الفئات.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_الصف_الثاني_الابتدائي/images/moasser_math/g2_math_bar_graphs.png" alt="Bar Graphs" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#be185d;">التمثيل البياني بالأعمدة (Bar Graphs)</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">كتاب المعاصر • قراءة البيانات ومقارنتها.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_الصف_الثاني_الابتدائي/images/moasser_math/g2_math_addition_mental.png', 'استراتيجيات الجمع الذهني ومضاعفات الأعداد • كتاب المعاصر ماث', 'استراتيجية جمع المضاعفات، وتكوين الرقم 10، والعد التصاعدي للجمع السريع.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_الصف_الثاني_الابتدائي/images/moasser_math/g2_math_addition_mental.png" alt="Mental Math" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#be185d;">استراتيجيات الجمع الذهني ومضاعفات الأعداد</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">طرق بصرية ممتعة للجمع بدون أصابع.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_الصف_الثاني_الابتدائي/images/moasser_math/g2_math_2d_3d_shapes.png', 'الأشكال الهندسية ثنائية وثلاثية الأبعاد • كتاب المعاصر ماث', 'مقارنة بين المربع، المستطيل، الدائرة، المثلث والمكعب ومتوازي المستطيلات والأسطوانة والكرة.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_الصف_الثاني_الابتدائي/images/moasser_math/g2_math_2d_3d_shapes.png" alt="Shapes" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#be185d;">الأشكال ثنائية وثلاثية الأبعاد (2D & 3D Shapes)</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">عدد الأضلاع والرؤوس والوجوه لكل مجسم.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_الصف_الثاني_الابتدائي/images/moasser_connect/g2_connect_family_body.png', 'أفراد العائلة وأجزاء الجسم • كتاب المعاصر كونكت بلس', 'مخطط مصور رائع لأفراد العائلة: Grandparents, Parents, Siblings، وأجزاء الجسم والحواس الخمس.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_الصف_الثاني_الابتدائي/images/moasser_connect/g2_connect_family_body.png" alt="Family and Body" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Family Members & Body Parts • Connect Plus</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">شرح مصور تفاعلي للعائلة وأجزاء الجسم.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_الصف_الثاني_الابتدائي/images/moasser_connect/g2_connect_animals_habitats.png', 'الحيوانات ومواطنها الطبيعية • كتاب المعاصر كونكت بلس', 'صور جذابة للطيور والأسماك والثدييات وبيئاتها المختلفة في مصر والعالم.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_الصف_الثاني_الابتدائي/images/moasser_connect/g2_connect_animals_habitats.png" alt="Animals and Habitats" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Animals & Habitats • Connect Plus 2</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">بطاقات مصورة للحيوانات وتكيفها مع البيئة.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
+      <!-- Arabic Grade 2 Moasser Cards -->
+      <div class="gallery-card" onclick="openImageModal('ملخصات_اللغة_العربية_الثاني_الابتدائي/images/ar2_u2_healthy_food_plate.png', 'طعامي الصحي والهرم الغذائي • كتاب المعاصر عربي 2', 'لوحة الأطعمة الصحية والبروتينات والخضروات والنشويات لبناء جسم قوي ونشيط.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_اللغة_العربية_الثاني_الابتدائي/images/ar2_u2_healthy_food_plate.png" alt="Healthy Food" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#8b5cf6;">طعامي الصحي والهرم الغذائي (عربي)</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">كتاب المعاصر • الغذاء المتوازن وبناء الجسم.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_اللغة_العربية_الثاني_الابتدائي/images/ar2_u2_zarf_zaman_makan.png', 'قواعد ظرف الزمان والمكان • لغة عربية 2 ابتدائي', 'مخطط كرتوني لتوضيح ظرف المكان (فوق، تحت، أمام، خلف) وظرف الزمان (صباحاً، مساءً، ليلاً).')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_اللغة_العربية_الثاني_الابتدائي/images/ar2_u2_zarf_zaman_makan.png" alt="Zarf Zaman Makan" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#8b5cf6;">ظرف الزمان وظرف المكان (الأساليب)</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">توضيح بصري بالأشكال لسهولة الفهم.</div>
+        </div>
+      </div>
+
+      <!-- Islamic Grade 2 Cards -->
+      <div class="gallery-card" onclick="openImageModal('ملخصات_التربية_الإسلامية_الثاني_الابتدائي/images/isl2_u1_tawakkul_ala_allah.png', 'خلق التوكل على الله تعالى • تربية إسلامية 2', 'رسم توضيحي رائع لقصة الأخذ بالأسباب مع الاعتماد والتوكل الكامل على الله الرزاق.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/images/isl2_u1_tawakkul_ala_allah.png" alt="Tawakkul" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#10b981;">خلق التوكل على الله تعالى (إسلامية)</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">الأخذ بالأسباب واليقين بحفظ الله ورعايته.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_التربية_الإسلامية_الثاني_الابتدائي/images/isl2_u2_iqamah_and_salah_steps.png', 'ألفاظ الإقامة وخطوات الصلاة • تربية إسلامية 2', 'مخطط مصور للأذان والإقامة وخشوع الصلاة في جماعة بالمير والتوضيح.')">
+        <div style="height:170px; overflow:hidden; background:#f1f5f9; border-radius:10px 10px 0 0; position:relative;">
+          <img src="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/images/isl2_u2_iqamah_and_salah_steps.png" alt="Salah" style="width:100%; height:100%; object-fit:cover; object-position:top;">
+          <div class="gallery-zoom-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#10b981;">ألفاظ الإقامة وصلاة الجماعة</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">آداب المسجد وثواب صلاة الجماعة 27 درجة.</div>
+        </div>
+      </div>
+    
+  <!-- INTERACTIVE HUB (QUIZ & FLASHCARDS) -->
+  <section class="interactive-hub-grid">
+    <div class="hub-box" id="quiz">
+      <div class="hub-box-head">
+        <div class="hub-box-title"><span>⚡ تحدي الأبطال اليومي (Grade 2 Quiz)</span></div>
+        <span class="sec-badge" id="quiz-score-badge">النتيجة: 0 / 4</span>
+      </div>
+      <div>
+        <div class="quiz-q-text" id="quiz-question">جاري تحميل السؤال الذكي...</div>
+        <div class="quiz-options" id="quiz-options"></div>
+      </div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <button class="btn-notify" id="btn-next-quiz" style="display:none; margin-top:12px;" onclick="loadNextQuizQuestion()">السؤال التالي ➡️</button>
+    </div>
+
+    <div class="hub-box" id="flashcards">
+      <div class="hub-box-head">
+        <div class="hub-box-title"><span>🗂️ بطاقات المعلومات السريعة (Flashcards)</span></div>
+        <span class="sec-badge" id="fc-counter">بطاقة 1 من 4</span>
+      </div>
+      <div class="flashcard-card" id="flashcard" onclick="flipFlashcard()">
+        <div class="flashcard-inner">
+          <div class="flashcard-front">
+            <span style="font-size:28px;">❓</span>
+            <h4 id="fc-question" style="font-size:16px; font-weight:800; margin-top:8px;">How many sides does a triangle have?</h4>
+            <span style="font-size:11px; color:#64748b; margin-top:6px;">👆 اضغط لقلب البطاقة</span>
+          </div>
+          <div class="flashcard-back">
+            <span style="font-size:28px;">💡</span>
+            <p id="fc-answer" style="font-size:15px; font-weight:800; line-height:1.5; margin-top:8px;">A triangle has 3 sides and 3 vertices!</p>
+            <span style="font-size:11px; color:#15803d; margin-top:6px;">👆 اضغط للرجوع</span>
+          </div>
+        </div>
+      </div>
+      <div class="fc-controls">
+        <button class="btn-fc-nav" onclick="prevFlashcard()">⬅️ السابقة</button>
+        <button class="btn-fc-nav" onclick="nextFlashcard()">التالية ➡️</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKLETS SHELVES -->
+  <section id="booklets" class="shelves-container">
+    <div class="sec-header">
+      <div class="sec-title">
+        <span>📚 بنك الملازم والامتحانات التخصصية للصف الثاني الابتدائي</span>
+        <span class="sec-badge">كاملة بنماذج الإجابة الرسمية</span>
+      </div>
+    </div>
+
+    <!-- SHELF 1: FINAL TERM -->
+    <div class="shelf-block">
+      <div class="shelf-head">
+        <div class="shelf-head-title"><span>🏆 ملزمة امتحانات المحافظات ونهاية الترم الشاملة</span></div>
+        <span class="sec-badge">4 امتحانات لكل مادة + الحلول</span>
+      </div>
+      <div class="shelf-grid">
+        <div class="booklet-card">
+          <span class="subj-tag math">Math P2</span>
+          <h4 class="bk-title">Final Term Exams • Math P2</h4>
+          <p class="bk-desc">4 امتحانات كاملة على الأشكال الهندسية والقيمة المكانية والجمع وإعادة التسمية مع الحلول.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_Math_الثاني_الابتدائي/Final_Term_Exams_Math_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_Math_الثاني_الابتدائي/Final_Term_Exams_Math_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag ar">لغة عربية</span>
+          <h4 class="bk-title">امتحانات نهاية الترم • عربي ثانية</h4>
+          <p class="bk-desc">4 امتحانات محافظات تشمل القراءة المتحررة، أساليب وتراكيب، وإملاء مع نموذج الحل.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Term_Exams_Arabic_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Term_Exams_Arabic_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag en">Connect 2</span>
+          <h4 class="bk-title">Final Term Exams • Connect 2</h4>
+          <p class="bk-desc">4 امتحانات وزارية نموذجية بالكلمات والجرامر والمحادثات مع نماذج الإجابات.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_English_الثاني_الابتدائي/Final_Term_Exams_English_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_English_الثاني_الابتدائي/Final_Term_Exams_English_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag isl">دين إسلامي</span>
+          <h4 class="bk-title">امتحانات نهاية الترم • تربية إسلامية</h4>
+          <p class="bk-desc">4 امتحانات تشمل سور القرآن والحديث وقصص الأنبياء وآداب الوضوء مع الحلول النموذجية.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Term_Exams_Islamic_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Term_Exams_Islamic_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHELF 2: MONTHLY EXAMS -->
+    <div class="shelf-block">
+      <div class="shelf-head">
+        <div class="shelf-head-title"><span>📅 ملزمة امتحانات الشهور (أكتوبر ونوفمبر)</span></div>
+        <span class="sec-badge">تدريبات شهرية ممتعة</span>
+      </div>
+      <div class="shelf-grid">
+        <div class="booklet-card">
+          <span class="subj-tag math">Math P2</span>
+          <h4 class="bk-title">Monthly Tests (Oct & Nov) • Math</h4>
+          <p class="bk-desc">نماذج تدريبية مبسطة لاختبارات شهري أكتوبر ونوفمبر بالحلول الكاملة.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_Math_الثاني_الابتدائي/Monthly_Exams_Math_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_Math_الثاني_الابتدائي/Monthly_Exams_Math_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag ar">لغة عربية</span>
+          <h4 class="bk-title">اختبارات الشهور • لغة عربية</h4>
+          <p class="bk-desc">اختبارات شهرية تفاعلية على الأساليب والمدود والمفرد والمثنى مع الحلول.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Monthly_Exams_Arabic_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Monthly_Exams_Arabic_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag en">Connect 2</span>
+          <h4 class="bk-title">Monthly Tests • Connect 2</h4>
+          <p class="bk-desc">تمارين واختبارات قياسية خفيفة تركز على الكلمات والجمل البسيطة بنماذج الإجابة.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_English_الثاني_الابتدائي/Monthly_Exams_English_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_English_الثاني_الابتدائي/Monthly_Exams_English_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag isl">دين إسلامي</span>
+          <h4 class="bk-title">اختبارات الشهور • تربية إسلامية</h4>
+          <p class="bk-desc">نماذج تدريبية على السور المقررة وخطوات الوضوء والصفات الإيمانية مع الحل.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Monthly_Exams_Islamic_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Monthly_Exams_Islamic_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHELF 3: FINAL REVISION -->
+    <div class="shelf-block">
+      <div class="shelf-head">
+        <div class="shelf-head-title"><span>💡 ملزمة المراجعة النهائية المركزة (ليلة الامتحان)</span></div>
+        <span class="sec-badge">كبسولات ذهبية ملونة</span>
+      </div>
+      <div class="shelf-grid">
+        <div class="booklet-card">
+          <span class="subj-tag math">Math P2</span>
+          <h4 class="bk-title">Final Revision Guide • Math P2</h4>
+          <p class="bk-desc">كبسولة القوانين الرياضية، ملخص خواص الأشكال الهندسية، وقواعد إعادة التسمية.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_Math_الثاني_الابتدائي/Final_Revision_Math_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_Math_الثاني_الابتدائي/Final_Revision_Math_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag ar">لغة عربية</span>
+          <h4 class="bk-title">المراجعة النهائية • عربي ثانية</h4>
+          <p class="bk-desc">ملخص القواعد الإملائية والأسلوبية وأسماء الإشارة وحروف الجر وأدوات الاستفهام.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Revision_Arabic_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Revision_Arabic_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag en">Connect 2</span>
+          <h4 class="bk-title">Final Revision Guide • Connect 2</h4>
+          <p class="bk-desc">قاموس الكلمات المصور، قواعد المفرد والجمع الشاذ، وأهم الجمل اليومية.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_English_الثاني_الابتدائي/Final_Revision_English_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_English_الثاني_الابتدائي/Final_Revision_English_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+        <div class="booklet-card">
+          <span class="subj-tag isl">دين إسلامي</span>
+          <h4 class="bk-title">المراجعة النهائية • تربية إسلامية</h4>
+          <p class="bk-desc">ملخص الإيمان والتوحيد، قصص الأنبياء، سنن وفرائض الوضوء، وأخلاق المسلم الصغير.</p>
+          <div class="bk-actions">
+            <a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Revision_Islamic_PRIM2.html" class="btn-view-html">عرض الملزمة</a>
+            <a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Revision_Islamic_PRIM2.pdf" class="btn-dl-pdf" download>PDF ⬇️</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODULES GRID -->
+  <section id="modules">
+    <div class="sec-header">
+      <div class="sec-title">
+        <span>📖 فصول ووحدات الصف الثاني الابتدائي (الشرح ثلاثي الأقسام)</span>
+        <span class="sec-badge">21 وحدة وفصلاً معتمداً (مطابقة للفهارس)</span>
+      </div>
+    </div>
+
+    <!-- CONTROLS ROW -->
+    <div class="controls-row">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="module-search" placeholder="ابحث عن درس أو مفهوم (مثل: Shapes, الوضوء, family, أسماء الإشارة...)" oninput="filterModules()">
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" onclick="filterTab('all', this)">كل المواد</button>
+        <button class="filter-tab" onclick="filterTab('math', this)">📐 Mathematics</button>
+        <button class="filter-tab" onclick="filterTab('ar', this)">📖 لغة عربية</button>
+        <button class="filter-tab" onclick="filterTab('en', this)">🔤 Connect 2</button>
+        <button class="filter-tab" onclick="filterTab('isl', this)">🕌 تربية إسلامية</button>
+      </div>
+    </div>
+
+    <div class="modules-grid" id="modules-container">
+      <!-- Math Modules (9 Official Chapters) -->
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 1 graphs charts bar graph frequency tally data">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 1</span><h4 class="mod-title">Chapter 1: Graphs and Charts</h4><p class="mod-desc">Bar graphs, pictographs, frequency tables, tally marks, scale of 1s and 2s, comparing data.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch1" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter1_Graphs_and_Charts.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 2 vertical addition number line doubles making 10">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 2</span><h4 class="mod-title">Chapter 2: Vertical Addition</h4><p class="mod-desc">Vertical addition algorithms, number lines, making 10 strategy, doubles and doubles plus 1.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch2" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter2_Vertical_Addition.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 3 vertical subtraction fact families counting down word problems">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 3</span><h4 class="mod-title">Chapter 3: Vertical Subtraction</h4><p class="mod-desc">Vertical subtraction, fact families, counting down strategy, inverse relationship with addition.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch3" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter3_Vertical_Subtraction.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 4 time duration analog digital clock elapsed time">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 4</span><h4 class="mod-title">Chapter 4: Time and Duration</h4><p class="mod-desc">Telling time on analog and digital clocks (o'clock, half past, quarter past), elapsed time calculations.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch4" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter4_Time_and_Duration.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 5 units length meter centimeter millimeter ruler">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 5</span><h4 class="mod-title">Chapter 5: Units of Length</h4><p class="mod-desc">Measuring lengths, units: Meter (m), Centimeter (cm), Millimeter (mm), conversions (1m = 100cm).</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch5" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter5_Units_of_Length.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 6 numbers bigger than 100 place value hundreds tens ones compare">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 6</span><h4 class="mod-title">Chapter 6: Numbers Bigger than 100</h4><p class="mod-desc">3-digit numbers, place value (Hundreds, Tens, Ones), comparing (378 < 397) and ordering numbers.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch6" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter6_Numbers_Bigger_than_100.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 7 units capacity liter deciliter milliliter liquid volume">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 7</span><h4 class="mod-title">Chapter 7: Units of Capacity</h4><p class="mod-desc">Measuring liquid volume, units: Liter (L), Deciliter (dL), Milliliter (mL), real-world volume benchmarks.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch7" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter7_Units_of_Capacity.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 8 vertical addition subtraction regrouping carrying borrowing">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 8</span><h4 class="mod-title">Chapter 8: Vertical Add & Subtraction</h4><p class="mod-desc">Advanced vertical addition with carrying and subtraction with borrowing across hundreds, tens, and ones.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch8" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter8_Vertical_Addition_and_Subtraction.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-math" data-cat="math" data-keywords="math chapter 9 mental math strategies associative property decomposition">
+        <div class="mod-body"><span class="mod-badge">Math • Ch 9</span><h4 class="mod-title">Chapter 9: Mental Math Strategies</h4><p class="mod-desc">Associative property (e.g. (2+8)+11 = 21), friendly numbers, decomposing numbers for lightning calculations.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-m-ch9" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_Math_الثاني_الابتدائي/Chapter9_Mental_Math_Strategies.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+
+      <!-- Arabic Modules (3 Official Units) -->
+      <div class="module-card subj-ar" data-cat="ar" data-keywords="عربي وحدة 1 من اكون يومي اسماء الاشارة ضمائر المتكلم المخاطب">
+        <div class="mod-body"><span class="mod-badge">عربي • الوحدة 1</span><h4 class="mod-title">الوحدة الأولى: من أكون؟</h4><p class="mod-desc">يومي المدرسي، أسماء الإشارة (هذا/هذه/هؤلاء)، ضمائر المتكلم (أنا/نحن) وضمائر المخاطب (أنتَ/أنتِ).</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-ar-u1" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Unit1_Who_Am_I.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-ar" data-cat="ar" data-keywords="عربي وحدة 2 طعامي الصحي ظرف الزمان المكان اللام الشمسية القمرية البطل الصغير غزال في ورطة">
+        <div class="mod-body"><span class="mod-badge">عربي • الوحدة 2</span><h4 class="mod-title">الوحدة الثانية: طعامي الصحي</h4><p class="mod-desc">طعامي الصحي، ظرف الزمان والمكان، اللام الشمسية واللام القمرية، نشيد البطل الصغير، وقصة غزال في ورطة.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-ar-u2" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Unit2_My_Healthy_Food.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-ar" data-cat="ar" data-keywords="عربي وحدة 3 الرياضة والتكنولوجيا حسام والكمبيوتر الامر والنهي الاسماء الموصولة الذي والتي رياضتي">
+        <div class="mod-body"><span class="mod-badge">عربي • الوحدة 3</span><h4 class="mod-title">الوحدة الثالثة: الرياضة والتكنولوجيا</h4><p class="mod-desc">الرياضة لنا، قصة حسام والكمبيوتر، أسلوب الأمر والنهي، الأسماء الموصولة (الذي والتي)، ونشيد رياضتي.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-ar-u3" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_اللغة_العربية_الثاني_الابتدائي/Unit3_Sports_and_Technology.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+
+      <!-- English Modules (6 Official Connect 2 Units) -->
+      <div class="module-card subj-en" data-cat="en" data-keywords="english connect 2 unit 1 meet my family greetings this is these are">
+        <div class="mod-body"><span class="mod-badge">Connect 2 • Unit 1</span><h4 class="mod-title">Unit 1: Meet My Family</h4><p class="mod-desc">Family members (parents, grandparents, cousins), daily greetings, This is / These are structures.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-en-u1" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_English_الثاني_الابتدائي/Unit1_Meet_My_Family.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-en" data-cat="en" data-keywords="english connect 2 unit 2 my body senses head arms legs feet I have">
+        <div class="mod-body"><span class="mod-badge">Connect 2 • Unit 2</span><h4 class="mod-title">Unit 2: My Body</h4><p class="mod-desc">Body parts, five senses (see, hear, smell, taste, touch), verb to have (I have a face / birds have beaks).</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-en-u2" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_English_الثاني_الابتدائي/Unit2_My_Body.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-en" data-cat="en" data-keywords="english connect 2 unit 3 off to school clothes classroom items colors plural">
+        <div class="mod-body"><span class="mod-badge">Connect 2 • Unit 3</span><h4 class="mod-title">Unit 3: Off To School</h4><p class="mod-desc">School items, classroom objects, clothes and colors, plural nouns and demonstrative pronouns.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-en-u3" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_English_الثاني_الابتدائي/Unit3_Off_To_School.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-en" data-cat="en" data-keywords="english connect 2 unit 4 time to play sports action verbs can can't">
+        <div class="mod-body"><span class="mod-badge">Connect 2 • Unit 4</span><h4 class="mod-title">Unit 4: Time To Play</h4><p class="mod-desc">Favorite sports (football, tennis, swimming, karate), action verbs (kick, throw, hit), can and can't.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-en-u4" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_English_الثاني_الابتدائي/Unit4_Time_To_Play.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-en" data-cat="en" data-keywords="english connect 2 unit 5 my day daily routine telling time wake up breakfast clock">
+        <div class="mod-body"><span class="mod-badge">Connect 2 • Unit 5</span><h4 class="mod-title">Unit 5: My Day</h4><p class="mod-desc">Daily routines (wake up, eat breakfast, go to school, sleep), telling time in hours, parts of the day.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-en-u5" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_English_الثاني_الابتدائي/Unit5_My_Day.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-en" data-cat="en" data-keywords="english connect 2 unit 6 lets go shopping clothes market prices how much">
+        <div class="mod-body"><span class="mod-badge">Connect 2 • Unit 6</span><h4 class="mod-title">Unit 6: Let's Go Shopping</h4><p class="mod-desc">Shopping at the market, clothes, food, counting money and asking prices with How much is/are.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-en-u6" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_English_الثاني_الابتدائي/Unit6_Lets_Go_Shopping.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+
+      <!-- Islamic Modules (3 Official Units) -->
+      <div class="module-card subj-isl" data-cat="isl" data-keywords="دين وحدة 1 التوكل على الله السميع سورة القدر البينة الاذان الوحي شعيب">
+        <div class="mod-body"><span class="mod-badge">دين • الوحدة 1</span><h4 class="mod-title">الوحدة الأولى: التوكل على الله تعالى</h4><p class="mod-desc">اسم الله السميع، سورة القدر والبينة، كلمات الأذان ومعانيها، نزول الوحي في غار حراء، قصة نبي الله شعيب، وخلق التوكل.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-isl-u1" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Unit1_Tawakkul_Ala_Allah.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-isl" data-cat="isl" data-keywords="دين وحدة 2 من نعم الله البصير سورة التين العلق الاقامة الدعوة السرية موسى امانة الجوارح">
+        <div class="mod-body"><span class="mod-badge">دين • الوحدة 2</span><h4 class="mod-title">الوحدة الثانية: من نعم الله تعالى</h4><p class="mod-desc">اسم الله البصير، سورة التين والعلق، ألفاظ الإقامة، بداية الدعوة السرية، قصة سيدنا موسى وطفولته، وحفظ أمانة الجوارح.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-isl-u2" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Unit2_Min_Niam_Allah.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+      <div class="module-card subj-isl" data-cat="isl" data-keywords="دين وحدة 3 الشكر لله الشكور سورة الشرح الضحى صلاة الجماعة الدعوة الجهرية داود">
+        <div class="mod-body"><span class="mod-badge">دين • الوحدة 3</span><h4 class="mod-title">الوحدة الثالثة: الشكر لله تعالى</h4><p class="mod-desc">اسم الله الشكور، سورة الشرح والضحى، فضل صلاة الجماعة، الدعوة الجهرية على الصفا، قصة داود عليه السلام، والشكر في السراء والضراء.</p></div>
+        <div class="mod-footer"><label class="chk-wrap"><input type="checkbox" data-id="p2-isl-u3" onchange="toggleModuleCheck(this)"> <span>أتممت المذاكرة</span></label><div class="mod-links"><a href="ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Unit3_Ash_Shukr_Lillah.html" class="btn-view-html">عرض الدرس</a></div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- FLOATING BAR -->
+<div class="floating-bar">
+  <a href="#" class="float-btn">🔝 للأعلى</a>
+  <a href="بوابة_الصف_الرابع_الابتدائي.html" class="float-btn" style="color:#2563eb;">🌟 الانتقال للصف الرابع</a>
+  <button onclick="window.print()" class="float-btn">🖨️ طباعة</button>
+</div>
+
+<script>
+  // QUIZ ENGINE
+  const quizData = [
+    {
+      q: "In Math, which 2D shape has exactly 3 sides and 3 vertices?",
+      opts: ["Square", "Triangle", "Pentagon", "Circle"],
+      correct: 1,
+      why: "The triangle (المثلث) always has 3 sides and 3 vertices!"
+    },
+    {
+      q: "ما اسم الإشارة المناسب للجملة: [ ..... كتبٌ مفيدةٌ وقصصٌ رائعةٌ ]؟",
+      opts: ["هذا", "هذه", "هؤلاء", "ذلك"],
+      correct: 1,
+      why: "نستخدم (هذه) لجمع غير العاقل (هذه كتب مفيدة)!"
+    },
+    {
+      q: "In Connect 2, what is the plural of (foot)?",
+      opts: ["foots", "feet", "feets", "footen"],
+      correct: 1,
+      why: "Irregular plural: one foot, two feet!"
+    },
+    {
+      q: "في مادة التربية الإسلامية، ما هي السورة التي تعدل ثلث القرآن الكريم؟",
+      opts: ["سورة الفاتحة", "سورة الناس", "سورة الإخلاص", "سورة الفلق"],
+      correct: 2,
+      why: "سورة الإخلاص (قل هو الله أحد) تعدل ثلث القرآن في الأجر والثواب!"
+    }
+  ];
+
+  let currentQ = 0;
+  let score = 0;
+
+  function loadQuiz() {
+    if (currentQ >= quizData.length) {
+      document.getElementById("quiz-question").innerHTML = "🎉 بارك الله فيك يا بطل! أنهيت اختبار اليوم بنجاح!";
+      document.getElementById("quiz-options").innerHTML = "";
+      document.getElementById("quiz-feedback").innerHTML = `🌟 درجتك النهائية: <strong>${score} من ${quizData.length}</strong>`;
+      document.getElementById("btn-next-quiz").style.display = "none";
+      fireConfetti();
+      return;
+    }
+    const qObj = quizData[currentQ];
+    document.getElementById("quiz-question").textContent = `${currentQ + 1}. ${qObj.q}`;
+    const optsDiv = document.getElementById("quiz-options");
+    optsDiv.innerHTML = "";
+    document.getElementById("quiz-feedback").textContent = "";
+    document.getElementById("btn-next-quiz").style.display = "none";
+
+    qObj.opts.forEach((opt, idx) => {
+      const btn = document.createElement("button");
+      btn.className = "quiz-btn";
+      btn.textContent = opt;
+      btn.onclick = () => checkQuizAns(idx, btn);
+      optsDiv.appendChild(btn);
+    });
+  }
+
+  function checkQuizAns(selectedIdx, btn) {
+    const qObj = quizData[currentQ];
+    const allBtns = document.querySelectorAll(".quiz-btn");
+    allBtns.forEach(b => b.disabled = true);
+
+    if (selectedIdx === qObj.correct) {
+      btn.classList.add("correct");
+      document.getElementById("quiz-feedback").innerHTML = `<span style="color:#15803d;">👏 إجابة صحيحة وممتازة! ${qObj.why}</span>`;
+      score++;
+      document.getElementById("quiz-score-badge").textContent = `النتيجة: ${score} / ${quizData.length}`;
+      fireConfetti();
+    } else {
+      btn.classList.add("wrong");
+      allBtns[qObj.correct].classList.add("correct");
+      document.getElementById("quiz-feedback").innerHTML = `<span style="color:#b91c1c;">💡 إجابة قريبة، لكن الإجابة الصحيحة هي: "${qObj.opts[qObj.correct]}". ${qObj.why}</span>`;
+    }
+    document.getElementById("btn-next-quiz").style.display = "inline-flex";
+  }
+
+  function loadNextQuizQuestion() {
+    currentQ++;
+    loadQuiz();
+  }
+
+  // FLASHCARDS
+  const flashcardsData = [
+    { q: "How many sides does a triangle have?", a: "A triangle has 3 sides and 3 vertices!" },
+    { q: "ما هي علامات الاسم في اللغة العربية؟", a: "الألف واللام، التاء المربوطة، التنوين، أو المسبوق بحرف جر!" },
+    { q: "What do we say when the sun rises in the morning?", a: "We say: Good morning! ☀️" },
+    { q: "كم ركعة في صلاة الصبح (الفجر)؟", a: "ركعتان مفروضتان يؤديهما المسلم في بداية اليوم." }
+  ];
+  let currentFc = 0;
+
+  function updateFlashcard() {
+    const card = document.getElementById("flashcard");
+    card.classList.remove("flipped");
+    document.getElementById("fc-question").textContent = flashcardsData[currentFc].q;
+    document.getElementById("fc-answer").textContent = flashcardsData[currentFc].a;
+    document.getElementById("fc-counter").textContent = `بطاقة ${currentFc + 1} من ${flashcardsData.length}`;
+  }
+  function flipFlashcard() { document.getElementById("flashcard").classList.toggle("flipped"); }
+  function nextFlashcard() { currentFc = (currentFc + 1) % flashcardsData.length; updateFlashcard(); }
+  function prevFlashcard() { currentFc = (currentFc - 1 + flashcardsData.length) % flashcardsData.length; updateFlashcard(); }
+
+  // MODULE SEARCH & FILTER
+  function filterModules() {
+    const term = document.getElementById("module-search").value.toLowerCase();
+    const activeTab = document.querySelector(".filter-tab.active").getAttribute("onclick").match(/'([^']+)'/)[1];
+    const cards = document.querySelectorAll(".module-card");
+    cards.forEach(card => {
+      const cat = card.getAttribute("data-cat");
+      const keywords = card.getAttribute("data-keywords").toLowerCase();
+      const text = card.textContent.toLowerCase();
+      const matchesSearch = text.includes(term) || keywords.includes(term);
+      const matchesTab = (activeTab === "all" || cat === activeTab);
+      card.style.display = (matchesSearch && matchesTab) ? "flex" : "none";
+    });
+  }
+
+  function filterTab(category, btn) {
+    document.querySelectorAll(".filter-tab").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    filterModules();
+  }
+
+  // PROGRESS TRACKING
+  function toggleModuleCheck(checkbox) {
+    const id = checkbox.getAttribute("data-id");
+    localStorage.setItem("p2_" + id, checkbox.checked ? "1" : "0");
+    updateTotalProgress();
+  }
+
+  function updateTotalProgress() {
+    const checkboxes = document.querySelectorAll(".chk-wrap input[type='checkbox']");
+    let checked = 0;
+    checkboxes.forEach(cb => {
+      const id = cb.getAttribute("data-id");
+      if (localStorage.getItem("p2_" + id) === "1") {
+        cb.checked = true;
+        checked++;
+      }
+    });
+    const percent = Math.round((checked / checkboxes.length) * 100);
+    document.getElementById("total-progress-fill").style.width = percent + "%";
+    document.getElementById("total-progress-text").textContent = percent + "%";
+  }
+
+  // CONFETTI
+  function fireConfetti() {
+    const canvas = document.getElementById("confetti-canvas");
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const pieces = [];
+    const colors = ["#ec4899", "#8b5cf6", "#06b6d4", "#10b981", "#f59e0b"];
+    for (let i = 0; i < 70; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height * 0.4,
+        size: Math.random() * 8 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 4,
+        vy: Math.random() * 4 + 2,
+        rot: Math.random() * 360
+      });
+    }
+    let frames = 0;
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, p.size, p.size);
+      });
+      frames++;
+      if (frames < 50) requestAnimationFrame(animate);
+      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    animate();
+  }
+
+  // NOTIFICATION
+  function requestNotificationPermission() {
+    if ("Notification" in window) {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          new Notification("🌟 برافو!", { body: "تم تفعيل تنبيهات حصص الصف الثاني الابتدائي بنجاح!" });
+        } else {
+          alert("يمكنك تفعيل الإشعارات من إعدادات المتصفح لمتابعة الحصص أولاً بأول!");
+        }
+      });
+    } else {
+      alert("خاصية التنبيهات مدعومة تلقائياً في متصفحك!");
+    }
+  }
+
+  // INITIALIZE
+  window.addEventListener("DOMContentLoaded", () => {
+    loadQuiz();
+    updateFlashcard();
+    updateTotalProgress();
+    // Highlight today in schedule
+    const todayDay = new Date().getDay(); // 0 is Sun
+    const dayCard = document.querySelector(`.day-card[data-day="${todayDay}"]`);
+    if (dayCard) dayCard.classList.add("today");
+  });
+</script>
+
+
+<!-- IMAGE LIGHTBOX MODAL -->
+<div id="imageLightboxModal" class="img-modal" onclick="closeImageModal(event)">
+  <div class="img-modal-content" onclick="event.stopPropagation()">
+    <div class="img-modal-header">
+      <div class="img-modal-title" id="lightboxTitle">عنوان الرسم التوضيحي</div>
+      <div class="img-modal-actions">
+        <button class="img-btn" onclick="zoomImage(1.25)" title="تكبير">+</button>
+        <button class="img-btn" onclick="zoomImage(0.8)" title="تصغير">-</button>
+        <button class="img-btn" onclick="resetZoom()" title="إعادة الضبط">↺ طبيعي</button>
+        <a id="lightboxDownloadBtn" href="#" download class="img-btn" style="background:#10b981; color:white; text-decoration:none;">⬇️ تحميل</a>
+        <button class="img-btn" style="background:#ef4444; color:white;" onclick="closeImageModal()">✕ إغلاق</button>
+      </div>
+    </div>
+    <div class="img-modal-body" id="lightboxBody">
+      <img id="lightboxImg" src="" alt="Zoomed View">
+    </div>
+    <div class="img-modal-caption" id="lightboxCaption">شرح الرسم التوضيحي ومحتواه التعليمي.</div>
+  </div>
+</div>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

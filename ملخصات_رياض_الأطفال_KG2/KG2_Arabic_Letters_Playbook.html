@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملزمة الحروف الهجائية والتأسيس اللغوي KG2 • روضة الأبطال 2025 / 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #8b5cf6;
+    --primary-dark: #6d28d9;
+    --accent: #f59e0b;
+    --pink: #ec4899;
+    --bg-page: #f8fafc;
+    --text-main: #0f172a;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+  .container { max-width: 950px; margin: 0 auto; padding: 20px; }
+
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #ddd6fe;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .nav-btn {
+    background: #f5f3ff;
+    color: var(--primary-dark);
+    border: 1px solid #ddd6fe;
+    padding: 7px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  .nav-btn:hover { background: var(--primary); color: white; }
+
+  .booklet-header {
+    background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #c084fc 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.3);
+  }
+  .booklet-header h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .booklet-header p { font-size: 14px; opacity: 0.95; }
+  .year-badge {
+    display: inline-block;
+    background: #fef08a;
+    color: #854d0e;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+
+  /* TALKING THEATER HERO */
+  .theater-card {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2.5px solid #fde047;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+  }
+  .stage-box {
+    background: white;
+    border: 2px solid #fcd34d;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, #a78bfa 0%, #7c3aed 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 15px rgba(124, 58, 237, 0.3);
+  }
+  .avatar-icon { font-size: 60px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #c084fc;
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 0.2; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+  .speech-balloon {
+    flex: 1;
+    min-width: 250px;
+    background: #fdf4ff;
+    border: 2px solid #f5d0fe;
+    border-radius: 16px;
+    padding: 16px 20px;
+    position: relative;
+  }
+  .speech-title { font-weight: 900; font-size: 16px; color: #86198f; margin-bottom: 6px; }
+  .speech-text { font-size: 15px; font-weight: 700; color: #1e1b4b; line-height: 1.6; }
+
+  /* SELECTOR PILLS */
+  .char-selector {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 4px 4px 4px;
+    margin-top: 14px;
+  }
+  .char-pill {
+    background: white;
+    border: 2px solid #ddd6fe;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: #4c1d95;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .char-pill:hover, .char-pill.active {
+    background: #7c3aed;
+    color: white;
+    border-color: #6d28d9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.25);
+  }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary-dark);
+    border-bottom: 2px dashed #ddd6fe;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .ar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 14px;
+  }
+  .ar-card {
+    background: #f5f3ff;
+    border: 2px solid #ddd6fe;
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+  }
+  .ar-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 18px rgba(139, 92, 246, 0.2);
+  }
+  .ar-letter { font-size: 36px; font-weight: 900; color: var(--primary); }
+  .ar-word { font-size: 14px; font-weight: 800; color: #1e1b4b; margin-top: 4px; }
+  .ar-icon { font-size: 32px; margin-top: 4px; }
+  .speak-btn {
+    margin-top: 8px;
+    background: #8b5cf6;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 800;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: 0.15s;
+  }
+  .speak-btn:hover { background: #6d28d9; transform: scale(1.05); }
+
+  /* VISUAL BANNER */
+  .visual-card {
+    background: #fdf4ff;
+    border: 2px dashed #d8b4fe;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .visual-card img {
+    max-width: 100%;
+    max-height: 260px;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+
+  @media print {
+    .sticky-nav, .theater-card, .speak-btn { display: none !important; }
+    body { background: white !important; }
+    .section-card { break-inside: avoid; border: 1px solid #ccc !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sticky-nav">
+  <a href="../بوابة_رياض_الأطفال_KG2.html" class="nav-btn">🧸 عودة لبوابة KG2</a>
+  <span style="font-weight:800; font-size:14px; color:var(--primary-dark);">📖 ملزمة الحروف الهجائية الناطقة • KG2</span>
+  <button class="nav-btn" style="background:#0f172a; color:white;" onclick="window.print()">🖨️ طباعة الملزمة</button>
+</div>
+
+<div class="container">
+  <div class="booklet-header">
+    <h1>📖 ملزمة الحروف الهجائية والتأسيس القرائي • KG2</h1>
+    <p>منهج رياض الأطفال المستوى الثاني • أصوات الحروف العربية والشخصيات المتحدثة والأناشيد التأسيسية</p>
+    <div class="year-badge">✨ العام الدراسي الجديد 2025 / 2026</div>
+  </div>
+
+  <!-- THEATER HERO -->
+  <div class="theater-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <span style="font-size:16px; font-weight:900; color:#b45309;">🎭 مسرح الحروف الهجائية الناطقة (تحدث معي!)</span>
+      <span style="font-size:12px; font-weight:800; background:#f59e0b; color:white; padding:3px 10px; border-radius:15px;">استمع وردد</span>
+    </div>
+
+    <div class="stage-box">
+      <div class="avatar-wrap">
+        <div class="pulse-ring"></div>
+        <div class="avatar-icon" id="stageAvatar">🐰</div>
+      </div>
+      <div class="speech-balloon">
+        <div class="speech-title" id="stageTitle">حرف الألف (أ) يتحدث إليك!</div>
+        <div class="speech-text" id="stageText">أهلاً يا صديقي البطل! أنا حرف الألف (أ).. أرنب.. أسد.. ألوان! أحب القفز وأبدأ بأحلى الكلمات!</div>
+        <div style="margin-top:10px; display:flex; gap:8px;">
+          <button class="speak-btn" style="font-size:13px; padding:6px 16px;" onclick="speakCurrent()">🔊 استمع لصوتي ونشيدي!</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PILLS -->
+    <div class="char-selector">
+      <div class="char-pill active" onclick="selectChar('أ', '🐰', 'أهلاً يا صديقي البطل! أنا حرف الألف.. أرنب يجري يلعب يأكل جزراً كي لا يتعب!', 'ألف.. أرنب.. أسد.. ألوان')">ألف 🐰</div>
+      <div class="char-pill" onclick="selectChar('ب', '🦆', 'مرحباً! أنا حرف الباء.. بطة نطت في الماء.. بيض.. بيت.. برتقال!', 'باء.. بطة.. بيت.. برتقال')">باء 🦆</div>
+      <div class="char-pill" onclick="selectChar('ت', '🍎', 'يا هلا بالأبطال! أنا حرف التاء.. تفاح أحمر ولذيذ.. تمساح.. تاج!', 'تاء.. تفاح.. تمساح.. تاج')">تاء 🍎</div>
+      <div class="char-pill" onclick="selectChar('ث', '🦊', 'أهلاً وسهلاً! أنا حرف الثاء اللثوي.. ثعلب ماكر.. ثلج.. ثعبان!', 'ثاء.. ثعلب.. ثلج.. ثعبان')">ثاء 🦊</div>
+      <div class="char-pill" onclick="selectChar('ج', '🐪', 'أنا حرف الجيم.. جمل صبور في الصحراء.. جبن.. جرس!', 'جيم.. جمل.. جبن.. جرس')">جيم 🐪</div>
+      <div class="char-pill" onclick="selectChar('ح', '🐴', 'مرحباً! أنا حرف الحاء.. حصان سريع.. حليب.. حديقة!', 'حاء.. حصان.. حليب.. حديقة')">حاء 🐴</div>
+      <div class="char-pill" onclick="selectChar('خ', '🐑', 'أنا حرف الخاء.. خروف جميل.. خبز.. خيار طازج!', 'خاء.. خروف.. خبز.. خيار')">خاء 🐑</div>
+      <div class="char-pill" onclick="selectChar('س', '🐟', 'أنا حرف السين.. سمكة تسبح في البحر.. سيارة.. ساعة!', 'سين.. سمكة.. سيارة.. ساعة')">سين 🐟</div>
+      <div class="char-pill" onclick="selectChar('ش', '☀️', 'أنا حرف الشين.. شمس تنشر الدفء والنور.. شجرة.. شمعة!', 'شين.. شمس.. شجرة.. شمعة')">شين ☀️</div>
+    </div>
+  </div>
+
+  <!-- VISUAL POSTER -->
+  <div class="visual-card">
+    <div style="font-weight:900; font-size:14.5px; color:#6d28d9; margin-bottom:8px;">🎨 لوحة عائلة الكلمات والألعاب المصورة</div>
+    <img src="images/kg2_family_and_toys.png" alt="Family and toys KG2">
+    <div style="font-size:12px; color:#6b7280; margin-top:6px;">استمتع بربط الحروف مع أسماء أفراد العائلة والألعاب الجميلة</div>
+  </div>
+
+  <!-- LETTERS GRID -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>🌟</span>
+      <span>روضة الحروف الهجائية المصورة والناطقة (أ - ي) • اضغط على أي بطاقة لتسمع الحرف!</span>
+    </div>
+    
+    <div class="ar-grid" id="arGrid">
+      <!-- Dynamic populated -->
+    </div>
+  </div>
+
+</div>
+
+<script>
+const lettersData = [
+  { l: 'أ', w: 'أرنب', icon: '🐰', speech: 'ألف.. أرنب.. أسد.. ألوان' },
+  { l: 'ب', w: 'بطة', icon: '🦆', speech: 'باء.. بطة.. تسبح في الماء' },
+  { l: 'ت', w: 'تفاحة', icon: '🍎', speech: 'تاء.. تفاحة.. حمراء ولذيذة' },
+  { l: 'ث', w: 'ثعلب', icon: '🦊', speech: 'ثاء.. ثعلب.. ماكر وذكي' },
+  { l: 'ج', w: 'جمل', icon: '🐪', speech: 'جيم.. جمل.. سفينة الصحراء' },
+  { l: 'ح', w: 'حصان', icon: '🐴', speech: 'حاء.. حصان.. أصيل وسريع' },
+  { l: 'خ', w: 'خروف', icon: '🐑', speech: 'خاء.. خروف.. صوفه دافئ' },
+  { l: 'د', w: 'ديك', icon: '🐓', speech: 'دال.. ديك.. يصيح في الصباح' },
+  { l: 'ذ', w: 'ذرة', icon: '🌽', speech: 'ذال.. ذرة.. صفراء مشوية' },
+  { l: 'ر', w: 'ريشة', icon: '🪶', speech: 'راء.. ريشة.. خفيفة ملونة' },
+  { l: 'ز', w: 'زرافة', icon: '🦒', speech: 'زاي.. زرافة.. رقبتها طويلة' },
+  { l: 'س', w: 'سمكة', icon: '🐟', speech: 'سين.. سمكة.. تعيش في البحر' },
+  { l: 'ش', w: 'شمس', icon: '☀️', speech: 'شين.. شمس.. تشرق بالنور' },
+  { l: 'ص', w: 'صاروخ', icon: '🚀', speech: 'صاد.. صاروخ.. ينطلق للفضاء' },
+  { l: 'ض', w: 'ضفدع', icon: '🐸', speech: 'ضاد.. ضفدع.. يقفز في البحيرة' },
+  { l: 'ط', w: 'طائرة', icon: '✈️', speech: 'طاء.. طائرة.. تطير في السماء' },
+  { l: 'ظ', w: 'ظرف', icon: '✉️', speech: 'ظاء.. ظرف.. يحمل الرسائل' },
+  { l: 'ع', w: 'عصفور', icon: '🐦', speech: 'عين.. عصفور.. يغرد بأعذب صوت' },
+  { l: 'غ', w: 'غزالة', icon: '🦌', speech: 'غين.. غزالة.. سريعة ورشيقة' },
+  { l: 'ف', w: 'فيل', icon: '🐘', speech: 'فاء.. فيل.. خرطومه طويل' },
+  { l: 'ق', w: 'قمر', icon: '🌙', speech: 'قاف.. قمر.. ينير سماء الليل' },
+  { l: 'ك', w: 'كتاب', icon: '📖', speech: 'كاف.. كتاب.. خير صديق' },
+  { l: 'ل', w: 'ليمون', icon: '🍋', speech: 'لام.. ليمون.. حامض ومفيد' },
+  { l: 'م', w: 'موز', icon: '🍌', speech: 'ميم.. موز.. لذيذ ومغذي' },
+  { l: 'ن', w: 'نحلة', icon: '🐝', speech: 'نون.. نحلة.. تصنع العسل الشافي' },
+  { l: 'هـ', w: 'هرم', icon: '🔺', speech: 'هاء.. هرم.. من عجائب الدنيا' },
+  { l: 'و', w: 'وردة', icon: '🌹', speech: 'واو.. وردة.. عطرها فواح' },
+  { l: 'ي', w: 'يد', icon: '✋', speech: 'ياء.. يد.. نكتب ونرسم بها' }
+];
+
+let currentSpeechText = 'ألف.. أرنب.. أسد.. ألوان';
+
+function renderGrid() {
+  const grid = document.getElementById('arGrid');
+  grid.innerHTML = '';
+  lettersData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'ar-card';
+    card.innerHTML = `
+      <div class="ar-letter">${item.l}</div>
+      <div class="ar-word">${item.w}</div>
+      <div class="ar-icon">${item.icon}</div>
+      <button class="speak-btn" onclick="event.stopPropagation(); speakItem('${item.speech}')">🔊 انطق</button>
+    `;
+    card.onclick = () => {
+      selectChar(item.l, item.icon, `أنا حرف ${item.l}.. ومثالي هو ${item.w} ${item.icon}`, item.speech);
+      speakItem(item.speech);
+    };
+    grid.appendChild(card);
+  });
+}
+
+function selectChar(letter, icon, text, speech) {
+  document.getElementById('stageAvatar').innerText = icon;
+  document.getElementById('stageTitle').innerText = `حرف ${letter} يتحدث إليك!`;
+  document.getElementById('stageText').innerText = text;
+  currentSpeechText = speech;
+}
+
+function speakItem(text) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const ut = new SpeechSynthesisUtterance(text);
+    ut.lang = 'ar-SA';
+    ut.rate = 0.85;
+    ut.pitch = 1.2;
+    window.speechSynthesis.speak(ut);
+  } else {
+    alert(text);
+  }
+}
+
+function speakCurrent() {
+  speakItem(currentSpeechText);
+}
+
+renderGrid();
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Final Revision • Connect 4</title><style>
+  :root {
+    --en-primary: #0891b2;
+    --en-dark: #0e7490;
+    --en-light: #ecfeff;
+    --text-main: #0f172a;
+    --bg-page: #f8fafc;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Poppins', 'Cairo', sans-serif; background: var(--bg-page); color: var(--text-main); line-height: 1.6; padding-bottom: 60px; }
+  .container { max-width: 960px; margin: 0 auto; padding: 20px; }
+  .header-box { background: linear-gradient(135deg, #0e7490, #0891b2); color: white; padding: 30px; border-radius: 20px; margin-bottom: 25px; text-align: center; box-shadow: 0 10px 25px rgba(8, 145, 178, 0.25); }
+  .header-box h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .nav-strip { display: flex; justify-content: space-between; align-items: center; background: white; padding: 12px 20px; border-radius: 14px; box-shadow: 0 2px 10px rgba(0,0,0,0.04); margin-bottom: 25px; }
+  .nav-btn { text-decoration: none; color: #475569; font-size: 13.5px; font-weight: 700; }
+  .nav-btn:hover { color: var(--en-primary); }
+  .section-block { background: white; border-radius: 18px; padding: 26px; margin-bottom: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+  .sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 2px solid #ecfeff; }
+  .sec-icon { width: 38px; height: 38px; background: var(--en-light); color: var(--en-primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 900; }
+  .sec-title { font-size: 20px; font-weight: 800; color: #0f172a; }
+  .concept-card { background: #fff; border-left: 4px solid var(--en-primary); padding: 16px 20px; border-radius: 12px; margin-bottom: 16px; border: 1px solid #f8fafc; border-left-width: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
+  .concept-card h3 { font-size: 16px; font-weight: 800; color: var(--en-dark); margin-bottom: 6px; }
+  .concept-card p { font-size: 14px; color: #334155; }
+  .golden-tip { background: linear-gradient(135deg, #fef3c7, #fef9c3); border-left: 4px solid #f59e0b; border-radius: 12px; padding: 14px 18px; margin: 14px 0; font-size: 13.5px; color: #78350f; }
+  .q-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-bottom: 14px; }
+  .q-text { font-size: 14.5px; font-weight: 700; color: #1e293b; margin-bottom: 10px; }
+  .q-opts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .opt-btn { background: white; border: 1px solid #cbd5e1; padding: 8px 12px; border-radius: 8px; font-size: 13px; text-align: left; }
+  .ans-box { background: #f0fdf4; border: 1.5px dashed #22c55e; border-radius: 14px; padding: 18px; margin-top: 15px; }
+  .ans-title { font-size: 15px; font-weight: 800; color: #15803d; margin-bottom: 10px; }
+  .ans-list { list-style: none; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: #166534; }
+  @media print { .nav-strip { display: none !important; } body { background: white; } .section-block { break-inside: avoid; border: 1px solid #ccc; } }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style></head><body><div class="container">
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس اللغة الإنجليزية (English)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+<div class="header-box"><h1>💡 Final Revision Capsule • Connect 4</h1><p>Grammar summary, writing paragraphs, and key vocabulary</p></div><div class="section-block"><h3>Top Grammar Rules:</h3><p>• <strong>Comparatives:</strong> short adj + er + than (taller than) / more + long adj + than (more dangerous than).<br>• <strong>Connectors:</strong> 'and' links similar ideas, 'but' links opposite ideas.<br>• <strong>Paragraph writing:</strong> Start with capital letter, indent first line, leave space between words, end with full stop (.).</p></div></div></body></html>

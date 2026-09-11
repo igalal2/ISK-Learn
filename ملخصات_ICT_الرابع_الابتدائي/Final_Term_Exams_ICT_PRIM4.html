@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>ملزمة امتحانات نهاية الفصل الدراسي الأول • ICT الصف الرابع</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #0f172a;
+    background: #f8fafc;
+    line-height: 1.38;
+    font-size: 11px;
+    padding: 8px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  /* COVER & HEADERS */
+  .booklet-header {
+    background: linear-gradient(135deg, #0369a1, #0284c7);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .booklet-header h1 { font-size: 20px; font-weight: 900; margin-bottom: 3px; }
+  .booklet-header .subtitle { font-size: 13px; font-weight: 700; opacity: 0.95; }
+  
+  .exam-header {
+    border: 2px solid #0284c7;
+    border-radius: 8px;
+    padding: 6px 12px;
+    background: #f0f9ff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+    break-inside: avoid;
+  }
+  .exam-title { font-size: 13.5px; font-weight: 900; color: #0369a1; }
+  .exam-meta { font-size: 10.5px; font-weight: 700; color: #475569; }
+
+  /* QUESTION BLOCKS */
+  .q-group {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4.5px solid #0284c7;
+    border-radius: 7px;
+    padding: 7px 11px;
+    margin-bottom: 7px;
+    break-inside: avoid;
+  }
+  .q-title { font-size: 11.5px; font-weight: 800; color: #0369a1; margin-bottom: 4px; display: flex; justify-content: space-between; }
+  .marks-badge { background: #e0f2fe; color: #0369a1; padding: 1px 6px; border-radius: 4px; font-size: 9.5px; }
+
+  .q-item {
+    padding: 3.5px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 10.5px;
+  }
+  .q-item:last-child { border-bottom: none; }
+
+  /* ANSWERS */
+  .ans-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-right: 4px solid #10b981;
+    border-radius: 7px;
+    padding: 7px 11px;
+    margin-bottom: 7px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .ans-title { font-size: 11.5px; font-weight: 800; color: #065f46; margin-bottom: 3px; }
+
+  /* PRINT RULES */
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس تكنولوجيا المعلومات (ICT)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="booklet-header">
+  <h1>ملزمة امتحانات نهاية الفصل الدراسي الأول الشاملة</h1>
+  <div class="subtitle">تكنولوجيا المعلومات والاتصالات (ICT) • الصف الرابع الابتدائي • العام الدراسي 2025 / 2026</div>
+  <div style="margin-top: 8px; font-size: 11px; font-weight: 700; background: rgba(255,255,255,0.22); padding: 4px 10px; border-radius: 6px; display: inline-block;">
+    🎯 طبقاً لأحدث مواصفات الورقة الامتحانية لوزارة التربية والتعليم مع نماذج الإجابة وتوزيع الدرجات
+  </div>
+</div>
+
+<div class="figure-box" style="text-align: center; margin: 12px 0;">
+  <img src="images/ict_hero_cover.png" alt="غلاف الامتحانات" style="max-height: 210px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+</div>
+
+<div class="concept-card" style="border-right: 5px solid #0284c7; padding: 12px; margin-bottom: 10px;">
+  <div class="concept-title" style="font-size: 13px;">📋 إرشادات هامة لأبطال الصف الرابع وأولياء الأمور:</div>
+  <ul style="margin-right: 20px; font-weight: 600; line-height: 1.6; font-size: 11px;">
+    <li>تحتوي هذه الملزمة على <b>6 امتحانات محافظات كاملة وحقيقية</b> تم اختيارها بعناية لتمثيل كافة أفكار المنهج.</li>
+    <li>زمن الإجابة المخصص لكل امتحان: <b>ساعة ونصف</b>، والدرجة الكلية: <b>30 درجة</b>.</li>
+    <li>يحتوي كل امتحان على سؤالين رئيسيين: <b>السؤال الأول (15 درجة)</b> و <b>السؤال الثاني (15 درجة)</b> تشمل المصطلح العلمي، الاختيار من متعدد، وصح وخطأ.</li>
+    <li>مرفق في نهاية الملزمة <b>نموذج الإجابات النموذجية التفصيلي</b> مع توزيع الدرجات الرسمي لتقييم الطالب فورياً ومعرفة نقاط القوة والضعف.</li>
+  </ul>
+</div>
+
+<div class="baladi-box" style="padding: 10px; text-align: center;">
+  <div class="baladi-title" style="font-size: 12px;">🌟 رسالة تشجيعية للطالب الذكي:</div>
+  <p style="font-size: 11px;">حل الامتحانات دي بتركيز يا بطل، وتأكد إن مفيش ولا سؤال هيخرج عنها في امتحان مدرستك بإذن الله.. توكل على الله وانطلق للدرجة النهائية!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الأول: محافظة القاهرة (إدارة مصر الجديدة التعليمية)</div>
+    <div class="exam-meta">مادة تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي • الترم الأول</div>
+  </div>
+  <div style="text-align: left;">
+    <span class="marks-badge" style="font-size: 11px; padding: 3px 8px; font-weight: 800;">الدرجة الكلية: 30 درجة</span>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: (أ) ضع علامة (✓) أو علامة (✗) أمام العبارات الآتية:</span>
+    <span class="marks-badge">8 درجات (درجتان لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> يستخدم نظام تحديد المواقع العالمي (GPS) لاستكشاف الآثار المدفونة في باطن الأرض. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> تعتبر شاشة العرض (Screen) من أهم وحدات الإدخال في جهاز الكمبيوتر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> تساعد برمجيات تكبير الشاشة الأشخاص الذين يعانون من ضعف البصر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>4-</b> يُعد بنك المعرفة المصري من المصادر الرقمية الموثوقة والآمنة للتعلم. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>(ب) اكتب المصطلح العلمي الدال على العبارات الآتية:</span>
+    <span class="marks-badge">7 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> جهاز يستخدم موجات الرادار للكشف عن الأجسام والآثار المدفونة تحت الأرض. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>2-</b> عقل جهاز الكمبيوتر المسؤول عن معالجة البيانات وإجراء العمليات الحسابية. <span style="color:#0284c7;">(........................................)</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: اختر الإجابة الصحيحة من بين القوسين:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> جهاز يقيس المجال المغناطيسي ويستخدم للعثور على المعادن المدفونة هو:<br>
+  ( أ- مقياس المغناطيسية &nbsp;|&nbsp; ب- الطابعة &nbsp;|&nbsp; جـ- GPS &nbsp;|&nbsp; د- الشاشة )</div>
+  <div class="q-item"><b>2-</b> نستخدم برنامج ..................... لإنشاء الجداول الحسابية والرسوم البيانية بالأعمدة:<br>
+  ( أ- Word &nbsp;|&nbsp; ب- Excel &nbsp;|&nbsp; جـ- Paint &nbsp;|&nbsp; د- Zoom )</div>
+  <div class="q-item"><b>3-</b> تصرف عدواني وسلوك مزعج متكرر من شخص لآخر عبر الإنترنت يُسمى:<br>
+  ( أ- التنمر الإلكتروني &nbsp;|&nbsp; ب- البرمجة &nbsp;|&nbsp; جـ- التكنولوجيا المساعدة &nbsp;|&nbsp; د- المعالجة )</div>
+  <div class="q-item"><b>4-</b> لحصر نتائج البحث في جملة محددة ومطابقة تماماً على الإنترنت نستخدم:<br>
+  ( أ- علامة الزائد (+) &nbsp;|&nbsp; ب- علامات التنصيص (" ") &nbsp;|&nbsp; جـ- علامة الناقص (-) &nbsp;|&nbsp; د- النجمة (*) )</div>
+  <div class="q-item"><b>5-</b> عند توقف الشاشة وتجمد البرامج فجأة نضغط معاً على أزرار:<br>
+  ( أ- Ctrl + Alt + Del &nbsp;|&nbsp; ب- Shift + Tab &nbsp;|&nbsp; جـ- Esc + Enter &nbsp;|&nbsp; د- Alt + Space )</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الثاني: محافظة الجيزة (إدارة الدقي التعليمية)</div>
+    <div class="exam-meta">مادة تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي • الترم الأول</div>
+  </div>
+  <div style="text-align: left;">
+    <span class="marks-badge" style="font-size: 11px; padding: 3px 8px; font-weight: 800;">الدرجة الكلية: 30 درجة</span>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: اختر الإجابة الصحيحة من بين القوسين:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> اعتمد عالم الآثار «ألبرت لين» في اكتشافاته على: <br>
+  ( أ- الحفر العشوائي &nbsp;|&nbsp; ب- التكنولوجيا المتطورة &nbsp;|&nbsp; جـ- تكسير الجدران &nbsp;|&nbsp; د- الصدفة )</div>
+  <div class="q-item"><b>2-</b> وحدة الإدخال المسؤولة عن تحويل الورق والصور المطبوعة لنسخة رقمية بالحاسب هي: <br>
+  ( أ- الماسح الضوئي &nbsp;|&nbsp; ب- الطابعة &nbsp;|&nbsp; جـ- مكبر الصوت &nbsp;|&nbsp; د- شاشة العرض )</div>
+  <div class="q-item"><b>3-</b> يجب ألا تقل كلمة المرور القوية عن ..................... عناصر متنوعة: <br>
+  ( أ- 3 عناصر &nbsp;|&nbsp; ب- 5 عناصر &nbsp;|&nbsp; جـ- 8 عناصر &nbsp;|&nbsp; د- عنصرين )</div>
+  <div class="q-item"><b>4-</b> جهاز إخراج يساعد غير الناطقين من ذوي الهمم على التواصل بتحويل الكتابة لصوت هو: <br>
+  ( أ- مركب الكلام &nbsp;|&nbsp; ب- لوحة المفاتيح &nbsp;|&nbsp; جـ- الميكروفون &nbsp;|&nbsp; د- الفأرة )</div>
+  <div class="q-item"><b>5-</b> يتم الاتصال بخط نجدة الطفل في مصر على الرقم المجاني: <br>
+  ( أ- 122 &nbsp;|&nbsp; ب- 16000 &nbsp;|&nbsp; جـ- 123 &nbsp;|&nbsp; د- 180 )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: (أ) ضع علامة (✓) أو علامة (✗) أمام العبارات الآتية:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> يستطيع جهاز الحاسب الآلي العمل وفتح التطبيقات بدون وجود نظام تشغيل. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> الرسم البياني بالأعمدة (Bar Chart) وسيلة ممتازة لتسهيل قراءة ومقارنة البيانات. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> يجب استئذان الأصدقاء أولاً قبل نشر صورهم أو عمل إشارة (Tag) لهم. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>4-</b> الرسائل المزعجة (Spam) تكون دائماً رسائل مفيدة من معلمين وخبراء. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>(ب) اذكر سبباً واحداً (علل):</span>
+    <span class="marks-badge">7 درجات</span>
+  </div>
+  <div class="q-item"><b>1- أهمية استخدام كلمات مرور قوية ومختلفة لكل حساب من حساباتك؟</b><br>
+  الإجابة: ................................................................................................................................................................................</div>
+  <div class="q-item"><b>2- تسمية وحدة المعالجة المركزية (CPU) بمخ الكمبيوتر؟</b><br>
+  الإجابة: ................................................................................................................................................................................</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الثالث: محافظة الإسكندرية (إدارة المنتزه التعليمية)</div>
+    <div class="exam-meta">مادة تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي • الترم الأول</div>
+  </div>
+  <div style="text-align: left;">
+    <span class="marks-badge" style="font-size: 11px; padding: 3px 8px; font-weight: 800;">الدرجة الكلية: 30 درجة</span>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: اكتب المصطلح التكنولوجي المناسب لكل عبارة:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> نظام يعتمد على الأقمار الصناعية لتحديد المواقع الجغرافية بدقة فوق سطح الأرض. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>2-</b> البرنامج الأساسي الذي يدير كل أجزاء الكمبيوتر ويعمل كوسيط للمستخدم. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>3-</b> رسائل إلكترونية غير مرغوبة وغالباً ما تتضمن إعلانات خادعة أو روابط خبيثة. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>4-</b> طريقة لكتابة الكلمات على هيئة نقاط بارزة يقرؤها المكفوفون باللمس. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>5-</b> حق قانوني يضمن حماية إبداعات ومؤلفات الأشخاص ويمنع سرقتها. <span style="color:#0284c7;">(........................................)</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: (أ) صوّب الكلمات التي تحتها خط في العبارات الآتية:</span>
+    <span class="marks-badge">9 درجات (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> يستخدم <u>الميكروفون</u> لإخراج الورق والمستندات المطبوعة من الحاسب. <span style="color:#0284c7;">(................................)</span></div>
+  <div class="q-item"><b>2-</b> لاستبعاد كلمة معينة من نتائج محرك البحث نضع أمامها علامة <u>الزائد (+)</u>. <span style="color:#0284c7;">(................................)</span></div>
+  <div class="q-item"><b>3-</b> تعتبر كلمة المرور <u>123456</u> من أقوى وأفضل كلمات المرور الآمنة. <span style="color:#0284c7;">(................................)</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>(ب) ماذا تفعل في المواقف الآتية:</span>
+    <span class="marks-badge">6 درجات (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1- حاول شخص مجهول مضايقتك والتنمر عليك عبر أحد مواقع التواصل الاجتماعي؟</b><br>
+  التصرف السليم: ........................................................................................................................................................................</div>
+  <div class="q-item"><b>2- لاحظت أن مؤشر الفأرة (Mouse) لا يستجيب ولا يتحرك على الشاشة إطلاقاً؟</b><br>
+  التصرف السليم: ........................................................................................................................................................................</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الرابع: محافظة القليوبية (إدارة بنها التعليمية)</div>
+    <div class="exam-meta">مادة تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي • الترم الأول</div>
+  </div>
+  <div style="text-align: left;">
+    <span class="marks-badge" style="font-size: 11px; padding: 3px 8px; font-weight: 800;">الدرجة الكلية: 30 درجة</span>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: ضع علامة (✓) أمام العبارة الصحيحة وعلامة (✗) أمام العبارة غير الصحيحة:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> يستخدم الرادار المخترق للأرض (GPR) للكشف عن المعادن والعملات المدفونة فقط. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> تعتبر لوحة المفاتيح والفأرة والماسح الضوئي من وحدات الإدخال بجهاز الحاسب. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> تساعد الكراسي المتحركة الآلية أصحاب الإعاقات الحركية على الحركة باستقلالية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>4-</b> عند إعداد بحث علمي، لا يجوز ذكر مصادر المعلومات التي استعنا بها. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>5-</b> علامة الزائد (+) تجعل محرك البحث يضمن وجود الكلمة في النتائج المعروضة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: اختر الإجابة الصحيحة من بين البدائل المعطاة:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> من أشهر نظم التشغيل المستخدمة في إدارة الحواسيب المكتبية حول العالم:<br>
+  ( أ- Windows &nbsp;|&nbsp; ب- Paint &nbsp;|&nbsp; جـ- Calculator &nbsp;|&nbsp; د- Notepad )</div>
+  <div class="q-item"><b>2-</b> إذا لم يفتح أحد التطبيقات على جهازك، فإن أول خطوة للحل هي:<br>
+  ( أ- إعادة تشغيل الجهاز &nbsp;|&nbsp; ب- كسر القرص الصلب &nbsp;|&nbsp; جـ- إيقاف لوحة المفاتيح &nbsp;|&nbsp; د- غلق الشاشة )</div>
+  <div class="q-item"><b>3-</b> تُعد ..................... من طرق جمع البيانات الميدانية الموثوقة لمشروعك:<br>
+  ( أ- استطلاعات الرأي &nbsp;|&nbsp; ب- الفيروسات &nbsp;|&nbsp; جـ- الرسائل المزعجة &nbsp;|&nbsp; د- الشائعات )</div>
+  <div class="q-item"><b>4-</b> تتيح لك خاصية ..................... منع المتنمرين نهائياً من رؤية حسابك أو مراسلتك:<br>
+  ( أ- الحظر (Block) &nbsp;|&nbsp; ب- المشاركة (Share) &nbsp;|&nbsp; جـ- النسخ &nbsp;|&nbsp; د- التعليق )</div>
+  <div class="q-item"><b>5-</b> تتولى ..................... التحقيق في البلاغات المتعلقة بجرائم الإنترنت والابتزاز:<br>
+  ( أ- إدارة مكافحة جرائم الإنترنت &nbsp;|&nbsp; ب- المستشفى &nbsp;|&nbsp; جـ- البريد &nbsp;|&nbsp; د- هيئة الطرق )</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الخامس: محافظة الشرقية (إدارة الزقازيق التعليمية)</div>
+    <div class="exam-meta">مادة تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي • الترم الأول</div>
+  </div>
+  <div style="text-align: left;">
+    <span class="marks-badge" style="font-size: 11px; padding: 3px 8px; font-weight: 800;">الدرجة الكلية: 30 درجة</span>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: (أ) أكمل العبارات الآتية بما يناسبها من كلمات:</span>
+    <span class="marks-badge">9 درجات (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> الأداة التي تقيس المجال المغناطيسي للكشف عن المعادن في باطن الأرض تُسمى ........................................</div>
+  <div class="q-item"><b>2-</b> تُخرج الطابعة البيانات من الكمبيوتر في شكل نسخ ........................................</div>
+  <div class="q-item"><b>3-</b> يُعد رقم الخط الساخن لنجدة الطفل في مصر هو ........................................</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>(ب) صل من العمود (أ) ما يناسبه من العمود (ب):</span>
+    <span class="marks-badge">6 درجات</span>
+  </div>
+  <table style="width:100%; font-size:10px;">
+    <tr><th>العمود (أ)</th><th>العمود (ب)</th></tr>
+    <tr><td>(1) برمجيات تكبير الشاشة</td><td>( &nbsp; ) عقل الكمبيوتر ومسؤول عن العمليات الحسابية.</td></tr>
+    <tr><td>(2) وحدة المعالجة المركزية CPU</td><td>( &nbsp; ) تساعد ضعاف البصر على قراءة النصوص بوضوح.</td></tr>
+    <tr><td>(3) علامات التنصيص " "</td><td>( &nbsp; ) تستخدم للبحث الدقيق عن جملة مطابقة تماماً.</td></tr>
+  </table>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: اختر الإجابة الصحيحة مما بين القوسين:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> يتم إدخال الصوت والمحادثات المباشرة إلى جهاز الحاسب عن طريق:<br>
+  ( أ- الميكروفون &nbsp;|&nbsp; ب- السماعات &nbsp;|&nbsp; جـ- الشاشة &nbsp;|&nbsp; د- الطابعة )</div>
+  <div class="q-item"><b>2-</b> تتكون كلمة المرور القوية من مزيج يشمل:<br>
+  ( أ- حروفاً كبيرة وصغيرة وأرقاماً ورموزاً &nbsp;|&nbsp; ب- حروفاً متطابقة &nbsp;|&nbsp; جـ- أرقاماً متتالية &nbsp;|&nbsp; د- اسم المستخدم فقط )</div>
+  <div class="q-item"><b>3-</b> البرامج التي تحمي الكمبيوتر من البرمجيات الخبيثة وتدمر الفيروسات هي:<br>
+  ( أ- مكافحة الفيروسات (Antivirus) &nbsp;|&nbsp; ب- الألعاب &nbsp;|&nbsp; جـ- الرسام &nbsp;|&nbsp; د- الآلة الحاسبة )</div>
+  <div class="q-item"><b>4-</b> يُسمى تمثيل البيانات بصرياً في برنامج Excel بـ:<br>
+  ( أ- الرسم البياني بالأعمدة (Bar Chart) &nbsp;|&nbsp; ب- مكبر الصوت &nbsp;|&nbsp; جـ- الشات &nbsp;|&nbsp; د- الماسح )</div>
+  <div class="q-item"><b>5-</b> تصرف غير لائق عبر الإنترنت يجب تجنبه تماماً هو:<br>
+  ( أ- التنمر والسخرية من الآخرين &nbsp;|&nbsp; ب- البحث العلمي &nbsp;|&nbsp; جـ- التعلم &nbsp;|&nbsp; د- توثيق المصادر )</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان السادس: محافظة الدقهلية (إدارة المنصورة التعليمية)</div>
+    <div class="exam-meta">مادة تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي • الترم الأول</div>
+  </div>
+  <div style="text-align: left;">
+    <span class="marks-badge" style="font-size: 11px; padding: 3px 8px; font-weight: 800;">الدرجة الكلية: 30 درجة</span>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: اكتب المصطلح العلمي / التكنولوجي الدال على كل عبارة:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> جهاز يستخدم لإدخال المستندات والصور المطبوعة إلى داخل جهاز الحاسب الآلي. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>2-</b> أداة استكشافية تعتمد على الأقمار الصناعية لتحديد المواقع فوق سطح الأرض بدقة. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>3-</b> نافذة تفتح بالضغط على (Ctrl+Alt+Del) وتساعد في إغلاق البرامج العالقة بالجهاز. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>4-</b> علامة توضع قبل الكلمة في محرك البحث لاستبعادها تماماً من النتائج. <span style="color:#0284c7;">(........................................)</span></div>
+  <div class="q-item"><b>5-</b> أداة تكنولوجية مساعدة تحول النصوص المكتوبة إلى أصوات مسموعة لغير الناطقين. <span style="color:#0284c7;">(........................................)</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: ضع علامة (✓) أمام العبارة الصحيحة وعلامة (✗) أمام العبارة غير الصحيحة:</span>
+    <span class="marks-badge">15 درجة (3 درجات لكل نقطة)</span>
+  </div>
+  <div class="q-item"><b>1-</b> يمكن لأي شخص في العالم معرفة عنوان منزلك إذا قمت بمشاركته في منشور عام. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> برنامج مايكروسوفت إكسل (Excel) هو برنامج مخصص لإجراء مكالمات الفيديو فقط. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> تعتبر التكنولوجيا المساعدة وسيلة ضرورية لتمكين ذوي الهمم من الاندماج في التعليم. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>4-</b> يمكنك استخدام صور ومقالات الآخرين في بحثك دون الحاجة لذكر أسمائهم. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>5-</b> كلمة المرور التي تحتوي على رموز مثل (@, #) وأرقام تكون صعبة الاختراق. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="booklet-header" style="background: linear-gradient(135deg, #065f46, #059669); padding: 8px;">
+  <h1 style="font-size: 17px;">نموذج الإجابات النموذجية الرسمية • امتحانات نهاية الترم (الامتحانات 1 إلى 3)</h1>
+  <div class="subtitle" style="font-size: 11.5px;">سلم توزيع الدرجات المعتمد: 30 درجة لكل امتحان (15 درجة للسؤال الأول + 15 درجة للسؤال الثاني)</div>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">إجابة الامتحان الأول (محافظة القاهرة - 30 درجة):</div>
+  <p><b>السؤال الأول (أ):</b> 1- ( ✗ ) خطأ (الرادار والمغناطيس تحت الأرض) | 2- ( ✗ ) خطأ (وحدة إخراج) | 3- ( ✓ ) صواب | 4- ( ✓ ) صواب.</p>
+  <p><b>السؤال الأول (ب):</b> 1- الرادار المخترق للأرض (GPR) | 2- وحدة المعالجة المركزية (CPU).</p>
+  <p><b>السؤال الثاني:</b> (1) أ- مقياس المغناطيسية | (2) ب- Excel | (3) أ- التنمر الإلكتروني | (4) ب- علامات التنصيص (" ") | (5) أ- Ctrl + Alt + Del.</p>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">إجابة الامتحان الثاني (محافظة الجيزة - 30 درجة):</div>
+  <p><b>السؤال الأول (اختيار):</b> (1) ب- التكنولوجيا المتطورة | (2) أ- الماسح الضوئي (Scanner) | (3) جـ- 8 عناصر | (4) أ- مركب الكلام | (5) ب- 16000.</p>
+  <p><b>السؤال الثاني (أ):</b> 1- ( ✗ ) خطأ (لا يعمل بدون نظام تشغيل) | 2- ( ✓ ) صواب | 3- ( ✓ ) صواب | 4- ( ✗ ) خطأ (رسائل مزعجة وخبيثة).</p>
+  <p><b>السؤال الثاني (ب) علل:</b><br>
+  1- حتى يصعب على القراصنة اختراقها، وحتى إذا تم كشف كلمة مرور حساب واحد لا يتعرض باقي الحسابات للاختراق.<br>
+  2- لأنها مسؤولة عن التفكير وإجراء المعالجة والعمليات الحسابية وإعطاء الأوامر لكافة مكونات الحاسب.</p>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">إجابة الامتحان الثالث (محافظة الإسكندرية - 30 درجة):</div>
+  <p><b>السؤال الأول (المصطلح):</b> 1- نظام تحديد المواقع (GPS) | 2- نظام التشغيل (OS) | 3- الرسائل المزعجة (Spam) | 4- طريقة برايل (Braille) | 5- الملكية الفكرية وحقوق النشر (Copyright).</p>
+  <p><b>السؤال الثاني (أ) تصويب:</b> 1- الطابعة (Printer) | 2- علامة الناقص (-) | 3- كلمة مرور ضعيفة وسهلة التخمين.</p>
+  <p><b>السؤال الثاني (ب) المواقف:</b><br>
+  1- لا أرد عليه، وأقوم بحظره فوراً (Block)، ثم أبلغ ولي أمري أو معلمي للتدخل وإبلاغ مباحث الإنترنت.<br>
+  2- أتأكد أولاً من توصيل كابل الفأرة بمنفذ USB جيداً أو فحص بطاريتها اللاسلكية ثم إعادة تشغيل الجهاز.</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="booklet-header" style="background: linear-gradient(135deg, #065f46, #059669); padding: 8px;">
+  <h1 style="font-size: 17px;">نموذج الإجابات النموذجية الرسمية • امتحانات نهاية الترم (الامتحانات 4 إلى 6)</h1>
+  <div class="subtitle" style="font-size: 11.5px;">سلم توزيع الدرجات المعتمد ومعايير التقدير النهائي للطالب</div>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">إجابة الامتحان الرابع (محافظة القليوبية - 30 درجة):</div>
+  <p><b>السؤال الأول (صح وخطأ):</b> 1- ( ✗ ) خطأ (يكتشف الأجسام والمباني المدفونة، أما مقياس المغناطيسية فللمعادن) | 2- ( ✓ ) صواب | 3- ( ✓ ) صواب | 4- ( ✗ ) خطأ (يجب ذكر المصادر تقديراً للملكية الفكرية) | 5- ( ✓ ) صواب.</p>
+  <p><b>السؤال الثاني (اختيار):</b> (1) أ- Windows | (2) أ- إعادة تشغيل الجهاز (Restart) | (3) أ- استطلاعات الرأي | (4) أ- الحظر (Block) | (5) أ- إدارة مكافحة جرائم الإنترنت.</p>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">إجابة الامتحان الخامس (محافظة الشرقية - 30 درجة):</div>
+  <p><b>السؤال الأول (أ) أكمل:</b> 1- مقياس المغناطيسية (Magnetometer) | 2- ورقية مطبوعة ملموسة | 3- 16000.</p>
+  <p><b>السؤال الأول (ب) توصيل:</b> (1) مع الثانية (تساعد ضعاف البصر) | (2) مع الأولى (عقل الكمبيوتر) | (3) مع الثالثة (للبحث الدقيق المطابق).</p>
+  <p><b>السؤال الثاني (اختيار):</b> (1) أ- الميكروفون | (2) أ- حروفاً كبيرة وصغيرة وأرقاماً ورموزاً | (3) أ- Antivirus | (4) أ- الرسم البياني بالأعمدة | (5) أ- التنمر والسخرية.</p>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">إجابة الامتحان السادس (محافظة الدقهلية - 30 درجة):</div>
+  <p><b>السؤال الأول (المصطلح):</b> 1- الماسح الضوئي (Scanner) | 2- نظام GPS | 3- إدارة المهام (Task Manager) | 4- علامة الناقص (-) | 5- مركب الكلام (Speech Synthesizer).</p>
+  <p><b>السؤال الثاني (صح وخطأ):</b> 1- ( ✓ ) صواب | 2- ( ✗ ) خطأ (برنامج للجداول الحسابية والرسوم البيانية) | 3- ( ✓ ) صواب | 4- ( ✗ ) خطأ (يجب ذكر أصحابها احتراماً للملكية الفكرية) | 5- ( ✓ ) صواب.</p>
+</div>
+
+<div class="concept-card" style="border-right: 5px solid #059669; padding: 8px; margin-top: 6px;">
+  <div class="concept-title" style="color: #065f46;">📊 جدول التقديرات ومستوى التحصيل الدراسي للطالب:</div>
+  <table>
+    <tr>
+      <th style="width: 25%;">الدرجة الكلية (من 30)</th>
+      <th style="width: 25%;">اللون المعياري</th>
+      <th style="width: 50%;">التقييم التربوي ونصيحة المعلم</th>
+    </tr>
+    <tr>
+      <td><b>من 26 إلى 30 درجة</b></td>
+      <td style="background:#dcfce7; color:#166534; font-weight:800; text-align:center;">الأزرق (ممتاز 🌟)</td>
+      <td>طالب عبقري ومتميز فاق التوقعات، ومستعد تماماً للامتحان النهائي.</td>
+    </tr>
+    <tr>
+      <td><b>من 21 إلى 25 درجة</b></td>
+      <td style="background:#e0f2fe; color:#0369a1; font-weight:800; text-align:center;">الأخضر (جيد جداً 👍)</td>
+      <td>مستوى رائع ومتقن للمفاهيم الأساسية مع الحاجة لمراجعة بسيطة لبعض التفاصيل.</td>
+    </tr>
+    <tr>
+      <td><b>من 15 إلى 20 درجة</b></td>
+      <td style="background:#fef3c7; color:#b45309; font-weight:800; text-align:center;">الأصفر (مقبول ⚠️)</td>
+      <td>يحتاج إلى قراءة ملخصات الموديولات مرة أخرى وحل التدريبات بعناية.</td>
+    </tr>
+  </table>
+</div>
+
+</div>
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

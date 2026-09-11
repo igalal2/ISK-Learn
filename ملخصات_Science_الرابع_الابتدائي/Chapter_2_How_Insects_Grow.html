@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2: How Insects Grow - Science Primary 4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', 'Cairo', system-ui, sans-serif;
+    color: #1e293b;
+    background: #f8fafc;
+    line-height: 1.42;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  /* CHAPTER HEADER */
+  .chapter-header {
+    background: linear-gradient(135deg, #1e3a8a, #0284c7);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .chapter-header h1 { font-size: 18px; font-weight: 800; margin-bottom: 1px; }
+  .chapter-header .subtitle { font-size: 12px; font-family: 'Cairo', sans-serif; font-weight: 600; opacity: 0.95; }
+  .characters-bar { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .char-badge {
+    background: rgba(255,255,255,0.22);
+    padding: 1px 7px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  /* 3-PART BANNERS */
+  .part-banner {
+    padding: 7px 12px;
+    border-radius: 8px;
+    margin: 6px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .part-banner h2 { font-size: 13.5px; font-weight: 800; }
+  .part-banner p { font-size: 10px; opacity: 0.95; margin-top: 1px; }
+
+  .part-1-banner { background: linear-gradient(90deg, #1e3a8a, #0284c7); margin-top: 2px; }
+  .part-2-banner {
+    background: linear-gradient(90deg, #b45309, #d97706);
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 8px;
+  }
+  .part-3-banner {
+    background: linear-gradient(90deg, #15803d, #10b981);
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 8px;
+  }
+
+  .part-end-badge {
+    text-align: center;
+    padding: 5px 8px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    margin: 6px 0 3px;
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    break-inside: avoid !important;
+  }
+
+  .speech-bubble {
+    background: #fffde7;
+    border: 1.5px solid #fff59d;
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .speech-bubble.smarty { background: #e0f2fe; border-color: #7dd3fc; }
+  .speech-bubble.genius { background: #f3e8ff; border-color: #d8b4fe; }
+  .speech-avatar { font-size: 18px; line-height: 1; flex-shrink: 0; }
+  .speech-name { font-weight: bold; font-size: 10px; color: #1e293b; }
+
+  .section-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin: 6px 0 4px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .section-title .icon { font-size: 14px; }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    border-left: 4px solid #0284c7;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .card-orange { border-left-color: #f59e0b; }
+  .card-green { border-left-color: #10b981; }
+  .card-purple { border-left-color: #8b5cf6; }
+  .card-blue { border-left-color: #3b82f6; }
+
+  .card h3 {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bilingual-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin: 3px 0;
+    background: #f8fafc;
+    padding: 4px 6px;
+    border-radius: 6px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    font-size: 10.5px;
+  }
+  .en-side { border-right: 1.5px dashed #cbd5e1; padding-right: 5px; direction: ltr; text-align: left; }
+  .ar-side { padding-left: 5px; direction: rtl; text-align: right; font-family: 'Cairo', sans-serif; }
+  .vocab-tag {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 9px;
+    margin: 1px;
+  }
+
+  /* FIGURE BOX - HIGH QUALITY & ENLARGED FOR 4TH GRADE VISIBILITY */
+  .figure-box {
+    text-align: center;
+    margin: 6px auto 8px auto;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 5px 7px 6px 7px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    max-width: 96%;
+  }
+  .figure-box img {
+    width: auto;
+    max-width: 100%;
+    max-height: 215px; /* Large, crisp, easy to read */
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .figure-box .caption {
+    font-size: 10.5px;
+    color: #1e293b;
+    margin-top: 4px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.3;
+  }
+
+  table.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0;
+    font-size: 10px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  table.summary-table th, table.summary-table td {
+    border: 1px solid #cbd5e1;
+    padding: 3px 5px;
+    text-align: left;
+  }
+  table.summary-table th { background: #f1f5f9; color: #1e3a8a; font-weight: 700; }
+
+  .game-box {
+    background: #fffde7;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 8px;
+    padding: 5px 8px;
+    margin: 5px 0;
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', sans-serif;
+    font-size: 10.5px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .game-box .game-title {
+    font-weight: 800;
+    color: #b45309;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* EXAM & ANSWER SECTIONS */
+  .exam-container, .answers-container {
+    margin-top: 6px;
+    direction: ltr;
+    text-align: left;
+  }
+  .exam-box {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .exam-box.highlight { border-color: #d97706; background: #fffbeb; }
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+  }
+  .exam-title { font-weight: 800; font-size: 11.5px; color: #b45309; }
+  .exam-badge {
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .q-block { margin-bottom: 4px; break-inside: avoid !important; font-size: 10.5px; }
+  .q-title { font-weight: 700; color: #1e293b; margin-bottom: 2px; }
+  .q-item { margin-left: 10px; margin-bottom: 2px; color: #334155; }
+  .q-ar-hint { font-family: 'Cairo', sans-serif; color: #64748b; font-size: 9px; margin-top: 1px; }
+
+  .answer-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #10b981;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    font-size: 10px;
+  }
+  .ans-title { font-weight: 700; color: #047857; margin-bottom: 1px; }
+  .ans-why {
+    background: #f0fdf4;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-top: 2px;
+    font-size: 9.5px;
+    color: #166534;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 6px;
+  }
+
+  @media print {
+    body { background: #ffffff !important; padding: 0 !important; font-size: 10.5px !important; }
+    .page-container {
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      border-radius: 0 !important;
+    }
+    .print-page-break {
+      page-break-before: always !important;
+      break-before: page !important;
+    }
+    .figure-box img {
+      max-height: 215px !important;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 8mm 11mm 8mm 11mm;
+    }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس العلوم (Science)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+    <!-- Nav Bar -->
+    <div class="nav-bar no-print">
+        <a href="Chapter_1_Nature_in_Our_Surroundings.html" class="nav-btn">⬅️ Prev: Chapter 1</a>
+        <a href="Index.html" class="nav-btn">🏠 Main Dashboard / الفهرس</a>
+        <button onclick="document.querySelectorAll('details.answers-box').forEach(d => d.open = true); window.print();" class="nav-btn print-btn">🖨️ Print / حفظ كـ PDF كامل بالإجابات</button>
+        <a href="Chapter_3_How_Plants_Grow.html" class="nav-btn">Next: Chapter 3 ➡️</a>
+    </div>
+
+    <!-- Chapter Header -->
+    <div class="chapter-header">
+        <h1>CHAPTER 2: How Insects Grow</h1>
+        <div class="subtitle">كيف تنمو الحشرات وتتغير أشكالها - دورة حياة الفراشة وتشريح جسم الحشرة</div>
+        <div class="characters-bar">
+            <span class="char-badge">🐱 Brainy</span>
+            <span class="char-badge">🐶 Smarty</span>
+            <span class="char-badge">🐔 Genius</span>
+        </div>
+    </div>
+
+<div class="part-banner part-1-banner">
+
+    <!-- AL-MOASSER CURATED VISUAL SECTION -->
+    <div style="background:linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border:2px solid #3b82f6; border-radius:16px; padding:18px; margin:18px 0; box-shadow:0 4px 15px rgba(37,99,235,0.08);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+        <h3 style="font-size:15px; font-weight:900; color:#1e3a8a; display:flex; align-items:center; gap:6px;">
+          <span>🖼️</span><span>مخططات الشرح المصورة فائقة الدقة (من كتاب المعاصر ساينس):</span>
+        </h3>
+        <span style="font-size:11.5px; background:white; color:#2563eb; padding:4px 10px; border-radius:12px; font-weight:800; border:1px solid #bfdbfe;">كتاب المعاصر المعتمد</span>
+      </div>
+      
+      <!-- ORGANIZED MULTI-IMAGE MOASSER GALLERY -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:14px;">
+        
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">1. البيضة أسفل الورقة (Egg Stage)</div>
+          <div style="cursor:zoom-in; height:120px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch2_eggs_on_leaf_lens.png', 'مرحلة البيضة أسفل ورقة النبات')">
+            <img src="images/moasser/ch2_eggs_on_leaf_lens.png" alt="Eggs on leaf" style="max-height:110px; max-width:100%; border-radius:6px;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px;">فحص بيض الفراشة أسفل الورقة بالعدسة لحمايته.</div>
+        </div>
+
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">2. اليرقة ونموها (Larva Stage)</div>
+          <div style="cursor:zoom-in; height:120px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch2_caterpillar_ruler_leaf.png', 'مرحلة اليرقة ونموها')">
+            <img src="images/moasser/ch2_caterpillar_ruler_leaf.png" alt="Caterpillar eating leaf" style="max-height:110px; max-width:100%; border-radius:6px;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px;">اليرقة تأكل أوراق الشجر بنهم وتنمو سريعاً.</div>
+        </div>
+
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">3. الشرنقة والعذراء (Pupa Stage)</div>
+          <div style="cursor:zoom-in; height:120px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch2_pupa_hanging_stage.png', 'مرحلة الشرنقة والعذراء')">
+            <img src="images/moasser/ch2_pupa_hanging_stage.png" alt="Pupa Stage" style="max-height:110px; max-width:100%; border-radius:6px;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px;">تتعلق اليرقة بالغصن وتتحول داخل الشرنقة الصلبة.</div>
+        </div>
+
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">4. انبثاق الفراشة (Adult Butterfly)</div>
+          <div style="cursor:zoom-in; height:120px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch2_adult_butterfly_emerging.png', 'انبثاق الفراشة البالغة')">
+            <img src="images/moasser/ch2_adult_butterfly_emerging.png" alt="Adult Butterfly" style="max-height:110px; max-width:100%; border-radius:6px;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px;">تخرج الفراشة بأجنحة مفرودة وتطير لتمتص الرحيق.</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  <h2>📘 PART 1: ILLUSTRATED EXPLANATION & CONCEPTS</h2>
+  <p>الجزء الأول: الشرح المصور والمفصل والتطبيقات العملية</p>
+</div>
+
+
+    <!-- Character Dialogue -->
+    <div class="speech-bubble genius">
+        <div class="speech-avatar">🐔</div>
+        <div class="speech-content">
+            <div class="speech-name">Genius asks:</div>
+            <p><strong>"Look at that beautiful butterfly drinking nectar from flowers!</strong> Did it always have wings and colorful patterns? Where did it come from?"</p>
+            <p class="ar-side" style="margin-top:6px; color:#555;">بصوا يا أصدقائي على الفراشة الجميلة دي! يا ترى الفراشة كان شكلها كده من يوم ما اتولدت؟ ولا مرت برحلة تحول سحرية؟ تعالوا نكتشف سوا!</p>
+        </div>
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2 class="section-title"><span class="icon">🥚</span> 2-1 The Beginning: Eggs and Larvae</h2>
+<div class="figure-box"><img src="images/ch2_metamorphosis.png" alt="Butterfly Metamorphosis 5 Stages"><div class="caption">الشكل (1): بيض الحشرات ومرحلة اليرقة الشرهة للغذاء (Eggs & Growing Larvae)</div></div>
+    <div class="card card-teal">
+        <h3>🌱 Where do insects begin? (من أين تبدأ الحشرات حياتها؟)</h3>
+        <p>Almost all insects begin their lives from <strong>Eggs (البيض)</strong>.</p>
+        
+        <div class="bilingual-box">
+            <div class="en-side">
+                <strong style="color:#00897B;">Where are eggs laid?</strong>
+                <p>Adult female insects lay eggs mostly on the <strong>underside of plant leaves</strong> (أسفل أوراق النباتات).</p>
+                <p><strong>Why? (علل):</strong></p>
+                <ul style="margin-left:18px;">
+                    <li>To protect the tiny eggs from sun, wind, and rain.</li>
+                    <li>To hide them from hungry predators (birds).</li>
+                    <li>So that when the baby hatches, fresh green food is right there!</li>
+                </ul>
+            </div>
+            <div class="ar-side">
+                <strong style="color:#00897B;">أين تضع الفراشة بيضها؟ ولماذا؟</strong>
+                <p>تضع معظم الحشرات بيضها على <strong>السطح السفلي لأوراق النباتات</strong>.</p>
+                <p><strong>السبب (سؤال علل مهم جداً):</strong></p>
+                <ul style="margin-right:18px;">
+                    <li>لحماية البيض من حرارة الشمس الشديدة والرياح والمطر.</li>
+                    <li>لحمايته من الطيور والحيوانات المفترسة.</li>
+                    <li>ليجد الصغير طعامه الطازج فور فقسه!</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bilingual-box">
+            <div class="en-side">
+                <strong style="color:#E91E63;">What is a Larva? (ما هي اليرقة؟)</strong>
+                <p>The baby insect that hatches out of the egg is called a <span class="vocab-tag">Larva (يرقة)</span> (for a butterfly, it's called a caterpillar).</p>
+                <p>The larva does not have wings! It only has one big mission: <strong>EAT leaves and GROW bigger and bigger!</strong></p>
+            </div>
+            <div class="ar-side">
+                <strong style="color:#E91E63;">ما هي اليرقة (Larva)؟</strong>
+                <p>هو الصغير الذي يخرج ويفقس من البيضة ويسمى <span class="vocab-tag">اليرقة (Larva)</span>.</p>
+                <p>اليرقة ليس لها أجنحة، ولديها مهمة واحدة رئيسية: <strong>تأكل أوراق الشجر بشراهة وتكبر في الحجم بسرعة!</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <h2 class="section-title"><span class="icon">🔄</span> 2-2 The 4 Stages of Growth (مراحل نمو الفراشة)</h2>
+</div>
+    <div class="card">
+        <h3>🦋 Complete Metamorphosis (التحول الكامل)</h3>
+        <p>Butterflies, bees, and beetles grow through <strong>4 amazing stages</strong> in a fixed order:</p>
+
+        <div class="stages-flow">
+            <div class="stage-card">
+                <div style="font-size:32px;">🥚</div>
+                <strong>1. Egg (البيضة)</strong>
+                <p style="font-size:12px; color:#555;">Laid on leaves</p>
+            </div>
+            <div class="stage-arrow">➔</div>
+            <div class="stage-card">
+                <div style="font-size:32px;">🐛</div>
+                <strong>2. Larva (اليرقة)</strong>
+                <p style="font-size:12px; color:#555;">Caterpillar feeds & grows</p>
+            </div>
+            <div class="stage-arrow">➔</div>
+            <div class="stage-card">
+                <div style="font-size:32px;">🎋</div>
+                <strong>3. Pupa (العذراء / الخادرة)</strong>
+                <p style="font-size:12px; color:#555;">Inside chrysalis / cocoon</p>
+            </div>
+            <div class="stage-arrow">➔</div>
+            <div class="stage-card">
+                <div style="font-size:32px;">🦋</div>
+                <strong>4. Adult (الحشرة البالغة)</strong>
+                <p style="font-size:12px; color:#555;">Has wings & can lay eggs</p>
+            </div>
+        </div>
+
+        <div class="bilingual-box">
+            <div class="en-side">
+                <strong style="color:#8E24AA;">The Mystery of the Pupa (العذراء):</strong>
+                <p>The pupa stays attached to a branch. It looks motionless like it is sleeping, <strong>BUT inside, a miraculous transformation is happening:</strong> old body tissues break down and rebuild into wings, long legs, and antennae!</p>
+            </div>
+            <div class="ar-side">
+                <strong style="color:#8E24AA;">سر مرحلة العذراء (Pupa):</strong>
+                <p>تلتصق بغصن الشجرة داخل شرنقة، وتبدو ثابتة كأنها نائمة، <strong>لكن بداخلها يحدث تحول كامل ومذهل:</strong> يتغير جسم الدودة تماماً ويتكون له أجنحة ملونة، وأرجل رشيقة، وقرون استشعار!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    
+
+<div class="print-page-break"></div><h2 class="section-title"><span class="icon">🔬</span> 2-3 Body Structure of Adult Insects (تركيب جسم الحشرة)</h2>
+<div class="figure-box"><img src="images/ch2_insect_anatomy.png" alt="Insect Anatomy"><div class="caption">الشكل (3): تشريح جسم الحشرة: الرأس والصدر و6 أرجل والبطن (Adult Insect Body Structure)</div></div>
+</div>
+    <div class="card card-orange">
+        <h3>🪰 The 3-Part Body Rule (قاعدة الأجزاء الثلاثة لجسم الحشرة)</h3>
+        <p>All adult insects (Butterflies, Ants, Bees, Flies, Beetles) have a body made of <strong>3 main parts</strong>:</p>
+
+        <table class="summary-table">
+            <thead>
+                <tr>
+                    <th>Body Part (جزء الجسم)</th>
+                    <th>What is attached to it? (ماذا يوجد به؟)</th>
+                    <th>Role / Function (الوظيفة)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>1. Head (الرأس)</strong></td>
+                    <td>
+                        • <strong>2 Antennae (قرنا استشعار)</strong>: long rods on head.<br>
+                        • <strong>2 Compound Eyes (عينان)</strong><br>
+                        • Mouthparts (أجزاء الفم لامتصاص الرحيق)
+                    </td>
+                    <td>Sensing touch, smelling flowers, and seeing surrounding dangers.</td>
+                </tr>
+                <tr>
+                    <td><strong>2. Thorax (الصدر)</strong><br><span style="color:#C2185B; font-weight:bold;">★ Center of Movement!</span></td>
+                    <td>
+                        • <strong>6 Legs (3 pairs)</strong> (ست أرجل / ٣ أزواج)<br>
+                        • <strong>4 Wings (2 pairs)</strong> (٤ أجنحة / زوجان)
+                    </td>
+                    <td>Movement! All 6 legs and all wings are attached to the <strong>Thorax</strong>, NOT the abdomen!</td>
+                </tr>
+                <tr>
+                    <td><strong>3. Abdomen (البطن)</strong></td>
+                    <td>Contains digestive, respiratory, and egg-laying organs.</td>
+                    <td>Digestion, breathing, and laying eggs.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="speech-bubble smarty">
+            <div class="speech-avatar">🐶</div>
+            <div class="speech-content">
+                <div class="speech-name">Smarty's Exam Secret:</div>
+                <p><strong>Never Forget:</strong> An insect ALWAYS has <strong>6 legs</strong> (3 pairs) and they are ALL connected to the <strong>Thorax (الصدر)</strong>!</p>
+                <p class="ar-side" style="color:#555;">سؤال بيجي في كل الامتحانات: الحشرة ليها <strong>6 أرجل</strong> وكلها متصلة بـ <strong>الصدر (Thorax)</strong> فقط!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- GAME SECTION -->
+    <div class="game-box">
+        <div class="game-header">🎮 Play & Learn / العب واكتشف مع أصدقائك!</div>
+        <p style="font-size:16px; margin-bottom:12px;"><strong>Game: "The Metamorphosis Acting Show" (لعبة مسرحية التحول)</strong></p>
+        <div style="background:white; padding:16px; border-radius:12px; margin-bottom:12px;">
+            <p><strong>طريقة اللعبة:</strong> مثل مع أصدقائك أو إخوتك مراحل نمو الفراشة بالحركات:</p>
+            <ol style="margin-right:20px; line-height:1.8; direction:rtl; text-align:right;">
+                <li><strong>البيضة (Egg):</strong> انكمش على الأرض مثل الكرة الصغيرة وابقَ ثابتاً!</li>
+                <li><strong>اليرقة (Larva):</strong> ازحف على بطنك وتظاهر بأنك تأكل ورقة شجر بشراهة (Crunch Crunch)!</li>
+                <li><strong>العذراء (Pupa):</strong> لف حولك ملاءة سرير وقف ثابتاً جداً كأنك نائم في شرنقة!</li>
+                <li><strong>الفراشة (Adult):</strong> اخرج من الملاءة وافرد ذراعيك وطِر في الغرفة مثل الفراشة الجميلة!</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- PRACTICE EXERCISES -->
+    
+
+<div class="part-end-badge">🌟 End of Part 1: Illustrated Explanation | نهاية الجزء الأول: الشرح المصور 🌟</div>
+<div class="part-banner part-2-banner">
+  <h2>📝 PART 2: PRACTICE & GOVERNORATE EXAMS BANK</h2>
+  <p>الجزء الثاني: بنك التدريبات وأسئلة امتحانات المحافظات (مخصص لحل الطالب واختبار الفهم)</p>
+</div>
+<h2 class="section-title"><span class="icon">📝</span> Quick Practice (تدريبات سريعة لتثبيت الفهم)</h2>
+    <div class="card">
+        <h4 style="color:var(--primary); margin-bottom:12px;">A) Put in the correct growth order (1 to 4):</h4>
+        <p>( &nbsp;&nbsp; ) Adult Butterfly &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( &nbsp;&nbsp; ) Egg &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( &nbsp;&nbsp; ) Pupa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ( &nbsp;&nbsp; ) Larva</p>
+
+        <h4 style="color:var(--primary); margin:20px 0 12px;">B) Fill in the blanks with: [ Thorax / 6 / Antennae / Underside ]:</h4>
+        <ol style="margin-left:22px; line-height:2;">
+            <li>Butterflies lay eggs mostly on the .............................. of plant leaves.</li>
+            <li>Adult insects have .............................. legs.</li>
+            <li>The legs and wings of an insect are attached to the .............................. .</li>
+            <li>The long rod-like parts on the insect's head used for sensing are called .............................. .</li>
+        </ol>
+
+        <h4 style="color:var(--primary); margin:20px 0 12px;">C) True or False:</h4>
+        <ol style="margin-left:22px; line-height:2;">
+            <li>( &nbsp;&nbsp; ) The larva has four wings and can lay eggs.</li>
+            <li>( &nbsp;&nbsp; ) The pupa does not move from place to place.</li>
+            <li>( &nbsp;&nbsp; ) Spiders have 8 legs, so spiders are NOT insects.</li>
+        </ol>
+    </div>
+
+    <!-- GOVERNORATE EXAMS -->
+    <div class="exam-section">
+        <h2 style="color:#C2185B; display:flex; align-items:center; gap:10px; margin-bottom:15px; font-size:22px;">
+            <span>🏆</span> Official Governorate Exam Questions (أسئلة امتحانات المحافظات)
+        </h2>
+
+        <div class="question-item">
+            <span class="gov-badge">Cairo 2024 / القاهرة</span>
+            <strong>Write the scientific term (المصطلح العلمي):</strong>
+            <p>1. The baby insect that hatches out of an egg. &nbsp; ( .............................. )</p>
+            <p>2. The stage in which an insect rests inside a chrysalis and undergoes body transformation. &nbsp; ( .............................. )</p>
+            <p>3. The middle part of an insect's body where legs and wings are attached. &nbsp; ( .............................. )</p>
+        </div>
+
+        <div class="question-item">
+            <span class="gov-badge">Giza 2024 / الجيزة</span>
+            <strong>Choose the correct answer:</strong>
+            <p>1. The body of an adult insect is divided into:
+                <br>a) 2 parts &nbsp;&nbsp;&nbsp; b) 3 parts &nbsp;&nbsp;&nbsp; c) 4 parts &nbsp;&nbsp;&nbsp; d) 5 parts
+            </p>
+            <p>2. Butterflies lay their eggs on:
+                <br>a) Dry sand &nbsp;&nbsp;&nbsp; b) Top of stones &nbsp;&nbsp;&nbsp; c) Underside of leaves &nbsp;&nbsp;&nbsp; d) Tree bark
+            </p>
+            <p>3. How many pairs of legs does an adult insect have?
+                <br>a) 2 pairs &nbsp;&nbsp;&nbsp; b) 3 pairs &nbsp;&nbsp;&nbsp; c) 4 pairs &nbsp;&nbsp;&nbsp; d) 5 pairs
+            </p>
+        </div>
+
+        <div class="question-item">
+            <span class="gov-badge">Alexandria 2023 / الإسكندرية</span>
+            <strong>Give reasons for (علل):</strong>
+            <p>1. Butterflies lay eggs on the underside of plant leaves.
+                <br><em>Reason:</em> ............................................................................................................
+            </p>
+            <p>2. A spider is NOT considered an insect.
+                <br><em>Reason:</em> ............................................................................................................
+            </p>
+        </div>
+
+        <div class="question-item">
+            <span class="gov-badge">Asyut 2024 / أسيوط</span>
+            <strong>Complete the following statement:</strong>
+            <p>The three parts of an adult butterfly's body are .............................., .............................., and .............................. .</p>
+        </div>
+    </div>
+
+    <!-- MODEL ANSWERS -->
+    
+
+<div class="part-end-badge">📝 End of Part 2: Question Bank | نهاية الجزء الثاني: بنك الأسئلة والتدريبات 📝</div>
+<div class="part-banner part-3-banner">
+  <h2>🔑 PART 3: EXPLANATORY MODEL ANSWERS KEY</h2>
+  <p>الجزء الثالث: نموذج الإجابات النموذجية والتفسيرات العلمية (لمراجعة المعلم وولي الأمر)</p>
+</div>
+<details class="answers-box" open>
+        <summary>
+            <span>🔑 Click to reveal Model Answers (اضغط هنا لإظهار نموذج الإجابات للتأكد من الحل)</span>
+        </summary>
+        <div class="answers-content">
+            <h3 style="color:#AD1457; margin-bottom:15px; border-bottom:2px solid #F8BBD0; padding-bottom:6px;">
+                ✅ Quick Practice Answers
+            </h3>
+            <div class="answer-row">
+                <div class="answer-key">A) Growth Order:</div>
+                <p><strong>( 4 )</strong> Adult Butterfly &nbsp;&nbsp;&nbsp;&nbsp; <strong>( 1 )</strong> Egg &nbsp;&nbsp;&nbsp;&nbsp; <strong>( 3 )</strong> Pupa &nbsp;&nbsp;&nbsp;&nbsp; <strong>( 2 )</strong> Larva</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">B) Fill in the blanks:</div>
+                <p>1. <strong>Underside</strong> &nbsp;&nbsp; 2. <strong>6</strong> &nbsp;&nbsp; 3. <strong>Thorax</strong> &nbsp;&nbsp; 4. <strong>Antennae</strong></p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">C) True or False:</div>
+                <p>1. <strong>✘ False</strong> (Larva does not have wings; only the adult insect has wings).</p>
+                <p>2. <strong>✔ True</strong> (Pupa rests while transforming).</p>
+                <p>3. <strong>✔ True</strong> (Insects must have 6 legs; spiders have 8 legs, so they are arachnids, not insects).</p>
+            </div>
+
+            <h3 style="color:#C2185B; margin:20px 0 15px; border-bottom:2px solid #F8BBD0; padding-bottom:6px;">
+                🏆 Governorate Exam Model Answers
+            </h3>
+            <div class="answer-row">
+                <div class="answer-key">Cairo 2024 (Scientific Term):</div>
+                <p>1. <strong>Larva (Caterpillar)</strong> (اليرقة).</p>
+                <p>2. <strong>Pupa (Chrysalis)</strong> (العذراء / الخادرة).</p>
+                <p>3. <strong>Thorax</strong> (الصدر).</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Giza 2024 (Choose):</div>
+                <p>1. <strong>b) 3 parts</strong> (Head, Thorax, Abdomen).</p>
+                <p>2. <strong>c) Underside of leaves</strong>.</p>
+                <p>3. <strong>b) 3 pairs</strong> (3 pairs = 6 legs).</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Alexandria 2023 (Give Reasons):</div>
+                <p>1. <strong>To protect eggs from harsh weather (sun, wind, rain) and predators, and to provide immediate food for larvae when they hatch.</strong><br>
+                <span class="answer-why">لحمايتها من الطقس والأعداء ولتوفير الغذاء لليرقات فور فقسها.</span></p>
+                <p>2. <strong>Because it has 8 legs (4 pairs) and its body is divided into 2 parts, while insects must have 6 legs (3 pairs) and 3 body parts.</strong><br>
+                <span class="answer-why">لأن العنكبوت له 8 أرجل وجسمه جزأين، بينما الحشرة لها 6 أرجل وجسمها 3 أجزاء.</span></p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Asyut 2024 (Complete):</div>
+                <p><strong>Head</strong> (رأس), <strong>Thorax</strong> (صدر), and <strong>Abdomen</strong> (بطن).</p>
+            </div>
+        </div>
+    </details>
+</div>
+
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+</body>
+</html>

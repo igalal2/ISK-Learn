@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بوابة رياض الأطفال KG2 الذكية • عالم التعلم والمرح</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-page: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --primary-blue: #2563eb;
+    --dark-blue: #1e40af;
+    
+    /* Joyful Kid Colors */
+    --c-pink: #ec4899;
+    --c-pink-bg: #fdf2f8;
+    --c-blue: #0284c7;
+    --c-blue-bg: #f0f9ff;
+    --c-green: #10b981;
+    --c-green-bg: #ecfdf5;
+    --c-purple: #8b5cf6;
+    --c-purple-bg: #f5f3ff;
+    --c-amber: #f59e0b;
+    --c-amber-bg: #fffbeb;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding-bottom: 90px;
+    line-height: 1.6;
+    background-image: 
+      radial-gradient(at 10% 20%, rgba(236, 72, 153, 0.06) 0px, transparent 40%),
+      radial-gradient(at 90% 80%, rgba(2, 132, 199, 0.06) 0px, transparent 40%),
+      radial-gradient(at 50% 50%, rgba(16, 185, 129, 0.05) 0px, transparent 40%);
+  }
+  .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+
+  /* GRADE SWITCHER BAR */
+  .grade-switcher-bar {
+    background: #0f172a;
+    color: white;
+    padding: 9px 0;
+    font-size: 13px;
+  }
+  .grade-switcher-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .grade-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .grade-tab {
+    background: rgba(255,255,255,0.12);
+    color: #e2e8f0;
+    text-decoration: none;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    transition: all 0.2s;
+  }
+  .grade-tab.active, .grade-tab:hover {
+    background: #ec4899;
+    color: white;
+    box-shadow: 0 0 12px rgba(236, 72, 153, 0.5);
+  }
+
+  /* TOP NAVBAR */
+  .navbar {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 12px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+  }
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand-logo {
+    width: 44px; height: 44px;
+    background: linear-gradient(135deg, #ec4899, #f43f5e);
+    border-radius: 14px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: white;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.3);
+  }
+  .brand-text h1 { font-size: 19px; font-weight: 900; color: #0f172a; }
+  .brand-text p { font-size: 11.5px; color: #64748b; font-weight: 600; }
+  .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+  .nav-btn {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+    padding: 7px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 800;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover { background: #ec4899; color: white; border-color: #ec4899; transform: translateY(-2px); }
+
+  /* HERO BANNER (ROYAL BLUE WITH JOYFUL ACCENTS) */
+  .hero-blue {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+    color: white;
+    border-radius: 24px;
+    padding: 36px 30px;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 30px -5px rgba(37, 99, 235, 0.3);
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+  .hero-blue h2 { font-size: 27px; font-weight: 900; margin-bottom: 10px; letter-spacing: -0.5px; }
+  .hero-blue p { font-size: 14.5px; line-height: 1.7; max-width: 820px; color: #e0e7ff; margin-bottom: 22px; }
+  .quick-dock { display: flex; gap: 10px; flex-wrap: wrap; }
+  .dock-item {
+    background: rgba(255, 255, 255, 0.95);
+    color: #1e3a8a;
+    padding: 8px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    transition: all 0.2s;
+  }
+  .dock-item:hover { transform: translateY(-2px); background: #ffffff; color: #2563eb; }
+
+  /* SCHEDULE SECTION */
+  .schedule-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+    padding: 22px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  }
+  .schedule-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid #f1f5f9;
+    padding-bottom: 14px;
+  }
+  .btn-notify {
+    background: #ec4899;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-notify:hover { opacity: 0.95; transform: translateY(-1px); }
+  .schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+  }
+  .day-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .day-card:hover { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(0,0,0,0.04); }
+  .day-card.today {
+    border: 2px solid #ec4899;
+    background: #fff;
+    box-shadow: 0 6px 20px rgba(236, 72, 153, 0.15);
+  }
+  .day-name {
+    font-size: 14px;
+    font-weight: 900;
+    color: #0f172a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #cbd5e1;
+    padding-bottom: 6px;
+  }
+  .day-task {
+    font-size: 11.5px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    padding: 6px 8px;
+    border-radius: 8px;
+    color: #334155;
+    line-height: 1.4;
+  }
+
+  /* SECTION HEADERS */
+  .sec-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 36px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .sec-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sec-badge {
+    background: #eff6ff;
+    color: #2563eb;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 800;
+  }
+
+  /* INTERACTIVE ALPHABET / PHONICS CARDS */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+  .play-card {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    user-select: none;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+  }
+  .play-card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+  }
+  .play-card.en:hover { border-color: #0284c7; background: #f0f9ff; }
+  .play-card.math:hover { border-color: #ec4899; background: #fdf2f8; }
+  .play-card.ar:hover { border-color: #8b5cf6; background: #f5f3ff; }
+  
+  .card-big {
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .card-icon { font-size: 32px; margin: 4px 0; }
+  .card-label { font-size: 13px; font-weight: 800; color: #334155; }
+  .card-sound-tag { font-size: 10.5px; color: #64748b; margin-top: 2px; }
+
+  /* BOOKLETS SHELF */
+  .bk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 18px;
+  }
+  .bk-box {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .bk-title { font-size: 16px; font-weight: 900; margin-bottom: 6px; }
+  .bk-desc { font-size: 12.5px; color: #64748b; margin-bottom: 16px; line-height: 1.5; }
+  .bk-actions { display: flex; gap: 8px; }
+  .btn-open {
+    flex: 1;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+    padding: 8px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 12.5px;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .btn-open:hover { background: #2563eb; }
+  .btn-pdf {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #cbd5e1;
+    padding: 8px 12px;
+    border-radius: 10px;
+    font-weight: 800;
+    font-size: 12.5px;
+    text-decoration: none;
+    transition: 0.2s;
+  }
+  .btn-pdf:hover { background: #dc2626; color: white; border-color: #dc2626; }
+
+  /* VISUAL GALLERY & LIGHTBOX */
+  .gallery-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px -5px rgba(0,0,0,0.1);
+    border-color: #ec4899;
+  }
+  .gallery-thumb {
+    height: 170px;
+    overflow: hidden;
+    background: #e2e8f0;
+    position: relative;
+  }
+  .gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s;
+  }
+  .gallery-card:hover .gallery-thumb img { transform: scale(1.05); }
+  .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .gallery-card:hover .gallery-overlay { opacity: 1; }
+
+  /* LIGHTBOX MODAL */
+  .img-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.88);
+    backdrop-filter: blur(8px);
+    z-index: 999999;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+  }
+  .img-modal.open { display: flex; }
+  .img-modal-content {
+    background: #ffffff;
+    border-radius: 18px;
+    max-width: 95vw;
+    max-height: 94vh;
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid #cbd5e1;
+    animation: modalPop 0.2s ease-out;
+  }
+  @keyframes modalPop {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .img-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .img-modal-title { font-size: 15.5px; font-weight: 800; color: #0f172a; }
+  .img-modal-actions { display: flex; gap: 8px; }
+  .img-btn {
+    background: #e2e8f0;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 12.5px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  .img-btn:hover { filter: brightness(0.95); transform: translateY(-1px); }
+  .img-modal-body {
+    overflow: auto;
+    max-height: 70vh;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f5f9;
+  }
+  .img-modal-body img {
+    max-width: 100%;
+    max-height: 66vh;
+    object-fit: contain;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+  }
+  .img-modal-caption {
+    padding: 12px 18px;
+    font-size: 13px;
+    color: #334155;
+    background: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    line-height: 1.5;
+  }
+
+  /* KID QUIZ HUB */
+  .kid-quiz-box {
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 2px solid #fde68a;
+    border-radius: 20px;
+    padding: 24px;
+    margin-top: 30px;
+  }
+  .quiz-opt-btn {
+    background: white;
+    border: 2px solid #fcd34d;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    color: #92400e;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .quiz-opt-btn:hover { background: #fef08a; transform: translateY(-2px); }
+
+  #confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 100000; }
+
+  @media print {
+    .grade-switcher-bar, .navbar, .quick-dock, .btn-notify, .quiz-opt-btn { display: none !important; }
+    body { background: white !important; }
+  }
+
+  /* KG2 TALKING CHARACTERS THEATER */
+  .kg-theater-box {
+    background: linear-gradient(135deg, #fdf2f8 0%, #ede9fe 100%);
+    border: 3px solid #ec4899;
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(236, 72, 153, 0.12);
+  }
+  .kg-theater-strip {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 6px 2px 14px 2px;
+  }
+  .kg-char-btn {
+    background: white;
+    border: 2px solid #fbcfe8;
+    border-radius: 16px;
+    padding: 10px 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 105px;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.03);
+  }
+  .kg-char-btn:hover, .kg-char-btn.active {
+    transform: translateY(-4px) scale(1.04);
+    border-color: #ec4899;
+    background: #fff;
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.25);
+  }
+  .kg-char-avatar {
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, #fce7f3, #fed7aa);
+    border: 4px solid #ec4899;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 54px;
+    box-shadow: 0 8px 20px rgba(236, 72, 153, 0.2);
+    animation: kg-bounce 2.5s infinite;
+    position: relative;
+    flex-shrink: 0;
+  }
+  @keyframes kg-bounce {
+    0%, 100% { transform: scale(1) translateY(0); }
+    50% { transform: scale(1.06) translateY(-6px); }
+  }
+  .kg-speaking-ring {
+    position: absolute;
+    top: -8px; left: -8px; right: -8px; bottom: -8px;
+    border-radius: 50%;
+    border: 3px dashed #ec4899;
+    opacity: 0;
+  }
+  .kg-active-speaking .kg-speaking-ring {
+    opacity: 1;
+    animation: kg-spin 3s linear infinite;
+  }
+  @keyframes kg-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  .kg-bubble {
+    background: white;
+    border: 2px solid #fbcfe8;
+    border-radius: 20px;
+    padding: 18px 22px;
+    flex: 1;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+  }
+
+</style>
+</head>
+<body>
+
+<!-- MASTER PORTAL NAVIGATION BANNER -->
+<div style="background: linear-gradient(135deg, #0f172a, #1e293b); color: white; padding: 12px 20px; font-family: 'Cairo', sans-serif; font-size: 14px; font-weight: 800; border-bottom: 2px solid #3b82f6; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; z-index: 99999; position: relative;">
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <span style="font-size: 20px;">🎓</span>
+        <span>المنصة التعليمية المركزية الموحدة (جميع الصفوف والمواد)</span>
+    </div>
+    <a href="البوابة_الرئيسية_الشاملة.html" style="background: linear-gradient(135deg, #2563eb, #3b82f6); color: white; padding: 6px 18px; border-radius: 20px; text-decoration: none; font-size: 13px; font-weight: 800; box-shadow: 0 4px 12px rgba(37,99,235,0.3); display: flex; align-items: center; gap: 6px;">
+        <span>🏠</span>
+        <span>العودة للبوابة الرئيسية الشاملة</span>
+    </a>
+</div>
+
+
+<canvas id="confetti-canvas"></canvas>
+
+<!-- GRADE SWITCHER BAR -->
+<div class="grade-switcher-bar">
+  <div class="grade-switcher-inner">
+    <div style="font-weight:800;">🎓 منصة المراحل التعليمية الذكية:</div>
+    <div class="grade-tabs">
+      <a href="بوابة_الصف_الرابع_الابتدائي.html" class="grade-tab">🌟 الصف الرابع الابتدائي</a>
+      <a href="بوابة_الصف_الثاني_الابتدائي.html" class="grade-tab">🎈 الصف الثاني الابتدائي</a>
+      <a href="بوابة_رياض_الأطفال_KG2.html" class="grade-tab active">🧸 مرحلة رياض الأطفال KG2</a>
+    </div>
+  </div>
+</div>
+
+<!-- TOP NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <div class="brand-logo">🧸</div>
+      <div class="brand-text">
+        <h1>بوابة رياض الأطفال KG2</h1>
+        <p>المنظومة التعليمية التفاعلية المبهجة 2025 / 2026</p>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-btn">🏠 البوابة الشاملة</a>
+      <a href="ملخصات_رياض_الأطفال_KG2/Index.html" class="nav-btn" style="background:#fffbeb; color:#b45309; border-color:#fde68a;">📚 فهرس ومكتبة ملازم الـ PDF</a>
+      <a href="دليل_الانجليزي_KG2.html" class="nav-btn">🇬🇧 دليل Connect</a>
+      <a href="دليل_العربي_KG2.html" class="nav-btn">📖 دليل تواصل</a>
+      <button onclick="window.print()" class="nav-btn" style="background:#f8fafc; cursor:pointer;" title="طباعة الصفحة أو حفظها كملف PDF">🖨️ طباعة الصفحة PDF</button>
+      <a href="#schedule" class="nav-btn">📅 جدول الحصص</a>
+      <a href="#phonics" class="nav-btn" style="color:#0284c7;">🔤 Phonics A-Z</a>
+      <a href="#math-lab" class="nav-btn" style="color:#ec4899;">🔢 ماث وأرقام</a>
+      <a href="#arabic-garden" class="nav-btn" style="color:#8b5cf6;">📖 حروف الهجاء</a>
+      <a href="#moasser-gallery" class="nav-btn">🖼️ صور المعاصر</a>
+      <a href="#booklets" class="nav-btn">📚 ملازم وتلوين</a>
+      <a href="#kid-quiz" class="nav-btn" style="background:#fef3c7; color:#b45309;">⚡ كويز البطل</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- HERO BANNER -->
+  <header class="hero-blue">
+    <span class="hero-tag">🌈 أهلاً ببطلنا الصغير في روضة المعرفة والمرح</span>
+    <h2>بوابة رياض الأطفال الذكية • المستوى الثاني (KG2)</h2>
+    <p>أصوات وحروف اللغة الإنجليزية، الأرقام حتى 20 بالعد والأشكال والألوان، حروف الهجاء العربية بالصور اللطيفة، مع نطق صوتي فوري عند الضغط على أي بطاقة، وملازم وأنشطة تلوين قابلة للطباعة من كتب المعاصر المعتمدة!</p>
+    <div class="quick-dock">
+      <a href="#talking-theater" class="dock-item" style="background:#fce7f3; color:#be185d;">🎭 مسرح الشخصيات الناطقة</a>
+      <a href="#schedule" class="dock-item">⏰ جدول الحصص الأسبوعي</a>
+      <a href="#phonics" class="dock-item">🔤 بستان الحروف والأصوات</a>
+      <a href="#math-lab" class="dock-item">🔢 ألعاب الأرقام والعد</a>
+      <a href="#arabic-garden" class="dock-item">📖 حروف اللغة العربية</a>
+      <a href="#moasser-gallery" class="dock-item">🖼️ صور كتاب المعاصر</a>
+      <a href="#kid-quiz" class="dock-item">🏆 مسابقة البطل الصغير</a>
+    </div>
+  </header>
+
+  <!-- SCHEDULE SECTION -->
+  <!-- ==================================================== -->
+  <!-- 🎭 مسرح الكرتون التفاعلي الناطق لرياض الأطفال       -->
+  <!-- ==================================================== -->
+  <section id="talking-theater" class="kg-theater-box">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:10px;">
+      <div>
+        <h3 style="font-size:20px; font-weight:900; color:#be185d; display:flex; align-items:center; gap:8px;">
+          <span>🎭</span><span>مسرح الشخصيات الناطقة للأبطال الصغار (KG2 Talking Theater)</span>
+        </h3>
+        <p style="font-size:13px; color:#9d174d;">الحروف والأرقام تتحدث وتعرف بنفسها بأناشيد لطيفة وأصوات مبهجة تسعد الأطفال!</p>
+      </div>
+      <button class="btn-notify" style="background:#be185d;" onclick="copyKgTheaterScript()">📋 نسخ سيناريو كرتون الروضة</button>
+    </div>
+
+    <!-- CHARACTERS SELECTOR -->
+    <div class="kg-theater-strip" id="kg-chars-strip">
+      <!-- Populated dynamically via JS -->
+    </div>
+
+    <!-- STAGE DISPLAY -->
+    <div style="display:flex; align-items:center; gap:20px; flex-wrap:wrap;" id="kg-stage-wrap">
+      <div class="kg-char-avatar" id="kg-avatar-wrap">
+        <div class="kg-speaking-ring"></div>
+        <span id="kg-avatar-emoji">🦁</span>
+      </div>
+      <div class="kg-bubble">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
+          <span style="background:#be185d; color:white; font-size:12px; font-weight:800; padding:3px 10px; border-radius:10px;" id="kg-speaker-title">حرف الألف البطل (أ)</span>
+          <span style="font-size:12px; color:#ec4899; font-weight:800;" id="kg-speaker-badge">ألفٌ أرنب.. يجري يلعب!</span>
+        </div>
+        <div style="font-size:16px; font-weight:800; color:#1e293b; line-height:1.8;" id="kg-dialogue-text">
+          "أهلاً بأصدقائي الأبطال الصغار! أنا حرف الألف (أ)! أقف شامخاً ومستقيماً مثل البطل، وفوق رأسي همزة جميلة تشبه التاج! أ.. أ.. أرنب يقفز ويلعب ويأكل الجزر! أ.. أ.. أسد شجاع ملك الغابة! هيا نغني معاً: ألفٌ أرنب.. يجري يلعب.. يأكل جزراً كي لا يتعب!"
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-top:16px; flex-wrap:wrap; gap:10px;">
+      <div style="display:flex; gap:8px;">
+        <button onclick="speakKgCharacter()" style="background:#ec4899; color:white; border:none; padding:10px 20px; border-radius:12px; font-weight:900; font-size:14px; cursor:pointer; box-shadow:0 4px 14px rgba(236,72,153,0.3);">🔊 اضغط لتسمعني أتكلم وأنشد!</button>
+        <button onclick="stopKgSpeaking()" style="background:white; border:1.5px solid #fbcfe8; color:#be185d; padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer; font-size:13px;">⏹️ إيقاف</button>
+        <button onclick="fireConfetti()" style="background:#fef08a; border:1.5px solid #facc15; color:#854d0e; padding:10px 14px; border-radius:12px; font-weight:800; cursor:pointer; font-size:13px;">🎉 احتفال ونجوم</button>
+      </div>
+      <span style="font-size:12.5px; color:#be185d; font-weight:800;">🎈 متعة التعلم التفاعلي لمرحلة KG2</span>
+    </div>
+  </section>
+
+  <section id="schedule" class="schedule-container">
+    <div class="schedule-top">
+      <div>
+        <h3 style="font-size:18px; font-weight:900; color:#0f172a;">📅 جدول حصص ومذاكرة مرحلة رياض الأطفال (KG2)</h3>
+        <p style="font-size:13px; color:#64748b;">مقسم بانتظام وفقاً لمواعيد الدروس: الإثنين (عربي وماث) والخميس (إنجليزي وعربي)</p>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap;">
+        <button class="btn-notify" onclick="requestNotificationPermission()">🔔 تفعيل تنبيهات الحصص</button>
+        <button class="btn-notify" style="background:#0284c7;" onclick="window.print()">🖨️ طباعة الجدول للغرفة</button>
+      </div>
+    </div>
+    <div class="schedule-grid">
+      <div class="day-card" data-day="6">
+        <div class="day-name"><span>السبت</span><span>🎨</span></div>
+        <div class="day-task">🎨 تلوين الحروف والأرقام في ملزمة الأنشطة</div>
+        <div class="day-task">🎶 الاستماع لأغنية الحروف الأبجدية</div>
+      </div>
+      <div class="day-card" data-day="0">
+        <div class="day-name"><span>الأحد</span><span>⭐</span></div>
+        <div class="day-task">🍎 مراجعة الحروف الإنجليزية ونطقها</div>
+        <div class="day-task">🖐️ العد بالأصابع والألعاب المحببة</div>
+      </div>
+      <div class="day-card" data-day="1">
+        <div class="day-name"><span>الإثنين</span><span>🚀</span></div>
+        <div class="day-task" style="background:#fce7f3; color:#be185d; font-weight:800;">⭐ موعد درس عربي وماث</div>
+        <div class="day-task">📖 تدريب على نطق وكتابة الحروف العربية</div>
+        <div class="day-task">🔢 عد الأرقام والأشكال من كتاب المعاصر</div>
+      </div>
+      <div class="day-card" data-day="2">
+        <div class="day-name"><span>الثلاثاء</span><span>📐</span></div>
+        <div class="day-task">🔺 التعرف على الدائرة والمربع والمثلث</div>
+        <div class="day-task">🌟 لعبة تخمين الألوان وتوصيل الأشكال</div>
+      </div>
+      <div class="day-card" data-day="3">
+        <div class="day-name"><span>الأربعاء</span><span>🧸</span></div>
+        <div class="day-task">🪀 قراءة أسماء أفراد العائلة والألعاب</div>
+        <div class="day-task">📖 مراجعة خفيفة للحروف الهجائية</div>
+      </div>
+      <div class="day-card" data-day="4">
+        <div class="day-name"><span>الخميس</span><span>🏆</span></div>
+        <div class="day-task" style="background:#e0f2fe; color:#0369a1; font-weight:800;">⭐ موعد درس إنجليزي وعربي</div>
+        <div class="day-task">🔤 تدريبات Connect KG2 والأصوات A-Z</div>
+        <div class="day-task">📖 كلمات الحروف العربية المصورة وتلوينها</div>
+      </div>
+      <div class="day-card" data-day="5">
+        <div class="day-name"><span>الجمعة</span><span>🕌</span></div>
+        <div class="day-task" style="background:#dcfce7; color:#166534; font-weight:800;">⭐ قيم إسلامية وقصص الأطفال</div>
+        <div class="day-task">🕌 ترديد سورة الفاتحة والإخلاص</div>
+        <div class="day-task">🤲 حفظ دعاء الطعام والنوم وبر الوالدين</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 1. ENGLISH PHONICS GARDEN (A TO Z) -->
+  <section id="phonics">
+    <div class="sec-header">
+      <div class="sec-title"><span>🔤</span><span>بستان الحروف والأصوات الإنجليزية (Phonics A to Z)</span></div>
+      <span class="sec-badge" style="background:#f0f9ff; color:#0284c7;">🔊 اضغط على أي بطاقة لسماع النطق الصوتي الفوري</span>
+    </div>
+    <div class="cards-grid" id="en-cards-container"></div>
+  </section>
+
+  <!-- 2. NUMBERS & COUNTING LAB (1 TO 20) -->
+  <section id="math-lab">
+    <div class="sec-header">
+      <div class="sec-title"><span>🔢</span><span>مختبر الأرقام والعد والأشكال (Math & Numbers 1 to 20)</span></div>
+      <span class="sec-badge" style="background:#fdf2f8; color:#ec4899;">⭐ اضغط لسماع الرقم والعد الإنجليزي</span>
+    </div>
+    <div class="cards-grid" id="num-cards-container"></div>
+  </section>
+
+  <!-- 3. ARABIC LETTERS GARDEN (أ - ي) -->
+  <section id="arabic-garden">
+    <div class="sec-header">
+      <div class="sec-title"><span>📖</span><span>روضة الحروف الهجائية المصورة (ألف باء تاء)</span></div>
+      <span class="sec-badge" style="background:#f5f3ff; color:#8b5cf6;">🔊 اضغط على الحرف للاستماع لنطقه بالعربية</span>
+    </div>
+    <div class="cards-grid" id="ar-cards-container"></div>
+  </section>
+
+  <!-- 4. CURATED MOASSER KG2 VISUAL GALLERY -->
+  <section id="moasser-gallery">
+    <div class="sec-header">
+      <div class="sec-title"><span>🖼️</span><span>معرض الرسوم التعليمية من كتب المعاصر KG2</span></div>
+      <span class="sec-badge">🔍 اضغط لتكبير أي رسمة وفحص تفاصيلها بدقة عالية</span>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:16px;">
+      
+      <div class="gallery-card" onclick="openImageModal('images_kg2/kg2_phonics_alphabet.png', 'الحروف الأبجدية والكلمات المصورة • كتاب المعاصر إنجليزي KG2', 'لوحة الحروف الأبجدية الإنجليزية المصورة مع كلمات وأمثلة كرتونية مبهجة لتعليم القراءة المبكرة.')">
+        <div class="gallery-thumb">
+          <img src="images_kg2/kg2_phonics_alphabet.png" alt="Phonics Alphabet">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Alphabet & Phonics Cards • المعاصر إنجليزي</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">الحروف من A إلى Z بألوان مبهجة.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('images_kg2/kg2_family_and_toys.png', 'العائلة والألعاب Connect KG2 • كتاب المعاصر', 'أفراد العائلة: الأب، الأم، الأخ، الأخت، والألعاب المحببة: الكرة، الدمية، السيارة، والقطار.')">
+        <div class="gallery-thumb">
+          <img src="images_kg2/kg2_family_and_toys.png" alt="Family and Toys">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Family & Toys • Connect KG2</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">مفردات المحادثة والعائلة والألعاب.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('images_kg2/kg2_numbers_counting_1_to_10.png', 'الأرقام والعد 1 إلى 10 • كتاب المعاصر ماث KG2', 'لوحة تدريبية ممتعة لعد الأشياء، وكتابة الأرقام الإنجليزية، والتوصيل البصري.')">
+        <div class="gallery-thumb">
+          <img src="images_kg2/kg2_numbers_counting_1_to_10.png" alt="Counting 1 to 10">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#be185d;">Numbers & Counting • المعاصر ماث KG2</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">تمارين العد والتوصيل البصري للأرقام.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('images_kg2/kg2_shapes_colors.png', 'الألوان والأشكال الهندسية • كتاب المعاصر ماث KG2', 'مخطط الأشكال الهندسية: الدائرة، المربع، المثلث، المستطيل مع الألوان الأساسية: الأحمر، الأزرق، الأخضر، الأصفر.')">
+        <div class="gallery-thumb">
+          <img src="images_kg2/kg2_shapes_colors.png" alt="Shapes and Colors">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#be185d;">Shapes & Colors • الأشكال والألوان</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">الأشكال الهندسية وخواصها والألوان.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  
+      
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/ar_u1_food_banner.png', 'كتاب الوزارة الرسمي • الوحدة الأولى: غذائي', 'غلاف الوحدة الأولى رسمياً من كتاب الوزارة تواصل لرياض الأطفال KG2.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/ar_u1_food_banner.png" alt="غلاف الوحدة الأولى غذائي">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#059669;">الوحدة الأولى: غذائي • كتاب الوزارة</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">الفواكه والخضار والألبان والحروف (أ، ب، م، ح، ج، د).</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/ar_u2_tools_toys_banner.png', 'كتاب الوزارة الرسمي • الوحدة الثانية: أدواتي وألعابي', 'غلاف الوحدة الثانية رسمياً من كتاب الوزارة تواصل لرياض الأطفال KG2.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/ar_u2_tools_toys_banner.png" alt="غلاف الوحدة الثانية أدواتي وألعابي">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#059669;">الوحدة الثانية: أدواتي وألعابي • كتاب الوزارة</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">أدوات المائدة والمدرسة والنظافة والحروف (خ، ت، ل، س، ن، ر).</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/ar_u3_transport_banner.png', 'كتاب الوزارة الرسمي • الوحدة الثالثة: وسائل المواصلات', 'غلاف الوحدة الثالثة رسمياً من كتاب الوزارة تواصل لرياض الأطفال KG2.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/ar_u3_transport_banner.png" alt="غلاف الوحدة الثالثة وسائل المواصلات">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#059669;">الوحدة الثالثة: وسائل المواصلات • كتاب الوزارة</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">السيارة والقطار والطائرة والسفينة وقواعد المرور.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/u1_action_verbs_illustrated.png', 'Little Bodies & Big Moves • Connect KG2 Unit 1', 'أفعال وحركات الأطفال المبهجة: Hop, Run, Skip, Jump, Turn around من كتاب المعاصر كونكت.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/u1_action_verbs_illustrated.png" alt="Action Verbs">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Actions & Body Moves • Connect Unit 1</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">حركات وألعاب الأطفال الكرتونية المبهجة.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/u2_clothes_vocabulary_grid.png', 'What I Wear & Colors • Connect KG2 Unit 2', 'الملابس الشتوية والصيفية والألوان: Shirt, Dress, Socks, Pants من كتاب المعاصر كونكت.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/u2_clothes_vocabulary_grid.png" alt="Clothes and Colors">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Clothes & Colors • Connect Unit 2</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">الملابس والألوان وتنسيق مظهر الطفل.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/u3_days_calendar_cards.png', 'My School & Calendar Days • Connect KG2 Unit 3', 'أيام الأسبوع السبعة من Sunday إلى Saturday مع الأنشطة المدرسية اليومية.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/u3_days_calendar_cards.png" alt="Calendar Days">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Days of the Week • Connect Unit 3</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">أيام الأسبوع والتقويم المدرسي المصور.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/u4_animals_camel_rabbit_cat.png', 'Nature & Animals • Connect KG2 Unit 4', 'حيوانات الطبيعة: Camel, Rabbit, Cat, Bird, Lion بألوان زاهية وكلمات واضحة.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/u4_animals_camel_rabbit_cat.png" alt="Animals World">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#0284c7;">Nature & Animals • Connect Unit 4</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">حيوانات البيئة وأصواتها وصوتيات W, U, R.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/ch1_shapes_circle_square_triangle.png', 'Shapes & Positions • Math KG2 Chapter 1', 'الأشكال الهندسية: الدائرة، المربع، المثلث وتحديد المواقع المكانية فوق وتحت.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/ch1_shapes_circle_square_triangle.png" alt="Shapes & Positions">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#be185d;">Shapes & Positions • Math Chapter 1</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">الأشكال الهندسية والمواقع المكانية.</div>
+        </div>
+      </div>
+
+      <div class="gallery-card" onclick="openImageModal('ملخصات_رياض_الأطفال_KG2/images/ch4_number_bonds_to_5.png', 'Number Bonds to 5 • Math KG2 Chapter 4', 'مخطط مكونات الأعداد حتى 5 والجمع البصري الممتع بالأشكال والألوان.')">
+        <div class="gallery-thumb">
+          <img src="ملخصات_رياض_الأطفال_KG2/images/ch4_number_bonds_to_5.png" alt="Number Bonds">
+          <div class="gallery-overlay">🔍 اضغط للتكبير</div>
+        </div>
+        <div style="padding:12px;">
+          <div style="font-weight:800; font-size:14px; color:#be185d;">Number Bonds to 5 • Math Chapter 4</div>
+          <div style="font-size:12px; color:#64748b; margin-top:4px;">مكونات الأرقام وتأسيس الجمع البصري.</div>
+        </div>
+      </div>
+    
+    </div>
+  </section>
+
+  <!-- 5. DOWNLOADABLE BOOKLETS -->
+  <section id="booklets">
+    <div class="sec-header">
+      <div class="sec-title"><span>📚</span><span>حقيبة الملازم التأسيسية وأنشطة التلوين (KG2)</span></div>
+      <span class="sec-badge">متوفرة للعرض والطباعة PDF</span>
+    </div>
+    <div class="bk-grid">
+      <div class="bk-box">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#ec4899;">الرياضيات والماث</span>
+          <h4 class="bk-title" style="color:#be185d;">ملزمة ماث وأرقام وأشكال • KG2</h4>
+          <p class="bk-desc">بطاقات الأرقام من 1 إلى 20، تمارين العد اللطيفة، والأشكال الهندسية والألوان للتلوين والتأسيس السليم.</p>
+        </div>
+        <div class="bk-actions">
+          <a href="ملخصات_رياض_الأطفال_KG2/KG2_Math_Numbers_Shapes.html" class="btn-open">عرض الملزمة</a>
+          <a href="ملخصات_رياض_الأطفال_KG2/KG2_Math_Numbers_Shapes.pdf" class="btn-pdf" download>PDF ⬇️</a>
+        </div>
+      </div>
+
+      <div class="bk-box">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#0284c7;">اللغة الإنجليزية</span>
+          <h4 class="bk-title" style="color:#0369a1;">ملزمة أصوات الحروف Connect • KG2</h4>
+          <p class="bk-desc">حروف الأبجدية A-Z، نطق الأصوات الفونكس، ومفردات العائلة والألعاب المصورة من كتاب المعاصر.</p>
+        </div>
+        <div class="bk-actions">
+          <a href="ملخصات_رياض_الأطفال_KG2/KG2_English_Phonics_Alphabet.html" class="btn-open">عرض الملزمة</a>
+          <a href="ملخصات_رياض_الأطفال_KG2/KG2_English_Phonics_Alphabet.pdf" class="btn-pdf" download>PDF ⬇️</a>
+        </div>
+      </div>
+
+      <div class="bk-box">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#8b5cf6;">اللغة العربية</span>
+          <h4 class="bk-title" style="color:#6d28d9;">ملزمة الحروف الهجائية والتأسيس القرائي</h4>
+          <p class="bk-desc">روضة الحروف الهجائية المصورة (أ-ي)، الحيوانات والكلمات الدالة، وأنشطة تلوين لطيفة لتدريب اليدين.</p>
+        </div>
+        <div class="bk-actions">
+          <a href="ملخصات_رياض_الأطفال_KG2/KG2_Arabic_Letters_Playbook.html" class="btn-open">عرض الملزمة</a>
+          <a href="ملخصات_رياض_الأطفال_KG2/KG2_Arabic_Letters_Playbook.pdf" class="btn-pdf" download>PDF ⬇️</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+      <!-- Curricular Units & Exams -->
+      
+      <div class="bk-box" style="border-right: 4px solid #059669;">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#059669;">منهج تواصل 2.0 الرسمي (كتاب الوزارة)</span>
+          <h4 class="bk-title" style="color:#047857;">الوحدات الثلاث كاملة (اللغة العربية تواصل KG2)</h4>
+          <p class="bk-desc">الوحدة 1 (غذائي)، الوحدة 2 (أدواتي وألعابي)، والوحدة 3 (وسائل المواصلات) مع قصص الاستماع والرسوم الأصلية من كتاب الوزارة والأناشيد والحروف بالصوت.</p>
+        </div>
+        <div class="bk-actions">
+          <a href="دليل_العربي_KG2.html" class="btn-open" style="background:#059669;">دليل المنهج كاملاً</a>
+          <a href="ملخصات_رياض_الأطفال_KG2/Arabic_KG2_Unit1_Food.html" class="btn-open" style="background:#047857;">الوحدة 1 ➔</a>
+        </div>
+      </div>
+
+      <div class="bk-box" style="border-right-color:#0284c7;">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#0284c7;">منهج Connect KG2 الرسمي</span>
+          <h4 class="bk-title" style="color:#0369a1;">الوحدات الأربعة كاملة (Connect KG2 Units 1-4)</h4>
+          <p class="bk-desc">الوحدة 1 (Little Bodies)، الوحدة 2 (What I Wear)، الوحدة 3 (My School & Days)، والوحدة 4 (Nature & Animals) بالشرح المصور والصوتيات.</p>
+        </div>
+        <div class="bk-actions">
+          <a href="دليل_الانجليزي_KG2.html" class="btn-open">دليل المنهج كاملاً</a>
+          <a href="ملخصات_رياض_الأطفال_KG2/Unit1_Little_Bodies_Big_Moves.html" class="btn-open" style="background:#0369a1;">الوحدة 1 ➔</a>
+        </div>
+      </div>
+
+      <div class="bk-box" style="border-right-color:#ec4899;">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#ec4899;">منهج ماث KG2 الرسمي</span>
+          <h4 class="bk-title" style="color:#be185d;">فصول الماث الستة كاملة (Chapters 1 to 6)</h4>
+          <p class="bk-desc">الفصل 1 (العد حتى 5 والأشكال)، الفصل 2 (المقارنة وخط الأعداد)، الفصل 3 (التمثيل البياني)، الفصل 4 (مكونات الأعداد)، الفصل 5 (حتى 20)، والفصل 6 (القياس والميزان).</p>
+        </div>
+        <div class="bk-actions">
+          <a href="دليل_الماث_KG2.html" class="btn-open">دليل الماث كاملاً</a>
+          <a href="ملخصات_رياض_الأطفال_KG2/KG2_Math_Chapters.html" class="btn-open" style="background:#be185d;">الفصول 1-6 ➔</a>
+        </div>
+      </div>
+
+      <div class="bk-box" style="border-right-color:#10b981;">
+        <div>
+          <span style="font-size:11px; font-weight:800; color:#10b981;">امتحانات الشهور والترم بالحل</span>
+          <h4 class="bk-title" style="color:#047857;">امتحانات KG2 النموذجية مع الإجابات التفاعلية</h4>
+          <p class="bk-desc">نماذج امتحانات شهري أكتوبر ونوفمبر وامتحانات نهاية الفصل الدراسي في الماث والإنجليزي والعربي بنظام زر إظهار الحل النموذجي.</p>
+        </div>
+        <div class="bk-actions">
+          <a href="ملخصات_رياض_الأطفال_KG2/Monthly_Exams_KG2.html" class="btn-open" style="background:#059669;">امتحانات الشهور</a>
+          <a href="ملخصات_رياض_الأطفال_KG2/Final_Term_Exams_KG2.html" class="btn-open" style="background:#047857;">امتحانات الترم ➔</a>
+        </div>
+      </div>
+    
+    </div>
+  </section>
+
+  <!-- 6. FUN KID QUIZ -->
+  <section id="kid-quiz" class="kid-quiz-box">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+      <div>
+        <h3 style="font-size:18px; font-weight:900; color:#92400e;">⚡ مسابقة البطل الصغير (Fun Kid Quiz)</h3>
+        <p style="font-size:13px; color:#b45309;">أجب عن السؤال واجمع النجوم الذهبية 🌟</p>
+      </div>
+      <span style="background:white; padding:6px 14px; border-radius:20px; font-weight:800; font-size:14px; color:#b45309;" id="kg-score">النجوم: ⭐ 0</span>
+    </div>
+
+    <div style="background:white; border-radius:16px; padding:20px; border:1px solid #fde68a;">
+      <h4 style="font-size:17px; font-weight:900; color:#0f172a; margin-bottom:16px;" id="kg-q-text">جاري تحميل السؤال...</h4>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:12px;" id="kg-options"></div>
+      <div id="kg-feedback" style="margin-top:14px; font-size:15px; font-weight:800;"></div>
+      <button id="kg-next-btn" style="display:none; margin-top:14px; background:#ec4899; color:white; border:none; padding:8px 18px; border-radius:10px; font-weight:800; cursor:pointer;" onclick="nextKidQuestion()">السؤال التالي ➡️</button>
+    </div>
+  </section>
+
+</div>
+
+<!-- IMAGE LIGHTBOX MODAL -->
+<div id="imageLightboxModal" class="img-modal" onclick="closeImageModal(event)">
+  <div class="img-modal-content" onclick="event.stopPropagation()">
+    <div class="img-modal-header">
+      <div class="img-modal-title" id="lightboxTitle">عنوان الرسم التوضيحي</div>
+      <div class="img-modal-actions">
+        <button class="img-btn" onclick="zoomImage(1.25)" title="تكبير">+</button>
+        <button class="img-btn" onclick="zoomImage(0.8)" title="تصغير">-</button>
+        <button class="img-btn" onclick="resetZoom()" title="إعادة الضبط">↺ طبيعي</button>
+        <a id="lightboxDownloadBtn" href="#" download class="img-btn" style="background:#10b981; color:white; text-decoration:none;">⬇️ تحميل</a>
+        <button class="img-btn" style="background:#ef4444; color:white;" onclick="closeImageModal()">✕ إغلاق</button>
+      </div>
+    </div>
+    <div class="img-modal-body" id="lightboxBody">
+      <img id="lightboxImg" src="" alt="Zoomed View">
+    </div>
+    <div class="img-modal-caption" id="lightboxCaption">شرح الرسم التوضيحي ومحتواه التعليمي.</div>
+  </div>
+</div>
+
+<script>
+  // WEB SPEECH AUDIO SYNTHESIS
+  function speakWord(text, lang) {
+    if (!('speechSynthesis' in window)) {
+      alert("الصوت: " + text);
+      return;
+    }
+    window.speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.lang = lang || 'en-US';
+    utterance.rate = 0.85;
+    window.speechSynthesis.speak(utterance);
+  }
+
+  // 1. POPULATE PHONICS CARDS
+  const phonicsData = [
+    { letter: 'Aa', word: 'Apple', icon: '🍎', text: 'A is for Apple' },
+    { letter: 'Bb', word: 'Bear', icon: '🐻', text: 'B is for Bear' },
+    { letter: 'Cc', word: 'Cat', icon: '🐱', text: 'C is for Cat' },
+    { letter: 'Dd', word: 'Dog', icon: '🐶', text: 'D is for Dog' },
+    { letter: 'Ee', word: 'Elephant', icon: '🐘', text: 'E is for Elephant' },
+    { letter: 'Ff', word: 'Fish', icon: '🐟', text: 'F is for Fish' },
+    { letter: 'Gg', word: 'Giraffe', icon: '🦒', text: 'G is for Giraffe' },
+    { letter: 'Hh', word: 'Hat', icon: '🎩', text: 'H is for Hat' },
+    { letter: 'Ii', word: 'Igloo', icon: '🧊', text: 'I is for Igloo' },
+    { letter: 'Jj', word: 'Juice', icon: '🧃', text: 'J is for Juice' },
+    { letter: 'Kk', word: 'Kite', icon: '🪁', text: 'K is for Kite' },
+    { letter: 'Ll', word: 'Lion', icon: '🦁', text: 'L is for Lion' },
+    { letter: 'Mm', word: 'Monkey', icon: '🐵', text: 'M is for Monkey' },
+    { letter: 'Nn', word: 'Nest', icon: '🪺', text: 'N is for Nest' },
+    { letter: 'Oo', word: 'Orange', icon: '🍊', text: 'O is for Orange' },
+    { letter: 'Pp', word: 'Penguin', icon: '🐧', text: 'P is for Penguin' },
+    { letter: 'Qq', word: 'Queen', icon: '👑', text: 'Q is for Queen' },
+    { letter: 'Rr', word: 'Rabbit', icon: '🐰', text: 'R is for Rabbit' },
+    { letter: 'Ss', word: 'Sun', icon: '☀️', text: 'S is for Sun' },
+    { letter: 'Tt', word: 'Tiger', icon: '🐯', text: 'T is for Tiger' },
+    { letter: 'Uu', word: 'Umbrella', icon: '☂️', text: 'U is for Umbrella' },
+    { letter: 'Vv', word: 'Van', icon: '🚐', text: 'V is for Van' },
+    { letter: 'Ww', word: 'Watch', icon: '⌚', text: 'W is for Watch' },
+    { letter: 'Xx', word: 'Xylophone', icon: '🎶', text: 'X is for Xylophone' },
+    { letter: 'Yy', word: 'Yo-yo', icon: '🪀', text: 'Y is for Yo-yo' },
+    { letter: 'Zz', word: 'Zebra', icon: '🦓', text: 'Z is for Zebra' }
+  ];
+
+  const enContainer = document.getElementById('en-cards-container');
+  phonicsData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'play-card en';
+    card.innerHTML = `
+      <div class="card-big" style="color:#0284c7;">${item.letter}</div>
+      <div class="card-icon">${item.icon}</div>
+      <div class="card-label">${item.word}</div>
+      <div class="card-sound-tag">🔊 استمع</div>
+    `;
+    card.onclick = () => speakWord(item.text, 'en-US');
+    enContainer.appendChild(card);
+  });
+
+  // 2. POPULATE NUMBERS CARDS
+  const numbersData = [
+    { num: '1', word: 'One', icon: '🍎' },
+    { num: '2', word: 'Two', icon: '🍎🍎' },
+    { num: '3', word: 'Three', icon: '⭐⭐⭐' },
+    { num: '4', word: 'Four', icon: '🚗🚗🚗🚗' },
+    { num: '5', word: 'Five', icon: '🖐️' },
+    { num: '6', word: 'Six', icon: '🎈' },
+    { num: '7', word: 'Seven', icon: '🌸' },
+    { num: '8', word: 'Eight', icon: '🦆' },
+    { num: '9', word: 'Nine', icon: '🍓' },
+    { num: '10', word: 'Ten', icon: '🌟' },
+    { num: '11', word: 'Eleven', icon: '🔹' },
+    { num: '12', word: 'Twelve', icon: '🔹' },
+    { num: '13', word: 'Thirteen', icon: '🔹' },
+    { num: '14', word: 'Fourteen', icon: '🔹' },
+    { num: '15', word: 'Fifteen', icon: '🔹' },
+    { num: '16', word: 'Sixteen', icon: '🔹' },
+    { num: '17', word: 'Seventeen', icon: '🔹' },
+    { num: '18', word: 'Eighteen', icon: '🔹' },
+    { num: '19', word: 'Nineteen', icon: '🔹' },
+    { num: '20', word: 'Twenty', icon: '🎉' }
+  ];
+
+  const numContainer = document.getElementById('num-cards-container');
+  numbersData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'play-card math';
+    card.innerHTML = `
+      <div class="card-big" style="color:#ec4899;">${item.num}</div>
+      <div class="card-icon" style="font-size:20px;">${item.icon}</div>
+      <div class="card-label">${item.word}</div>
+      <div class="card-sound-tag">🔊 عد</div>
+    `;
+    card.onclick = () => speakWord(item.num + ', ' + item.word, 'en-US');
+    numContainer.appendChild(card);
+  });
+
+  // 3. POPULATE ARABIC CARDS
+  const arData = [
+    { l: 'أ', w: 'أرنب', i: '🐰' },
+    { l: 'ب', w: 'بطة', i: '🦆' },
+    { l: 'ت', w: 'تفاح', i: '🍎' },
+    { l: 'ث', w: 'ثعلب', i: '🦊' },
+    { l: 'ج', w: 'جمل', i: '🐪' },
+    { l: 'ح', w: 'حصان', i: '🐴' },
+    { l: 'خ', w: 'خروف', i: '🐑' },
+    { l: 'د', w: 'ديك', i: '🐓' },
+    { l: 'ذ', w: 'ذرة', i: '🌽' },
+    { l: 'ر', w: 'ريشة', i: '🪶' },
+    { l: 'ز', w: 'زرافة', i: '🦒' },
+    { l: 'س', w: 'سمكة', i: '🐟' },
+    { l: 'ش', w: 'شمس', i: '☀️' },
+    { l: 'ص', w: 'صاروخ', i: '🚀' },
+    { l: 'ض', w: 'ضفدع', i: '🐸' },
+    { l: 'ط', w: 'طائرة', i: '✈️' },
+    { l: 'ظ', w: 'ظرف', i: '✉️' },
+    { l: 'ع', w: 'عصفور', i: '🐦' },
+    { l: 'غ', w: 'غزالة', i: '🦌' },
+    { l: 'ف', w: 'فيل', i: '🐘' },
+    { l: 'ق', w: 'قمر', i: '🌙' },
+    { l: 'ك', w: 'كتاب', i: '📖' },
+    { l: 'ل', w: 'ليمون', i: '🍋' },
+    { l: 'م', w: 'موز', i: '🍌' },
+    { l: 'ن', w: 'نحلة', i: '🐝' },
+    { l: 'هـ', w: 'هرم', i: '🔺' },
+    { l: 'و', w: 'وردة', i: '🌹' },
+    { l: 'ي', w: 'يد', i: '✋' }
+  ];
+
+  const arContainer = document.getElementById('ar-cards-container');
+  arData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'play-card ar';
+    card.innerHTML = `
+      <div class="card-big" style="color:#8b5cf6;">${item.l}</div>
+      <div class="card-icon">${item.i}</div>
+      <div class="card-label">${item.w}</div>
+      <div class="card-sound-tag">🔊 استمع</div>
+    `;
+    card.onclick = () => speakWord(item.l + ' ' + item.w, 'ar-SA');
+    arContainer.appendChild(card);
+  });
+
+  // LIGHTBOX LOGIC
+  let currentScale = 1;
+  function openImageModal(src, title, desc) {
+    const modal = document.getElementById('imageLightboxModal');
+    const img = document.getElementById('lightboxImg');
+    const t = document.getElementById('lightboxTitle');
+    const c = document.getElementById('lightboxCaption');
+    const dl = document.getElementById('lightboxDownloadBtn');
+    
+    img.src = src;
+    t.innerText = title || 'رسم تعليمي';
+    c.innerText = desc || '';
+    dl.href = src;
+    currentScale = 1;
+    img.style.transform = `scale(${currentScale})`;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImageModal(e) {
+    const modal = document.getElementById('imageLightboxModal');
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function zoomImage(factor) {
+    const img = document.getElementById('lightboxImg');
+    currentScale = Math.max(0.6, Math.min(3.5, currentScale * factor));
+    img.style.transform = `scale(${currentScale})`;
+  }
+
+  function resetZoom() {
+    const img = document.getElementById('lightboxImg');
+    currentScale = 1;
+    img.style.transform = `scale(1)`;
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeImageModal();
+  });
+
+  // NOTIFICATION
+  function requestNotificationPermission() {
+    if ("Notification" in window) {
+      Notification.requestPermission().then(permission => {
+        if (permission === "granted") {
+          new Notification("🧸 رائع يا بطل!", { body: "تم تفعيل تنبيهات جدول حصص KG2 بنجاح!" });
+        } else {
+          alert("يمكن تفعيل الإشعارات من إعدادات المتصفح!");
+        }
+      });
+    } else {
+      alert("خاصية التنبيهات مدعومة!");
+    }
+  }
+
+  // KID QUIZ LOGIC
+  const kidQuestions = [
+    {
+      q: "ما هو الحرف الذي تبدأ به كلمة Apple 🍎؟",
+      opts: ["حرف A", "حرف B", "حرف C"],
+      ans: 0
+    },
+    {
+      q: "كم عدد النجوم في هذه المجموعة: ⭐⭐⭐؟",
+      opts: ["2 (اثنان)", "3 (ثلاثة)", "5 (خمسة)"],
+      ans: 1
+    },
+    {
+      q: "ما هو هذا الشكل الهندسي: 🔴؟",
+      opts: ["مربع (Square)", "مثلث (Triangle)", "دائرة (Circle)"],
+      ans: 2
+    },
+    {
+      q: "ما هي الصورة التي تبدأ بحرف الباء (ب)؟",
+      opts: ["بطة 🦆", "تفاحة 🍎", "ثعلب 🦊"],
+      ans: 0
+    }
+  ];
+
+  let currentKidQ = 0;
+  let kidScore = 0;
+
+  function loadKidQuestion() {
+    const q = kidQuestions[currentKidQ];
+    document.getElementById('kg-q-text').innerText = q.q;
+    const optsDiv = document.getElementById('kg-options');
+    optsDiv.innerHTML = '';
+    document.getElementById('kg-feedback').innerHTML = '';
+    document.getElementById('kg-next-btn').style.display = 'none';
+
+    q.opts.forEach((opt, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'quiz-opt-btn';
+      btn.innerText = opt;
+      btn.onclick = () => checkKidAnswer(idx, btn);
+      optsDiv.appendChild(btn);
+    });
+  }
+
+  function checkKidAnswer(idx, btn) {
+    const q = kidQuestions[currentKidQ];
+    const fb = document.getElementById('kg-feedback');
+    const allBtns = document.querySelectorAll('#kg-options button');
+    allBtns.forEach(b => b.disabled = true);
+
+    if (idx === q.ans) {
+      kidScore++;
+      document.getElementById('kg-score').innerText = `النجوم: ⭐ ${kidScore}`;
+      fb.innerHTML = '<span style="color:#15803d;">🎉 إجابة صحيحة وممتازة! أحسنت يا بطل! ⭐⭐⭐</span>';
+      btn.style.background = '#dcfce7';
+      btn.style.borderColor = '#22c55e';
+      fireConfetti();
+      speakWord("Good job! Excellent!", "en-US");
+    } else {
+      fb.innerHTML = `<span style="color:#dc2626;">حاول مرة ثانية! الإجابة الصحيحة هي: ${q.opts[q.ans]} 🎈</span>`;
+      btn.style.background = '#fee2e2';
+      btn.style.borderColor = '#ef4444';
+      allBtns[q.ans].style.background = '#dcfce7';
+    }
+
+    document.getElementById('kg-next-btn').style.display = 'inline-block';
+  }
+
+  function nextKidQuestion() {
+    currentKidQ = (currentKidQ + 1) % kidQuestions.length;
+    loadKidQuestion();
+  }
+
+  // CONFETTI
+  function fireConfetti() {
+    const canvas = document.getElementById("confetti-canvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const pieces = [];
+    const colors = ["#ec4899", "#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#ef4444"];
+    for (let i = 0; i < 70; i++) {
+      pieces.push({
+        x: Math.random() * canvas.width,
+        y: -10,
+        size: Math.random() * 8 + 4,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        vx: (Math.random() - 0.5) * 4,
+        vy: Math.random() * 4 + 2
+      });
+    }
+    let frames = 0;
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      pieces.forEach(p => {
+        p.x += p.vx; p.y += p.vy;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, p.size, p.size);
+      });
+      frames++;
+      if (frames < 50) requestAnimationFrame(animate);
+      else ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    animate();
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    loadKidQuestion();
+    const today = new Date().getDay();
+    const card = document.querySelector(`.day-card[data-day="${today}"]`);
+    if (card) card.classList.add('today');
+  });
+
+  // ====================================================
+  // 🎭 KG2 TALKING THEATER CHARACTERS & VOICE
+  // ====================================================
+  const kgCharacters = [
+    {
+      name: "حرف الألف (أ)",
+      icon: "🦁",
+      badge: "ألفٌ أرنب.. يجري يلعب!",
+      lang: "ar-SA",
+      speech: "أهلاً بأصدقائي الأبطال الصغار! أنا حرف الألف (أ)! أقف شامخاً ومستقيماً مثل البطل، وفوق رأسي همزة جميلة تشبه التاج! أ.. أ.. أرنب يقفز ويلعب ويأكل الجزر! أ.. أ.. أسد شجاع ملك الغابة! هيا نغني معاً: ألفٌ أرنب.. يجري يلعب.. يأكل جزراً كي لا يتعب!"
+    },
+    {
+      name: "Letter A (Phonics)",
+      icon: "🍎",
+      badge: "Apple & Ant! /æ/ /æ/",
+      lang: "en-US",
+      speech: "Hello little superstars! I am the Letter A! Listen to my happy sound: /æ/ /æ/ /æ/! A is for red yummy Apple, crunch crunch! And A is for busy tiny Ant! Tap me and say: /æ/ /æ/ Apple!"
+    },
+    {
+      name: "حرف الباء (ب)",
+      icon: "🦆",
+      badge: "باءٌ بطة.. نطت نطة!",
+      lang: "ar-SA",
+      speech: "مرحباً يا أحبابي الحلوين! أنا حرف الباء (ب)! صحن جميل واسع، وتحته نقطة واحدة مثل حبة البندق السحرية! ب.. ب.. بطة لطيفة تعوم في الماء، ب.. ب.. برتقال حلو مليء بالفيتامينات! باءٌ بطة.. نطت نطة.. وقعت ضحكت منها القطة!"
+    },
+    {
+      name: "Letter B (Phonics)",
+      icon: "⚽",
+      badge: "Ball & Bear! /b/ /b/",
+      lang: "en-US",
+      speech: "Bounce bounce bounce! I am Letter B! Listen to my bouncing sound: /b/ /b/ /b/! B is for colorful Ball, bounce it high! And B is for fuzzy brown Bear! Can you jump like a ball? /b/ /b/ Ball!"
+    },
+    {
+      name: "الرقم واحد (1)",
+      icon: "☝️",
+      badge: "بطل فريد • شمس واحدة!",
+      lang: "ar-SA",
+      speech: "أنا الرقم واحد (1)! بطل فريد ومميز.. شمس واحدة دافئة تضيء سماءنا، وقمر واحد جميل يضيء ليلنا، وقلب واحد يحب ماما وبابا! هل ترفع لي إصبعاً واحداً صغيراً وتقول: واحد!"
+    },
+    {
+      name: "الدائرة المرحة (Circle)",
+      icon: "⭕",
+      badge: "أنا الدائرة المدورة!",
+      lang: "ar-SA",
+      speech: "أنا الدائرة المدورة (Circle)! ألف وأدور وأتدحرج في كل مكان بمرح! مثل كرة القدم والبالون والشمس الذهبية! ليس لدي أي أضلاع حادة أو زوايا، أنا ناعمة ومستديرة دائماً!"
+    }
+  ];
+
+  let currentKgCharIdx = 0;
+
+  function initKgTheater() {
+    const strip = document.getElementById('kg-chars-strip');
+    if (!strip) return;
+    strip.innerHTML = '';
+    kgCharacters.forEach((c, idx) => {
+      const btn = document.createElement('button');
+      btn.className = 'kg-char-btn' + (idx === currentKgCharIdx ? ' active' : '');
+      btn.onclick = () => selectKgChar(idx, btn);
+      btn.innerHTML = `
+        <span style="font-size:28px;">${c.icon}</span>
+        <span style="font-weight:800; font-size:12px; color:#1e293b;">${c.name}</span>
+      `;
+      strip.appendChild(btn);
+    });
+    updateKgStage();
+  }
+
+  function selectKgChar(idx, btn) {
+    currentKgCharIdx = idx;
+    document.querySelectorAll('.kg-char-btn').forEach(b => b.classList.remove('active'));
+    if (btn) btn.classList.add('active');
+    updateKgStage();
+    fireConfetti();
+    speakKgCharacter();
+  }
+
+  function updateKgStage() {
+    const c = kgCharacters[currentKgCharIdx];
+    document.getElementById('kg-avatar-emoji').textContent = c.icon;
+    document.getElementById('kg-speaker-title').textContent = c.name;
+    document.getElementById('kg-speaker-badge').textContent = c.badge;
+    document.getElementById('kg-dialogue-text').textContent = `"${c.speech}"`;
+  }
+
+  function speakKgCharacter() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const c = kgCharacters[currentKgCharIdx];
+      const utterance = new SpeechSynthesisUtterance(c.speech);
+      utterance.lang = c.lang;
+      utterance.rate = 0.90;
+      utterance.pitch = 1.25; // High, cheerful cartoon voice!
+      
+      const avatar = document.getElementById('kg-avatar-wrap');
+      utterance.onstart = () => avatar && avatar.classList.add('kg-active-speaking');
+      utterance.onend = () => avatar && avatar.classList.remove('kg-active-speaking');
+      utterance.onerror = () => avatar && avatar.classList.remove('kg-active-speaking');
+
+      window.speechSynthesis.speak(utterance);
+    }
+  }
+
+  function stopKgSpeaking() {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const avatar = document.getElementById('kg-avatar-wrap');
+      if (avatar) avatar.classList.remove('kg-active-speaking');
+    }
+  }
+
+  function copyKgTheaterScript() {
+    let script = "سيناريو كرتون وأناشيد رياض الأطفال (KG2) - جاهز لبرامج الفيديو Canva و Google Vids:\n\n";
+    kgCharacters.forEach((c, idx) => {
+      script += `المشهد (${idx + 1}): ${c.name} [الرمز: ${c.icon}]\nالشعار: ${c.badge}\nالكلام والنشيد: "${c.speech}"\nاللغة: ${c.lang}\n-----------------------------------\n`;
+    });
+    navigator.clipboard.writeText(script).then(() => {
+      alert("تم نسخ سيناريو كرتون الروضة بالكامل! يمكنك استخدامه مباشرة في صناعة الفيديوهات على Canva أو كليب كيدز.");
+    });
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    initKgTheater();
+  });
+
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الوحدة الثالثة: تضاريس مصر وأشكال السطح</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #1e293b;
+    background: #fdfbf7;
+    line-height: 1.40;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .module-header {
+    background: linear-gradient(135deg, #b45309, #d97706);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 9px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .module-header h1 { font-size: 17px; font-weight: 900; margin-bottom: 1px; }
+  .module-header .subtitle { font-size: 11.5px; font-weight: 700; opacity: 0.95; }
+  .meta-tags { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .tag { background: rgba(255,255,255,0.25); padding: 1px 7px; border-radius: 6px; font-size: 10px; font-weight: 700; }
+  .part-banner {
+    padding: 6px 12px;
+    border-radius: 7px;
+    margin: 5px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 12px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .banner-part1 { background: linear-gradient(135deg, #b45309, #d97706); }
+  .banner-part2 { background: linear-gradient(135deg, #4338ca, #6366f1); }
+  .banner-part3 { background: linear-gradient(135deg, #047857, #059669); }
+  .concept-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #d97706;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    break-inside: avoid;
+  }
+  .concept-title { font-size: 11.5px; font-weight: 800; color: #b45309; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 5px 9px;
+    margin: 4px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 11px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+  .figure-box {
+    text-align: center;
+    margin: 4px 0;
+    padding: 4px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .figure-caption { font-size: 9.5px; font-weight: 700; color: #475569; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 10px; break-inside: avoid; }
+  th { background: #d97706; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #d97706; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .question-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-right: 3.5px solid #6366f1;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .q-gov { background: #ede9fe; color: #5b21b6; font-size: 8.5px; font-weight: 800; padding: 1px 5px; border-radius: 4px; margin-left: 5px; }
+  .answer-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-right: 3.5px solid #10b981;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .ans-text { font-weight: 800; color: #065f46; }
+  .ans-why { font-size: 9px; color: #047857; margin-top: 1.5px; }
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الدراسات الاجتماعية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="module-header">
+  <h1>الوحدة الثالثة: مصر وطننا • الجزء الثاني</h1>
+  <div class="subtitle">الدرس الثالث: تضاريس أرضنا الجميلة • أشكال السطح وألوان الخريطة</div>
+  <div class="meta-tags">
+    <span class="tag">⛰️ الجبال والهضاب والسهول</span>
+    <span class="tag">🎨 دلالات الألوان القياسية للخريطة</span>
+    <span class="tag">🎯 3 أجزاء متكاملة</span>
+    <span class="tag">⏱️ الصف الرابع الابتدائي</span>
+  </div>
+</div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الدرس الثالث: تضاريس أرضنا الجميلة</div>
+
+<div class="concept-card">
+  <div class="concept-title">⛰️ ما هي تضاريس مصر؟ وما هي أشكال سطح الأرض؟</div>
+  <p><b>التضاريس:</b> هي شكل سطح الأرض بما يضمه من مرتفعات وسهول ومنخفضات. وتتميز مصر بتنوع تضاريسي مذهل يجمع بين الجبال الشاهقة، والهضاب، والسهول الخصبة، ونهر النيل الخالد، والبحار والمنخفضات.</p>
+</div>
+
+<div class="figure-box">
+  <img src="images/egypt_topography_landforms.png" alt="تضاريس مصر">
+  <div class="figure-caption">شكل (1): خريطة مستويات ارتفاع سطح مصر موضحاً عليها المرتفعات والسهول ومجرى نهر النيل</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">🔍 تصنيف أشكال السطح في مصر:</div>
+  <table>
+    <tr>
+      <th style="width: 25%;">الشكل التضاريسي</th>
+      <th style="width: 35%;">التعريف الجغرافي</th>
+      <th style="width: 40%;">أهم الأمثلة في مصر</th>
+    </tr>
+    <tr>
+      <td><b>الجبل (Mountain)</b></td>
+      <td>أرض شديدة الارتفاع تزيد عن <b>1000 متر</b>، ولها قمة وجوانبها شديدة الانحدار.</td>
+      <td>• <b>جبل سانت كاترين</b> (أعلى قمة جبلية في مصر بجنوب سيناء).<br>• <b>جبال البحر الأحمر</b> (في الصحراء الشرقية).<br>• <b>جبل العوينات</b> (جنوب غرب مصر).</td>
+    </tr>
+    <tr>
+      <td><b>الهضبة (Plateau)</b></td>
+      <td>مساحة واسعة من الأرض المرتفعة، وسطحها <b>مستوٍ أو شبه مستوٍ</b>.</td>
+      <td>• <b>هضبة الجلف الكبير</b> (بالصحراء الغربية).<br>• <b>هضبة التيه</b> (بشبه جزيرة سيناء).</td>
+    </tr>
+    <tr>
+      <td><b>التل (Hill)</b></td>
+      <td>أرض مرتفعة قليلاً، ولها قمة يقل ارتفاعها عن <b>1000 متر</b>.</td>
+      <td>• <b>تلال المقطم</b> (بمحافظة القاهرة).</td>
+    </tr>
+    <tr>
+      <td><b>السهل الفيضي</b></td>
+      <td>مساحة من الأرض مستوية قليلة الارتفاع، تكونت من <b>طمي الأنهار وتربتها خصبة</b>.</td>
+      <td>• <b>سهول وادي النيل والدلتا</b> (تقوم عليها الزراعة).</td>
+    </tr>
+    <tr>
+      <td><b>السهل الساحلي</b></td>
+      <td>مساحة من الأرض مستوية تمتد <b>على طول سواحل البحار</b>.</td>
+      <td>• سهول سواحل <b>البحر المتوسط والبحر الأحمر</b>.</td>
+    </tr>
+    <tr>
+      <td><b>المنخفض</b></td>
+      <td>أرض منخفضة عما حولها تحت مستوى سطح البحر.</td>
+      <td>• <b>منخفض القطارة</b> (بالصحراء الغربية).</td>
+    </tr>
+  </table>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الجزر وأشباه الجزر ودلالات ألوان الخريطة</div>
+
+<div class="concept-card">
+  <div class="concept-title">🏝️ الفرق الدقيق بين الجزيرة وشبه الجزيرة والمسطحات المائية:</div>
+  <table>
+    <tr>
+      <th style="width: 28%;">الظاهرة الجغرافية</th>
+      <th style="width: 42%;">التعريف العلمي</th>
+      <th style="width: 30%;">أبرز الأمثلة في مصر</th>
+    </tr>
+    <tr>
+      <td><b>الجزيرة (Island)</b></td>
+      <td>أرض تحيط بها المياه من <b>جميع الجهات (4 جهات)</b>.</td>
+      <td><b>جزيرة شدوان</b> في البحر الأحمر.</td>
+    </tr>
+    <tr>
+      <td><b>شبه الجزيرة (Peninsula)</b></td>
+      <td>أرض تحيط بها المياه من <b>ثلاث جهات فقط</b>.</td>
+      <td><b>شبه جزيرة سيناء</b> (بوابة مصر الشرقية).</td>
+    </tr>
+    <tr>
+      <td><b>البحيرة (Lake)</b></td>
+      <td>مساحة صغيرة من الماء يحيط بها اليابس من جميع الجهات.</td>
+      <td>• بحيرة ناصر (عذبة).<br>• بحيرة البرلس والبردويل (مالحة).</td>
+    </tr>
+  </table>
+</div>
+
+<div class="figure-box">
+  <img src="images/sinai_landforms_map.png" alt="تضاريس شبه جزيرة سيناء">
+  <div class="figure-caption">شكل (2): خريطة شبه جزيرة سيناء (أرض الفيروز) المحاطة بالمياه من ثلاث جهات</div>
+</div>
+
+<div class="concept-card">
+  <div class="concept-title">🎨 الدلالات القياسية للألوان على خريطة التضاريس:</div>
+  <table>
+    <tr>
+      <th style="width: 25%;">اللون على الخريطة</th>
+      <th style="width: 75%;">المدلول التضاريسي والجغرافي</th>
+    </tr>
+    <tr>
+      <td><b>اللون البني (داكن وفاتح)</b></td>
+      <td>يدل على <b>المناطق الأكثر ارتفاعاً</b> (الجبال العالية كسانت كاترين، والتلال والهضاب).</td>
+    </tr>
+    <tr>
+      <td><b>اللون الأصفر</b></td>
+      <td>يدل على <b>المناطق متوسطة الارتفاع</b> والرمال والصحاري.</td>
+    </tr>
+    <tr>
+      <td><b>اللون الأخضر (داكن وفاتح)</b></td>
+      <td>يدل على <b>السهول المنبسطة الخصبة</b> (الأخضر الفاتح للسهول الفيضية، والأخضر الداكن للمنخفضات).</td>
+    </tr>
+    <tr>
+      <td><b>اللون الأزرق</b></td>
+      <td>يدل على <b>المسطحات المائية</b> (البحار، نهر النيل، والبحيرات والخلجان).</td>
+    </tr>
+  </table>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات • الموديول الثاني من الوحدة 3</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">📝 السؤال الأول: اكتب المصطلح الجغرافي الدال على كل عبارة:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> أرض شديدة الارتفاع تزيد عن 1000 متر ولها قمة وجوانبها شديدة الانحدار. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> أرض تحيط بها المياه من جميع الجهات مثل جزيرة شدوان في البحر الأحمر. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(3)</b> مساحة من اليابس تحيط بها المياه من ثلاث جهات فقط مثل سيناء. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الشرقية 2024</span> <b>(4)</b> أعلى قمة جبلية في جمهورية مصر العربية وتقع في جنوب سيناء. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2023</span> <b>(5)</b> مساحة من الأرض منخفضة عما حولها وتقع في الصحراء الغربية. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">🎯 السؤال الثاني: اختر الإجابة الصحيحة من بين القوسين:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> تُلون المرتفعات والجبال الشاهقة على الخريطة التضاريسية باللون: <br>
+    ( أ- الأخضر &nbsp;|&nbsp; ب- البني &nbsp;|&nbsp; جـ- الأزرق &nbsp;|&nbsp; د- الأصفر )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> تُعد هضبة ..................... من أشهر الهضاب الواقعة في جنوب غرب مصر: <br>
+    ( أ- التيه &nbsp;|&nbsp; ب- الجلف الكبير &nbsp;|&nbsp; جـ- المقطم &nbsp;|&nbsp; د- سانت كاترين )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">القليوبية 2024</span> <b>(3)</b> تكونت السهول الفيضية الخصبة الصالحة للزراعة في مصر بفعل ترسيب طمي: <br>
+    ( أ- البحر الأحمر &nbsp;|&nbsp; ب- نهر النيل &nbsp;|&nbsp; جـ- البحر المتوسط &nbsp;|&nbsp; د- الرياح )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(4)</b> تُعد بحيرة ..................... أكبر بحيرة صناعية عذبة في العالم وتقع جنوب مصر: <br>
+    ( أ- قارون &nbsp;|&nbsp; ب- البرلس &nbsp;|&nbsp; جـ- ناصر &nbsp;|&nbsp; د- إدكو )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">أسيوط 2024</span> <b>(5)</b> تلال المقطم هي أرض مرتفعة يقل ارتفاعها عن: <br>
+    ( أ- 1000 متر &nbsp;|&nbsp; ب- 2000 متر &nbsp;|&nbsp; جـ- 3000 متر &nbsp;|&nbsp; د- 500 متر )
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات (تابع الأسئلة المتنوعة)</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✔️ السؤال الثالث: ضع علامة (✓) أو علامة (✗) مع تصويب الخطأ:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> تعتبر سيناء جزيرة لأن المياه تحيط بها من جميع الجهات الأربع. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> يدل اللون الأخضر الداكن على الخريطة على المناطق المنخفضة تحت مستوى البحر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(3)</b> الهضبة هي مساحة واسعة من الأرض المرتفعة سطحها مستوٍ أو شبه مستوٍ. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2024</span> <b>(4)</b> يقع جبل سانت كاترين في الصحراء الغربية لمصر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">المنيا 2024</span> <b>(5)</b> السهول الساحلية تمتد بمحاذاة سواحل البحار مثل البحرين المتوسط والأحمر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✏️ السؤال الرابع: صوّب ما تحته خط في العبارات التالية:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> تلون المسطحات المائية كالبحار والأنهار على الخريطة باللون <u>الأصفر</u>. <span style="color:#6366f1;">(................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> تسمى الأرض التي تحيط بها المياه من جميع الجهات بـ <u>شبه الجزيرة</u>. <span style="color:#6366f1;">(................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">💡 السؤال الخامس: علل لما يأتي (بم تفسر):</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1) تسمية سيناء بشبه جزيرة وليس جزيرة كاملة؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(2) أهمية السهول الفيضية المحيطة بنهر النيل في مصر؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">⚙️ السؤال السادس: ماذا يحدث إذا:</div>
+  <div class="question-item">
+    <span class="q-gov">قنا 2024</span> <b>(1) لُوّنت كل معالم الخريطة بلون واحد رمادي دون تمييز؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part3">الجزء الثالث: نموذج الإجابات النموذجية مع الشرح والتعليل • الموديول الثاني من الوحدة 3</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الأول: المصطلح الجغرافي:</div>
+  <p><b>1- الجبل (Mountain)</b> <span class="ans-why">(ارتفاعه أكثر من 1000 متر وله قمة شديدة الانحدار).</span></p>
+  <p><b>2- الجزيرة (Island)</b> <span class="ans-why">(اليابس المحاط بالمياه من جميع الجهات كشدوان).</span></p>
+  <p><b>3- شبه الجزيرة (Peninsula)</b> <span class="ans-why">(اليابس المحاط بالمياه من ثلاث جهات فقط كسيناء).</span></p>
+  <p><b>4- جبل سانت كاترين</b> <span class="ans-why">(أعلى قمة في مصر ويصل ارتفاعه لأكثر من 2600 متر).</span></p>
+  <p><b>5- المنخفض (مثل منخفض القطارة)</b> <span class="ans-why">(أرض هابطة تحت مستوى سطح البحر).</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثاني: الاختيار من متعدد:</div>
+  <p><b>(1) ب- البني</b> <span class="ans-why">| اللون القياسي العالمي لتمثيل الجبال والمرتفعات.</span></p>
+  <p><b>(2) ب- الجلف الكبير</b> <span class="ans-why">| تقع في أقصى جنوب غرب الصحراء الغربية لمصر.</span></p>
+  <p><b>(3) ب- نهر النيل</b> <span class="ans-why">| طمي النيل الخصيب هو أساس وادي النيل والدلتا.</span></p>
+  <p><b>(4) جـ- بحيرة ناصر</b> <span class="ans-why">| تكونت خلف السد العالي بأسوان وتخزن المياه العذبة.</span></p>
+  <p><b>(5) أ- 1000 متر</b> <span class="ans-why">| التل يقل ارتفاعه دائماً عن 1000 متر بينما الجبل يزيد.</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثالث: صح وخطأ مع التصويب:</div>
+  <p><b>(1) ( ✗ ) خطأ.</b> التصويب: سيناء <b>شبه جزيرة</b> لأن المياه تحيط بها من ثلاث جهات فقط.</p>
+  <p><b>(2) ( ✓ ) صواب.</b> الأخضر الداكن للمنخفضات، والأخضر الفاتح للسهول.</p>
+  <p><b>(3) ( ✓ ) صواب.</b> مثل هضبة الجلف الكبير وهضبة التيه.</p>
+  <p><b>(4) ( ✗ ) خطأ.</b> التصويب: يقع جبل سانت كاترين في <b>جنوب شبه جزيرة سيناء</b>.</p>
+  <p><b>(5) ( ✓ ) صواب.</b> السهول الساحلية تمتد مباشرة على شواطئ البحار.</p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة الأسئلة المقالية (الرابع والخامس والسادس):</div>
+  <p><b>السؤال الرابع:</b> (1) الأزرق | (2) الجزيرة.</p>
+  <p><b>السؤال الخامس (بم تفسر):</b><br>
+  (1) لأن المياه تحيط بها من ثلاث جهات فقط (البحر المتوسط شمالاً، وخليج السويس غرباً، وخليج العقبة والبحر الأحمر شرقاً)، بينما تتصل باليابس غرباً.<br>
+  (2) لأنها تتميز بتربة خصبة جداً غنية بطمي النيل، مما جعلها صالحة لقيام حرفة الزراعة واستقرار ملايين السكان عليها عبر التاريخ.</p>
+  <p><b>السؤال السادس (ماذا يحدث إذا):</b><br>
+  (1) سيصعب تماماً التمييز بين الجبال والبحار والسهول والصحاري، ولن نتمكن من قراءة وفهم تضاريس الخريطة إطلاقاً.</p>
+</div>
+
+</div>
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+</body>
+</html>

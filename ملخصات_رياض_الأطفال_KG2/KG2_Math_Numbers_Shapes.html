@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ملزمة ماث وأرقام وأشكال رياض الأطفال KG2 • ذاكرولي والمعاصر 2025 / 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #ec4899;
+    --primary-dark: #be185d;
+    --bg-page: #f8fafc;
+    --text-main: #0f172a;
+    --border: #e2e8f0;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+    padding-bottom: 60px;
+  }
+  .container { max-width: 950px; margin: 0 auto; padding: 20px; }
+
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid #fbcfe8;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  }
+  .nav-btn {
+    background: #fdf2f8;
+    color: var(--primary-dark);
+    border: 1px solid #fbcfe8;
+    padding: 7px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 13px;
+    transition: 0.2s;
+    cursor: pointer;
+  }
+  .nav-btn:hover { background: var(--primary); color: white; }
+
+  .booklet-header {
+    background: linear-gradient(135deg, #db2777 0%, #ec4899 50%, #f43f5e 100%);
+    color: white;
+    border-radius: 20px;
+    padding: 30px;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 25px -5px rgba(236, 72, 153, 0.3);
+  }
+  .booklet-header h1 { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+  .booklet-header p { font-size: 14px; opacity: 0.95; }
+  .year-badge {
+    display: inline-block;
+    background: #fef08a;
+    color: #854d0e;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-top: 8px;
+  }
+
+  /* TALKING NUMBERS THEATER */
+  .theater-card {
+    background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%);
+    border: 2.5px solid #fca5a5;
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(225, 29, 72, 0.12);
+  }
+  .stage-box {
+    background: white;
+    border: 2px solid #fecdd3;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+  }
+  .avatar-wrap {
+    position: relative;
+    width: 110px;
+    height: 110px;
+    background: linear-gradient(135deg, #fb7185 0%, #e11d48 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 15px rgba(225, 29, 72, 0.3);
+  }
+  .avatar-icon { font-size: 60px; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.15)); }
+  .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid #fda4af;
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(0.95); opacity: 0.8; }
+    50% { transform: scale(1.15); opacity: 0.2; }
+    100% { transform: scale(0.95); opacity: 0.8; }
+  }
+  .speech-balloon {
+    flex: 1;
+    min-width: 250px;
+    background: #fdf2f8;
+    border: 2px solid #fbcfe8;
+    border-radius: 16px;
+    padding: 16px 20px;
+  }
+  .speech-title { font-weight: 900; font-size: 16px; color: #9d174d; margin-bottom: 6px; }
+  .speech-text { font-size: 15px; font-weight: 700; color: #0f172a; line-height: 1.6; }
+
+  .char-selector {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 12px 4px 4px 4px;
+    margin-top: 14px;
+  }
+  .char-pill {
+    background: white;
+    border: 2px solid #fbcfe8;
+    border-radius: 30px;
+    padding: 8px 16px;
+    font-weight: 800;
+    font-size: 13.5px;
+    color: #be185d;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: 0.2s;
+  }
+  .char-pill:hover, .char-pill.active {
+    background: #ec4899;
+    color: white;
+    border-color: #be185d;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(236, 72, 153, 0.25);
+  }
+
+  /* SECTION CARDS */
+  .section-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--primary-dark);
+    border-bottom: 2px dashed #fbcfe8;
+    padding-bottom: 10px;
+    margin-bottom: 18px;
+  }
+
+  .num-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 14px;
+  }
+  .num-card {
+    background: #fdf2f8;
+    border: 2px solid #fbcfe8;
+    border-radius: 16px;
+    padding: 14px 10px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  .num-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 18px rgba(236, 72, 153, 0.2);
+  }
+  .num-digit { font-size: 38px; font-weight: 900; color: var(--primary); font-family: 'Poppins', sans-serif; }
+  .num-word { font-size: 14px; font-weight: 800; color: #0f172a; margin-top: 4px; }
+  .num-count { font-size: 22px; margin-top: 6px; letter-spacing: 2px; }
+  .speak-btn {
+    margin-top: 8px;
+    background: #ec4899;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11.5px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+  .speak-btn:hover { background: #be185d; transform: scale(1.05); }
+
+  .visual-card {
+    background: #fdf2f8;
+    border: 2px dashed #f472b6;
+    border-radius: 16px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .visual-card img {
+    max-width: 100%;
+    max-height: 280px;
+    border-radius: 12px;
+    object-fit: contain;
+  }
+
+  @media print {
+    .sticky-nav, .theater-card, .speak-btn { display: none !important; }
+    body { background: white !important; }
+    .section-card { break-inside: avoid; border: 1px solid #ccc !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="sticky-nav">
+  <a href="../بوابة_رياض_الأطفال_KG2.html" class="nav-btn">🧸 عودة لبوابة KG2</a>
+  <span style="font-weight:800; font-size:14px; color:var(--primary-dark);">🔢 الأرقام والأشكال الناطقة • KG2</span>
+  <button class="nav-btn" style="background:#0f172a; color:white;" onclick="window.print()">🖨️ طباعة الملزمة</button>
+</div>
+
+<div class="container">
+  <div class="booklet-header">
+    <h1>🔢 ملزمة ماث وأرقام وأشكال رياض الأطفال • KG2</h1>
+    <p>منهج ماث وحساب المستوى الثاني • الأرقام من 1 إلى 10 والأشكال الهندسية والمقارنات</p>
+    <div class="year-badge">✨ العام الدراسي الجديد 2025 / 2026</div>
+  </div>
+
+  <!-- TALKING NUMBERS THEATER -->
+  <div class="theater-card">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <span style="font-size:16px; font-weight:900; color:#9f1239;">🎭 مسرح الأرقام والأشكال الناطقة</span>
+      <span style="font-size:12px; font-weight:800; background:#ec4899; color:white; padding:3px 10px; border-radius:15px;">عد واكتشف</span>
+    </div>
+
+    <div class="stage-box">
+      <div class="avatar-wrap">
+        <div class="pulse-ring"></div>
+        <div class="avatar-icon" id="stageAvatar">☀️</div>
+      </div>
+      <div class="speech-balloon">
+        <div class="speech-title" id="stageTitle">الرقم واحد (1 - One) يتحدث!</div>
+        <div class="speech-text" id="stageText">أهلاً يا عبقري الصغير! أنا الرقم واحد (1 - One).. شمس واحدة تشرق في السماء وتنير كوننا الجميل!</div>
+        <div style="margin-top:10px; display:flex; gap:8px;">
+          <button class="speak-btn" style="font-size:13px; padding:6px 16px;" onclick="speakCurrent()">🔊 استمع للرقم والعد!</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="char-selector">
+      <div class="char-pill active" onclick="selectItem('1 - One', '☀️', 'الرقم واحد (1 - One)', 'أنا الرقم واحد.. شمس واحدة تشرق وتنير لنا الدنيا! One sunny day!')">الرقم 1 ☀️</div>
+      <div class="char-pill" onclick="selectItem('2 - Two', '👀', 'الرقم اثنان (2 - Two)', 'أنا الرقم اثنان.. عينان جميلتان نرى بهما العالم! Two little eyes!')">الرقم 2 👀</div>
+      <div class="char-pill" onclick="selectItem('3 - Three', '🔺', 'الرقم ثلاثة (3 - Three)', 'أنا الرقم ثلاثة.. للمثلث ثلاثة أضلاع وثلاث زوايا! Three sides!')">الرقم 3 🔺</div>
+      <div class="char-pill" onclick="selectItem('4 - Four', '🚗', 'الرقم أربعة (4 - Four)', 'أنا الرقم أربعة.. أربع عجلات للسيارة تدور وتمشي! Four wheels!')">الرقم 4 🚗</div>
+      <div class="char-pill" onclick="selectItem('5 - Five', '🖐️', 'الرقم خمسة (5 - Five)', 'أنا الرقم خمسة.. خمسة أصابع في يدي الرائعة! High five!')">الرقم 5 🖐️</div>
+      <div class="char-pill" onclick="selectItem('الدائرة', '🟡', 'شكل الدائرة (Circle)', 'أنا الدائرة المدورة! ليس لي أي أضلاع ولا زوايا.. أدور وأدور! I am a Circle!')">الدائرة 🟡</div>
+      <div class="char-pill" onclick="selectItem('المربع', '🟦', 'شكل المربع (Square)', 'أنا المربع الجميل! لي أربعة أضلاع متساوية تماماً وأربع زوايا قائمة! I am a Square!')">المربع 🟦</div>
+      <div class="char-pill" onclick="selectItem('المثلث', '🔺', 'شكل المثلث (Triangle)', 'أنا المثلث البطل! لي ثلاثة أضلاع وثلاث رؤوس حادة! I am a Triangle!')">المثلث 🔺</div>
+    </div>
+  </div>
+
+  <!-- VISUAL POSTERS -->
+  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:20px;">
+    <div class="visual-card" style="margin-bottom:0;">
+      <div style="font-weight:900; font-size:14px; color:#be185d; margin-bottom:8px;">🔢 لوحة الأرقام والعد (1 to 10)</div>
+      <img src="images/kg2_numbers_counting_1_to_10.png" alt="Numbers counting 1 to 10">
+      <div style="font-size:11.5px; color:#64748b; margin-top:6px;">تعلم عد الكائنات ومطابقة الأرقام الملونة</div>
+    </div>
+
+    <div class="visual-card" style="margin-bottom:0;">
+      <div style="font-weight:900; font-size:14px; color:#be185d; margin-bottom:8px;">🔷 لوحة الأشكال الهندسية والألوان</div>
+      <img src="images/kg2_shapes_colors.png" alt="Shapes and colors KG2">
+      <div style="font-size:11.5px; color:#64748b; margin-top:6px;">التعرف على الدائرة والمربع والمثلث والمستطيل</div>
+    </div>
+  </div>
+
+  <!-- NUMBERS GRID -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>🔢</span>
+      <span>معرض الأرقام الناطقة (1 - 10) • اضغط لتسمع العد والنشيد!</span>
+    </div>
+    
+    <div class="num-grid" id="numGrid">
+      <!-- Dynamic populated -->
+    </div>
+  </div>
+
+  <!-- SHAPES GRID -->
+  <div class="section-card">
+    <div class="section-title">
+      <span>🔷</span>
+      <span>معرض الأشكال الهندسية الناطقة (2D Shapes)</span>
+    </div>
+    
+    <div class="num-grid" id="shapesGrid">
+      <!-- Dynamic populated -->
+    </div>
+  </div>
+
+</div>
+
+<script>
+const numbersData = [
+  { n: '1', en: 'One', ar: 'واحد', count: '⭐', speech: 'واحد.. One. شمس واحدة في السماء' },
+  { n: '2', en: 'Two', ar: 'اثنان', count: '⭐⭐', speech: 'اثنان.. Two. عينان نرى بهما' },
+  { n: '3', en: 'Three', ar: 'ثلاثة', count: '⭐⭐⭐', speech: 'ثلاثة.. Three. أضلاع المثلث الثلاثة' },
+  { n: '4', en: 'Four', ar: 'أربعة', count: '⭐⭐⭐⭐', speech: 'أربعة.. Four. أربع عجلات للسيارة' },
+  { n: '5', en: 'Five', ar: 'خمسة', count: '⭐⭐⭐⭐⭐', speech: 'خمسة.. Five. خمسة أصابع في كفي' },
+  { n: '6', en: 'Six', ar: 'ستة', count: '⭐⭐⭐⭐⭐⭐', speech: 'ستة.. Six. ست أرجل للنحلة النشيطة' },
+  { n: '7', en: 'Seven', ar: 'سبعة', count: '⭐⭐⭐⭐⭐⭐⭐', speech: 'سبعة.. Seven. ألوان قوس قزح السبعة' },
+  { n: '8', en: 'Eight', ar: 'ثمانية', count: '⭐⭐⭐⭐⭐⭐⭐⭐', speech: 'ثمانية.. Eight. ثمانية أرجل للأخطبوط' },
+  { n: '9', en: 'Nine', ar: 'تسعة', count: '⭐⭐⭐⭐⭐⭐⭐⭐⭐', speech: 'تسعة.. Nine. تسعة أزهار في الحديقة' },
+  { n: '10', en: 'Ten', ar: 'عشرة', count: '⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐', speech: 'عشرة.. Ten. عشرة أصابع في اليدين معاً' }
+];
+
+const shapesData = [
+  { s: 'دائرة', en: 'Circle', icon: '🟡', attr: 'منحنى مغلق بلا أضلاع', speech: 'أنا الدائرة! Circle. مستديرة بدون أي أضلاع أو زوايا' },
+  { s: 'مربع', en: 'Square', icon: '🟦', attr: '4 أضلاع متساوية و 4 زوايا', speech: 'أنا المربع! Square. لي أربعة أضلاع متساوية تماماً' },
+  { s: 'مثلث', en: 'Triangle', icon: '🔺', attr: '3 أضلاع و 3 رؤوس', speech: 'أنا المثلث! Triangle. لي ثلاثة أضلاع وثلاثة رؤوس' },
+  { s: 'مستطيل', en: 'Rectangle', icon: '▬', attr: 'كل ضلعين متقابلين متساويان', speech: 'أنا المستطيل! Rectangle. مثل الباب والنافذة' },
+  { s: 'نجمة', en: 'Star', icon: '⭐', attr: '5 رؤوس تشع في السماء', speech: 'أنا النجمة! Star. ألمع في سماء الليل' },
+  { s: 'قلب', en: 'Heart', icon: '💖', attr: 'رمز الحب والعطاء', speech: 'أنا شكل القلب! Heart. رمز الحب والود' }
+];
+
+let currentSpeechText = 'واحد.. One. شمس واحدة في السماء';
+
+function renderNumbers() {
+  const grid = document.getElementById('numGrid');
+  grid.innerHTML = '';
+  numbersData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'num-card';
+    card.innerHTML = `
+      <div class="num-digit">${item.n}</div>
+      <div class="num-word">${item.ar} • ${item.en}</div>
+      <div class="num-count">${item.count}</div>
+      <button class="speak-btn" onclick="event.stopPropagation(); speakItem('${item.speech}')">🔊 استمع</button>
+    `;
+    card.onclick = () => {
+      selectItem(`${item.n} - ${item.en}`, '⭐', `الرقم ${item.ar} (${item.en})`, item.speech);
+      speakItem(item.speech);
+    };
+    grid.appendChild(card);
+  });
+}
+
+function renderShapes() {
+  const grid = document.getElementById('shapesGrid');
+  grid.innerHTML = '';
+  shapesData.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'num-card';
+    card.innerHTML = `
+      <div class="num-digit" style="font-size:32px;">${item.icon}</div>
+      <div class="num-word">${item.s} • ${item.en}</div>
+      <div style="font-size:11.5px; color:#64748b; margin-top:4px;">${item.attr}</div>
+      <button class="speak-btn" onclick="event.stopPropagation(); speakItem('${item.speech}')">🔊 استمع</button>
+    `;
+    card.onclick = () => {
+      selectItem(`${item.s} - ${item.en}`, item.icon, `شكل ${item.s} (${item.en})`, item.speech);
+      speakItem(item.speech);
+    };
+    grid.appendChild(card);
+  });
+}
+
+function selectItem(title, icon, heading, speech) {
+  document.getElementById('stageAvatar').innerText = icon;
+  document.getElementById('stageTitle').innerText = heading;
+  document.getElementById('stageText').innerText = speech;
+  currentSpeechText = speech;
+}
+
+function speakItem(text) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const ut = new SpeechSynthesisUtterance(text);
+    ut.lang = 'ar-SA';
+    ut.rate = 0.85;
+    ut.pitch = 1.15;
+    window.speechSynthesis.speak(ut);
+  } else {
+    alert(text);
+  }
+}
+
+function speakCurrent() {
+  speakItem(currentSpeechText);
+}
+
+renderNumbers();
+renderShapes();
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

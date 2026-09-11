@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الوحدة الثانية: أدواتي وألعابي • لغة عربية تواصل KG2</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --accent: #f59e0b;
+      --success: #10b981;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      padding-bottom: 80px;
+    }
+    .en { font-family: 'Poppins', sans-serif; direction: ltr; display: inline-block; font-weight: 700; }
+    .container { max-width: 1060px; margin: 0 auto; padding: 15px 20px; }
+    
+    /* NAV STRIP */
+    .nav-bar {
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--border);
+      position: sticky; top: 0; z-index: 1000;
+      padding: 12px 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    .nav-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 10px;
+    }
+    .nav-brand { font-weight: 900; font-size: 15.5px; color: var(--text); display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .btn-nav {
+      text-decoration: none; padding: 6px 14px; border-radius: 20px;
+      font-size: 12.5px; font-weight: 800; transition: all 0.2s;
+    }
+    .btn-home { background: #0f172a; color: white; }
+    .btn-portal { background: var(--primary); color: white; }
+    .btn-nav:hover { transform: translateY(-2px); opacity: 0.95; }
+
+    /* HERO HEADER */
+    .hero-box {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: white;
+      border-radius: 24px;
+      padding: 35px 28px;
+      margin: 20px 0 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3);
+      padding: 4px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 800;
+      margin-bottom: 12px; backdrop-filter: blur(6px);
+    }
+    .hero-title { font-size: 26px; font-weight: 900; line-height: 1.35; margin-bottom: 8px; }
+    .hero-sub { font-size: 14.5px; opacity: 0.95; max-width: 860px; line-height: 1.6; }
+
+    /* CONTENT SECTIONS */
+    .content-card {
+      background: white;
+      border-radius: 20px;
+      border: 1.5px solid var(--border);
+      padding: 26px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      transition: all 0.25s ease;
+    }
+    .content-card:hover { border-color: var(--primary); }
+    .card-title {
+      font-size: 19px; font-weight: 900; color: var(--primary-dark);
+      display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+      border-bottom: 2px solid #f1f5f9; padding-bottom: 10px;
+    }
+
+    /* EDUCATIONAL IMAGE BOX */
+    .edu-img-wrap {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 18px 0;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .edu-img-wrap:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      transform: translateY(-2px);
+    }
+    .edu-img-wrap img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      max-height: 500px;
+      object-fit: contain;
+    }
+    .edu-img-caption {
+      background: #ffffff;
+      padding: 10px 16px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #334155;
+      border-top: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    /* VOCAB / INFO GRID */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .info-pill {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .info-pill:hover {
+      background: white;
+      border-color: var(--primary);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+    }
+    .info-icon { font-size: 34px; margin-bottom: 8px; }
+    .info-title { font-size: 15.5px; font-weight: 900; color: #0f172a; margin-bottom: 4px; }
+    .info-desc { font-size: 13px; color: var(--text-muted); font-weight: 700; margin-bottom: 8px; }
+
+    /* AUDIO BUTTON */
+    .audio-btn {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+    .audio-btn:hover { background: #fde047; transform: scale(1.04); }
+
+    /* STORY CARD */
+    .story-box {
+      background: #fffbeb;
+      border: 2px dashed #fcd34d;
+      border-radius: 18px;
+      padding: 22px;
+      margin: 18px 0;
+    }
+    .story-title { font-size: 17px; font-weight: 900; color: #92400e; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+    .story-text { font-size: 15px; line-height: 1.9; color: #78350f; font-weight: 600; }
+
+    /* LETTER BADGES (TASHKEEL) */
+    .letters-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 14px;
+      margin: 16px 0;
+    }
+    .letter-card {
+      background: white;
+      border: 2px solid #e0f2fe;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    }
+    .letter-big {
+      font-size: 38px;
+      font-weight: 900;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    .harakat-row {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+    .haraka-tag {
+      background: #f1f5f9;
+      border-radius: 8px;
+      padding: 3px 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #334155;
+    }
+
+    /* EXAM & MODEL ANSWER */
+    .exam-question {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      margin-bottom: 16px;
+    }
+    .q-head { font-size: 15.5px; font-weight: 900; color: #0f172a; margin-bottom: 10px; }
+    .q-options { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+    .q-opt {
+      background: white; border: 1px solid #cbd5e1;
+      padding: 10px 16px; border-radius: 12px; font-size: 14px; font-weight: 700;
+      cursor: pointer; transition: 0.2s;
+    }
+    .q-opt:hover { background: #eff6ff; border-color: #93c5fd; }
+    .btn-reveal {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 10px;
+      transition: all 0.2s;
+    }
+    .btn-reveal:hover { opacity: 0.92; transform: translateY(-1px); }
+    .model-answer {
+      display: none;
+      margin-top: 12px;
+      padding: 14px 18px;
+      background: #ecfdf5;
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      color: #065f46;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 22px; }
+      .info-grid, .letters-grid { grid-template-columns: 1fr; }
+    }
+  
+  /* PRINT OPTIMIZATION FOR PDF EXPORT */
+  @media print {
+    .nav-bar, .sticky-nav-strip, #universalLightboxModal, .btn-reveal, .speak-btn { display: none !important; }
+    body { background: white !important; color: #000 !important; padding: 0 !important; font-size: 14px !important; }
+    .container { max-width: 100% !important; padding: 0 !important; width: 100% !important; }
+    .hero-box, .header-box { box-shadow: none !important; break-inside: avoid; border-radius: 12px !important; }
+    .card, .story-card, .activity-box, .vocab-card, .exam-question, .rule-box { break-inside: avoid; box-shadow: none !important; border: 1px solid #ddd !important; }
+    .model-answer { display: block !important; border: 1px solid #10b981 !important; }
+  }
+
+  </style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <span>🎓</span>
+      <span>منظومة رياض الأطفال KG2 • Connect & تواصل 2.0</span>
+    </a>
+    <div class="nav-links">
+        <button onclick="window.print()" class="btn-nav btn-print" style="background:#f1f5f9; color:#0f172a; border:1.5px solid #cbd5e1; cursor:pointer; font-weight:800;" title="طباعة أو حفظ الدرس كملف PDF">🖨️ طباعة / حفظ PDF</button>
+      <a href="../index.html" class="btn-nav btn-home">🏠 البوابة الشاملة</a>
+      <a href="../بوابة_رياض_الأطفال_KG2.html" class="btn-nav btn-home">🌟 بوابة KG2 الرئيسية</a>
+      <a href="Index.html" class="btn-nav btn-portal">📋 فهرس وحدات KG2</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero-box">
+    <div class="hero-badge">🧸 كتاب الوزارة المعتمد • المستوى الثاني KG2 • الوحدة الثانية</div>
+    <h1 class="hero-title">الوحدة الثانية: أدواتي وألعابي (المائدة، المدرسة، النظافة، والألعاب)</h1>
+    <p class="hero-sub">منهج اللغة العربية تواصل 2.0 • كتاب الوزارة الرسمي • قصص الاستماع، تنظيم الأدوات، والحروف (خ، ت، ل، س، ن، ر) مع دمج الكلمات والنشيد</p>
+  </div>
+
+
+  <!-- SECTION 1: BANNER & OVERVIEW -->
+  <div class="content-card">
+    <div class="card-title"><span>🌟</span><span>كتاب الوزارة: غلاف الوحدة الثانية (أدواتي وألعابي)</span></div>
+    <div class="edu-img-wrap">
+      <img src="images/ar_u2_tools_toys_banner.png" alt="غلاف الوحدة الثانية أدواتي وألعابي">
+      <div class="edu-img-caption"><span>📸</span><span>غلاف الوحدة الثانية رسمياً من كتاب الوزارة: أدواتي وألعابي</span></div>
+    </div>
+    <p style="font-size: 15.5px;">يتعرف الطفل في هذه الوحدة على أدوات المائدة واستخدامها الآمن، أدواته المدرسية وكيفية تنظيمها داخل الحقيبة، أدوات النظافة الشخصية وأهميتها لحماية صحته، ألعابه المفضلة وقيمة المشاركة وترتيب غرفته.</p>
+  </div>
+
+  <!-- SECTION 2: LISTENING STORY -->
+  <div class="content-card">
+    <div class="card-title"><span>📖</span><span>قصة الاستماع: أدواتي وألعابي</span></div>
+    <div class="story-box">
+      <div class="story-title"><span>🧸</span><span>قصة الألعاب المنظمة والأصدقاء</span></div>
+      <div class="story-text">
+        كان الصغير «عمر» يلعب بالمكعبات والسيارات في غرفته، وعندما انتهى أراد الخروج للعب مع صديقه «أحمد» دون أن يجمع ألعابه! تعثر عمر في سيارة صغيرة وكاد يسقط!<br>
+        أسرعت أخته «مريم» وساعدته، وقالت له مبتسمة: «يا عمر، أدواتنا وألعابنا تحب أن ترتاح في مكانها المخصص حتى لا تضيع ولا تؤذي أحداً».<br>
+        تعاون عمر ومريم في ترتيب المكعبات في الصندوق، ووضع الأقلام والكراسات داخل الحقيبة المدرسية، ومشط شعره ونظف أسنانه بفرشاته الجميلة. خرج عمر مسروراً وهو فخور بغرفته المرتبة!
+      </div>
+      <button class="audio-btn" style="margin-top: 12px;" onclick="speak('الأدوات والألعاب المنظمة تحفظ سلامتنا وتجعل غرفتنا جميلة ومريحة دائماً!', 'ar-SA')">🔊 استمع لملخص القصة</button>
+    </div>
+  </div>
+
+  <!-- SECTION 3: ILLUSTRATED TEXTBOOK PAGES -->
+  <div class="content-card">
+    <div class="card-title"><span>🎨</span><span>دروس الوحدة المصورة من كتاب الوزارة (المائدة، المدرسة، الألعاب)</span></div>
+    
+    <div class="edu-img-wrap">
+      <img src="images/ar_u2_tableware_illustrated.png" alt="أدوات المائدة من كتاب الوزارة">
+      <div class="edu-img-caption"><span>📸</span><span>كتاب الوزارة (ص ٤٧): أدوات المائدة والوعي البصري وحرف الخاء</span></div>
+    </div>
+
+    <div class="edu-img-wrap">
+      <img src="images/ar_u2_school_supplies_illustrated.png" alt="أدواتي المدرسية من كتاب الوزارة">
+      <div class="edu-img-caption"><span>📸</span><span>كتاب الوزارة (ص ٥٢): أدواتي المدرسية وتدريبات حرف التاء</span></div>
+    </div>
+
+    <div class="edu-img-wrap">
+      <img src="images/ar_u2_toys_illustrated.png" alt="ألعابي المفضلة من كتاب الوزارة">
+      <div class="edu-img-caption"><span>📸</span><span>كتاب الوزارة (ص ٦٢): ألعابي وأنشطة التصنيف وحرف السين</span></div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-pill">
+        <div class="info-icon">🍽️</div>
+        <div class="info-title">أدوات المائدة</div>
+        <div class="info-desc">طبق • ملعقة • شوكة • كوب ماء • منديل</div>
+        <button class="audio-btn" onclick="speak('طبق ، ملعقة ، شوكة ، كوب ، منديل', 'ar-SA')">🔊 استمع للأدوات</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">✏️</div>
+        <div class="info-title">أدواتي المدرسية</div>
+        <div class="info-desc">قلم • مسطرة • ممحاة • براية • كراسة • ألوان</div>
+        <button class="audio-btn" onclick="speak('قلم ، مسطرة ، ممحاة ، براية ، كراسة ، حقيبة', 'ar-SA')">🔊 استمع للأدوات</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🧼</div>
+        <div class="info-title">أدوات النظافة</div>
+        <div class="info-desc">صابون • فرشاة ومعجون • مشط • فوطة نظيفة</div>
+        <button class="audio-btn" onclick="speak('صابون ، فرشاة ومعجون ، مشط ، منشفة', 'ar-SA')">🔊 استمع للأدوات</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🚂</div>
+        <div class="info-title">ألعابي المفضلة</div>
+        <div class="info-desc">قطار • سيارة • مكعبات • كرة • دمية</div>
+        <button class="audio-btn" onclick="speak('قطار ، سيارة ، مكعبات ، كرة ، دمية', 'ar-SA')">🔊 استمع للألعاب</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: LETTERS WITH TASHKEEL -->
+  <div class="content-card">
+    <div class="card-title"><span>🔤</span><span>حروف الوحدة الثانية بالحركات الأربع (خ، ت، ل، س، ن، ر)</span></div>
+    <div class="letters-grid">
+      
+      <div class="letter-card">
+        <div class="letter-big">خ</div>
+        <div class="info-title">حرف الخاء</div>
+        <div class="harakat-row">
+          <span class="haraka-tag">خَ: خَرُوف</span>
+          <span class="haraka-tag">خِ: خِيَار</span>
+          <span class="haraka-tag">خُ: خُبْز</span>
+          <span class="haraka-tag">خْ: نَخْل</span>
+        </div>
+        <button class="audio-btn" style="margin-top: 10px;" onclick="speak('خَ خروف ، خِ خيار ، خُ خبز ، نخل', 'ar-SA')">🔊 نطق حرف الخاء</button>
+      </div>
+
+      <div class="letter-card">
+        <div class="letter-big">ت</div>
+        <div class="info-title">حرف التاء</div>
+        <div class="harakat-row">
+          <span class="haraka-tag">تَ: تَمْر</span>
+          <span class="haraka-tag">تِ: تِمْسَاح</span>
+          <span class="haraka-tag">تُ: تُفَّاح</span>
+          <span class="haraka-tag">تْ: كَتْكُوت</span>
+        </div>
+        <button class="audio-btn" style="margin-top: 10px;" onclick="speak('تَ تمر ، تِ تمساح ، تُ تفاح ، كتكوت', 'ar-SA')">🔊 نطق حرف التاء</button>
+      </div>
+
+      <div class="letter-card">
+        <div class="letter-big">ل</div>
+        <div class="info-title">حرف اللام</div>
+        <div class="harakat-row">
+          <span class="haraka-tag">لَ: لَيْمُون</span>
+          <span class="haraka-tag">لِ: لِسَان</span>
+          <span class="haraka-tag">لُ: لُعْبَة</span>
+          <span class="haraka-tag">لْ: ثَلْج</span>
+        </div>
+        <button class="audio-btn" style="margin-top: 10px;" onclick="speak('لَ ليمون ، لِ لسان ، لُ لعبة ، ثلج', 'ar-SA')">🔊 نطق حرف اللام</button>
+      </div>
+
+      <div class="letter-card">
+        <div class="letter-big">س</div>
+        <div class="info-title">حرف السين</div>
+        <div class="harakat-row">
+          <span class="haraka-tag">سَ: سَمَكَة</span>
+          <span class="haraka-tag">سِ: سِتَارَة</span>
+          <span class="haraka-tag">سُ: سُلَحْفَاة</span>
+          <span class="haraka-tag">سْ: جَسْر</span>
+        </div>
+        <button class="audio-btn" style="margin-top: 10px;" onclick="speak('سَ سمكة ، سِ ستارة ، سُ سلحفاة ، جسر', 'ar-SA')">🔊 نطق حرف السين</button>
+      </div>
+
+      <div class="letter-card">
+        <div class="letter-big">ن</div>
+        <div class="info-title">حرف النون</div>
+        <div class="harakat-row">
+          <span class="haraka-tag">نَ: نَمْلَة</span>
+          <span class="haraka-tag">نِ: نِسْنَاس</span>
+          <span class="haraka-tag">نُ: نُجُوم</span>
+          <span class="haraka-tag">نْ: عَيْن</span>
+        </div>
+        <button class="audio-btn" style="margin-top: 10px;" onclick="speak('نَ نملة ، نِ نسناس ، نُ نجوم ، عين', 'ar-SA')">🔊 نطق حرف النون</button>
+      </div>
+
+      <div class="letter-card">
+        <div class="letter-big">ر</div>
+        <div class="info-title">حرف الراء</div>
+        <div class="harakat-row">
+          <span class="haraka-tag">رَ: رَجُل</span>
+          <span class="haraka-tag">رِ: رِيشَة</span>
+          <span class="haraka-tag">رُ: رُمَّان</span>
+          <span class="haraka-tag">رْ: بُرْج</span>
+        </div>
+        <button class="audio-btn" style="margin-top: 10px;" onclick="speak('رَ رجل ، رِ ريشة ، رُ رمان ، برج', 'ar-SA')">🔊 نطق حرف الراء</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SECTION 5: WORD BLENDING -->
+  <div class="content-card">
+    <div class="card-title"><span>🧩</span><span>دمج الحروف وقراءة الكلمات الثلاثية</span></div>
+    <div class="info-grid">
+      <div class="info-pill">
+        <div class="info-icon">🐜</div>
+        <div class="info-title" style="font-size: 20px;">نَ + مْ + ل = نَمْل</div>
+        <div class="info-desc">نملة نشيطة تعمل في الصيف</div>
+        <button class="audio-btn" onclick="speak('نَمْل', 'ar-SA')">🔊 استمع</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🌴</div>
+        <div class="info-title" style="font-size: 20px;">تَ + مْ + ر = تَمْر</div>
+        <div class="info-desc">تمر حلو ومفيد للصحة</div>
+        <button class="audio-btn" onclick="speak('تَمْر', 'ar-SA')">🔊 استمع</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🥛</div>
+        <div class="info-title" style="font-size: 20px;">لَ + بَ + ن = لَبَن</div>
+        <div class="info-desc">لبن طازج ومغذي</div>
+        <button class="audio-btn" onclick="speak('لَبَن', 'ar-SA')">🔊 استمع</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🥬</div>
+        <div class="info-title" style="font-size: 20px;">خَ + سّ = خَسّ</div>
+        <div class="info-desc">خس أخضر ومقرمش</div>
+        <button class="audio-btn" onclick="speak('خَسّ', 'ar-SA')">🔊 استمع</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">👧</div>
+        <div class="info-title" style="font-size: 20px;">بِ + نْ + ت = بِنْت</div>
+        <div class="info-desc">بنت مهذبة ومطيعة</div>
+        <button class="audio-btn" onclick="speak('بِنْت', 'ar-SA')">🔊 استمع</button>
+      </div>
+      <div class="info-pill">
+        <div class="info-icon">🏖️</div>
+        <div class="info-title" style="font-size: 20px;">رَ + مْ + ل = رَمْل</div>
+        <div class="info-desc">نبني قلاعاً من الرمل</div>
+        <button class="audio-btn" onclick="speak('رَمْل', 'ar-SA')">🔊 استمع</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: UNIT SONG -->
+  <div class="content-card">
+    <div class="card-title"><span>🎵</span><span>أغنية الوحدة الثانية من كتاب الوزارة: أدواتي</span></div>
+    <div class="story-box">
+      <div class="story-title"><span>🎶</span><span>نشيد: أدواتي الجميلة المنظمة</span></div>
+      <div class="story-text" style="line-height: 2.2; font-size: 16px;">
+        قلمي يكتب أروع فكرة .. مسطرَتي تسطر في دفتر<br>
+        أدواتي تحفظ في حقيبتي .. نظيفة دوماً في غرفتي<br>
+        لعبتي ترتاح في الصندوق .. بعد اللعب بكل شروق<br>
+        أنا طفلٌ مرتبٌ ونظيف .. عقلي ذكي وقلبي لطيف!
+      </div>
+      <button class="audio-btn" style="margin-top: 12px;" onclick="speak('قلمي يكتب أروع فكرة ، مسطرتي تسطر في دفتر ، أدواتي تحفظ في حقيبتي ، نظيفة دوما في غرفتي ، لعبتي ترتاح في الصندوق ، بعد اللعب بكل شروق ، أنا طفل مرتب ونظيف ، عقلي ذكي وقلبي لطيف', 'ar-SA')">🔊 استمع للنشيد</button>
+    </div>
+  </div>
+
+  <!-- SECTION 7: INTERACTIVE QUIZ -->
+  <div class="content-card">
+    <div class="card-title"><span>📝</span><span>اختبار الوحدة التفاعلي (أدواتي وألعابي) مع نموذج الإجابة</span></div>
+    
+    <div class="exam-question">
+      <div class="q-head">1. بعد الانتهاء من اللعب بالمكعبات والدمى يجب أن:</div>
+      <div class="q-options">
+        <div class="q-opt" onclick="speak('أعيدها إلى صندوق الألعاب وأرتب غرفتي', 'ar-SA')">أ) أعيدها إلى صندوق الألعاب وأرتب غرفتي 🧸</div>
+        <div class="q-opt" onclick="speak('أتركها ملقاة على الأرض', 'ar-SA')">ب) أتركها ملقاة على الأرض في كل مكان!</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_ar_u2_1')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_ar_u2_1">الإجابة الصحيحة: <strong>أ) أعيدها إلى صندوق الألعاب وأرتب غرفتي</strong> حفظاً لسلامتي وتنظيم الغرفة.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">2. ما الحرف الذي تبدأ به كلمة «تَمْر» وكلمة «تُفَّاح»؟</div>
+      <div class="q-options">
+        <div class="q-opt">أ) حرف التاء (ت) 🍎</div>
+        <div class="q-opt">ب) حرف النون (ن) 🌟</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_ar_u2_2')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_ar_u2_2">الإجابة الصحيحة: <strong>أ) حرف التاء (ت)</strong>.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">3. عند دمج الأصوات (نَ + مْ + ل) تتكون كلمة:</div>
+      <div class="q-options">
+        <div class="q-opt" onclick="speak('نَمْل', 'ar-SA')">أ) نَمْل 🐜</div>
+        <div class="q-opt" onclick="speak('لَبَن', 'ar-SA')">ب) لَبَن 🥛</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_ar_u2_3')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_ar_u2_3">الإجابة الصحيحة: <strong>أ) نَمْل</strong>.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">4. أداة نستخدمها في تنظيف أسناننا وحمايتها من التسوس:</div>
+      <div class="q-options">
+        <div class="q-opt" onclick="speak('الفرشاة والمعجون', 'ar-SA')">أ) الفرشاة والمعجون 🪥</div>
+        <div class="q-opt" onclick="speak('المسطرة والبراية', 'ar-SA')">ب) المسطرة والبراية 📏</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_ar_u2_4')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_ar_u2_4">الإجابة الصحيحة: <strong>أ) الفرشاة والمعجون</strong> من أدوات النظافة الشخصية الهامة.</div>
+    </div>
+
+    <div class="exam-question">
+      <div class="q-head">5. كلمة «خِيَار» تبدأ بحرف:</div>
+      <div class="q-options">
+        <div class="q-opt">أ) حرف الخاء المكسور (خِ) 🥒</div>
+        <div class="q-opt">ب) حرف السين المضموم (سُ) 🐢</div>
+      </div>
+      <button class="btn-reveal" onclick="toggleAnswer('ans_ar_u2_5')">💡 إظهار الإجابة النموذجية</button>
+      <div class="model-answer" id="ans_ar_u2_5">الإجابة الصحيحة: <strong>أ) حرف الخاء المكسور (خِ)</strong> مثل: خِيَار.</div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<script>
+function speak(text, lang = 'ar-SA') {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang;
+    u.rate = 0.85;
+    window.speechSynthesis.speak(u);
+  } else {
+    alert('خاصية النطق غير مدعومة في متصفحك.');
+  }
+}
+
+function toggleAnswer(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (el.style.display === 'block') {
+    el.style.display = 'none';
+  } else {
+    el.style.display = 'block';
+  }
+}
+</script>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

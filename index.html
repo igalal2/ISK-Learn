@@ -1,0 +1,1491 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المنصة التعليمية المركزية الموحدة • جميع الصفوف والمواد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --radius: 20px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-bottom: 90px;
+            overflow-x: hidden;
+        }
+
+        .en-term { font-family: 'Poppins', sans-serif; direction: ltr; display: inline-block; font-weight: 700; }
+
+        /* 1. MASTER TOP NAVIGATION */
+        .master-nav {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(14px);
+            border-bottom: 2px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 12px 0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+        .brand-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .brand-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #2563eb, #10b981);
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: white;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+        .brand-title { font-size: 19px; font-weight: 900; color: #0f172a; line-height: 1.2; }
+        .brand-sub { font-size: 12px; color: var(--text-muted); font-weight: 700; }
+
+        /* GRADE SWITCHER TABS */
+        .grade-switcher {
+            display: flex;
+            background: #f1f5f9;
+            padding: 5px;
+            border-radius: 35px;
+            border: 1px solid var(--border);
+            gap: 6px;
+        }
+        .grade-tab {
+            border: none;
+            background: transparent;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .grade-tab:hover { color: #0f172a; background: rgba(255,255,255,0.6); }
+        .grade-tab.active {
+            background: white;
+            color: #1e40af;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+        }
+
+        /* SEARCH BAR */
+        .search-container {
+            position: relative;
+            min-width: 260px;
+        }
+        .search-input {
+            width: 100%;
+            background: #f8fafc;
+            border: 1.5px solid var(--border);
+            border-radius: 25px;
+            padding: 8px 16px 8px 36px;
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            outline: none;
+            transition: all 0.2s;
+        }
+        .search-input:focus {
+            border-color: var(--primary);
+            background: white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .search-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #94a3b8;
+            pointer-events: none;
+        }
+
+        /* 2. PERSISTENT BREADCRUMB BAR */
+        .breadcrumb-bar {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 10px 0;
+            font-size: 13.5px;
+            font-weight: 800;
+        }
+        .breadcrumb-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+        }
+        .breadcrumb-inner a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        .breadcrumb-inner a:hover { text-decoration: underline; }
+        .current-crumb { color: #0f172a; font-weight: 900; }
+
+        .container { max-width: 1280px; margin: 0 auto; padding: 25px 20px; }
+
+        /* 3. HERO DASHBOARD BANNER */
+        .dashboard-hero {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 50%, #2563eb 100%);
+            border-radius: 24px;
+            padding: 35px 30px;
+            color: white;
+            margin-bottom: 30px;
+            box-shadow: 0 15px 35px rgba(30, 58, 138, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .dashboard-hero::after {
+            content: '🎓';
+            position: absolute;
+            left: 20px;
+            bottom: -20px;
+            font-size: 140px;
+            opacity: 0.12;
+            pointer-events: none;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            backdrop-filter: blur(8px);
+        }
+        .hero-title { font-size: 28px; font-weight: 900; margin-bottom: 10px; line-height: 1.3; }
+        .hero-desc { font-size: 15px; opacity: 0.95; max-width: 860px; line-height: 1.7; margin-bottom: 22px; }
+
+        .hero-stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .stat-pill {
+            background: rgba(255,255,255,0.14);
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 16px;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            backdrop-filter: blur(6px);
+        }
+        .stat-num { font-size: 22px; font-weight: 900; color: #fde047; font-family: 'Poppins', sans-serif; }
+        .stat-label { font-size: 12.5px; font-weight: 700; opacity: 0.9; }
+
+        /* 4. GRADE SECTIONS */
+        .grade-section { display: none; }
+        .grade-section.active { display: block; animation: fadeIn 0.3s ease; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+        .sec-title-box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+            flex-wrap: wrap;
+            gap: 12px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 14px;
+        }
+        .sec-title { font-size: 22px; font-weight: 900; color: #0f172a; display: flex; align-items: center; gap: 10px; }
+        .sec-badge {
+            background: #eff6ff;
+            color: #1e40af;
+            font-size: 13px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 20px;
+            border: 1px solid #bfdbfe;
+        }
+
+        /* SUBJECTS GRID */
+        .subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+        .subj-card {
+            background: var(--card-bg);
+            border-radius: 22px;
+            padding: 24px;
+            border: 1.5px solid var(--border);
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .subj-card:hover {
+            transform: translateY(-4px);
+            border-color: #93c5fd;
+            box-shadow: 0 16px 36px rgba(37, 99, 235, 0.08);
+        }
+        .subj-card-head {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin-bottom: 12px;
+        }
+        .subj-icon-box {
+            width: 52px;
+            height: 52px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+        .subj-name { font-size: 18px; font-weight: 900; color: #0f172a; line-height: 1.3; }
+        .subj-sub { font-size: 12px; color: var(--text-muted); font-weight: 700; margin-top: 3px; }
+        .subj-desc { font-size: 13.5px; color: #475569; line-height: 1.6; margin-bottom: 16px; }
+
+        /* PILLARS PILLS ROW */
+        .pillars-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+            background: #f8fafc;
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid #f1f5f9;
+        }
+        .pill-btn {
+            background: white;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 4px 10px;
+            font-size: 11.5px;
+            font-weight: 800;
+            color: #334155;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .pill-btn:hover {
+            background: #2563eb;
+            color: white;
+            border-color: #2563eb;
+        }
+
+        .subj-card-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: auto;
+        }
+        .btn-open-explorer {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white;
+            border: none;
+            padding: 11px 18px;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 900;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+            text-decoration: none;
+        }
+        .btn-open-explorer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+            background: linear-gradient(135deg, #1d4ed8, #1e40af);
+        }
+        .btn-direct-link {
+            background: #f8fafc;
+            color: #334155;
+            border: 1.5px solid var(--border);
+            padding: 9px 14px;
+            border-radius: 12px;
+            font-size: 12.5px;
+            font-weight: 800;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .btn-direct-link:hover {
+            background: #eff6ff;
+            color: #1e40af;
+            border-color: #93c5fd;
+        }
+
+        /* 5. MASTER SUBJECT EXPLORER MODAL */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        .modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+
+        .explorer-modal {
+            background: white;
+            width: 100%;
+            max-width: 1240px;
+            height: 94vh;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .modal-head {
+            background: #0f172a;
+            color: white;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            flex-shrink: 0;
+        }
+        .modal-title-box { display: flex; align-items: center; gap: 14px; }
+        .modal-icon { font-size: 32px; }
+        .modal-title { font-size: 20px; font-weight: 900; }
+        .modal-sub { font-size: 12.5px; opacity: 0.8; font-weight: 700; }
+
+        .btn-close-modal {
+            background: rgba(255,255,255,0.12);
+            border: none;
+            color: white;
+            font-size: 20px;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+        .btn-close-modal:hover { background: #ef4444; }
+
+        /* TABS */
+        .explorer-tabs {
+            display: flex;
+            background: #f8fafc;
+            border-bottom: 2px solid var(--border);
+            padding: 8px 16px 0;
+            gap: 6px;
+            overflow-x: auto;
+            flex-shrink: 0;
+        }
+        .exp-tab {
+            border: none;
+            background: transparent;
+            padding: 10px 18px;
+            font-family: inherit;
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #64748b;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+        .exp-tab:hover { color: #0f172a; }
+        .exp-tab.active {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+            background: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .modal-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 24px;
+            background: #f8fafc;
+        }
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; animation: fadeIn 0.2s ease; }
+
+        .units-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 16px;
+        }
+        .unit-item-card {
+            background: white;
+            border-radius: 16px;
+            padding: 18px;
+            border: 1.5px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+        }
+        .unit-item-card:hover {
+            transform: translateY(-2px);
+            border-color: #93c5fd;
+            box-shadow: 0 6px 18px rgba(37,99,235,0.08);
+        }
+        .unit-card-title { font-size: 15px; font-weight: 900; color: #0f172a; margin-bottom: 6px; }
+        .unit-card-desc { font-size: 13px; color: #64748b; margin-bottom: 14px; line-height: 1.5; }
+        .unit-card-badge {
+            display: inline-block;
+            background: #eff6ff;
+            color: #1e40af;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #dbeafe;
+        }
+
+        .exam-hub-card {
+            background: white;
+            border-radius: 18px;
+            padding: 22px;
+            border: 1.5px solid var(--border);
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.02);
+        }
+
+        .tutor-iframe-wrap {
+            width: 100%;
+            height: 76vh;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1.5px solid var(--border);
+            background: white;
+        }
+        .tutor-iframe-wrap iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .subjects-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 22px; }
+            .explorer-modal { height: 98vh; }
+            .nav-inner { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 1. MASTER TOP NAVIGATION -->
+<nav class="master-nav">
+    <div class="nav-inner">
+        <div class="brand-box">
+            <div class="brand-icon">🎓</div>
+            <div>
+                <div class="brand-title">المنصة التعليمية المركزية الموحدة</div>
+                <div class="brand-sub">شرح المدرس الشخصي • تدريبات • امتحانات الشهور والترم • المراجعات ونماذج الإجابة</div>
+            </div>
+        </div>
+
+        <!-- Grade Selector -->
+        <div class="grade-switcher">
+            <button class="grade-tab active" onclick="switchGrade('g4', this)">
+                <span>🟢</span>
+                <span>الصف الرابع</span>
+            </button>
+            <button class="grade-tab" onclick="switchGrade('g2', this)">
+                <span>🔵</span>
+                <span>الصف الثاني</span>
+            </button>
+            <button class="grade-tab" onclick="switchGrade('kg2', this)">
+                <span>👶</span>
+                <span>رياض الأطفال KG2</span>
+            </button>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="globalSearchInput" class="search-input" placeholder="🔍 ابحث عن مادة، درس، أو امتحان..." onkeyup="handleGlobalSearch()">
+            <span class="search-icon">🔍</span>
+        </div>
+    </div>
+</nav>
+
+<!-- 2. BREADCRUMBS -->
+<div class="breadcrumb-bar">
+    <div class="breadcrumb-inner">
+        <span>📍 أنت الآن في:</span>
+        <a href="البوابة_الرئيسية_الشاملة.html">الرئيسية (البوابة الشاملة)</a>
+        <span>›</span>
+        <span class="current-crumb" id="crumbGrade">الصف الرابع الابتدائي</span>
+        <span id="crumbSubjSep" style="display: none;">›</span>
+        <span class="current-crumb" id="crumbSubject" style="display: none; color: #2563eb;"></span>
+    </div>
+</div>
+
+<!-- 3. CONTAINER -->
+<div class="container">
+
+    <!-- HERO DASHBOARD -->
+    <div class="dashboard-hero">
+        <div class="hero-badge">
+            <span>✨</span>
+            <span>بوابة التعليم الذكي والشامل • العام الدراسي 2026/2027</span>
+        </div>
+        <h1 class="hero-title" id="heroTitle">منظومة الصف الرابع الابتدائي • الفصل الدراسي الأول</h1>
+        <p class="hero-desc" id="heroDesc">
+            جميع المواد السبع منظمة هنا في لوحة تحكم واحدة: لكل مادة تجد (1) الفصول والدروس بالشرح المصور والتطبيقات، (2) امتحانات الشهور الرسمية لأكتوبر ونوفمبر، (3) امتحانات نهاية الفصل الدراسي للمحافظات، (4) المراجعات النهائية الشاملة، و(5) نموذج الحل النموذجي المفصل لكل سؤال دون أي تشتت!
+        </p>
+
+        <div class="hero-stats">
+            <div class="stat-pill">
+                <span class="stat-num">14</span>
+                <span class="stat-label">مادة تعليمية متكاملة</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-num">50+</span>
+                <span class="stat-label">فصلاً ووحدة مشروحة</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-num">30+</span>
+                <span class="stat-label">نموذج امتحاني مع الحل</span>
+            </div>
+            <div class="stat-pill">
+                <span class="stat-num">100%</span>
+                <span class="stat-label">مزيج كتاب الوزارة والمعاصر</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- GRADE 4 SECTION -->
+    <section class="grade-section active" id="sec-g4">
+        <div class="sec-title-box">
+            <div class="sec-title">
+                <span>📚</span>
+                <span>مواد الصف الرابع الابتدائي (7 مواد أساسية)</span>
+            </div>
+            <span class="sec-badge">شاملة نماذج الحل لجميع الاختبارات</span>
+        </div>
+        <div class="subjects-grid" id="grid-g4">
+            
+        <div class="subj-card" data-key="science4" data-name="العلوم (Science) - لغات وعربي" data-grade="g4">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #ecfdf5; color: #10b981;">🔬</div>
+                <div>
+                    <div class="subj-name">العلوم (Science) - لغات وعربي</div>
+                    <div class="subj-sub">8 فصول • 3 أجزاء لكل فصل</div>
+                </div>
+            </div>
+            <div class="subj-desc">الطبيعة وتكيف الكائنات، نمو وتطور الحشرات، النباتات والأزهار، خصائص وانعكاس الضوء، الصوت والاهتزاز، قوى الرياح والمطاط، والتربة وحضارة مصر القديمة.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('science4', 'units')" class="pill-btn"><span>📘</span><span>8 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('science4', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('science4', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('science4', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('science4', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('science4')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_العلوم_الرابع.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="math4" data-name="الرياضيات (Math) - الصف الرابع" data-grade="g4">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #eff6ff; color: #2563eb;">🔢</div>
+                <div>
+                    <div class="subj-name">الرياضيات (Math) - الصف الرابع</div>
+                    <div class="subj-sub">8 وحدات • خوارزميات واستراتيجيات</div>
+                </div>
+            </div>
+            <div class="subj-desc">القيمة المكانية حتى المليارات، خواص واستراتيجيات الجمع والطرح، وحدات القياس، المساحة والمحيط، مقارنات الضرب، العوامل والمضاعفات، خوارزميات القسمة، وترتيب العمليات.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('math4', 'units')" class="pill-btn"><span>📘</span><span>8 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('math4', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('math4', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('math4', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('math4', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('math4')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الرياضيات_الرابع.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="english4" data-name="اللغة الإنجليزية (Connect 4)" data-grade="g4">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #ecfeff; color: #0891b2;">🇬🇧</div>
+                <div>
+                    <div class="subj-name">اللغة الإنجليزية (Connect 4)</div>
+                    <div class="subj-sub">6 وحدات • نصوص وقواعد وفونكس</div>
+                </div>
+            </div>
+            <div class="subj-desc">I feel good, Desert animals, Why are plants green, Where do you live, Where do you work, What do you do مع شروحات القواعد والمحادثات والصوتيات.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('english4', 'units')" class="pill-btn"><span>📘</span><span>6 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('english4', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('english4', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('english4', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('english4', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('english4')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الانجليزي_الرابع.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="ict4" data-name="تكنولوجيا المعلومات والاتصالات (ICT)" data-grade="g4">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #f0f9ff; color: #0284c7;">💻</div>
+                <div>
+                    <div class="subj-name">تكنولوجيا المعلومات والاتصالات (ICT)</div>
+                    <div class="subj-sub">6 وحدات • الاستكشاف والأمان الرقمي</div>
+                </div>
+            </div>
+            <div class="subj-desc">أدوات الاستكشاف الرقمي (الرادار ومقياس المغناطيسية وGPS)، مكونات الكمبيوتر ووحدة المعالجة المركزية، التكنولوجيا المساعدة، حل مشكلات البرمجيات، والأمان الرقمي والمواطنة الصالحة.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('ict4', 'units')" class="pill-btn"><span>📘</span><span>6 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('ict4', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('ict4', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('ict4', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('ict4', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('ict4')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_ICT_الرابع.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="arabic4" data-name="اللغة العربية - الصف الرابع" data-grade="g4">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #f5f3ff; color: #8b5cf6;">📖</div>
+                <div>
+                    <div class="subj-name">اللغة العربية - الصف الرابع</div>
+                    <div class="subj-sub">4 وحدات + محورين • النحو والتعبير</div>
+                </div>
+            </div>
+            <div class="subj-desc">نصوص الاستماع والقراءة (مجدي يعقوب، موطني، مريم ومريم، قطرة ماء)، القواعد النحوية (أقسام الكلمة، الجملة الاسمية والفعلية، علامات الرفع)، والتعبير الكتابي.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('arabic4', 'units')" class="pill-btn"><span>📘</span><span>6 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('arabic4', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('arabic4', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('arabic4', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('arabic4', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('arabic4')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_العربي_الرابع.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="social4" data-name="الدراسات الاجتماعية - الصف الرابع" data-grade="g4">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #fffbeb; color: #f59e0b;">🌍</div>
+                <div>
+                    <div class="subj-name">الدراسات الاجتماعية - الصف الرابع</div>
+                    <div class="subj-sub">3 وحدات • 8 أجزاء جغرافيا وتاريخ</div>
+                </div>
+            </div>
+            <div class="subj-desc">أدوات تحديد المواقع والخرائط، موقع مصر الاستراتيجي وقناة السويس، محافظات مصر وعلمها، مظاهر السطح والبيئات المصرية (زراعية، صحراوية، ساحلية)، والموارد الطبيعية والحرف التراثية.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('social4', 'units')" class="pill-btn"><span>📘</span><span>8 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('social4', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('social4', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('social4', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('social4', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('social4')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الدراسات_الرابع.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="islamic4" data-name="التربية الدينية الإسلامية - الصف الرابع" data-grade="g4">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #f0fdf4; color: #16a34a;">🕌</div>
+                <div>
+                    <div class="subj-name">التربية الدينية الإسلامية - الصف الرابع</div>
+                    <div class="subj-sub">4 وحدات + محورين • عقيدة وسيرة وعبادات</div>
+                </div>
+            </div>
+            <div class="subj-desc">الإيمان بالله وملائكته والكتب السماوية، قصة خلق آدم عليه السلام، قصة نبي الله هود مع قوم عاد، قصة إبراهيم وإسماعيل وبناء الكعبة، أحكام الطهارة وسنن وفرائض الوضوء، فضل الصلاة، وسورة التين وسورة البلد.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('islamic4', 'units')" class="pill-btn"><span>📘</span><span>6 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('islamic4', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('islamic4', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('islamic4', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('islamic4', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('islamic4')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الاسلامية_الرابع.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+        </div>
+    </section>
+
+    <!-- GRADE 2 SECTION -->
+    <section class="grade-section" id="sec-g2">
+        <div class="sec-title-box">
+            <div class="sec-title">
+                <span>🎒</span>
+                <span>مواد الصف الثاني الابتدائي (4 مواد أساسية)</span>
+            </div>
+            <span class="sec-badge">منهج التأسيس والتعلم النشط • كتاب الوزارة والمعاصر</span>
+        </div>
+        <div class="subjects-grid" id="grid-g2">
+            
+        <div class="subj-card" data-key="math2" data-name="رياضيات وماث (Math 2) - الصف الثاني" data-grade="g2">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #eff6ff; color: #3b82f6;">🔢</div>
+                <div>
+                    <div class="subj-name">رياضيات وماث (Math 2) - الصف الثاني</div>
+                    <div class="subj-sub">9 فصول معتمدة ومطابقة للفهرس الرسمي</div>
+                </div>
+            </div>
+            <div class="subj-desc">الرسوم البيانية بالأعمدة، الجمع الرأسي، الطرح الرأسي، الوقت والفترات الزمنية، وحدات قياس الطول، الأعداد الأكبر من 100، وحدات السعة، الجمع والطرح بإعادة التسمية، والحساب الذهني.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('math2', 'units')" class="pill-btn"><span>📘</span><span>9 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('math2', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('math2', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('math2', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('math2', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('math2')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الرياضيات_الثاني.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="english2" data-name="اللغة الإنجليزية (Connect 2) - الصف الثاني" data-grade="g2">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #ecfeff; color: #0891b2;">🇬🇧</div>
+                <div>
+                    <div class="subj-name">اللغة الإنجليزية (Connect 2) - الصف الثاني</div>
+                    <div class="subj-sub">6 وحدات Connect 2 معتمدة ومطابقة للفهرس</div>
+                </div>
+            </div>
+            <div class="subj-desc">Meet my family, My body, Off to school, Time to play, My day, Let's go shopping مع الشرح المصور ثلاثي الأقسام، الفونكس، ونماذج الإجابة.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('english2', 'units')" class="pill-btn"><span>📘</span><span>8 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('english2', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('english2', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('english2', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('english2', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('english2')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الانجليزي_الثاني.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="arabic2" data-name="اللغة العربية - الصف الثاني الابتدائي" data-grade="g2">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #fdf4ff; color: #c026d3;">📖</div>
+                <div>
+                    <div class="subj-name">اللغة العربية - الصف الثاني الابتدائي</div>
+                    <div class="subj-sub">3 وحدات معتمدة ومطابقة للفهرس الرسمي</div>
+                </div>
+            </div>
+            <div class="subj-desc">الوحدة 1: من أكون؟ (يومي، أسماء الإشارة، الضمائر) • الوحدة 2: طعامي الصحي (الظرف، اللام الشمسية والقمرية، غزال في ورطة) • الوحدة 3: الرياضة والتكنولوجيا (الأمر والنهي، الأسماء الموصولة).</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('arabic2', 'units')" class="pill-btn"><span>📘</span><span>5 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('arabic2', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('arabic2', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('arabic2', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('arabic2', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('arabic2')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_العربي_الثاني.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+        <div class="subj-card" data-key="islamic2" data-name="التربية الدينية الإسلامية - الصف الثاني" data-grade="g2">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #f0fdf4; color: #16a34a;">🕌</div>
+                <div>
+                    <div class="subj-name">التربية الدينية الإسلامية - الصف الثاني</div>
+                    <div class="subj-sub">3 وحدات معتمدة ومطابقة للفهرس الرسمي</div>
+                </div>
+            </div>
+            <div class="subj-desc">الوحدة 1: التوكل على الله تعالى (السميع، القدر والبينة، الأذان، الوحي، شعيب) • الوحدة 2: من نعم الله تعالى (البصير، التين والعلق، الإقامة، موسى) • الوحدة 3: الشكر لله تعالى (الشكور، الشرح والضحى، صلاة الجماعة، داود).</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('islamic2', 'units')" class="pill-btn"><span>📘</span><span>5 دروس ووحدات</span></button>
+                <button onclick="openSubjectModalTab('islamic2', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('islamic2', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('islamic2', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('islamic2', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('islamic2')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الاسلامية_الثاني.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+        </div>
+    </section>
+
+    <!-- KG2 SECTION -->
+    <section class="grade-section" id="sec-kg2">
+        <div class="sec-title-box">
+            <div class="sec-title">
+                <span>👶</span>
+                <span>رياض الأطفال (KG2 - مرحلة الطفولة المبكرة)</span>
+            </div>
+            <span class="sec-badge">ألعاب تعليمية • أصوات وأشكال مرحة • امتحانات مع نموذج الإجابة</span>
+        </div>
+        <div class="subjects-grid" id="grid-kg2">
+            
+        <div class="subj-card" data-key="math_kg2" data-name="ماث وأرقام وأشكال (Math KG2)" data-grade="kg2">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #fffbeb; color: #d97706;">🔢</div>
+                <div>
+                    <div class="subj-name">ماث وأرقام وأشكال (Math KG2)</div>
+                    <div class="subj-sub">الأرقام 1-20 • الأشكال الهندسية</div>
+                </div>
+            </div>
+            <div class="subj-desc">العد والمطابقة بالصور الكرتونية، الأرقام من 1 إلى 20، تمييز الأشكال الأساسية (دائرة، مربع، مثلث، مستطيل)، الأنماط والألوان، والمقارنة بالأكبر والأصغر والجمع البسيط.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('math_kg2', 'units')" class="pill-btn"><span>📘</span><span>6 فصول معتمدة</span></button>
+                <button onclick="openSubjectModalTab('math_kg2', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('math_kg2', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('math_kg2', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('math_kg2', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('math_kg2')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الماث_KG2.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+                <div class="subj-card" data-key="english_kg2" data-name="لغة إنجليزية وفونكس (Connect KG2 - المعاصر)" data-grade="kg2">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #fdf2f8; color: #db2777;">🇬🇧</div>
+                <div>
+                    <div class="subj-name">لغة إنجليزية وفونكس (Connect KG2)</div>
+                    <div class="subj-sub">منهج كونكت 2 المعتمد • كتاب المعاصر</div>
+                </div>
+            </div>
+            <div class="subj-desc">الوحدات الأربع الرسمية من كتاب المعاصر: Little Bodies, Big Moves! (أفعال الحركة واللعب)، Let's Get Dressed! (الملابس والألوان)، My Week! (أيام الأسبوع السبعة)، و My Busy Day! (الروتين اليومي والوجبات الصحية)، مع صوتيات الحروف ونطق الكلمات بالصوت التفاعلي.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('english_kg2', 'units')" class="pill-btn"><span>📘</span><span>4 وحدات وفونكس</span></button>
+                <button onclick="openSubjectModalTab('english_kg2', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('english_kg2', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('english_kg2', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('english_kg2', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('english_kg2')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_الانجليزي_KG2.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+
+                <div class="subj-card" data-key="arabic_kg2" data-name="لغة عربية وتأسيس (تواصل KG2 - كتاب الوزارة)" data-grade="kg2">
+            <div class="subj-card-head">
+                <div class="subj-icon-box" style="background: #f0fdf4; color: #059669;">📖</div>
+                <div>
+                    <div class="subj-name">لغة عربية وتأسيس (تواصل KG2)</div>
+                    <div class="subj-sub">منهج تواصل 2.0 المعتمد • كتاب الوزارة</div>
+                </div>
+            </div>
+            <div class="subj-desc">الوحدات الثلاث الرسمية لكتاب الوزارة: الوحدة 1 (غذائي وآداب الطعام)، الوحدة 2 (أدواتي وألعابي المدرسية والشخصية)، والوحدة 3 (وسائل المواصلات وإشارات المرور)، مع قصص الاستماع والرسوم الأصلية، الحروف بالحركات الأربع، دمج الكلمات، وحروف الرفس الشقية.</div>
+
+            <!-- 5 Essential Pillars Fast Access Pills -->
+            <div class="pillars-pills">
+                <button onclick="openSubjectModalTab('arabic_kg2', 'units')" class="pill-btn"><span>📘</span><span>3 وحدات وزارية + ملزمة</span></button>
+                <button onclick="openSubjectModalTab('arabic_kg2', 'monthly')" class="pill-btn"><span>📝</span><span>امتحانات الشهور</span></button>
+                <button onclick="openSubjectModalTab('arabic_kg2', 'final')" class="pill-btn"><span>🎯</span><span>امتحانات الترم</span></button>
+                <button onclick="openSubjectModalTab('arabic_kg2', 'rev')" class="pill-btn"><span>🏆</span><span>المراجعة النهائية</span></button>
+                <button onclick="openSubjectModalTab('arabic_kg2', 'pdfs')" class="pill-btn"><span>📚</span><span>الكتب PDF</span></button>
+            </div>
+
+            <!-- Actions -->
+            <div class="subj-card-actions">
+                <button class="btn-open-explorer" onclick="openSubjectModal('arabic_kg2')">
+                    <span>🚀</span>
+                    <span>فتح لوحة المادة الشاملة (المستكشف الكامل)</span>
+                </button>
+                <a href="دليل_العربي_KG2.html" target="_blank" class="btn-direct-link">
+                    <span>👨‍🏫</span>
+                    <span>شرح المدرس الشخصي التفاعلي (Tutor Guide)</span>
+                </a>
+            </div>
+        </div>
+    
+        </div>
+    </section>
+
+</div>
+
+<!-- 5. UNIFIED SUBJECT EXPLORER MODAL -->
+<div class="modal-overlay" id="subjectModal">
+    <div class="explorer-modal">
+        <!-- Header -->
+        <div class="modal-head">
+            <div class="modal-title-box">
+                <span class="modal-icon" id="mIcon">🔬</span>
+                <div>
+                    <div class="modal-title" id="mTitle">مادة العلوم (Science)</div>
+                    <div class="modal-sub" id="mSub">لوحة التحكم والاستكشاف الشاملة لجميع محتويات المادة</div>
+                </div>
+            </div>
+            <button class="btn-close-modal" onclick="closeSubjectModal()">✕</button>
+        </div>
+
+        <!-- Dynamic Tabs -->
+        <div class="explorer-tabs">
+            <button class="exp-tab active" id="tabBtn-units" onclick="switchModalTab('units', this)">
+                <span>📘</span>
+                <span>الفصول ووحدات المنهج</span>
+            </button>
+            <button class="exp-tab" id="tabBtn-monthly" onclick="switchModalTab('monthly', this)">
+                <span>📝</span>
+                <span>امتحانات الشهور ونهاية الترم</span>
+            </button>
+            <button class="exp-tab" id="tabBtn-rev" onclick="switchModalTab('rev', this)">
+                <span>🏆</span>
+                <span>المراجعة النهائية وليلة الامتحان</span>
+            </button>
+            <button class="exp-tab" id="tabBtn-tutor" onclick="switchModalTab('tutor', this)">
+                <span>👨‍🏫</span>
+                <span>شرح المدرس الشخصي</span>
+            </button>
+            <button class="exp-tab" id="tabBtn-pdfs" onclick="switchModalTab('pdfs', this)">
+                <span>📚</span>
+                <span>الكتب والملازم PDF</span>
+            </button>
+            <button class="exp-tab" id="tabBtn-3d" style="display: none;" onclick="switchModalTab('theater3d', this)">
+                <span>🦋</span>
+                <span>الفراشة 3D والمعرض المصور</span>
+            </button>
+        </div>
+
+        <!-- Body Content -->
+        <div class="modal-body">
+            <!-- Tab 1: Units and Chapters -->
+            <div class="tab-panel active" id="panel-units">
+                <div style="background: white; border-radius: 16px; padding: 18px; border: 1.5px solid var(--border); margin-bottom: 20px;">
+                    <h3 style="font-size: 16px; font-weight: 900; color: #1e3a8a; margin-bottom: 6px;">
+                        📘 نظام الـ 3 أجزاء المتكامل لكل درس:
+                    </h3>
+                    <p style="font-size: 13.5px; color: #475569;">
+                        كل درس منظم بنفس البنية التي تفضلها: <strong>(الجزء الأول)</strong> الشرح المصور بالمخططات النقية والشخصيات الكرتونية • <strong>(الجزء الثاني)</strong> تدريبات الامتحانات وتطبيقات المحافظات • <strong>(الجزء الثالث)</strong> نموذج الحل التفصيلي التوضيحي.
+                    </p>
+                </div>
+                <div class="units-grid" id="modalUnitsGrid"></div>
+            </div>
+
+            <!-- Tab 2: Monthly & Final Term Exams -->
+            <div class="tab-panel" id="panel-monthly">
+                <div id="modalExamsContainer"></div>
+            </div>
+
+            <!-- Tab 3: Final Revision -->
+            <div class="tab-panel" id="panel-rev">
+                <div id="modalRevContainer"></div>
+            </div>
+
+            <!-- Tab 4: Embedded Tutor Guide -->
+            <div class="tab-panel" id="panel-tutor">
+                <div class="tutor-iframe-wrap">
+                    <iframe id="tutorIframe" src="about:blank"></iframe>
+                </div>
+            </div>
+
+            <!-- Tab 5: Official PDFs & Booklets -->
+            <div class="tab-panel" id="panel-pdfs">
+                <div id="pdfLinksContainer" style="display: flex; flex-direction: column; gap: 12px;"></div>
+            </div>
+
+            <!-- Tab 6: 3D Theater & Clean Visual Gallery (For Science) -->
+            <div class="tab-panel" id="panel-theater3d">
+                <div style="background: white; border-radius: 18px; padding: 24px; border: 1.5px solid var(--border); text-align: center; margin-bottom: 24px;">
+                    <h3 style="font-size: 20px; font-weight: 900; color: #065f46; margin-bottom: 10px;">🦋 استوديو الفراشة المجسمة المتكلمة 3D</h3>
+                    <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 20px;">
+                        تفاعل مع الفراشة المجسمة واستمع لشرحها التفاعلي لأطوار التحول بصوتها التفاعلي مباشرة داخل الدليل!
+                    </p>
+                    <a href="دليل_العلوم_الرابع.html#viewport3D" target="_blank" class="btn-open-explorer" style="display: inline-flex;">
+                        <span>🦋</span>
+                        <span>فتح مسرح الفراشة ثلاثي الأبعاد بكامل الشاشة</span>
+                    </a>
+                </div>
+
+                <h4 style="font-weight: 900; font-size: 17px; margin-bottom: 14px; color: #0f172a;">🎨 المعرض التعليمي المصور الصامت (خالٍ تماماً من الكلمات المشوشة):</h4>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                    <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border);">
+                        <img src="images_educational/desert_adaptations_clean.jpg" style="width: 100%; height: 180px; object-fit: cover;">
+                        <div style="padding: 14px;">
+                            <h4 style="font-weight: 800; font-size: 15px;">تكيف حيوانات الصحراء في مصر</h4>
+                            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">ثعلب الفينك، الجمل، وشجرة السنط - رسمة صامتة نقية.</p>
+                        </div>
+                    </div>
+                    <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border);">
+                        <img src="images_educational/butterfly_life_cycle_clean.jpg" style="width: 100%; height: 180px; object-fit: cover;">
+                        <div style="padding: 14px;">
+                            <h4 style="font-weight: 800; font-size: 15px;">دورة حياة الفراشة (التحول الكامل)</h4>
+                            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">بيضة ➔ يرقة ➔ شرنقة ➔ فراشة بالغة.</p>
+                        </div>
+                    </div>
+                    <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border);">
+                        <img src="images_educational/plant_parts_clean.jpg" style="width: 100%; height: 180px; object-fit: cover;">
+                        <div style="padding: 14px;">
+                            <h4 style="font-weight: 800; font-size: 15px;">أجزاء النبات ومسار الماء</h4>
+                            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">الجذور تمتص، الساق يدعم وينقل، والأوراق تصنع الغذاء.</p>
+                        </div>
+                    </div>
+                    <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border);">
+                        <img src="images_educational/insect_body_clean.jpg" style="width: 100%; height: 180px; object-fit: cover;">
+                        <div style="padding: 14px;">
+                            <h4 style="font-weight: 800; font-size: 15px;">تشريح جسم الحشرة والعنكبوت</h4>
+                            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">الحشرة: 3 أجزاء و6 أرجل. العنكبوت: 8 أرجل (ليس حشرة).</p>
+                        </div>
+                    </div>
+                    <div style="background: white; border-radius: 14px; overflow: hidden; border: 1px solid var(--border);">
+                        <img src="images_educational/light_and_shadows_clean.jpg" style="width: 100%; height: 180px; object-fit: cover;">
+                        <div style="padding: 14px;">
+                            <h4 style="font-weight: 800; font-size: 15px;">حركة الظل وموقع الشمس خلال اليوم</h4>
+                            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">الصباح طويل غرباً، الظهر أقصر ظل، العصر طويل شرقاً.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const subjectConfigs = {"science4": {"grade": "g4", "gradeName": "الصف الرابع الابتدائي", "name": "العلوم (Science) - لغات وعربي", "shortName": "العلوم (Science)", "icon": "🔬", "badge": "8 فصول • 3 أجزاء لكل فصل", "color": "#10b981", "bgLight": "#ecfdf5", "desc": "الطبيعة وتكيف الكائنات، نمو وتطور الحشرات، النباتات والأزهار، خصائص وانعكاس الضوء، الصوت والاهتزاز، قوى الرياح والمطاط، والتربة وحضارة مصر القديمة.", "guideFile": "دليل_العلوم_الرابع.html", "hubFile": "ملخصات_Science_الرابع_الابتدائي/Index.html", "monthlyFile": "ملخصات_Science_الرابع_الابتدائي/Monthly_Exams_Science_PRIM4.html", "finalTermFile": "ملخصات_Science_الرابع_الابتدائي/Final_Term_Exams_Science_PRIM4.html", "finalRevFile": "ملخصات_Science_الرابع_الابتدائي/Final_Revision_Science_PRIM4.html", "has3D": true, "units": [{"title": "الفصل 1: Nature in Our Surroundings", "ar": "الطبيعة في محيطنا وتكيف ثعلب الفينك والجمل", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_1_Nature_in_Our_Surroundings.html"}, {"title": "الفصل 2: How Insects Grow", "ar": "كيف تنمو الحشرات ومراحل التحول الكامل وتشريح الجسم", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_2_How_Insects_Grow.html"}, {"title": "الفصل 3: How Plants Grow", "ar": "كيف تنمو النباتات وأجزاء النبات ومسار الماء وإنبات البذور", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_3_How_Plants_Grow.html"}, {"title": "الفصل 4: Properties of Light", "ar": "خصائص الضوء وانعكاسه وتكون الظلال والمزولة الشمسية", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_4_Properties_of_Light.html"}, {"title": "الفصل 5: Properties of Sound", "ar": "خصائص الصوت والاهتزاز وانتقاله وهاتف الخيط", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_5_Properties_of_Sound.html"}, {"title": "الفصل 6: The Force of Wind", "ar": "قوة الرياح وحركة القوارب وتوربينات الطاقة", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_6_The_Force_of_Wind.html"}, {"title": "الفصل 7: The Force of Rubber", "ar": "قوة المطاط وطاقة الحركة والسيارة المطاطية", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_7_The_Force_of_Rubber.html"}, {"title": "الفصل 8: Soil, Water, & Life in Egypt", "ar": "التربة والماء وعبقرية الفراعنة في نقل التماثيل", "file": "ملخصات_Science_الرابع_الابتدائي/Chapter_8_Soil_Water_and_Life_in_Egypt.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي للعلوم (Science Official Book)", "path": "Science_EN_PRIM4_Tr1.pdf"}, {"name": "مذكرة المراجعة النهائية الشاملة وليلة الامتحان (PDF)", "path": "ملخصات_Science_الرابع_الابتدائي/Final_Revision_Science_PRIM4.pdf"}, {"name": "نماذج امتحانات الشهور الرسمية (أكتوبر ونوفمبر) (PDF)", "path": "ملخصات_Science_الرابع_الابتدائي/Monthly_Exams_Science_PRIM4.pdf"}, {"name": "نماذج امتحانات نهاية الترم والمحافظات بالإجابات (PDF)", "path": "ملخصات_Science_الرابع_الابتدائي/Final_Term_Exams_Science_PRIM4.pdf"}]}, "math4": {"grade": "g4", "gradeName": "الصف الرابع الابتدائي", "name": "الرياضيات (Math) - الصف الرابع", "shortName": "الرياضيات (Math)", "icon": "🔢", "badge": "8 وحدات • خوارزميات واستراتيجيات", "color": "#2563eb", "bgLight": "#eff6ff", "desc": "القيمة المكانية حتى المليارات، خواص واستراتيجيات الجمع والطرح، وحدات القياس، المساحة والمحيط، مقارنات الضرب، العوامل والمضاعفات، خوارزميات القسمة، وترتيب العمليات.", "guideFile": "دليل_الرياضيات_الرابع.html", "hubFile": "ملخصات_Math_الرابع_الابتدائي/Index.html", "monthlyFile": "ملخصات_Math_الرابع_الابتدائي/Monthly_Exams_Math_PRIM4.html", "finalTermFile": "ملخصات_Math_الرابع_الابتدائي/Final_Term_Exams_Math_PRIM4.html", "finalRevFile": "ملخصات_Math_الرابع_الابتدائي/Final_Revision_Math_PRIM4.html", "has3D": false, "units": [{"title": "الوحدة 1: Place Value", "ar": "القيمة المكانية والأعداد الكبيرة والصيغ العددية", "file": "ملخصات_Math_الرابع_الابتدائي/Unit1_PlaceValue.html"}, {"title": "الوحدة 2: Addition & Subtraction", "ar": "استراتيجيات الجمع والطرح والتقريب والخواص", "file": "ملخصات_Math_الرابع_الابتدائي/Unit2_Addition_Subtraction_Strategies.html"}, {"title": "الوحدة 3: Concepts of Measurement", "ar": "مفاهيم القياس (الطول، الكتلة، السعة، الوقت)", "file": "ملخصات_Math_الرابع_الابتدائي/Unit3_Concepts_of_Measurement.html"}, {"title": "الوحدة 4: Area and Perimeter", "ar": "المساحة والمحيط للمربع والمستطيل والأشكال المركبة", "file": "ملخصات_Math_الرابع_الابتدائي/Unit4_Area_and_Perimeter.html"}, {"title": "الوحدة 5: Multiplication Comparisons", "ar": "مقارنات الضرب وخواص الإبدال والدمج والتوزيع", "file": "ملخصات_Math_الرابع_الابتدائي/Unit5_Multiplication_Comparisons.html"}, {"title": "الوحدة 6: Factors and Multiples", "ar": "العوامل والمضاعفات والأعداد الأولية وع.م.أ", "file": "ملخصات_Math_الرابع_الابتدائي/Unit6_Factors_and_Multiples.html"}, {"title": "الوحدة 7: Algorithms", "ar": "خوارزميات الضرب ونموذج مساحة المستطيل والقسمة المطولة", "file": "ملخصات_Math_الرابع_الابتدائي/Unit7_Multiplication_Division_Algorithms.html"}, {"title": "الوحدة 8: Order of Operations", "ar": "ترتيب العمليات الحسابية وحل المسائل متعددة الخطوات", "file": "ملخصات_Math_الرابع_الابتدائي/Unit8_Order_of_Operations.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي للرياضيات (Math P4 T1)", "path": "Math_EN_P4_T1.pdf"}, {"name": "مذكرة المراجعة النهائية للرياضيات (PDF)", "path": "ملخصات_Math_الرابع_الابتدائي/Final_Revision_Math_PRIM4.pdf"}, {"name": "نماذج امتحانات نهاية الفصل الدراسي (المحافظات) (PDF)", "path": "ملخصات_Math_الرابع_الابتدائي/Final_Term_Exams_Math_PRIM4.pdf"}]}, "english4": {"grade": "g4", "gradeName": "الصف الرابع الابتدائي", "name": "اللغة الإنجليزية (Connect 4)", "shortName": "اللغة الإنجليزية (Connect 4)", "icon": "🇬🇧", "badge": "6 وحدات • نصوص وقواعد وفونكس", "color": "#0891b2", "bgLight": "#ecfeff", "desc": "I feel good, Desert animals, Why are plants green, Where do you live, Where do you work, What do you do مع شروحات القواعد والمحادثات والصوتيات.", "guideFile": "دليل_الانجليزي_الرابع.html", "hubFile": "ملخصات_English_الرابع_الابتدائي/Index.html", "monthlyFile": "ملخصات_English_الرابع_الابتدائي/Monthly_Exams_English_PRIM4.html", "finalTermFile": "ملخصات_English_الرابع_الابتدائي/Final_Term_Exams_English_PRIM4.html", "finalRevFile": "ملخصات_English_الرابع_الابتدائي/Final_Revision_English_PRIM4.html", "has3D": false, "units": [{"title": "Unit 1: I Feel Good", "ar": "الجهاز الهضمي والتنفسي والغذاء الصحي بمحافظة دمياط", "file": "ملخصات_English_الرابع_الابتدائي/Unit1_I_Feel_Good.html"}, {"title": "Unit 2: Desert Animals", "ar": "حيوانات الصحراء (الجمل، الفينك، النسر السهبي، غزال الريم)", "file": "ملخصات_English_الرابع_الابتدائي/Unit2_Desert_Animals.html"}, {"title": "Unit 3: Why Are Plants Green?", "ar": "دورة حياة النباتات والزراعة في مصر وأشجار السنط واللوتس", "file": "ملخصات_English_الرابع_الابتدائي/Unit3_Why_Are_Plants_Green.html"}, {"title": "Unit 4: Where Do You Live?", "ar": "غرف المنزل وأنواع المساكن (شقة، منزل عائم، خيمة بدوية)", "file": "ملخصات_English_الرابع_الابتدائي/Unit4_Where_Do_You_Live.html"}, {"title": "Unit 5: Where Do You Work?", "ar": "الوظائف والمهن الحيوية (الكهربائي، السباك، ساعي البريد)", "file": "ملخصات_English_الرابع_الابتدائي/Unit5_Where_Do_You_Work.html"}, {"title": "Unit 6: What Do You Do?", "ar": "الصناعات المصرية (الصيد، الزراعة، السياحة، والتعدين)", "file": "ملخصات_English_الرابع_الابتدائي/Unit6_What_Do_You_Do.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي Connect 4 (PDF)", "path": "English_language_prim4_t1.pdf"}, {"name": "مذكرة المراجعة الشاملة لجميع الوحدات (PDF)", "path": "ملخصات_English_الرابع_الابتدائي/Final_Revision_English_PRIM4.pdf"}]}, "ict4": {"grade": "g4", "gradeName": "الصف الرابع الابتدائي", "name": "تكنولوجيا المعلومات والاتصالات (ICT)", "shortName": "تكنولوجيا المعلومات (ICT)", "icon": "💻", "badge": "6 وحدات • الاستكشاف والأمان الرقمي", "color": "#0284c7", "bgLight": "#f0f9ff", "desc": "أدوات الاستكشاف الرقمي (الرادار ومقياس المغناطيسية وGPS)، مكونات الكمبيوتر ووحدة المعالجة المركزية، التكنولوجيا المساعدة، حل مشكلات البرمجيات، والأمان الرقمي والمواطنة الصالحة.", "guideFile": "دليل_ICT_الرابع.html", "hubFile": "ملخصات_ICT_الرابع_الابتدائي/Index.html", "monthlyFile": "ملخصات_ICT_الرابع_الابتدائي/Monthly_Exams_ICT_PRIM4.html", "finalTermFile": "ملخصات_ICT_الرابع_الابتدائي/Final_Term_Exams_ICT_PRIM4.html", "finalRevFile": "ملخصات_ICT_الرابع_الابتدائي/Final_Revision_ICT_PRIM4.html", "has3D": false, "units": [{"title": "المحور 1 - الدرس 1: Exploration Hardware", "ar": "أدوات المستكشف ألبرت لين (GPR, Magnetometer, GPS)", "file": "ملخصات_ICT_الرابع_الابتدائي/Module1_Exploration_Hardware.html"}, {"title": "المحور 1 - الدرس 2: OS & Assistive Tech", "ar": "أنظمة التشغيل والتكنولوجيا المساعدة لبروفيسور ستيفن هوكينج", "file": "ملخصات_ICT_الرابع_الابتدائي/Module2_OS_AssistiveTech.html"}, {"title": "المحور 1 - الدرس 3: Tech Problems & Analysis", "ar": "حل المشكلات الشائعة وجمع وتحليل البيانات ورسم الأعمدة", "file": "ملخصات_ICT_الرابع_الابتدائي/Module3_TechProblems_DataAnalysis.html"}, {"title": "المحور 2 - الدرس 1: Internet Risks & Ethics", "ar": "مخاطر الإنترنت والتنمر الإلكتروني وحماية كلمة المرور", "file": "ملخصات_ICT_الرابع_الابتدائي/Module4_InternetRisks_Ethics.html"}, {"title": "المحور 2 - الدرس 2: Advanced Search & Security", "ar": "البحث المتقدم وبنك المعرفة المصري EKB وحماية البيانات", "file": "ملخصات_ICT_الرابع_الابتدائي/Module5_AdvancedSearch_CyberSecurity.html"}, {"title": "المحور 2 - الدرس 3: Projects & Revision", "ar": "المشروعات التطبيقية والمراجعة التراكمية الشاملة", "file": "ملخصات_ICT_الرابع_الابتدائي/Module6_ComprehensiveReview_Projects.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي لتكنولوجيا المعلومات ICT (PDF)", "path": "ICT_ARABIC_Prim4_TR1.pdf"}, {"name": "مذكرة المراجعة النهائية الشاملة لـ ICT (PDF)", "path": "ملخصات_ICT_الرابع_الابتدائي/Final_Revision_ICT_PRIM4.pdf"}]}, "arabic4": {"grade": "g4", "gradeName": "الصف الرابع الابتدائي", "name": "اللغة العربية - الصف الرابع", "shortName": "اللغة العربية", "icon": "📖", "badge": "4 وحدات + محورين • النحو والتعبير", "color": "#8b5cf6", "bgLight": "#f5f3ff", "desc": "نصوص الاستماع والقراءة (مجدي يعقوب، موطني، مريم ومريم، قطرة ماء)، القواعد النحوية (أقسام الكلمة، الجملة الاسمية والفعلية، علامات الرفع)، والتعبير الكتابي.", "guideFile": "دليل_العربي_الرابع.html", "hubFile": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Index.html", "monthlyFile": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Monthly_Exams_Arabic_PRIM4.html", "finalTermFile": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Final_Term_Exams_Arabic_PRIM4.html", "finalRevFile": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Final_Revision_Arabic_PRIM4.html", "has3D": false, "units": [{"title": "الوحدة 1: وطني (نص مجدي يعقوب وموطني)", "ar": "قواعد النحو: أقسام الكلمة وعلامات الاسم والمفرد والجمع", "file": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Unit1_Watani.html"}, {"title": "الوحدة 2: فكري وأعمالي (مريم ومريم)", "ar": "قواعد النحو: الجملة الاسمية وركناها وعلامات رفع المبتدأ والخبر", "file": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Unit2_Fekri_Amali.html"}, {"title": "الوحدة 3: حقوق الطفل (قطرة ماء ورسالة معلمي)", "ar": "قواعد النحو: الجملة الفعلية وركناها وعلامات رفع الفاعل", "file": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Unit3_Child_Rights.html"}, {"title": "الوحدة 4: المجتمع وإعادة التدوير", "ar": "قواعد النحو: شبه الجملة وظرف الزمان والمكان والتعبير الكتابي", "file": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Unit4_Community_Recycling.html"}, {"title": "المحور 1 الشامل: اكتشف ذاتي", "ar": "ملخص المحور الأول كاملاً بالقراءة والنحو والتعبير", "file": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Theme1_Discover_Myself.html"}, {"title": "المحور 2 الشامل: علاقتي مع الآخرين", "ar": "ملخص المحور الثاني كاملاً بالأنشطة والتطبيقات", "file": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Theme2_Relationship_Others.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي للغة العربية (PDF)", "path": "Arabic_language_prim4_t1.pdf"}, {"name": "مذكرة المراجعة النهائية وامتحانات المحافظات (PDF)", "path": "ملخصات_اللغة_العربية_الرابع_الابتدائي/Final_Revision_Arabic_PRIM4.pdf"}]}, "social4": {"grade": "g4", "gradeName": "الصف الرابع الابتدائي", "name": "الدراسات الاجتماعية - الصف الرابع", "shortName": "الدراسات الاجتماعية", "icon": "🌍", "badge": "3 وحدات • 8 أجزاء جغرافيا وتاريخ", "color": "#f59e0b", "bgLight": "#fffbeb", "desc": "أدوات تحديد المواقع والخرائط، موقع مصر الاستراتيجي وقناة السويس، محافظات مصر وعلمها، مظاهر السطح والبيئات المصرية (زراعية، صحراوية، ساحلية)، والموارد الطبيعية والحرف التراثية.", "guideFile": "دليل_الدراسات_الرابع.html", "hubFile": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Index.html", "monthlyFile": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Monthly_Exams_Social_Studies_PRIM4.html", "finalTermFile": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Final_Term_Exams_Social_Studies_PRIM4.html", "finalRevFile": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Final_Revision_Social_Studies_PRIM4.html", "has3D": false, "units": [{"title": "الوحدة 1 - الجزء 1: أدوات تحديد المواقع", "ar": "عناصر الخريطة ووردة البوصلة ومقياس الرسم وخطوط الطول", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit1_Part1_Directions_Map.html"}, {"title": "الوحدة 1 - الجزء 2: المصادر وتطور الخريطة", "ar": "المصادر الأولية والثانوية والفرق بين الحقيقة والرأي", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit1_Part2_MapDev_Sources.html"}, {"title": "الوحدة 2 - الجزء 1: مدينتنا وتطورها التاريخي", "ar": "موقع مصر كقلب للعالم القديم وتأثير قناة السويس", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit2_Part1_OurCity_Evolution.html"}, {"title": "الوحدة 2 - الجزء 2: الخدمات ومدن المستقبل", "ar": "المبادرات القومية (حياة كريمة) والعاصمة الإدارية", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit2_Part2_Services_FutureCities.html"}, {"title": "الوحدة 2 - الجزء 3: محافظتي وعلم مصر", "ar": "محافظات الوجه البحري والقبلي والحدود وألوان علم مصر", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit2_Part3_MyGovernorate.html"}, {"title": "الوحدة 3 - الجزء 1: علم مصر والعالم", "ar": "موقع مصر على خريطة العالم وقارات العالم القديم والحديث", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit3_Part1_EgyptFlag_WorldMap.html"}, {"title": "الوحدة 3 - الجزء 2: مظاهر سطح مصر والطقس", "ar": "الجبال والسهول والمنخفضات وأدوات قياس الطقس والمناخ", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit3_Part2_Egypt_Landforms.html"}, {"title": "الوحدة 3 - الجزء 3: الموارد الطبيعية والتراث", "ar": "الحرف التراثية (الفخار والخيامية) وشخصية جمال حمدان وطلعت حرب", "file": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Unit3_Part3_Resources_Monuments.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي للدراسات الاجتماعية (PDF)", "path": "Social_studies_prim4_t1.pdf"}, {"name": "مذكرة المراجعة الشاملة وخرائط المنهج (PDF)", "path": "ملخصات_الدراسات_الاجتماعية_الرابع_الابتدائي/Final_Revision_Social_Studies_PRIM4.pdf"}]}, "islamic4": {"grade": "g4", "gradeName": "الصف الرابع الابتدائي", "name": "التربية الدينية الإسلامية - الصف الرابع", "shortName": "التربية الإسلامية", "icon": "🕌", "badge": "4 وحدات + محورين • عقيدة وسيرة وعبادات", "color": "#16a34a", "bgLight": "#f0fdf4", "desc": "الإيمان بالله وملائكته والكتب السماوية، قصة خلق آدم عليه السلام، قصة نبي الله هود مع قوم عاد، قصة إبراهيم وإسماعيل وبناء الكعبة، أحكام الطهارة وسنن وفرائض الوضوء، فضل الصلاة، وسورة التين وسورة البلد.", "guideFile": "دليل_الاسلامية_الرابع.html", "hubFile": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Index.html", "monthlyFile": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Monthly_Exams_Islamic_PRIM4.html", "finalTermFile": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Final_Term_Exams_Islamic_PRIM4.html", "finalRevFile": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Final_Revision_Islamic_PRIM4.html", "has3D": false, "units": [{"title": "الوحدة 1: العقيدة وبديع صنع الله", "ar": "الإيمان بالكتب السماوية وتكريم الإنسان بالعقل والحواس", "file": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Unit1_Aqeedah_Creation.html"}, {"title": "الوحدة 2: السيرة النبوية وبناء الكعبة", "ar": "قصة نبي الله هود وقوم عاد، وإبراهيم وإسماعيل وبناء الكعبة", "file": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Unit2_Seerah_Hood_Kaaba.html"}, {"title": "الوحدة 3: فقه العبادات (الطهارة والصلاة)", "ar": "فرائض وسنن الوضوء ومبطلاته، فضل الصلاة وآداب المسجد", "file": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Unit3_Ibadat_Taharah_Salah.html"}, {"title": "الوحدة 4: سور القرآن الكريم والزكاة", "ar": "شرح سورة البلد وسورة الكهف وأهمية الزكاة والصدقة", "file": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Unit4_Balad_Kahf_Zakat.html"}, {"title": "المحور 1 الشامل: العقيدة والعبادات", "ar": "ملخص المحور الأول كاملاً مع تطبيقات وأدعية وتفسير", "file": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Theme1_Aqeedah_Seerah_Ibadat.html"}, {"title": "المحور 2 الشامل: مجتمعي وأخلاقي", "ar": "ملخص المحور الثاني كاملاً والتعاون وصلة الرحم", "file": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Theme2_My_Community.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي للتربية الدينية الإسلامية (PDF)", "path": "Islamic_religion_prim4_t1.pdf"}, {"name": "مذكرة المراجعة الشاملة والقرآن الكريم (PDF)", "path": "ملخصات_التربية_الإسلامية_الرابع_الابتدائي/Final_Revision_Islamic_PRIM4.pdf"}]}, "math2": {"grade": "g2", "gradeName": "الصف الثاني الابتدائي", "name": "رياضيات وماث (Math 2) - الصف الثاني", "shortName": "الرياضيات (Math 2)", "icon": "🔢", "badge": "9 فصول معتمدة ومطابقة للفهرس الرسمي", "color": "#3b82f6", "bgLight": "#eff6ff", "desc": "الرسوم البيانية بالأعمدة، الجمع الرأسي، الطرح الرأسي، الوقت والفترات الزمنية، وحدات قياس الطول، الأعداد الأكبر من 100، وحدات السعة، الجمع والطرح بإعادة التسمية، والحساب الذهني.", "guideFile": "دليل_الرياضيات_الثاني.html", "hubFile": "ملخصات_Math_الثاني_الابتدائي/Index.html", "monthlyFile": "ملخصات_Math_الثاني_الابتدائي/Monthly_Exams_Math_PRIM2.html", "finalTermFile": "ملخصات_Math_الثاني_الابتدائي/Final_Term_Exams_Math_PRIM2.html", "finalRevFile": "ملخصات_Math_الثاني_الابتدائي/Final_Revision_Math_PRIM2.html", "has3D": false, "units": [{"title": "Chapter 1: Graphs and Charts", "ar": "تمثيل البيانات والرسوم البيانية والمدرج التكراري وجدول الإشارات", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter1_Graphs_and_Charts.html"}, {"title": "Chapter 2: Vertical Addition", "ar": "الجمع الرأسي واستراتيجيات خط الأعداد والمضاعفات وتكوين 10", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter2_Vertical_Addition.html"}, {"title": "Chapter 3: Vertical Subtraction", "ar": "الطرح الرأسي وعائلات الحقائق والعد التنازلي والمسائل اللفظية", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter3_Vertical_Subtraction.html"}, {"title": "Chapter 4: Time and Duration", "ar": "قراءة الساعة ذات العقارب والرقمية وحساب الفترات الزمنية", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter4_Time_and_Duration.html"}, {"title": "Chapter 5: Units of Length", "ar": "وحدات قياس الطول (المتر m والسنتيمتر cm والمليمتر mm)", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter5_Units_of_Length.html"}, {"title": "Chapter 6: Numbers Bigger than 100", "ar": "الأعداد الأكبر من 100 والقيمة المكانية والمقارنة والترتيب", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter6_Numbers_Bigger_than_100.html"}, {"title": "Chapter 7: Units of Capacity", "ar": "وحدات السعة (اللتر L والديسيلتر dL والمليلتر mL) والتحويلات", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter7_Units_of_Capacity.html"}, {"title": "Chapter 8: Vertical Addition & Subtraction", "ar": "الجمع والطرح الرأسي بإعادة التسمية والمسائل الحياتية", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter8_Vertical_Addition_and_Subtraction.html"}, {"title": "Chapter 9: Mental Math Strategies", "ar": "استراتيجيات الحساب الذهني وخاصية الدمج وتفكيك الأعداد", "file": "ملخصات_Math_الثاني_الابتدائي/Chapter9_Mental_Math_Strategies.html"}], "pdfs": [{"name": "مذكرة المراجعة النهائية الشاملة لماث تانية (PDF)", "path": "ملخصات_Math_الثاني_الابتدائي/Final_Revision_Math_PRIM2.pdf"}, {"name": "نماذج امتحانات الشهور الرسمية (PDF)", "path": "ملخصات_Math_الثاني_الابتدائي/Monthly_Exams_Math_PRIM2.pdf"}, {"name": "نماذج امتحانات نهاية الفصل الدراسي (المحافظات) (PDF)", "path": "ملخصات_Math_الثاني_الابتدائي/Final_Term_Exams_Math_PRIM2.pdf"}]}, "english2": {"grade": "g2", "gradeName": "الصف الثاني الابتدائي", "name": "اللغة الإنجليزية (Connect 2) - الصف الثاني", "shortName": "اللغة الإنجليزية (Connect 2)", "icon": "🇬🇧", "badge": "6 وحدات Connect 2 معتمدة ومطابقة للفهرس", "color": "#0891b2", "bgLight": "#ecfeff", "desc": "Meet my family, My body, Off to school, Time to play, My day, Let's go shopping مع الشرح المصور ثلاثي الأقسام، الفونكس، ونماذج الإجابة.", "guideFile": "دليل_الانجليزي_الثاني.html", "hubFile": "ملخصات_English_الثاني_الابتدائي/Index.html", "monthlyFile": "ملخصات_English_الثاني_الابتدائي/Monthly_Exams_English_PRIM2.html", "finalTermFile": "ملخصات_English_الثاني_الابتدائي/Final_Term_Exams_English_PRIM2.html", "finalRevFile": "ملخصات_English_الثاني_الابتدائي/Final_Revision_English_PRIM2.html", "has3D": false, "units": [{"title": "Unit 1: Meet My Family", "ar": "أفراد العائلة والتحيات اليومية وقواعد This is / These are", "file": "ملخصات_English_الثاني_الابتدائي/Unit1_Meet_My_Family.html"}, {"title": "Unit 2: My Body", "ar": "أجزاء الجسم والحواس الخمس وفعل الملكية I have / He has", "file": "ملخصات_English_الثاني_الابتدائي/Unit2_My_Body.html"}, {"title": "Unit 3: Off To School", "ar": "الأدوات المدرسية والملابس وأسماء الإشارة للجمع", "file": "ملخصات_English_الثاني_الابتدائي/Unit3_Off_To_School.html"}, {"title": "Unit 4: Time To Play", "ar": "الرياضة والأنشطة والأفعال الحركية وأسلوب can / can't", "file": "ملخصات_English_الثاني_الابتدائي/Unit4_Time_To_Play.html"}, {"title": "Unit 5: My Day", "ar": "الروتين اليومي وقراءة الوقت وأجزاء اليوم", "file": "ملخصات_English_الثاني_الابتدائي/Unit5_My_Day.html"}, {"title": "Unit 6: Let's Go Shopping", "ar": "التسوق في السوق والملابس والأسعار How much is / are", "file": "ملخصات_English_الثاني_الابتدائي/Unit6_Lets_Go_Shopping.html"}, {"title": "Playbook 1: Units 1 to 3", "ar": "ملزمة المراجعة التفاعلية الشاملة للوحدات 1 و 2 و 3 والفونكس", "file": "ملخصات_English_الثاني_الابتدائي/Units1_to_3_Connect2.html"}, {"title": "Playbook 2: Units 4 to 6", "ar": "ملزمة المراجعة التفاعلية الشاملة للوحدات 4 و 5 و 6 والأنشطة", "file": "ملخصات_English_الثاني_الابتدائي/Units4_to_6_Connect2.html"}], "pdfs": [{"name": "مذكرة المراجعة الشاملة لـ Connect 2 (PDF)", "path": "ملخصات_English_الثاني_الابتدائي/Final_Revision_English_PRIM2.pdf"}, {"name": "نماذج امتحانات الشهور الرسمية (PDF)", "path": "ملخصات_English_الثاني_الابتدائي/Monthly_Exams_English_PRIM2.pdf"}, {"name": "امتحانات نهاية الفصل الدراسي بالحلول (PDF)", "path": "ملخصات_English_الثاني_الابتدائي/Final_Term_Exams_English_PRIM2.pdf"}]}, "arabic2": {"grade": "g2", "gradeName": "الصف الثاني الابتدائي", "name": "اللغة العربية - الصف الثاني الابتدائي", "shortName": "اللغة العربية (تاني ابتدائي)", "icon": "📖", "badge": "3 وحدات معتمدة ومطابقة للفهرس الرسمي", "color": "#c026d3", "bgLight": "#fdf4ff", "desc": "الوحدة 1: من أكون؟ (يومي، أسماء الإشارة، الضمائر) • الوحدة 2: طعامي الصحي (الظرف، اللام الشمسية والقمرية، غزال في ورطة) • الوحدة 3: الرياضة والتكنولوجيا (الأمر والنهي، الأسماء الموصولة).", "guideFile": "دليل_العربي_الثاني.html", "hubFile": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Index.html", "monthlyFile": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Monthly_Exams_Arabic_PRIM2.html", "finalTermFile": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Term_Exams_Arabic_PRIM2.html", "finalRevFile": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Revision_Arabic_PRIM2.html", "has3D": false, "units": [{"title": "الوحدة 1: من أكون؟", "ar": "يومي المدرسي، المهارات الحياتية، أسماء الإشارة وضمائر المتكلم والمخاطب", "file": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Unit1_Who_Am_I.html"}, {"title": "الوحدة 2: طعامي الصحي", "ar": "الهرم الغذائي، ظرف الزمان والمكان، اللام الشمسية والقمرية، وقصة غزال في ورطة", "file": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Unit2_My_Healthy_Food.html"}, {"title": "الوحدة 3: الرياضة والتكنولوجيا", "ar": "الرياضة لنا، حسام والكمبيوتر، أسلوب الأمر والنهي، والأسماء الموصولة (الذي والتي)", "file": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Unit3_Sports_and_Technology.html"}, {"title": "المحور 1 الشامل: اكتشف ذاتي", "ar": "ملخص المحور الأول كاملاً وتطبيقات القراءة والأساليب", "file": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Theme1_Who_Am_I.html"}, {"title": "المحور 2 الشامل: العالم من حولي", "ar": "ملخص المحور الثاني كاملاً والمدود والتاء المربوطة والمفتوحة", "file": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Theme2_The_World_Around_Me.html"}], "pdfs": [{"name": "مذكرة المراجعة النهائية لعربي تانية ابتدائي (PDF)", "path": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Revision_Arabic_PRIM2.pdf"}, {"name": "نماذج امتحانات الشهور الرسمية (PDF)", "path": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Monthly_Exams_Arabic_PRIM2.pdf"}, {"name": "امتحانات نهاية الفصل الدراسي مع الإجابات (PDF)", "path": "ملخصات_اللغة_العربية_الثاني_الابتدائي/Final_Term_Exams_Arabic_PRIM2.pdf"}]}, "islamic2": {"grade": "g2", "gradeName": "الصف الثاني الابتدائي", "name": "التربية الدينية الإسلامية - الصف الثاني", "shortName": "التربية الإسلامية", "icon": "🕌", "badge": "3 وحدات معتمدة ومطابقة للفهرس الرسمي", "color": "#16a34a", "bgLight": "#f0fdf4", "desc": "الوحدة 1: التوكل على الله تعالى (السميع، القدر والبينة، الأذان، الوحي، شعيب) • الوحدة 2: من نعم الله تعالى (البصير، التين والعلق، الإقامة، موسى) • الوحدة 3: الشكر لله تعالى (الشكور، الشرح والضحى، صلاة الجماعة، داود).", "guideFile": "دليل_الاسلامية_الثاني.html", "hubFile": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Index.html", "monthlyFile": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Monthly_Exams_Islamic_PRIM2.html", "finalTermFile": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Term_Exams_Islamic_PRIM2.html", "finalRevFile": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Revision_Islamic_PRIM2.html", "has3D": false, "units": [{"title": "الوحدة 1: التوكل على الله تعالى", "ar": "العقيدة (السميع)، القرآن (القدر والبينة)، الأذان، نزول الوحي وشعيب عليه السلام، وخلق التوكل", "file": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Unit1_Tawakkul_Ala_Allah.html"}, {"title": "الوحدة 2: من نعم الله تعالى", "ar": "العقيدة (البصير)، القرآن (التين والعلق)، الإقامة، الدعوة السرية وموسى عليه السلام، وأمانة الجوارح", "file": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Unit2_Min_Niam_Allah.html"}, {"title": "الوحدة 3: الشكر لله تعالى", "ar": "العقيدة (الشكور)، القرآن (الشرح والضحى)، صلاة الجماعة، الدعوة الجهرية وداود عليه السلام، والشكر في السراء والضراء", "file": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Unit3_Ash_Shukr_Lillah.html"}, {"title": "المحور 1 الشامل: العقيدة وسيرة النبي الصغير", "ar": "أركان الإسلام، سورة الفلق والإخلاص، وطفولة النبي وأمانته وخطوات الوضوء", "file": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Theme1_Aqeedah_Seerah.html"}, {"title": "المحور 2 الشامل: الأخلاق وفقه العبادات", "ar": "تعليم الوضوء، آداب التعامل مع الزملاء، وبر الوالدين، وأصحاب الفيل", "file": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Theme2_Ethics_Worship.html"}], "pdfs": [{"name": "مذكرة المراجعة الشاملة للتربية الإسلامية (PDF)", "path": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Revision_Islamic_PRIM2.pdf"}, {"name": "نماذج امتحانات الشهور الرسمية (PDF)", "path": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Monthly_Exams_Islamic_PRIM2.pdf"}, {"name": "امتحانات نهاية الفصل الدراسي مع الإجابات (PDF)", "path": "ملخصات_التربية_الإسلامية_الثاني_الابتدائي/Final_Term_Exams_Islamic_PRIM2.pdf"}]}, "math_kg2": {"grade": "kg2", "gradeName": "رياض الأطفال (KG2)", "name": "ماث وأرقام وأشكال (Math KG2)", "shortName": "ماث وأرقام (Math KG2)", "icon": "🔢", "badge": "الأرقام 1-20 • الأشكال الهندسية", "color": "#d97706", "bgLight": "#fffbeb", "desc": "العد والمطابقة بالصور الكرتونية، الأرقام من 1 إلى 20، تمييز الأشكال الأساسية (دائرة، مربع، مثلث، مستطيل)، الأنماط والألوان، والمقارنة بالأكبر والأصغر والجمع البسيط.", "guideFile": "دليل_الماث_KG2.html", "hubFile": "ملخصات_رياض_الأطفال_KG2/Index.html", "monthlyFile": "ملخصات_رياض_الأطفال_KG2/Monthly_Exams_KG2.html", "finalTermFile": "ملخصات_رياض_الأطفال_KG2/Final_Term_Exams_KG2.html", "finalRevFile": "ملخصات_رياض_الأطفال_KG2/Final_Revision_KG2.html", "has3D": false, "units": [{"title": "Chapter 1: Numbers 1-5, Shapes & Positions", "ar": "العد حتى 5، الأشكال (دائرة ومربع ومثلث)، وتحديد المواقع (فوق/تحت)", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Chapters.html#ch1"}, {"title": "Chapter 2: Numbers 0-5 & Comparing", "ar": "الرقم صفر، الأعداد بالكلمات (One to Five)، وخط الأعداد والمقارنة", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Chapters.html#ch2"}, {"title": "Chapter 3: Numbers 6-10 & Picture Graphs", "ar": "الأرقام 6 إلى 10، التمثيل البياني المصور للفواكه، والعد التصاعدي", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Chapters.html#ch3"}, {"title": "Chapter 4: Sorting & Number Bonds to 5", "ar": "تصنيف الأشياء حسب اللون والحجم، ومكونات الأعداد حتى 5", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Chapters.html#ch4"}, {"title": "Chapter 5: Numbers 11-20 (Teen Numbers)", "ar": "الأرقام من 11 إلى 20، إطار العشرات، والعد بالأصابع والمربعات", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Chapters.html#ch5"}, {"title": "Chapter 6: Measurement, Length & Weight", "ar": "الأطول والأقصر، الأثقل والأخف بالميزان ذي الكفتين، والرسوم المصورة", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Chapters.html#ch6"}, {"title": "Playbook: ألعاب الأرقام والعد التفاعلية", "ar": "بطاقات الأرقام والأشكال من كتاب المعاصر مع النطق الصوتي الفوري", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Numbers_Shapes.html"}], "pdfs": [{"name": "ملزمة الأرقام والأشكال التفاعلية (PDF)", "path": "ملخصات_رياض_الأطفال_KG2/KG2_Math_Numbers_Shapes.pdf"}]}, "english_kg2": {"grade": "kg2", "gradeName": "رياض الأطفال (KG2)", "name": "لغة إنجليزية (Connect KG2) - كتاب المعاصر", "shortName": "إنجليزي (Connect KG2)", "icon": "🇬🇧", "badge": "4 وحدات معتمدة • كتاب المعاصر والوزارة", "color": "#db2777", "bgLight": "#fdf2f8", "desc": "منهج Connect KG2 الرسمي من كتاب المعاصر وكتاب الوزارة: أفعال الحركة، الملابس والألوان، أيام الأسبوع، الروتين اليومي والوجبات، وصوتيات الحروف مع النطق التفاعلي.", "guideFile": "دليل_الانجليزي_KG2.html", "hubFile": "ملخصات_رياض_الأطفال_KG2/Index.html", "monthlyFile": "ملخصات_رياض_الأطفال_KG2/Monthly_Exams_KG2.html", "finalTermFile": "ملخصات_رياض_الأطفال_KG2/Final_Term_Exams_KG2.html", "finalRevFile": "ملخصات_رياض_الأطفال_KG2/Final_Revision_KG2.html", "has3D": false, "units": [{"title": "Unit 1: Little Bodies, Big Moves!", "ar": "أفعال الحركة واللعب (kick, jump, run, throw)، التعبير بالقدرة I can، وصوتيات Jj & Kk", "file": "ملخصات_رياض_الأطفال_KG2/Unit1_Little_Bodies_Big_Moves.html"}, {"title": "Unit 2: Let's Get Dressed!", "ar": "الملابس والألوان، المفرد والجمع This is a / These are، وصوتيات Dd, Mm, Gg من كتاب المعاصر", "file": "ملخصات_رياض_الأطفال_KG2/Unit2_Lets_Get_Dressed.html"}, {"title": "Unit 3: My Week!", "ar": "أيام الأسبوع السبعة من الأحد للسبت، محادثات الوقت What day is it?، وصوتيات Oo, Bb, Ff, Ll", "file": "ملخصات_رياض_الأطفال_KG2/Unit3_My_Week.html"}, {"title": "Unit 4: My Busy Day!", "ar": "الروتين اليومي والوجبات الثلاث وعادات النظافة، وصوتيات Ww, Cc, Rr, Uu من كتاب المعاصر", "file": "ملخصات_رياض_الأطفال_KG2/Unit4_My_Busy_Day.html"}, {"title": "Playbook: الحروف والأصوات A to Z", "ar": "بستان الحروف الأبجدية والفونكس والكلمات الثلاثية CVC بالصوت التفاعلي", "file": "ملخصات_رياض_الأطفال_KG2/KG2_English_Phonics_Alphabet.html"}], "pdfs": [{"name": "كتاب المعاصر كونكت كى جى 2 ترم 1 (PDF)", "path": "المعاصر_لغة_انجليزية_كي_جي_2_ترم_1_ذاكرولي.pdf"}, {"name": "كتاب الوزارة الرسمي Connect KG2 (PDF)", "path": "English_language_kg2_t1.pdf"}, {"name": "ملزمة الفونكس والحروف الإنجليزية التفاعلية (PDF)", "path": "ملخصات_رياض_الأطفال_KG2/KG2_English_Phonics_Alphabet.pdf"}]}, "arabic_kg2": {"grade": "kg2", "gradeName": "رياض الأطفال (KG2)", "name": "لغة عربية (تواصل KG2) - كتاب الوزارة", "shortName": "لغة عربية (تواصل KG2)", "icon": "📖", "badge": "3 وحدات وزارية معتمدة • قصص وحروف", "color": "#059669", "bgLight": "#f0fdf4", "desc": "منهج تواصل لرياض الأطفال 2.0 من كتاب الوزارة الرسمي: قصص الاستماع (الوجبة المفضلة لهند، أدواتي وألعابي، رحلة سلمى)، الحروف الهجائية بالحركات ومواضعها، دمج الكلمات، الأناشيد، وحروف الرفس.", "guideFile": "دليل_العربي_KG2.html", "hubFile": "ملخصات_رياض_الأطفال_KG2/Index.html", "monthlyFile": "ملخصات_رياض_الأطفال_KG2/Monthly_Exams_KG2.html", "finalTermFile": "ملخصات_رياض_الأطفال_KG2/Final_Term_Exams_KG2.html", "finalRevFile": "ملخصات_رياض_الأطفال_KG2/Final_Revision_KG2.html", "has3D": false, "units": [{"title": "الوحدة 1: غذائي (الأطعمة وآداب الطعام)", "ar": "قصة الوجبة المفضلة لهند، الفواكه والخضار والألبان، الحروف (أ، ب، م، ح، ج، د)، ونشيد أطعمتي", "file": "ملخصات_رياض_الأطفال_KG2/Arabic_KG2_Unit1_Food.html"}, {"title": "الوحدة 2: أدواتي وألعابي", "ar": "قصة أدواتي وألعابي، أدوات المائدة والمدرسة والنظافة، الحروف (خ، ت، ل، س، ن، ر)، ونشيد أدواتي", "file": "ملخصات_رياض_الأطفال_KG2/Arabic_KG2_Unit2_Tools_Toys.html"}, {"title": "الوحدة 3: وسائل المواصلات", "ar": "قصة رحلة سلمى إلى الروضة، إشارات المرور، الحروف (ف، ك، ق، ي، ع)، حروف الرفس، ونشيد رحلة المساء", "file": "ملخصات_رياض_الأطفال_KG2/Arabic_KG2_Unit3_Transportation.html"}, {"title": "مسرح الحروف الهجائية الناطقة", "ar": "ملزمة الحروف بالحركات وأشكال الحروف وتدريبات التهجئة بالصور والصوتيات", "file": "ملخصات_رياض_الأطفال_KG2/KG2_Arabic_Letters_Playbook.html"}], "pdfs": [{"name": "كتاب الوزارة الرسمي لرياض الأطفال - تواصل (PDF)", "path": "Arabic_langugae_kg2_t1.pdf"}, {"name": "ملزمة الحروف والكلمات العربية المصورة (PDF)", "path": "ملخصات_رياض_الأطفال_KG2/KG2_Arabic_Letters_Playbook.pdf"}]}};
+
+    const gradeData = {
+        kg2: {
+            title: "منظومة رياض الأطفال (KG2) • مرحلة التأسيس والمرح",
+            desc: "بيئة تعليمية محببة تمزج بين الأصوات اللطيفة، الأشكال الهندسية، والأرقام بالصور المرحة لغرس حب التعلم مبكراً مع نموذج إجابة لكل تمرين.",
+            crumb: "رياض الأطفال (KG2)"
+        },
+        g2: {
+            title: "منظومة الصف الثاني الابتدائي • التأسيس المنهجي",
+            desc: "الرياضيات بالأعمدة البيانية والقيمة المكانية، واللغة الإنجليزية بالتواصل اليومي، واللغة العربية بالقواعد والأساليب المبسطة مع نماذج الحل.",
+            crumb: "الصف الثاني الابتدائي"
+        },
+        g4: {
+            title: "منظومة الصف الرابع الابتدائي • الفصل الدراسي الأول",
+            desc: "جميع المواد السبع منظمة هنا في مكان واحد: اختر المادة لاستعراض فصول المنهج، امتحانات الشهور والترم، المراجعات النهائية، ونماذج الإجابة دون أي تشتت.",
+            crumb: "الصف الرابع الابتدائي"
+        }
+    };
+
+    let currentSubjectKey = null;
+
+    function switchGrade(gradeKey, btn) {
+        document.querySelectorAll('.grade-tab').forEach(b => b.classList.remove('active'));
+        if(btn) btn.classList.add('active');
+        else {
+            const tabs = document.querySelectorAll('.grade-tab');
+            if(gradeKey === 'g4') tabs[0].classList.add('active');
+            if(gradeKey === 'g2') tabs[1].classList.add('active');
+            if(gradeKey === 'kg2') tabs[2].classList.add('active');
+        }
+
+        document.querySelectorAll('.grade-section').forEach(sec => sec.classList.remove('active'));
+        const targetSec = document.getElementById('sec-' + gradeKey);
+        if(targetSec) targetSec.classList.add('active');
+
+        document.getElementById('heroTitle').textContent = gradeData[gradeKey].title;
+        document.getElementById('heroDesc').textContent = gradeData[gradeKey].desc;
+        document.getElementById('crumbGrade').textContent = gradeData[gradeKey].crumb;
+
+        document.getElementById('crumbSubjSep').style.display = 'none';
+        document.getElementById('crumbSubject').style.display = 'none';
+    }
+
+    function openSubjectModal(subjKey) {
+        currentSubjectKey = subjKey;
+        const config = subjectConfigs[subjKey];
+        if(!config) return;
+
+        document.getElementById('mIcon').textContent = config.icon;
+        document.getElementById('mTitle').textContent = config.name;
+        document.getElementById('mSub').textContent = "لوحة التحكم والاستكشاف الشاملة • " + config.gradeName;
+        document.getElementById('tutorIframe').src = config.guideFile;
+
+        // 3D Tab visibility
+        const tab3D = document.getElementById('tabBtn-3d');
+        if(config.has3D) tab3D.style.display = 'flex';
+        else tab3D.style.display = 'none';
+
+        // 1. Populate Units
+        const unitsGrid = document.getElementById('modalUnitsGrid');
+        unitsGrid.innerHTML = '';
+        config.units.forEach(u => {
+            const card = document.createElement('div');
+            card.className = 'unit-item-card';
+            card.innerHTML = `
+                <div>
+                    <span class="unit-card-badge">3 أجزاء: شرح مصور + تدريبات + نموذج إجابة</span>
+                    <div class="unit-card-title">${u.title}</div>
+                    <div class="unit-card-desc">${u.ar}</div>
+                </div>
+                <div style="display: flex; gap: 8px; margin-top: auto;">
+                    <a href="${u.file}" target="_blank" class="btn-open-explorer" style="padding: 8px 14px; font-size: 12.5px; width: 100%;">
+                        <span>📖</span>
+                        <span>فتح الفصل كاملاً بالحل</span>
+                    </a>
+                </div>
+            `;
+            unitsGrid.appendChild(card);
+        });
+
+        // 2. Populate Exams
+        const examsBox = document.getElementById('modalExamsContainer');
+        examsBox.innerHTML = `
+            <div class="exam-hub-card" style="border-right: 5px solid #f59e0b;">
+                <div>
+                    <span style="background: #fef3c7; color: #b45309; font-weight: 800; font-size: 11px; padding: 2px 8px; border-radius: 6px;">اختبارات الشهور الرسمية</span>
+                    <h3 style="font-size: 17px; font-weight: 900; color: #0f172a; margin: 4px 0;">نماذج امتحانات شهر أكتوبر ونوفمبر التقييمية</h3>
+                    <p style="font-size: 13px; color: #64748b;">تغطي الأجزاء المقررة للاختبارات الشهرية ومدعمة بنموذج الإجابة النموذجي المفسر.</p>
+                </div>
+                <a href="${config.monthlyFile}" target="_blank" class="btn-open-explorer" style="background: linear-gradient(135deg, #f59e0b, #d97706); box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);">
+                    <span>📝</span>
+                    <span>فتح بنك امتحانات الشهور مع الحل</span>
+                </a>
+            </div>
+
+            <div class="exam-hub-card" style="border-right: 5px solid #10b981;">
+                <div>
+                    <span style="background: #ecfdf5; color: #047857; font-weight: 800; font-size: 11px; padding: 2px 8px; border-radius: 6px;">امتحانات نهاية الترم</span>
+                    <h3 style="font-size: 17px; font-weight: 900; color: #0f172a; margin: 4px 0;">نماذج امتحانات المحافظات ونهاية الفصل الدراسي الأول</h3>
+                    <p style="font-size: 13px; color: #64748b;">امتحانات شاملة للمحافظات (القاهرة، الجيزة، الإسكندرية...) مطابقة لأحدث مواصفات الورقة الامتحانية مع نموذج الإجابة.</p>
+                </div>
+                <a href="${config.finalTermFile}" target="_blank" class="btn-open-explorer" style="background: linear-gradient(135deg, #10b981, #059669); box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);">
+                    <span>🎯</span>
+                    <span>فتح امتحانات المحافظات مع الحل</span>
+                </a>
+            </div>
+        `;
+
+        // 3. Populate Revisions
+        const revBox = document.getElementById('modalRevContainer');
+        revBox.innerHTML = `
+            <div class="exam-hub-card" style="border-right: 5px solid #8b5cf6;">
+                <div>
+                    <span style="background: #f5f3ff; color: #6d28d9; font-weight: 800; font-size: 11px; padding: 2px 8px; border-radius: 6px;">ليلة الامتحان</span>
+                    <h3 style="font-size: 17px; font-weight: 900; color: #0f172a; margin: 4px 0;">المراجعة النهائية الشاملة وبنك المهارات الذهبي</h3>
+                    <p style="font-size: 13px; color: #64748b;">خلاصة المنهج المركزة، أهم الأسئلة المتوقعة التي لا يخرج عنها أي اختبار، مع نموذج الحل النموذجي.</p>
+                </div>
+                <a href="${config.finalRevFile}" target="_blank" class="btn-open-explorer" style="background: linear-gradient(135deg, #8b5cf6, #7c3aed); box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);">
+                    <span>🏆</span>
+                    <span>فتح المراجعة النهائية الكاملة</span>
+                </a>
+            </div>
+        `;
+
+        // 4. Populate PDFs
+        const pdfContainer = document.getElementById('pdfLinksContainer');
+        pdfContainer.innerHTML = '';
+        config.pdfs.forEach(pdf => {
+            const card = document.createElement('div');
+            card.style.cssText = "background: white; border: 1.5px solid #e2e8f0; border-radius: 14px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;";
+            card.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 12px;">
+                    <span style="font-size: 26px;">📄</span>
+                    <div>
+                        <div style="font-weight: 800; font-size: 14.5px; color: #0f172a;">${pdf.name}</div>
+                        <div style="font-size: 12px; color: #64748b;">نسخة جاهزة للطباعة والعرض</div>
+                    </div>
+                </div>
+                <a href="${pdf.path}" target="_blank" style="background: #2563eb; color: white; padding: 7px 18px; border-radius: 10px; text-decoration: none; font-size: 13px; font-weight: 800; display: inline-flex; align-items: center; gap: 6px;">
+                    <span>📥</span>
+                    <span>تحميل / فتح PDF</span>
+                </a>
+            `;
+            pdfContainer.appendChild(card);
+        });
+
+        // Breadcrumbs
+        document.getElementById('crumbSubjSep').style.display = 'inline';
+        const subjCrumb = document.getElementById('crumbSubject');
+        subjCrumb.textContent = config.name;
+        subjCrumb.style.display = 'inline';
+
+        // Show Modal
+        document.getElementById('subjectModal').classList.add('open');
+        switchModalTab('units', document.getElementById('tabBtn-units'));
+    }
+
+    function openSubjectModalTab(subjKey, tabKey) {
+        openSubjectModal(subjKey);
+        const tabMap = {
+            units: 'tabBtn-units',
+            monthly: 'tabBtn-monthly',
+            final: 'tabBtn-monthly',
+            rev: 'tabBtn-rev',
+            pdfs: 'tabBtn-pdfs',
+            tutor: 'tabBtn-tutor'
+        };
+        const btnId = tabMap[tabKey] || 'tabBtn-units';
+        switchModalTab(tabKey === 'final' ? 'monthly' : tabKey, document.getElementById(btnId));
+    }
+
+    function closeSubjectModal() {
+        document.getElementById('subjectModal').classList.remove('open');
+        document.getElementById('crumbSubjSep').style.display = 'none';
+        document.getElementById('crumbSubject').style.display = 'none';
+    }
+
+    function switchModalTab(panelId, btn) {
+        document.querySelectorAll('.exp-tab').forEach(b => b.classList.remove('active'));
+        if(btn) btn.classList.add('active');
+
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        const targetPanel = document.getElementById('panel-' + panelId);
+        if(targetPanel) targetPanel.classList.add('active');
+    }
+
+    function handleGlobalSearch() {
+        const q = document.getElementById('globalSearchInput').value.toLowerCase().trim();
+        const cards = document.querySelectorAll('.subj-card');
+        
+        cards.forEach(card => {
+            const name = (card.getAttribute('data-name') || '').toLowerCase();
+            const desc = card.textContent.toLowerCase();
+            if(!q || name.includes(q) || desc.includes(q)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    // URL parameter support
+    const urlParams = new URLSearchParams(window.location.search);
+    const gParam = urlParams.get('grade');
+    if(gParam && gradeData[gParam]) {
+        switchGrade(gParam);
+    }
+    const sParam = urlParams.get('subject');
+    if(sParam && subjectConfigs[sParam]) {
+        openSubjectModal(sParam);
+    }
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

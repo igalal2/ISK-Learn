@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>ملزمة امتحانات الشهور • ICT • الصف الرابع الابتدائي</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #0f172a;
+    background: #f8fafc;
+    line-height: 1.38;
+    font-size: 10.5px;
+    padding: 8px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  .booklet-header {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: white;
+    padding: 12px 16px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .booklet-header h1 { font-size: 19px; font-weight: 900; margin-bottom: 2px; }
+  .booklet-header .subtitle { font-size: 12px; font-weight: 700; opacity: 0.95; }
+  
+  .section-banner {
+    padding: 5px 10px;
+    border-radius: 6px;
+    margin: 6px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 11.5px;
+    break-inside: avoid;
+  }
+  .banner-oct { background: linear-gradient(135deg, #0284c7, #0369a1); }
+  .banner-nov { background: linear-gradient(135deg, #b45309, #d97706); }
+  .banner-ans { background: linear-gradient(135deg, #047857, #059669); }
+  .banner-rev { background: linear-gradient(135deg, #4338ca, #6366f1); }
+
+  .exam-box {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #0284c7;
+    border-radius: 7px;
+    padding: 7px 11px;
+    margin-bottom: 7px;
+    break-inside: avoid;
+  }
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid #e2e8f0;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+  }
+  .exam-title { font-size: 12px; font-weight: 800; color: #0369a1; }
+  .marks-badge { background: #e0f2fe; color: #0369a1; padding: 1px 6px; border-radius: 4px; font-size: 9px; font-weight: 800; }
+
+  .q-item {
+    padding: 3px 0;
+    border-bottom: 1px dashed #f1f5f9;
+    font-size: 10px;
+  }
+  .q-item:last-child { border-bottom: none; }
+
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 9.5px; break-inside: avoid; }
+  th { background: #0284c7; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #0284c7; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+
+  .figure-box {
+    text-align: center;
+    margin: 6px auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 4px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    cursor: zoom-in;
+  }
+  .figure-box .caption {
+    font-size: 9.5px;
+    color: #475569;
+    font-weight: 700;
+    margin-top: 2px;
+  }
+
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin: 5px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 10.5px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس تكنولوجيا المعلومات (ICT)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="booklet-header">
+  <h1>ملزمة امتحانات الشهور الشاملة • ICT</h1>
+  <div class="subtitle">امتحانات شهري أكتوبر ونوفمبر الرسمية • تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي</div>
+  <div style="margin-top: 5px; font-size: 10px; background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 6px; display: inline-block;">
+    🎯 طبقاً لأحدث مواصفات وزارة التربية والتعليم والتقييمات الشهرية المعتمدة (15 درجة للاختبار)
+  </div>
+</div>
+
+<div class="figure-box" style="margin: 8px auto;">
+  <img src="images/ict_exploration_tools.png" alt="Albert Lin Explorer Technology" style="max-height: 190px;">
+  <div class="caption">الشكل: أدوات الاستكشاف الرقمية والتكنولوجيا الحديثة (Digital Exploration Tools)</div>
+</div>
+
+<div class="exam-box" style="border-right-color: #0284c7; padding: 10px; margin-bottom: 6px;">
+  <div class="exam-title" style="color: #0369a1; font-size: 12px;">📋 إرشادات ومواصفات الورقة الامتحانية لشهري أكتوبر ونوفمبر:</div>
+  <ul style="margin-right: 20px; font-size: 10px; line-height: 1.6; color: #334155; font-weight: 600;">
+    <li><b>اختبار شهر أكتوبر (15 درجة):</b> يغطي المحور الأول (الدروس 1 إلى 4: المستكشف النشط، مكونات الكمبيوتر، نظام التشغيل، التكنولوجيا المساعدة).</li>
+    <li><b>اختبار شهر نوفمبر (15 درجة):</b> يغطي المحور الأول (الدروس 5 إلى 8: المشكلات الشائعة، جمع البيانات) والمحور الثاني (مخاطر الإنترنت والمواطنة الرقمية والأمان).</li>
+    <li><b>زمن الاختبار:</b> 45 دقيقة (حصة دراسية واحدة).</li>
+    <li><b>أنماط الأسئلة:</b> المصطلح العلمي، صح وخطأ، اختر من متعدد، وأسئلة حل المشكلات اليومية.</li>
+  </ul>
+</div>
+
+<div class="baladi-box">
+  <div class="baladi-title">💡 نصيحة الماستر لتقفيل درجات الشهر (15 / 15):</div>
+  <p style="font-size: 10px; line-height: 1.5;">مادة الـ ICT سهلة وعملية ومرتبطة بكل جهاز بتستخدمه في حياتك! ركز على فهم وظيفة كل أداة وجهاز، وحل الاختبارات دي بنفسك للتأكد من فهمك الكامل!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-oct">
+  🍂 القسم الأول: اختبارات شهر أكتوبر النموذجية • ICT (15 درجة لكل اختبار)
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر أكتوبر (النموذج الأول) • إدارة الدقي التعليمية</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: اختر الإجابة الصحيحة مما بين القوسين: (6 درجات)</b><br>
+    1- جهاز يستخدمه علماء الآثار لاستكشاف الأجسام المدفونة تحت الأرض بواسطة موجات الرادار هو:<br>
+    ( أ- مقياس المغناطيسية &nbsp;|&nbsp; ب- الرادار المخترق للأرض &nbsp;|&nbsp; جـ- الطابعة &nbsp;|&nbsp; د- شاشة العرض )<br>
+    2- تعتبر .................... من وحدات الإخراج التي تتيح إخراج نصوص مكتوبة على الورق:<br>
+    ( أ- لوحة المفاتيح &nbsp;|&nbsp; ب- الطابعة &nbsp;|&nbsp; جـ- الميكروفون &nbsp;|&nbsp; د- الفأرة )<br>
+    3- يقوم .................... بمعالجة البيانات وإجراء العمليات الحسابية والمنطقية في الكمبيوتر:<br>
+    ( أ- وحدة المعالجة المركزية (CPU) &nbsp;|&nbsp; ب- نظام التشغيل &nbsp;|&nbsp; جـ- مكبر الصوت &nbsp;|&nbsp; د- الشاحن )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: ضع علامة (✓) أو (✗) أمام العبارات الآتية: (5 درجات)</b><br>
+    1- تساعد التكنولوجيا المساعدة (مثل برمجيات تكبير الشاشة) الأشخاص من ذوي الهمم على التعلم والتواصل. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    2- يعتبر نظام التشغيل Windows هو المسؤول عن تشغيل البرامج وتوصيل أوامر المستخدم للـ CPU. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    3- يستخدم نظام تحديد المواقع العالمي (GPS) لاستكشاف المعادن المدفونة تحت باطن الأرض. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: فكر وأجب: (4 درجات)</b><br>
+    • طلب منك صديقك الكفيف نصيحة تمكنه من قراءة المقالات التعليمية على الكمبيوتر، فما الأداة المساعدة التي تنصحه بها؟
+  </div>
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر أكتوبر (النموذج الثاني) • إدارة مصر الجديدة</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: اكتب المصطلح التكنولوجي الدال على العبارات الآتية: (6 درجات)</b><br>
+    1- وسيلة تكنولوجية تساعد فاقدي النطق على تحويل النصوص المكتوبة إلى صوت مسموع: <span style="color:#0284c7;">(............................)</span><br>
+    2- جهاز استشعار يقيس المجال المغناطيسي للعثور على المعادن المدفونة في باطن الأرض: <span style="color:#0284c7;">(............................)</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: أكمل العبارات الآتية بكلمات مناسبة: (5 درجات)</b><br>
+    1- وحدة الإدخال المسؤولة عن إدخال الصور والوثائق الورقية إلى داخل جهاز الكمبيوتر هي ....................<br>
+    2- طريقة برايل الطرفية تحول الحروف المكتوبة على الشاشة إلى رموز .................... يمكن لمسها وقراءتها بالأصابع.
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: وضح باختصار: (4 درجات)</b><br>
+    • مسار كتابة جملة على لوحة المفاتيح حتى تظهر على شاشة الكمبيوتر (دور نظام التشغيل ووحدة المعالجة).
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر أكتوبر (النموذج الثالث) • إدارة المنتزه</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: ضع علامة (✓) أو (✗) أمام العبارات الآتية: (6 درجات)</b><br>
+    1- عالم الآثار ألبرت لين اعتمد على التكنولوجيا المتقدمة لتوفير الجهد واستكشاف المواقع دون حفر عشوائي. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    2- يعتبر الميكروفون من وحدات الإخراج لأنه يخرج الصوت من الكمبيوتر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    3- شاشة اللمس (Touch Screen) تعتبر وحدة إدخال وإخراج في نفس الوقت. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: اختر الإجابة الصحيحة: (5 درجات)</b><br>
+    1- سماعات الأذن الطبية المتقدمة تعتبر مثالاً هاماً على:<br>
+    ( أ- التكنولوجيا المساعدة &nbsp;|&nbsp; ب- وحدات التخزين &nbsp;|&nbsp; جـ- مشكلات البرمجة &nbsp;|&nbsp; د- برامج الرسم )<br>
+    2- عند انقطاع الاتصال بين الفأرة وجهاز الكمبيوتر يجب التأكد أولاً من:<br>
+    ( أ- توصيل كابل الفأرة في مكانه الصحيح &nbsp;|&nbsp; ب- شراء جهاز كمبيوتر جديد &nbsp;|&nbsp; جـ- حذف الملفات &nbsp;|&nbsp; د- إغلاق الشاشة )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: بم تفسر: (4 درجات)</b><br>
+    • أهمية التكنولوجيا المساعدة في حياة الأشخاص من ذوي الهمم.
+  </div>
+</div>
+
+<div class="section-banner banner-nov">
+  🍁 القسم الثاني: اختبارات شهر نوفمبر النموذجية • ICT (15 درجة لكل اختبار)
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر نوفمبر (النموذج الأول) • إدارة شرق مدينة نصر</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: اختر الإجابة الصحيحة مما بين القوسين: (6 درجات)</b><br>
+    1- نستخدم برنامج .................... لإنشاء الجداول الحسابية والرسوم البيانية بالأعمدة بسهولة:<br>
+    ( أ- Excel &nbsp;|&nbsp; ب- Word &nbsp;|&nbsp; جـ- Paint &nbsp;|&nbsp; د- Zoom )<br>
+    2- تصرف عدواني وسلوك مزعج متكرر من شخص موجه لشخص آخر عبر وسائل التواصل الاجتماعي يسمى:<br>
+    ( أ- التنمر الإلكتروني &nbsp;|&nbsp; ب- المواطنة الرقمية &nbsp;|&nbsp; جـ- الأمن السيبراني &nbsp;|&nbsp; د- المعالجة )<br>
+    3- لتضييق نطاق البحث على الإنترنت وحصره في جملة دقيقة ومطابقة تماماً نضع الكلمات بين:<br>
+    ( أ- علامتي تنصيص (" ") &nbsp;|&nbsp; ب- علامة الزائد (+) &nbsp;|&nbsp; جـ- علامة الناقص (-) &nbsp;|&nbsp; د- النجوم (**) )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: اكتب المصطلح العلمي: (5 درجات)</b><br>
+    1- رسائل إلكترونية غير مرغوب فيها تهدف إلى الإعلانات أو محاولة سرقة بيانات المستخدمين: <span style="color:#0284c7;">(............................)</span><br>
+    2- الرسم البياني الأكثر شيوعاً وسهولة لعرض نتائج استطلاعات الرأي والبيانات: <span style="color:#0284c7;">(............................)</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: فكر وتصرف: (4 درجات)</b><br>
+    • واجهتك مشكلة أثناء العمل على الكمبيوتر وتوقفت الشاشة وتجمدت البرامج فجأة، ما الخطوة الصحيحة التي يجب اتباعها؟
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر نوفمبر (النموذج الثاني) • إدارة الزقازيق</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: ضع علامة (✓) أو (✗) أمام العبارات الآتية: (6 درجات)</b><br>
+    1- يُفضل أن تتكون كلمة المرور القوية من 8 عناصر على الأقل تشمل حروفاً وأرقاماً ورموزاً خاصة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    2- يجب مشاركة بياناتك الشخصية وعنوان منزلك وكلمات مرورك مع أي شخص غريب على الإنترنت. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )<br>
+    3- بنك المعرفة المصري من المصادر الرقمية الآمنة والموثوقة للمعلومات العلمية في مصر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: أكمل الجمل بالكلمات المناسبة: (5 درجات)</b><br>
+    1- لاستبعاد كلمة معينة ومنع ظهورها في نتائج البحث على محرك البحث نستخدم علامة ....................<br>
+    2- بعد جمع البيانات من المصادر الموثوقة يجب .................... وتصنيفها لاستخراج النتائج وعرضها في رسم بياني.
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: ما النتائج المترتبة على: (4 درجات)</b><br>
+    • استخدام كلمة مرور واحدة وسهلة (مثل: 123456) لجميع حساباتك الشخصية على الإنترنت؟
+  </div>
+</div>
+
+<div class="exam-box">
+  <div class="exam-header">
+    <div class="exam-title">اختبار شهر نوفمبر (النموذج الثالث) • إدارة المنصورة</div>
+    <span class="marks-badge">15 درجة • 45 دقيقة</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الأول: اختر الإجابة الصحيحة: (6 درجات)</b><br>
+    1- عندما يقوم شخص مجهول بإرسال رسائل مزعجة أو مضايقتك عبر الإنترنت، يجب عليك أولاً:<br>
+    ( أ- الرد عليه بنفس الأسلوب &nbsp;|&nbsp; ب- حجب الشخص (Block) وإخبار ولي أمرك &nbsp;|&nbsp; جـ- إرسال بياناتك له &nbsp;|&nbsp; د- ترك الكمبيوتر مفتوحاً )<br>
+    2- برنامج معالجة الكلمات الذي نستخدمه لكتابة التقارير والأبحاث وتنسيق النصوص هو:<br>
+    ( أ- Microsoft Word &nbsp;|&nbsp; ب- Excel &nbsp;|&nbsp; جـ- Paint &nbsp;|&nbsp; د- Windows )
+  </div>
+  <div class="q-item">
+    <b>السؤال الثاني: اكتب المصطلح العلمي: (5 درجات)</b><br>
+    1- القدرة على استخدام التكنولوجيا الرقمية بأمان وبطريقة أخلاقية ومسؤولة تحترم حقوق الآخرين: <span style="color:#0284c7;">(............................)</span><br>
+    2- نشر معلومات وبيانات تخص شخصاً آخر على وسائل التواصل الاجتماعي دون إذنه: <span style="color:#0284c7;">(............................)</span>
+  </div>
+  <div class="q-item">
+    <b>السؤال الثالث: اذكر نصيحتين: (4 درجات)</b><br>
+    • للحفاظ على أمان جهازك وحمايته من الفيروسات والمخترقين أثناء تصفح الإنترنت.
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="section-banner banner-ans">
+  ✅ نماذج الإجابات الرسمية وتوزيع الدرجات لشهري أكتوبر ونوفمبر • ICT
+</div>
+
+<div class="exam-box" style="font-size: 9.5px; border-right-color: #10b981;">
+  <div class="exam-title" style="color: #047857; font-size: 11.5px;">🍂 إجابات اختبارات شهر أكتوبر النموذجية:</div>
+  <p><b>النموذج الأول (15 درجة):</b><br>
+  السؤال الأول: 1- الرادار المخترق للأرض (درجتان) | 2- الطابعة (درجتان) | 3- وحدة المعالجة المركزية CPU (درجتان).<br>
+  السؤال الثاني: 1- (✓) صواب (درجة ونصف) | 2- (✓) صواب (درجة ونصف) | 3- (✗) خطأ - الـ GPS لتحديد المواقع فوق الأرض ومقياس المغناطيسية للمعادن المدفونة (درجتان).<br>
+  السؤال الثالث: أنصحه باستخدام برمجيات تكبير الشاشة وطريقة برايل الطرفية (Braille Terminal) وبرمجيات قارئ الشاشة الصوتي (4 درجات).</p>
+
+  <p><b>النموذج الثاني (15 درجة):</b><br>
+  السؤال الأول: 1- مركب الكلام (Speech Synthesizer) (3 درجات) | 2- مقياس المغناطيسية (Magnetometer) (3 درجات).<br>
+  السؤال الثاني: 1- الماسح الضوئي (Scanner) (2.5 درجة) | 2- بارزة (2.5 درجة).<br>
+  السؤال الثالث: تكتب الأحرف عبر لوحة المفاتيح (إدخال) -> ترسل لنظام التشغيل -> ينقلها للـ CPU لمعالجتها -> يعيدها لنظام التشغيل -> يعرضها على الشاشة (إخراج) (4 درجات).</p>
+
+  <p><b>النموذج الثالث (15 درجة):</b><br>
+  السؤال الأول: 1- (✓) صواب (درجتان) | 2- (✗) خطأ - الميكروفون وحدة إدخال للصوت (درجتان) | 3- (✓) صواب (درجتان).<br>
+  السؤال الثاني: 1- التكنولوجيا المساعدة (2.5 درجة) | 2- التأكد من توصيل كابل الفأرة (2.5 درجة).<br>
+  السؤال الثالث: لأنها تساعدهم على ممارسة حياتهم اليومية باستقلالية، والتواصل مع الآخرين والتعلم والعمل دون عوائق (4 درجات).</p>
+</div>
+
+<div class="exam-box" style="font-size: 9.5px; border-right-color: #10b981;">
+  <div class="exam-title" style="color: #047857; font-size: 11.5px;">🍁 إجابات اختبارات شهر نوفمبر النموذجية:</div>
+  <p><b>النموذج الأول (15 درجة):</b><br>
+  السؤال الأول: 1- برنامج Excel (درجتان) | 2- التنمر الإلكتروني (درجتان) | 3- علامتي تنصيص (" ") (درجتان).<br>
+  السؤال الثاني: 1- الرسائل المزعجة (Spam) (2.5 درجة) | 2- الرسم البياني بالأعمدة (Bar Chart) (2.5 درجة).<br>
+  السؤال الثالث: الضغط معاً على مفاتيح (Ctrl + Alt + Del) لفتح مدير المهام وإغلاق التطبيق المتوقف، أو إعادة تشغيل الجهاز (Restart) (4 درجات).</p>
+
+  <p><b>النموذج الثاني (15 درجة):</b><br>
+  السؤال الأول: 1- (✓) صواب (درجتان) | 2- (✗) خطأ - يجب الحفاظ على خصوصية البيانات وعدم مشاركتها مع الغرباء (درجتان) | 3- (✓) صواب (درجتان).<br>
+  السؤال الثاني: 1- علامة الناقص (-) (2.5 درجة) | 2- تحليل البيانات (2.5 درجة).<br>
+  السؤال الثالث: يسهل اختراق جميع حساباتك وسرقة بياناتك الشخصية والتجسس عليها بمجرد معرفة كلمة مرور حساب واحد (4 درجات).</p>
+
+  <p><b>النموذج الثالث (15 درجة):</b><br>
+  السؤال الأول: 1- حجب الشخص (Block) وإخبار ولي أمرك أو معلمك فوراً (3 درجات) | 2- برنامج Microsoft Word (3 درجات).<br>
+  السؤال الثاني: 1- المواطنة الرقمية (2.5 درجة) | 2- انتهاك الخصوصية (Tagging دون إذن) (2.5 درجة).<br>
+  السؤال الثالث: 1) تثبيت برنامج مكافحة فيروسات أصلي وتحديثه بانتظام. 2) عدم النقر على الروابط المجهولة أو تحميل ملفات مشبوهة (4 درجات).</p>
+</div>
+
+</div>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

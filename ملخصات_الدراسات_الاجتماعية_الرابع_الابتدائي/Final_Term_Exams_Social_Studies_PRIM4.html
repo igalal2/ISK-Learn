@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>ملزمة امتحانات نهاية الفصل الدراسي الأول - الدراسات الاجتماعية - الصف الرابع الابتدائي</title>
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #0f172a;
+    background: #fdfbf7;
+    line-height: 1.36;
+    font-size: 10.5px;
+    padding: 8px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 12px 16px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  /* COVER & HEADERS */
+  .booklet-header {
+    background: linear-gradient(135deg, #b45309, #d97706);
+    color: white;
+    padding: 14px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .booklet-header h1 { font-size: 20px; font-weight: 900; margin-bottom: 3px; }
+  .booklet-header .subtitle { font-size: 13px; font-weight: 700; opacity: 0.95; }
+  
+  .exam-header {
+    border: 1.5px solid #d97706;
+    border-radius: 8px;
+    padding: 5px 12px;
+    background: #fffbeb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    break-inside: avoid;
+  }
+  .exam-title { font-size: 12.5px; font-weight: 900; color: #92400e; }
+  .exam-meta { font-size: 10px; font-weight: 700; color: #475569; }
+
+  /* QUESTION BLOCKS */
+  .q-group {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #d97706;
+    border-radius: 6px;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    break-inside: avoid;
+  }
+  .q-title { font-size: 11px; font-weight: 800; color: #b45309; margin-bottom: 3px; display: flex; justify-content: space-between; }
+  .marks-badge { background: #fef3c7; color: #92400e; padding: 1px 6px; border-radius: 4px; font-size: 9px; font-weight: 800; }
+
+  .q-item {
+    padding: 2.5px 0;
+    border-bottom: 1px dashed #e2e8f0;
+    font-size: 10px;
+  }
+  .q-item:last-child { border-bottom: none; }
+
+  /* MAP QUESTION LAYOUT */
+  .map-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .map-img-box {
+    flex: 0 0 165px;
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    padding: 3px;
+  }
+  .map-img-box img {
+    max-width: 100%;
+    max-height: 125px;
+    object-fit: contain;
+    border-radius: 4px;
+    display: block;
+    margin: 0 auto;
+  }
+  .map-questions {
+    flex: 1;
+  }
+
+  /* ANSWERS */
+  .ans-box {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-right: 4px solid #10b981;
+    border-radius: 6px;
+    padding: 5px 9px;
+    margin-bottom: 6px;
+    break-inside: avoid;
+    font-size: 10px;
+  }
+  .ans-title { font-size: 11px; font-weight: 800; color: #065f46; margin-bottom: 2px; display: flex; justify-content: space-between; }
+
+  /* CONCEPT CARDS & BALADI */
+  .concept-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #d97706;
+    border-radius: 7px;
+    padding: 7px 10px;
+    margin-bottom: 6px;
+    break-inside: avoid;
+  }
+  .concept-title { font-size: 11px; font-weight: 800; color: #b45309; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin: 5px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 10.5px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+
+  /* PRINT RULES */
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 8mm 10mm 8mm 10mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس الدراسات الاجتماعية</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="booklet-header">
+  <h1>ملزمة امتحانات نهاية الفصل الدراسي الأول الشاملة</h1>
+  <div class="subtitle">الدراسات الاجتماعية • الصف الرابع الابتدائي • العام الدراسي 2025 / 2026</div>
+  <div style="margin-top: 6px; font-size: 10.5px; font-weight: 700; background: rgba(255,255,255,0.22); padding: 3px 10px; border-radius: 6px; display: inline-block;">
+    🎯 طبقاً للمواصفات الرسمية لوزارة التربية والتعليم متضمنة الخرائط الصماء ونماذج الإجابة والدرجات
+  </div>
+</div>
+
+<div class="figure-box" style="text-align: center; margin: 10px 0;">
+  <img src="images/egypt_topography_landforms.png" alt="غلاف الامتحانات" style="max-height: 200px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); display: inline-block;">
+</div>
+
+<div class="concept-card" style="border-right: 5px solid #d97706; padding: 10px; margin-bottom: 8px;">
+  <div class="concept-title" style="font-size: 12.5px;">📋 إرشادات هامة لأبطال الصف الرابع وأولياء الأمور:</div>
+  <ul style="margin-right: 20px; font-weight: 600; line-height: 1.6; font-size: 10.5px;">
+    <li>تحتوي هذه الملزمة على <b>6 امتحانات محافظات رسمية وشاملة</b> من واقع امتحانات السنوات السابقة والإدارات التعليمية.</li>
+    <li>زمن الإجابة المخصص لكل امتحان: <b>ساعة ونصف</b>، والدرجة الكلية: <b>30 درجة</b>.</li>
+    <li><b>السؤال الأول إجباري</b> دائماً وهو خريطة صماء لجمهورية مصر العربية (8 درجات) لتثبيت المواقع الجغرافية.</li>
+    <li>تتنوع الأسئلة بين: اكتب المصطلح العلمي، صح وخطأ، اختر الإجابة، صوّب، وبما تفسر وما النتائج المترتبة.</li>
+    <li>مرفق في نهاية الملزمة <b>دليل الإجابات النموذجية التفصيلي وتوزيع الدرجات</b> لتقييم الحل فورياً.</li>
+  </ul>
+</div>
+
+<div class="baladi-box" style="padding: 9px; text-align: center;">
+  <div class="baladi-title" style="font-size: 11.5px;">🌟 وصية الأستاذ لتفوق بطل الصف الرابع:</div>
+  <p style="font-size: 10.5px;">الدراسات قصة جميلة مش مجرد حفظ! افهم موقع بلدك العظيم وتاريخه واقرأ أسئلة الخريطة بهدوء، وهتجيب الدرجة النهائية 30/30 بكل سهولة بإذن الله!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الأول: محافظة القاهرة (إدارة مصر الجديدة التعليمية)</div>
+    <div class="exam-meta">مادة الدراسات الاجتماعية • الصف الرابع الابتدائي • الفصل الدراسي الأول</div>
+  </div>
+  <div><span class="marks-badge" style="font-size: 10.5px; padding: 2px 7px;">الدرجة الكلية: 30 درجة</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: (أ) أمامك خريطة صماء لجمهورية مصر العربية، وضح مدلول الأرقام:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر الصماء">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1-</b> البحر: ........................................ (في شمال مصر)</div>
+      <div class="q-item"><b>2-</b> شبه جزيرة: ................................ (أرض الفيروز)</div>
+      <div class="q-item"><b>3-</b> شريان الحياة في مصر ونهر: ........................................</div>
+      <div class="q-item"><b>4-</b> البحر: ........................................ (في شرق مصر)</div>
+      <div class="q-item"><b>5-</b> عاصمة جمهورية مصر العربية: محافظة ..............................</div>
+    </div>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: (أ) اكتب ما تشير إليه العبارات الآتية: (ب) ضع علامة (✓) أو (✗):</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> رسم توضيحي لسطح الأرض أو جزء منه باستخدام مجموعة من الرموز والألوان: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>2-</b> كل ما تم نقشه أو تدوينه من قبل أشخاص عاصروا الحدث في زمن وقوعه: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>3-</b> مساحة واسعة من اليابس تضم عدداً من الدول بداخلها: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>4-</b> ساعد حفر قناة السويس الجديدة على تقليل زمن مرور السفن في القناة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>5-</b> الجبل هو أرض منخفضة مستوية السطح صالحة للزراعة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثالث: اختر الإجابة الصحيحة مما بين القوسين:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> تقع مصر في الركن الشمالي الشرقي من قارة: ( أ- أوروبا &nbsp;|&nbsp; ب- آسيا &nbsp;|&nbsp; جـ- أفريقيا &nbsp;|&nbsp; د- أمريكا )</div>
+  <div class="q-item"><b>2-</b> يدل اللون الأبيض في علم مصر على: ( أ- السلام &nbsp;|&nbsp; ب- دماء الشهداء &nbsp;|&nbsp; جـ- الظلم والاستعمار &nbsp;|&nbsp; د- القوة )</div>
+  <div class="q-item"><b>3-</b> محافظة تقع على ساحل البحر المتوسط وتعتبر العاصمة الصيفية: ( أ- أسوان &nbsp;|&nbsp; ب- الإسكندرية &nbsp;|&nbsp; جـ- الجيزة &nbsp;|&nbsp; د- السويس )</div>
+  <div class="q-item"><b>4-</b> لمعرفة اتجاه الرياح نستخدم جهاز: ( أ- ميزان الحرارة &nbsp;|&nbsp; ب- دوارة الرياح &nbsp;|&nbsp; جـ- مقياس المطر &nbsp;|&nbsp; د- البارومتر )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الرابع: أجب عما يلي (أسئلة مقالية مهارية):</span>
+    <span class="marks-badge">6 درجات</span>
+  </div>
+  <div class="q-item"><b>1- بما تفسر:</b> أهمية موقع مصر الجغرافي المتميز بالنسبة لحركة التجارة العالمية؟</div>
+  <div class="q-item"><b>2- ما النتائج المترتبة على:</b> حفر وافتتاح قناة السويس الجديدة عام 2015؟</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الثاني: محافظة الجيزة (إدارة الدقي التعليمية)</div>
+    <div class="exam-meta">مادة الدراسات الاجتماعية • الصف الرابع الابتدائي • الفصل الدراسي الأول</div>
+  </div>
+  <div><span class="marks-badge" style="font-size: 10.5px; padding: 2px 7px;">الدرجة الكلية: 30 درجة</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: أمامك خريطة صماء لجمهورية مصر العربية، وضح مدلول الأرقام:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر الصماء">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1-</b> خليج: ........................................ (الخليج الغربي)</div>
+      <div class="q-item"><b>2-</b> الصحراء: .................................... (أكبر صحراء في مصر)</div>
+      <div class="q-item"><b>3-</b> بحيرة صناعية عذبة عظمى: بحيرة ..................................</div>
+      <div class="q-item"><b>4-</b> منخفض صحراوي شهير: منخفض ...................................</div>
+      <div class="q-item"><b>5-</b> أعلى قمة جبلية في مصر: جبل ....................................</div>
+    </div>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: (أ) اكتب ما تشير إليه العبارات الآتية: (ب) صوّب ما تحته خط:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> مساحة من اليابس تحيط بها المياه من جميع الجهات: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>2-</b> وصف حالة الجو لفترة زمنية قصيرة (يوم أو أسبوع): <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>3-</b> خطوط تفصل بين المحافظات المختلفة داخل الدولة الواحدة: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>4-</b> يقاس هطول المطر بجهاز <u>الأنيمومتر</u>. &nbsp; (التصويب: ....................)</div>
+  <div class="q-item"><b>5-</b> أنشأت مصر العاصمة الإدارية لتخفيف الضغط عن محافظة <u>الإسكندرية</u>. &nbsp; (التصويب: ....................)</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثالث: ضع علامة (✓) أو علامة (✗) أمام العبارات الآتية:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> تحتفل محافظة القاهرة بعيدها القومي يوم 6 يوليو تخليداً لبناء الجامع الأزهر الشريف. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> تقع هضبة الجلف الكبير في الصحراء الغربية جنوب غرب مصر. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> تساهم الحرف التراثية واليدوية في حماية البيئة وتنشيط السياحة وتوفير فرص عمل. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>4-</b> الرمال السوداء في الصحراء الشرقية تدخل في صناعة الخلايا الشمسية والخزف. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الرابع: أجب عن الأسئلة الآتية:</span>
+    <span class="marks-badge">6 درجات</span>
+  </div>
+  <div class="q-item"><b>1- بما تفسر:</b> اتخاذ محافظة القاهرة جامع الأزهر الشريف وشمس ساطعة شعاراً لها؟</div>
+  <div class="q-item"><b>2- ما مقترحاتك:</b> للمحافظة على الموارد الطبيعية والمياه العذبة من التلوث والإهدار؟</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الثالث: محافظة الإسكندرية (إدارة المنتزه التعليمية)</div>
+    <div class="exam-meta">مادة الدراسات الاجتماعية • الصف الرابع الابتدائي • الفصل الدراسي الأول</div>
+  </div>
+  <div><span class="marks-badge" style="font-size: 10.5px; padding: 2px 7px;">الدرجة الكلية: 30 درجة</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: أمامك خريطة صماء لجمهورية مصر العربية، وضح مدلول الأرقام:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر الصماء">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1-</b> خليج: ........................................ (الخليج الشرقي في سيناء)</div>
+      <div class="q-item"><b>2-</b> بناء هندسي عظيم لحماية مصر من الفيضان والجفاف: .................</div>
+      <div class="q-item"><b>3-</b> هضبة في جنوب غرب مصر: هضبة .................................</div>
+      <div class="q-item"><b>4-</b> الصحراء الغنية بالجبال والمعادن: الصحراء ...........................</div>
+      <div class="q-item"><b>5-</b> ممر ملاحي عالمي يربط بين البحرين الأحمر والمتوسط: ..................</div>
+    </div>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: اختر الإجابة الصحيحة مما بين القوسين:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> أرض مرتفعة ولها قمة ويزيد ارتفاعها عن 1000 متر وجوانبها شديدة الانحدار هي:<br>
+  ( أ- التل &nbsp;|&nbsp; ب- الجبل &nbsp;|&nbsp; جـ- الهضبة &nbsp;|&nbsp; د- السهل )</div>
+  <div class="q-item"><b>2-</b> يرمز النسر الذهبي في وسط علم مصر إلى:<br>
+  ( أ- السلام والمحبة &nbsp;|&nbsp; ب- قوة مصر وحضارتها &nbsp;|&nbsp; جـ- دماء الشهداء &nbsp;|&nbsp; د- فترة الظلم والاستعمار )</div>
+  <div class="q-item"><b>3-</b> يتميز مناخ معظم أراضي جمهورية مصر العربية بأنه مناخ:<br>
+  ( أ- مداري حار &nbsp;|&nbsp; ب- صحراوي حار &nbsp;|&nbsp; جـ- قطبي بارد &nbsp;|&nbsp; د- استوائي ممطر )</div>
+  <div class="q-item"><b>4-</b> تلتقط الصور الفضائية بواسطة الأقمار الصناعية وتتميز بأنها:<br>
+  ( أ- حقيقية ومفصلة &nbsp;|&nbsp; ب- تغطي مساحات شاسعة وتلتقط صوراً أكبر &nbsp;|&nbsp; جـ- تؤخذ بالطائرة &nbsp;|&nbsp; د- غير دقيقة )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثالث: ضع علامة (✓) أو (✗) أمام العبارات الآتية:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> يبلغ عدد محافظات جمهورية مصر العربية 27 محافظة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> تشمل البيئة الساحلية في مصر الأراضي المطلة على بحيرة ناصر فقط. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> تُعد الكتب والموسوعات والأبحاث الحديثة من المصادر الأولية للمعلومات. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>4-</b> تحرص الدولة على توفير المدارس والجامعات كخدمة تعليمية لجميع المواطنين. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الرابع: أجب عما يلي:</span>
+    <span class="marks-badge">6 درجات</span>
+  </div>
+  <div class="q-item"><b>1- قارن بين:</b> الطقس والمناخ من حيث المفهوم والفترة الزمنية.</div>
+  <div class="q-item"><b>2- دلل على صحة العبارة:</b> يقدم بنك مصر والقطاع المصرفي خدمات مالية واقتصادية هامة لمصر.</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الرابع: محافظة الشرقية (إدارة الزقازيق التعليمية)</div>
+    <div class="exam-meta">مادة الدراسات الاجتماعية • الصف الرابع الابتدائي • الفصل الدراسي الأول</div>
+  </div>
+  <div><span class="marks-badge" style="font-size: 10.5px; padding: 2px 7px;">الدرجة الكلية: 30 درجة</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: أمامك خريطة صماء لجمهورية مصر العربية، وضح مدلول الأرقام:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر الصماء">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1-</b> فرع النيل الغربي: فرع ........................................</div>
+      <div class="q-item"><b>2-</b> فرع النيل الشرقي: فرع ........................................</div>
+      <div class="q-item"><b>3-</b> جبل يقع في أقصى جنوب غرب مصر: جبل .........................</div>
+      <div class="q-item"><b>4-</b> دولة شقيقة تحد مصر من جهة الغرب: دولة .........................</div>
+      <div class="q-item"><b>5-</b> منطقة البيئة الزراعية الخصبة في شمال مصر: .......................</div>
+    </div>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: اكتب ما تشير إليه العبارات الآتية:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> النسبة بين المسافة على الخريطة وما يقابلها على الطبيعة: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>2-</b> راية تتخذها المحافظة رمزاً لها لتعبر عن نشاط سكانها أو جزء من تاريخها: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>3-</b> تجمعات هائلة من الرمال الناعمة بفعل الرياح مثل بحر الرمال العظيم: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>4-</b> عالم وجغرافي مصري شهير ألف موسوعة "شخصية مصر": <span style="color:#b45309;">(...............................)</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثالث: (أ) صوّب ما تحته خط: (ب) اختر الإجابة الصحيحة:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> يتكون علم مصر من <u>أربعة</u> ألوان رئيسية. &nbsp; (التصويب: ....................)</div>
+  <div class="q-item"><b>2-</b> تقع محطة الزعفرانة لتوليد الطاقة الكهربائية من الرياح في محافظة <u>الجيزة</u>. &nbsp; (التصويب: ....................)</div>
+  <div class="q-item"><b>3-</b> حرق قش الأرز في البيئة الزراعية يسبب تلوث: ( أ- الماء &nbsp;|&nbsp; ب- الهواء &nbsp;|&nbsp; جـ- التربة &nbsp;|&nbsp; د- الضوضاء )</div>
+  <div class="q-item"><b>4-</b> لحن النشيد الوطني المصري "بلادي بلادي" الفنان الموسيقار الكبير: ( أ- طه حسين &nbsp;|&nbsp; ب- سيد درويش &nbsp;|&nbsp; جـ- يونس القاضي &nbsp;|&nbsp; د- طلعت حرب )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الرابع: أجب عما يلي:</span>
+    <span class="marks-badge">6 درجات</span>
+  </div>
+  <div class="q-item"><b>1- بما تفسر:</b> تلوين منخفض القطارة باللون الأخضر الداكن على خريطة مستويات الارتفاع؟</div>
+  <div class="q-item"><b>2- ما النتائج المترتبة على:</b> زيادة وعي المواطنين بأهمية استخدام الطاقة النظيفة المتجددة (الشمس والرياح)؟</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان الخامس: محافظة الدقهلية (إدارة المنصورة التعليمية)</div>
+    <div class="exam-meta">مادة الدراسات الاجتماعية • الصف الرابع الابتدائي • الفصل الدراسي الأول</div>
+  </div>
+  <div><span class="marks-badge" style="font-size: 10.5px; padding: 2px 7px;">الدرجة الكلية: 30 درجة</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: أمامك خريطة صماء لجمهورية مصر العربية، وضح مدلول الأرقام:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر الصماء">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1-</b> واحة في الصحراء الغربية تشتهر بالعيون الكبريتية: واحة ................</div>
+      <div class="q-item"><b>2-</b> دولة تحد مصر من جهة الجنوب: دولة ............................</div>
+      <div class="q-item"><b>3-</b> عاصمة مصر الاقتصادية وميناء بحري رئيسي: محافظة ................</div>
+      <div class="q-item"><b>4-</b> ممر مائي عذب يمتد من جنوب مصر لشمالها: وادي ....................</div>
+      <div class="q-item"><b>5-</b> قناة مائية حديثة تم افتتاحها عام 2015: قناة .......................</div>
+    </div>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: ضع علامة (✓) أمام العبارة الصحيحة وعلامة (✗) أمام غير الصحيحة:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> تستخدم محطة الكريمات في الجيزة الطاقة الشمسية لتوليد الكهرباء النظيفة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> الجيزة والقاهرة والفيوم من محافظات الوجه البحري. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> توفر مبادرة حياة كريمة سكناً كريماً وخدمات متكاملة للقرى الأكثر احتياجاً. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>4-</b> يُعد معرض "تراثنا" فرصة عظيمة لتسويق منتجات الحرف اليدوية والتراثية المصرية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثالث: اختر الإجابة الصحيحة مما بين القوسين:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> تعتمد صناعة الزجاج والخلايا الشمسية على رمال الصحراء المصرية وتسمى:<br>
+  ( أ- الرمال السوداء &nbsp;|&nbsp; ب- الرمال البيضاء &nbsp;|&nbsp; جـ- الرمال الصفراء &nbsp;|&nbsp; د- رمال الشواطئ )</div>
+  <div class="q-item"><b>2-</b> من حقوق الطفل التي أكد عليها الدستور المصري واتفاقية حقوق الطفل:<br>
+  ( أ- العمل في المصانع &nbsp;|&nbsp; ب- التعليم والرعاية الصحية والاسم المناسب &nbsp;|&nbsp; جـ- السهر ليلاً &nbsp;|&nbsp; د- إهمال المذاكرة )</div>
+  <div class="q-item"><b>3-</b> لحماية البيئة وتقليل التلوث يجب استخدام سيارات تعمل بـ:<br>
+  ( أ- البنزين &nbsp;|&nbsp; ب- الغاز الطبيعي والكهرباء &nbsp;|&nbsp; جـ- الفحم &nbsp;|&nbsp; د- السولار )</div>
+  <div class="q-item"><b>4-</b> تقع محافظة الدقهلية ضمن محافظات الوجه:<br>
+  ( أ- القبلي &nbsp;|&nbsp; ب- البحري &nbsp;|&nbsp; جـ- الحدود الصحراوية &nbsp;|&nbsp; د- القناة )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الرابع: أجب عما يلي:</span>
+    <span class="marks-badge">6 درجات</span>
+  </div>
+  <div class="q-item"><b>1- بما تفسر:</b> ضرورة احترام علم مصر ورفعه في الأماكن الرسمية والوقوف له باحترام؟</div>
+  <div class="q-item"><b>2- ماذا يحدث إذا:</b> لم يتم بناء السد العالي في جنوب مصر؟</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header">
+  <div>
+    <div class="exam-title">الامتحان السادس: محافظة أسيوط (إدارة أسيوط التعليمية)</div>
+    <div class="exam-meta">مادة الدراسات الاجتماعية • الصف الرابع الابتدائي • الفصل الدراسي الأول</div>
+  </div>
+  <div><span class="marks-badge" style="font-size: 10.5px; padding: 2px 7px;">الدرجة الكلية: 30 درجة</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الأول: أمامك خريطة صماء لجمهورية مصر العربية، وضح مدلول الأرقام:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="map-container">
+    <div class="map-img-box">
+      <img src="images/blank_map_egypt_exam.png" alt="خريطة مصر الصماء">
+    </div>
+    <div class="map-questions">
+      <div class="q-item"><b>1-</b> محافظة من محافظات الوجه القبلي: محافظة ..........................</div>
+      <div class="q-item"><b>2-</b> بحيرة مالحة بالفيوم: بحيرة .......................................</div>
+      <div class="q-item"><b>3-</b> جبل شاهق في جنوب سيناء: جبل ..................................</div>
+      <div class="q-item"><b>4-</b> الصحراء: ................................... (تتميز بسلاسل جبال البحر الأحمر)</div>
+      <div class="q-item"><b>5-</b> السد العالي يقع جنوب مدينة: .....................................</div>
+    </div>
+  </div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثاني: اكتب المصطلح الجغرافي الدال على العبارات الآتية:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> مساحة من اليابس تمتد بطول البحر وتتكون من الرمال الناعمة والصخور: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>2-</b> مساحة من الأرض مستوية قليلة الارتفاع كونتها رواسب الأنهار: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>3-</b> موارد طبيعية تنفد وتنتهي مع كثرة استهلاك الإنسان لها مثل البترول والفحم: <span style="color:#b45309;">(...............................)</span></div>
+  <div class="q-item"><b>4-</b> سحابة من الدخان الأسود تنتج عن حرق قش الأرز وتلوث الهواء: <span style="color:#b45309;">(...............................)</span></div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الثالث: (أ) ضع علامة (✓) أو (✗): (ب) اختر الإجابة الصحيحة:</span>
+    <span class="marks-badge">8 درجات</span>
+  </div>
+  <div class="q-item"><b>1-</b> أسس الاقتصادي طلعت حرب بنك مصر عام 1920 لدعم المشروعات الوطنية برؤوس أموال مصرية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>2-</b> تقع هضبة التيه في محافظة الوادي الجديد بالصحراء الغربية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )</div>
+  <div class="q-item"><b>3-</b> من الحرف التراثية المدرجة على قائمة التراث العالمي لمنظمة اليونسكو:<br>
+  ( أ- صناعة الفخار &nbsp;|&nbsp; ب- النسيج والسجاد اليدوي &nbsp;|&nbsp; جـ- الزجاج &nbsp;|&nbsp; د- الخيامية )</div>
+  <div class="q-item"><b>4-</b> الاتجاه الأصلي المقابل لاتجاه الشمال مباشرة على وردة البوصلة هو اتجاه:<br>
+  ( أ- الشرق &nbsp;|&nbsp; ب- الغرب &nbsp;|&nbsp; جـ- الجنوب &nbsp;|&nbsp; د- الشمال الشرقي )</div>
+</div>
+
+<div class="q-group">
+  <div class="q-title">
+    <span>السؤال الرابع: أجب عما يلي:</span>
+    <span class="marks-badge">6 درجات</span>
+  </div>
+  <div class="q-item"><b>1- بما تفسر:</b> إنشاء خط نجدة الطفل (رقم 16000) في جمهورية مصر العربية؟</div>
+  <div class="q-item"><b>2- ما مقترحاتك:</b> لتوفير استهلاك الكهرباء والطاقة في منزلك ومدرستك؟</div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header" style="background: #f0fdf4; border-color: #10b981;">
+  <div class="exam-title" style="color: #065f46; font-size: 13.5px;">نماذج الإجابة الرسمية وتوزيع الدرجات (الامتحان 1 & 2)</div>
+  <div><span class="marks-badge" style="background: #dcfce7; color: #166534; font-size: 10px;">الدرجة الكلية لكل امتحان: 30 درجة</span></div>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">
+    <span>📌 نموذج إجابة الامتحان الأول: محافظة القاهرة (إدارة مصر الجديدة)</span>
+    <span class="marks-badge" style="background: #dcfce7; color: #166534;">30 درجة</span>
+  </div>
+  <p><b>السؤال الأول (الخريطة - 8 درجات):</b> 1- البحر المتوسط (درجتان)، 2- شبه جزيرة سيناء (درجة ونصف)، 3- نهر النيل (درجة ونصف)، 4- البحر الأحمر (درجة ونصف)، 5- محافظة القاهرة (درجة ونصف).</p>
+  <p><b>السؤال الثاني (المصطلح وصح وخطأ - 8 درجات):</b><br>
+  1- الخريطة (درجتان)، 2- المصدر الأولي (درجتان)، 3- القارة (درجة ونصف).<br>
+  4- (✓) صواب (درجة ونصف)، 5- (✗) خطأ - التصويب: السهل الساحلي أو الفيضي، فالجبل أرض شديدة الارتفاع ولها قمة (درجة).</p>
+  <p><b>السؤال الثالث (اختر - 8 درجات):</b> 1- قارة أفريقيا (درجتان)، 2- السلام (درجتان)، 3- الإسكندرية (درجتان)، 4- دوارة الرياح أو جورب الرياح (درجتان).</p>
+  <p><b>السؤال الرابع (المقالي - 6 درجات):</b><br>
+  <b>1- بما تفسر (3 درجات):</b> لأن مصر تقع في قلب العالم القديم (آسيا وأفريقيا وأوروبا)، وتطل على بحرين تجاريين هامين هما البحر الأحمر والمتوسط، وزادت أهميتها بعد حفر قناة السويس مما جعلها شرياناً رئيسياً للتجارة العالمية.<br>
+  <b>2- ما النتائج المترتبة (3 درجات):</b> تقليل زمن مرور السفن من 20 ساعة إلى 11 ساعة، واستيعاب سفن أكبر حجماً وحمولة، والسماح بالمرور في الاتجاهين دون توقف وزيادة الدخل القومي.</p>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">
+    <span>📌 نموذج إجابة الامتحان الثاني: محافظة الجيزة (إدارة الدقي)</span>
+    <span class="marks-badge" style="background: #dcfce7; color: #166534;">30 درجة</span>
+  </div>
+  <p><b>السؤال الأول (الخريطة - 8 درجات):</b> 1- خليج السويس (درجتان)، 2- الصحراء الغربية (درجة ونصف)، 3- بحيرة ناصر (درجة ونصف)، 4- منخفض القطارة (درجة ونصف)، 5- جبل سانت كاترين (درجة ونصف).</p>
+  <p><b>السؤال الثاني (المصطلح والتصويب - 8 درجات):</b><br>
+  1- الجزيرة (درجتان)، 2- الطقس (درجتان)، 3- الحدود الإدارية (درجة ونصف).<br>
+  4- التصويب: مقياس المطر (درجة ونصف)، 5- التصويب: محافظة القاهرة لتخفيف التكدس والضغط السكاني (درجة).</p>
+  <p><b>السؤال الثالث (صح وخطأ - 8 درجات):</b> 1- (✗) خطأ - تخليداً لوضع القائد جوهر الصقلي حجر الأساس لمدينة القاهرة عام 969م (درجتان)، 2- (✓) صواب (درجتان)، 3- (✓) صواب (درجتان)، 4- (✗) خطأ - الرمال البيضاء هي التي تدخل في الخلايا الشمسية والخزف (درجتان).</p>
+  <p><b>السؤال الرابع (المقالي - 6 درجات):</b><br>
+  <b>1- بما تفسر (3 درجات):</b> اتخذت جامع الأزهر لأنه أهم معالمها التاريخية والإسلامية العريقة، والشمس الساطعة خلفه ترمز إلى أن الأزهر الشريف هو منارة الإسلام ومنبر العلم الذي يشع نوره على العالم أجمع.<br>
+  <b>2- المقترحات (3 درجات):</b> غلق صنبور المياه أثناء غسيل الأسنان، استخدام الري بالتنقيط بدلاً من الغمر، معاقبة من يلقي المخلفات في النيل والترع، ومعالجة مياه الصرف الصحي وإعادة استخدامها.</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header" style="background: #f0fdf4; border-color: #10b981;">
+  <div class="exam-title" style="color: #065f46; font-size: 13.5px;">نماذج الإجابة الرسمية وتوزيع الدرجات (الامتحان 3 & 4)</div>
+  <div><span class="marks-badge" style="background: #dcfce7; color: #166534; font-size: 10px;">الدرجة الكلية لكل امتحان: 30 درجة</span></div>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">
+    <span>📌 نموذج إجابة الامتحان الثالث: محافظة الإسكندرية (إدارة المنتزه)</span>
+    <span class="marks-badge" style="background: #dcfce7; color: #166534;">30 درجة</span>
+  </div>
+  <p><b>السؤال الأول (الخريطة - 8 درجات):</b> 1- خليج العقبة (درجتان)، 2- السد العالي في أسوان (درجة ونصف)، 3- هضبة الجلف الكبير (درجة ونصف)، 4- الصحراء الشرقية (درجة ونصف)، 5- قناة السويس (درجة ونصف).</p>
+  <p><b>السؤال الثاني (اختر - 8 درجات):</b> 1- الجبل (درجتان)، 2- قوة مصر وعراقة حضارتها (درجتان)، 3- الصحراوي الحار (درجتان)، 4- تغطي مساحات شاسعة وتلتقط صوراً أكبر لسطح الأرض (درجتان).</p>
+  <p><b>السؤال الثالث (صح وخطأ - 8 درجات):</b> 1- (✓) صواب (درجتان)، 2- (✗) خطأ - تشمل الأراضي المطلة على البحرين المتوسط والأحمر وخليجي السويس والعقبة (درجتان)، 3- (✗) خطأ - مصادر ثانوية وليست أولية (درجتان)، 4- (✓) صواب (درجتان).</p>
+  <p><b>السؤال الرابع (المقالي - 6 درجات):</b><br>
+  <b>1- قارن بين الطقس والمناخ (3 درجات):</b> الطقس: وصف حالة الجو (حرارة ورياح وأمطار) لفترة زمنية قصيرة (يوم أو أسبوع أو شهر) لمعرفة ارتداء الملابس وتحديد حركة المرور. أما المناخ: وصف حالة الجو لفترة زمنية طويلة (فصل أو سنة) لتحديد نوع المحاصيل وتوزيع الأنشطة.<br>
+  <b>2- دلل على صحة العبارة (3 درجات):</b> قبول الودائع وفتح الحسابات، تقديم القروض للمستثمرين وأصحاب المشاريع لتمويل المصانع والشركات ودعم الاقتصاد الوطني واستقلاله المالي.</p>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">
+    <span>📌 نموذج إجابة الامتحان الرابع: محافظة الشرقية (إدارة الزقازيق)</span>
+    <span class="marks-badge" style="background: #dcfce7; color: #166534;">30 درجة</span>
+  </div>
+  <p><b>السؤال الأول (الخريطة - 8 درجات):</b> 1- فرع رشيد (درجتان)، 2- فرع دمياط (درجة ونصف)، 3- جبل العوينات (درجة ونصف)، 4- دولة ليبيا الشقيقة (درجة ونصف)، 5- دلتا النيل (درجة ونصف).</p>
+  <p><b>السؤال الثاني (المصطلح العلمي - 8 درجات):</b> 1- مقياس الرسم (درجتان)، 2- شعار المحافظة (درجتان)، 3- الكثبان الرملية (درجتان)، 4- جمال حمدان (درجتان).</p>
+  <p><b>السؤال الثالث (صوب واختر - 8 درجات):</b><br>
+  1- التصويب: ثلاثة ألوان (الأحمر والأبيض والأسود) (درجتان)، 2- التصويب: محافظة البحر الأحمر (درجتان)، 3- تلوث الهواء وانتشار السحابة السوداء (درجتان)، 4- سيد درويش (درجتان).</p>
+  <p><b>السؤال الرابع (المقالي - 6 درجات):</b><br>
+  <b>1- بما تفسر (3 درجات):</b> لأن اللون الأخضر الداكن على خريطة التضاريس يرمز إلى المناطق المنخفضة عن مستوى سطح البحر (المنخفضات)، ومنخفض القطارة ينخفض بنحو 134 متراً عن مستوى سطح البحر.<br>
+  <b>2- ما النتائج المترتبة (3 درجات):</b> تقليل نسبة تلوث الهواء وانبعاثات الغازات الضارة، حماية صحة المواطنين، تقليل الاحتباس الحراري وتوفير مصادر طاقة مستدامة لا تنفد تحافظ على البيئة للأجيال القادمة.</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="exam-header" style="background: #f0fdf4; border-color: #10b981;">
+  <div class="exam-title" style="color: #065f46; font-size: 13.5px;">نماذج الإجابة الرسمية وتوزيع الدرجات (الامتحان 5 & 6)</div>
+  <div><span class="marks-badge" style="background: #dcfce7; color: #166534; font-size: 10px;">الدرجة الكلية لكل امتحان: 30 درجة</span></div>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">
+    <span>📌 نموذج إجابة الامتحان الخامس: محافظة الدقهلية (إدارة المنصورة)</span>
+    <span class="marks-badge" style="background: #dcfce7; color: #166534;">30 درجة</span>
+  </div>
+  <p><b>السؤال الأول (الخريطة - 8 درجات):</b> 1- واحة سيوة (درجتان)، 2- دولة السودان الشقيقة (درجة ونصف)، 3- محافظة الإسكندرية (درجة ونصف)، 4- وادي النيل (درجة ونصف)، 5- قناة السويس الجديدة (درجة ونصف).</p>
+  <p><b>السؤال الثاني (صح وخطأ - 8 درجات):</b> 1- (✓) صواب (درجتان)، 2- (✗) خطأ - الفيوم تقع في الوجه القبلي وشمال الصعيد (درجتان)، 3- (✓) صواب (درجتان)، 4- (✓) صواب (درجتان).</p>
+  <p><b>السؤال الثالث (اختر - 8 درجات):</b> 1- الرمال البيضاء (درجتان)، 2- التعليم والرعاية الصحية والاسم المناسب والترفيه (درجتان)، 3- الغاز الطبيعي والكهرباء لأنها طاقة نظيفة (درجتان)، 4- الوجه البحري (شمال الدلتا) (درجتان).</p>
+  <p><b>السؤال الرابع (المقالي - 6 درجات):</b><br>
+  <b>1- بما تفسر (3 درجات):</b> لأن علم مصر رمز لسيادتها وشرفها وتاريخها الوطني وكفاح شعبها العظيم، وإهانته جريمة يعاقب عليها القانون المصري، ورفعه واجب وطني يعبر عن الانتماء والولاء للوطن.<br>
+  <b>2- ماذا يحدث إذا لم يتم بناء السد العالي (3 درجات):</b> لتعرضت القرى والمدن المصرية للغرق السنوي بمياه الفيضان، ولتعرضت الأراضي الزراعية للجفاف الشديد في سنوات انخفاض منسوب النيل، ولما تمكنا من توليد الطاقة الكهرومائية النظيفة وتخزين المياه في بحيرة ناصر.</p>
+</div>
+
+<div class="ans-box">
+  <div class="ans-title">
+    <span>📌 نموذج إجابة الامتحان السادس: محافظة أسيوط (إدارة أسيوط)</span>
+    <span class="marks-badge" style="background: #dcfce7; color: #166534;">30 درجة</span>
+  </div>
+  <p><b>السؤال الأول (الخريطة - 8 درجات):</b> 1- محافظة أسيوط (درجتان)، 2- بحيرة قارون (درجة ونصف)، 3- جبل سانت كاترين (درجة ونصف)، 4- الصحراء الشرقية (درجة ونصف)، 5- مدينة أسوان (درجة ونصف).</p>
+  <p><b>السؤال الثاني (المصطلح العلمي - 8 درجات):</b> 1- السهل الساحلي (درجتان)، 2- السهل الفيضي (درجتان)، 3- الموارد الطبيعية غير المتجددة (درجتان)، 4- السحابة السوداء (درجتان).</p>
+  <p><b>السؤال الثالث (صح وخطأ واختر - 8 درجات):</b><br>
+  1- (✓) صواب (درجتان)، 2- (✗) خطأ - هضبة التيه تقع في شبه جزيرة سيناء (درجتان)، 3- النسيج والسجاد اليدوي في قرية الحرانية بالجيزة (درجتان)، 4- اتجاه الجنوب (درجتان).</p>
+  <p><b>السؤال الرابع (المقالي - 6 درجات):</b><br>
+  <b>1- بما تفسر (3 درجات):</b> لحماية الطفل من كافة أشكال العنف والإساءة والإهمال والاستغلال، وتقديم المساعدة الفورية القانونية والنفسية والاجتماعية للأطفال المعرضين للخطر.<br>
+  <b>2- المقترحات (3 درجات):</b> إطفاء المصابيح والأجهزة غير المستخدمة، الاعتماد على ضوء الشمس الطبيعي نهاراً، استخدام المصابيح الموفرة للطاقة (LED)، وفصل شواحن الهواتف بعد الشحن مباشرة.</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="booklet-header" style="background: linear-gradient(135deg, #047857, #059669); margin-bottom: 6px; padding: 10px;">
+  <h1 style="font-size: 16px;">🗺️ المفاتيح الذهبية لحل سؤال الخريطة ونصائح ليلة الامتحان</h1>
+  <div class="subtitle" style="font-size: 11px;">مراجعة سريعة لأهم 20 موقعاً وظاهرة جغرافية لا يخرج عنها أي امتحان إطلاقاً!</div>
+</div>
+
+<div class="concept-card" style="border-right-color: #059669; padding: 8px; margin-bottom: 5px;">
+  <div class="concept-title" style="color: #047857; font-size: 11.5px;">📍 أهم الظواهر الجغرافية على خريطة مصر:</div>
+  <table style="font-size: 9.5px; margin: 3px 0;">
+    <tr><th style="background:#059669; width:22%;">الظاهرة</th><th style="background:#059669; width:38%;">موقعها على الخريطة</th><th style="background:#059669;">الوصف والأهمية</th></tr>
+    <tr><td><b>البحر المتوسط</b></td><td>شمال مصر مباشرة</td><td>حد طبيعي بحري يربط مصر بقارة أوروبا</td></tr>
+    <tr><td><b>البحر الأحمر</b></td><td>شرق مصر وله فرعان (السويس والعقبة)</td><td>غني بالشعاب المرجانية والأسماك الملفتة للسياح</td></tr>
+    <tr><td><b>نهر النيل</b></td><td>يمتد من الجنوب للشمال ويتفرع لفرعين</td><td>شريان الحياة، وفرعاه دمياط (شرقاً) ورشيد (غرباً)</td></tr>
+    <tr><td><b>قناة السويس</b></td><td>بين خليج السويس والبحر المتوسط</td><td>أهم ممر ملاحي عالمي يربط الشرق والغرب</td></tr>
+    <tr><td><b>شبه جزيرة سيناء</b></td><td>شمال شرق مصر بين خليجي العقبة والسويس</td><td>أرض الفيروز وفيها أعلى قمة جبلية (سانت كاترين)</td></tr>
+    <tr><td><b>الصحراء الغربية</b></td><td>غرب نهر النيل (ثلثي مساحة مصر)</td><td>بها بحر الرمال العظيم والواحات الخمس والمنخفضات</td></tr>
+    <tr><td><b>الصحراء الشرقية</b></td><td>شرق نهر النيل حتى البحر الأحمر</td><td>غنية بالصخور الصلبة وسلاسل جبال البحر الأحمر</td></tr>
+    <tr><td><b>بحيرة ناصر</b></td><td>جنوب مصر أمام السد العالي</td><td>أكبر بحيرة صناعية عذبة في العالم وخزان مائي استراتيجي</td></tr>
+    <tr><td><b>جبل العوينات</b></td><td>أقصى جنوب غرب مصر</td><td>يشترك بين حدود مصر وليبيا والسودان</td></tr>
+    <tr><td><b>هضبة الجلف الكبير</b></td><td>جنوب غرب مصر شمال جبل العوينات</td><td>من أكبر هضاب الصحراء الغربية في مصر</td></tr>
+  </table>
+</div>
+
+<div class="concept-card" style="border-right-color: #d97706; padding: 8px; margin-bottom: 5px;">
+  <div class="concept-title" style="color: #b45309; font-size: 11.5px;">💡 حيل ذكية للتمييز بين المتشابهات في الامتحان:</div>
+  <ul style="margin-right: 18px; line-height: 1.5; font-size: 9.5px; font-weight: 600;">
+    <li><b>الطقس والمناخ:</b> الاتنين بيوصفوا حالة الجو، لكن (الطقس) زمنه <u>قصير</u> (يوم/أسبوع)، أما (المناخ) زمنه <u>طويل</u> (فصل/سنة).</li>
+    <li><b>المصدر الأولي والثانوي:</b> (الأولي) اتكتب <u>وقت وقوع الحدث</u> (برديات، نقوش، أهرامات)، أما (الثانوي) اتكتب <u>بعد مرور زمن طويل</u> (كتب، موسوعات).</li>
+    <li><b>الجزيرة وشبه الجزيرة:</b> (الجزيرة) مياه من <u>جميع الجهات</u> (مثل جزيرة شدوان)، أما (شبه الجزيرة) مياه من <u>3 جهات فقط</u> (مثل سيناء).</li>
+    <li><b>فرعا النيل:</b> اليمين شرقاً (دمياط)، والشمال غرباً (رشيد) - افتكر: دايماً دمياط جنب بورسعيد وقناة السويس.</li>
+    <li><b>ألوان علم مصر:</b> الأحمر (دم الشهداء والتضحية)، الأبيض (السلام)، الأسود (الظلم والاستعمار)، النسر (صلاح الدين والقوة).</li>
+  </ul>
+</div>
+
+<div class="baladi-box" style="padding: 6px; text-align: center;">
+  <div class="baladi-title" style="font-size: 10.5px;">🌟 وصية النجاح والدرجة النهائية (30 / 30):</div>
+  <p style="font-size: 9.5px;">ابدأ بالبسملة، اقرأ السؤال مرتين بهدوء، بص كويس على الخريطة وشوف الرقم بيشاور على إيه بالظبط، وراجع ورقتك قبل ما تسلم.. بالتوفيق والنجاح الباهر يا دكاترة ومهندسي المستقبل!</p>
+</div>
+
+</div>
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>الموديول السادس: المراجعة الشاملة والمصطلحات الذهبية</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    direction: rtl;
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    color: #1e293b;
+    background: #f1f5f9;
+    line-height: 1.40;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 860px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .module-header {
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 9px;
+    text-align: center;
+    margin-bottom: 5px;
+  }
+  .module-header h1 { font-size: 17px; font-weight: 900; margin-bottom: 1px; }
+  .module-header .subtitle { font-size: 11.5px; font-weight: 700; opacity: 0.95; }
+  .meta-tags { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .tag { background: rgba(255,255,255,0.22); padding: 1px 7px; border-radius: 6px; font-size: 10px; font-weight: 700; }
+  .part-banner {
+    padding: 6px 12px;
+    border-radius: 7px;
+    margin: 5px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 12px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .banner-part1 { background: linear-gradient(135deg, #0369a1, #0284c7); }
+  .banner-part2 { background: linear-gradient(135deg, #6d28d9, #4f46e5); }
+  .banner-part3 { background: linear-gradient(135deg, #047857, #059669); }
+  .concept-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #0284c7;
+    border-radius: 7px;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    break-inside: avoid;
+  }
+  .concept-title { font-size: 11.5px; font-weight: 800; color: #0369a1; margin-bottom: 3px; display: flex; align-items: center; gap: 6px; }
+  .baladi-box {
+    background: #fffbeb;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 7px;
+    padding: 5px 9px;
+    margin: 4px 0;
+    break-inside: avoid;
+  }
+  .baladi-title { font-size: 11px; font-weight: 800; color: #b45309; margin-bottom: 2px; }
+  .figure-box {
+    text-align: center;
+    margin: 4px 0;
+    padding: 4px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 7px;
+    break-inside: avoid;
+  }
+  .figure-box img {
+    max-width: 96%;
+    max-height: 180px;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  }
+  .figure-caption { font-size: 9.5px; font-weight: 700; color: #475569; margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; margin: 4px 0; font-size: 10px; break-inside: avoid; }
+  th { background: #0284c7; color: white; padding: 4px 6px; font-weight: 800; border: 1px solid #0284c7; }
+  td { padding: 3px 6px; border: 1px solid #cbd5e1; background: #ffffff; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .question-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-right: 3.5px solid #6366f1;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .q-gov { background: #ede9fe; color: #5b21b6; font-size: 8.5px; font-weight: 800; padding: 1px 5px; border-radius: 4px; margin-left: 5px; }
+  .answer-card {
+    background: #f0fdf4;
+    border: 1px solid #bbf7d0;
+    border-right: 3.5px solid #10b981;
+    border-radius: 6px;
+    padding: 4.5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    font-size: 10.5px;
+  }
+  .ans-text { font-weight: 800; color: #065f46; }
+  .ans-why { font-size: 9px; color: #047857; margin-top: 1.5px; }
+  .print-page-break {
+    page-break-after: always !important;
+    break-after: page !important;
+    height: 0;
+    display: block;
+    clear: both;
+  }
+  @page {
+    size: A4 portrait;
+    margin: 10mm 12mm 10mm 12mm;
+  }
+  @media print {
+    body { background: white; padding: 0; }
+    .page-container { box-shadow: none; padding: 0; max-width: 100%; border: none; }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس تكنولوجيا المعلومات (ICT)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+<div class="page-container">
+
+<div class="module-header">
+  <h1>الموديول السادس: المراجعة الشاملة والمصطلحات الذهبية</h1>
+  <div class="subtitle">المراجعة النهائية الشاملة لمقرر تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي</div>
+  <div class="meta-tags">
+    <span class="tag">🏆 خريطة المنهج الذهبية</span>
+    <span class="tag">💡 بنك المفاهيم والمصطلحات</span>
+    <span class="tag">🎯 3 أجزاء متكاملة</span>
+    <span class="tag">⏱️ مراجعة ليلة الامتحان</span>
+  </div>
+</div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • الخريطة الذهنية والمفاهيم الذهبية للمنهج</div>
+
+<div class="concept-card">
+  <div class="concept-title">🗺️ خريطة شجرة منهج تكنولوجيا المعلومات (الترم الأول):</div>
+  <table>
+    <tr>
+      <th style="width: 50%;">المحور الأول: دور التكنولوجيا في حياتنا</th>
+      <th style="width: 50%;">المحور الثاني: احتياطات الأمن والسلامة الرقمية</th>
+    </tr>
+    <tr>
+      <td style="vertical-align: top;">
+        • <b>أدوات الاستكشاف:</b> GPS (فوق الأرض)، الرادار المخترق GPR ومقياس المغناطيسية (تحت الأرض).<br>
+        • <b>أجهزة الكمبيوتر:</b> المكتبي، المحمول، اللوحي.<br>
+        • <b>وحدات الإدخال:</b> لوحة المفاتيح، الفأرة، الميكروفون، الكاميرا، الماسح الضوئي.<br>
+        • <b>وحدات الإخراج:</b> الشاشة، الطابعة، مكبر الصوت، مركب الكلام، برايل.<br>
+        • <b>نظام التشغيل و CPU:</b> الوسيط وعقل الكمبيوتر المعالج.<br>
+        • <b>التكنولوجيا المساعدة:</b> تكبير الشاشة، سماعات طبية، كراسي آلية.<br>
+        • <b>حل المشكلات:</b> إعادة التشغيل، Ctrl+Alt+Del لإدارة المهام.<br>
+        • <b>معالجة البيانات:</b> جمع ⬅️ تحليل ⬅️ رسم بياني في Excel.
+      </td>
+      <td style="vertical-align: top;">
+        • <b>مخاطر الإنترنت:</b> المواقع المشبوهة، الرسائل المزعجة (Spam)، الفيروسات، سرقة الهوية.<br>
+        • <b>التنمر الإلكتروني:</b> تصرف عدواني يواجه بـ (البلوك + إبلاغ الوالدين).<br>
+        • <b>الأخلاقيات الرقمية:</b> احترام الملكية الفكرية، ذكر المصادر، استئذان الأصدقاء قبل الإشارة (Tagging).<br>
+        • <b>البحث المتقدم:</b> علامات التنصيص <code>""</code> للمطابقة، <code>+</code> للتأكيد، <code>-</code> للاستبعاد.<br>
+        • <b>المصادر الموثوقة:</b> بنك المعرفة المصري (EKB).<br>
+        • <b>الحماية والأمان:</b> كلمات مرور قوية (8 عناصر)، برامج مكافحة الفيروسات.<br>
+        • <b>الجهات المسؤولة:</b> مباحث الإنترنت، خط نجدة الطفل (16000).
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="figure-box">
+  <img src="images/ict_hero_cover.png" alt="شعار وغلاف التكنولوجيا">
+  <div class="figure-caption">شكل (1): الرؤية المتكاملة لمنهج تكنولوجيا المعلومات والاتصالات المطور</div>
+</div>
+
+<div class="baladi-box">
+  <div class="baladi-title">💡 ملخص الترم في سطرين يا بطل:</div>
+  <p>التكنولوجيا أداة خارقة بتسهل حياتنا وتساعد أصحاب الهمم وتخلينا نكتشف الأرض والعالم.. بس علشان نفضل آمنين ومبسوطين لازم نكون أذكياء: نأمن حساباتنا بكلمات مرور قوية، نحترم حقوق غيرنا، ولو واجهتنا أي مشكلة نلجأ فوراً لأهالينا ومعلمينا والجهات المسؤولة!</p>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part1">الجزء الأول: الشرح المصور والمبسط • جدول المصطلحات الذهبية الإنجليزية ومعانيها</div>
+
+<div class="concept-card">
+  <div class="concept-title">💎 أهم المصطلحات التكنولوجية المقررة باللغة الإنجليزية:</div>
+  <table>
+    <tr>
+      <th style="width: 30%;">المصطلح بالإنجليزية</th>
+      <th style="width: 30%;">المعنى باللغة العربية</th>
+      <th style="width: 40%;">الوظيفة والمفهوم في سطر واحد</th>
+    </tr>
+    <tr>
+      <td><b>Hardware</b></td>
+      <td>المكونات المادية الملموسة</td>
+      <td>كل أجزاء الكمبيوتر التي تستطيع لمسها بيدك (شاشة، فأرة، لوحة مفاتيح).</td>
+    </tr>
+    <tr>
+      <td><b>Software</b></td>
+      <td>البرمجيات والتطبيقات</td>
+      <td>البرامج والأوامر التي تشغل الجهاز ولا يمكن لمسها (Windows, Word).</td>
+    </tr>
+    <tr>
+      <td><b>CPU</b></td>
+      <td>وحدة المعالجة المركزية</td>
+      <td>عقل الكمبيوتر الذي يعالج البيانات ويجري العمليات الحسابية.</td>
+    </tr>
+    <tr>
+      <td><b>Operating System (OS)</b></td>
+      <td>نظام التشغيل</td>
+      <td>الوسيط الذي يدير الحاسب والبرامج ومكوناته المادية.</td>
+    </tr>
+    <tr>
+      <td><b>GPS</b></td>
+      <td>نظام تحديد المواقع العالمي</td>
+      <td>تحديد الأماكن الجغرافية بدقة عبر الأقمار الصناعية فوق سطح الأرض.</td>
+    </tr>
+    <tr>
+      <td><b>GPR</b></td>
+      <td>الرادار المخترق للأرض</td>
+      <td>اكتشاف الأجسام والآثار المدفونة في باطن الأرض بموجات الرادار.</td>
+    </tr>
+    <tr>
+      <td><b>Assistive Technology</b></td>
+      <td>التكنولوجيا المساعدة</td>
+      <td>أجهزة وتطبيقات تمكن ذوي الهمم من التعلم والتواصل بسهولة.</td>
+    </tr>
+    <tr>
+      <td><b>Spam</b></td>
+      <td>الرسائل المزعجة</td>
+      <td>رسائل إعلانية غير مرغوبة قد تحتوي روابط خبيثة وفيروسات.</td>
+    </tr>
+    <tr>
+      <td><b>Cyberbullying</b></td>
+      <td>التنمر الإلكتروني</td>
+      <td>إساءة وتصرف عدواني متكرر ضد شخص عبر الإنترنت.</td>
+    </tr>
+    <tr>
+      <td><b>EKB</b></td>
+      <td>بنك المعرفة المصري</td>
+      <td>أكبر منصة ومكتبة تعليمية رقمية مجانية وموثوقة لطلاب مصر.</td>
+    </tr>
+    <tr>
+      <td><b>Bar Chart</b></td>
+      <td>الرسم البياني بالأعمدة</td>
+      <td>أفضل طريقة بصرية لتمثيل ومقارنة نتائج البيانات في Excel.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات • المراجعة الشاملة</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">📝 السؤال الأول: اكتب المصطلح العلمي / التكنولوجي الدال على كل عبارة مما يأتي:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> عقل جهاز الحاسب المسؤول عن معالجة البيانات وإجراء العمليات الحسابية والمنطقية. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> جهاز يستخدمه علماء الآثار للكشف عن المعادن والعملات المدفونة في باطن الأرض. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(3)</b> أجهزة وبرمجيات صممت خصيصاً لمساعدة ذوي الهمم وتسهيل حياتهم اليومية. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الشرقية 2024</span> <b>(4)</b> أكبر منصة ومكتبة رقمية موثوقة ومجانية في مصر للطلاب والباحثين. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2023</span> <b>(5)</b> تصرف عدواني وسلوك مزعج متكرر عبر وسائل التواصل يستهدف إيذاء مشاعر الآخرين. <span style="color:#6366f1;">(........................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">🎯 السؤال الثاني: اختر الإجابة الصحيحة من بين القوسين:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> الأداة التكنولوجية التي تحدد مواقع الأماكن عبر الاتصال بالأقمار الصناعية هي: <br>
+    ( أ- GPS &nbsp;|&nbsp; ب- الرادار المخترق &nbsp;|&nbsp; جـ- مقياس المغناطيسية &nbsp;|&nbsp; د- الطابعة )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> يُعد ..................... من وحدات الإدخال المسؤولة عن نقل الأوراق والصور المطبوعة للحاسب: <br>
+    ( أ- شاشة العرض &nbsp;|&nbsp; ب- الماسح الضوئي &nbsp;|&nbsp; جـ- مكبر الصوت &nbsp;|&nbsp; د- الطابعة )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">القليوبية 2024</span> <b>(3)</b> عند تجميد الشاشة وتوقف البرامج عن الاستجابة نضغط معاً على مفاتيح: <br>
+    ( أ- Ctrl + Alt + Del &nbsp;|&nbsp; ب- Shift + Enter &nbsp;|&nbsp; جـ- Alt + F4 &nbsp;|&nbsp; د- Tab + Space )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(4)</b> أفضل وسيلة بصرية لعرض ومقارنة نتائج البيانات التي تم جمعها هي: <br>
+    ( أ- الرسم البياني بالأعمدة (Bar Chart) &nbsp;|&nbsp; ب- الملف الصوتي &nbsp;|&nbsp; جـ- البريد المزعج &nbsp;|&nbsp; د- نظام GPS )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">أسيوط 2024</span> <b>(5)</b> يجب ألا تقل كلمة المرور القوية الآمنة عن ..................... عناصر متنوعة: <br>
+    ( أ- 3 أحرف &nbsp;|&nbsp; ب- 5 أحرف &nbsp;|&nbsp; جـ- 8 أحرف &nbsp;|&nbsp; د- 6 أحرف )
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part2">الجزء الثاني: تدريبات وأسئلة امتحانات المحافظات (تابع الأسئلة المتنوعة)</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✔️ السؤال الثالث: ضع علامة (✓) أو علامة (✗) مع تصويب الخطأ:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> يستطيع جهاز الكمبيوتر إجراء المعالجة والتفكير بالبيانات دون الحاجة إلى وحدة CPU. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2023</span> <b>(2)</b> تتيح برمجيات تكبير الشاشة لضعاف البصر قراءة الكلمات ورؤية الصور بوضوح. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2024</span> <b>(3)</b> يعتبر التنمر الإلكتروني ومشاركة الرسائل مجهولة المصدر من السلوكيات الإيجابية. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الدقهلية 2024</span> <b>(4)</b> تساعد علامات التنصيص <code>""</code> في حصر نتائج البحث بدقة لمطابقة الجملة المحددة. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+  <div class="question-item">
+    <span class="q-gov">المنيا 2024</span> <b>(5)</b> يمكن الإبلاغ عن حالات الخطر التي تواجه الأطفال عبر الاتصال برقم 16000. ( &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; )
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">✏️ السؤال الرابع: صوّب ما تحته خط في العبارات التالية:</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1)</b> الجهاز المسؤول عن تحويل النصوص المكتوبة إلى صوت لغير الناطقين هو <u>الطابعة</u>. <span style="color:#6366f1;">(................................)</span>
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الجيزة 2024</span> <b>(2)</b> لاستبعاد كلمة معينة من نتائج محرك البحث نضع أمامها علامة <u>الزائد (+)</u>. <span style="color:#6366f1;">(................................)</span>
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">💡 السؤال الخامس: علل لما يأتي (اذكر السبب التكنولوجي):</div>
+  <div class="question-item">
+    <span class="q-gov">القاهرة 2024</span> <b>(1) أهمية احترام حقوق الملكية الفكرية وذكر المصادر عند إعداد الأبحاث؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+  <div class="question-item">
+    <span class="q-gov">الإسكندرية 2023</span> <b>(2) تسمية نظام التشغيل (مثل Windows) بالوسيط الأساسي للحاسب؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="concept-card" style="border-right-color: #6366f1;">
+  <div class="concept-title" style="color: #4f46e5;">⚙️ السؤال السادس: ماذا يحدث إذا:</div>
+  <div class="question-item">
+    <span class="q-gov">قنا 2024</span> <b>(1) استخدمت كلمة مرور واحدة وبسيطة لجميع حساباتك الشخصية على الإنترنت؟</b><br>
+    الإجابة: ................................................................................................................................................................................
+  </div>
+</div>
+
+<div class="print-page-break"></div>
+
+<div class="part-banner banner-part3">الجزء الثالث: نموذج الإجابات النموذجية مع الشرح والتعليل • المراجعة الشاملة</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الأول: المصطلح العلمي:</div>
+  <p><b>1- وحدة المعالجة المركزية (CPU)</b> <span class="ans-why">(لأنها عقل الحاسب المسؤول عن المعالجة والعمليات).</span></p>
+  <p><b>2- مقياس المغناطيسية (Magnetometer)</b> <span class="ans-why">(يقيس المجال المغناطيسي الخاص بالمعادن المدفونة).</span></p>
+  <p><b>3- التكنولوجيا المساعدة (Assistive Technology)</b> <span class="ans-why">(صممت خصيصاً لدعم وتمكين ذوي الهمم).</span></p>
+  <p><b>4- بنك المعرفة المصري (EKB)</b> <span class="ans-why">(المنصة الرقمية الوطنية الموثوقة والمجانية للتعليم).</span></p>
+  <p><b>5- التنمر الإلكتروني (Cyberbullying)</b> <span class="ans-why">(سلوك عدواني مسيء عبر المنصات الرقمية).</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثاني: الاختيار من متعدد:</div>
+  <p><b>(1) أ- GPS</b> <span class="ans-why">| يعتمد على الأقمار الصناعية لتحديد المواقع فوق سطح الأرض بدقة.</span></p>
+  <p><b>(2) ب- الماسح الضوئي (Scanner)</b> <span class="ans-why">| يدخل الأوراق والصور الرقمية إلى ذاكرة الحاسب.</span></p>
+  <p><b>(3) أ- Ctrl + Alt + Del</b> <span class="ans-why">| اختصار لوحة المفاتيح المخصص لفتح Task Manager وإغلاق البرامج المتجمدة.</span></p>
+  <p><b>(4) أ- الرسم البياني بالأعمدة (Bar Chart)</b> <span class="ans-why">| الأوضح بصرياً في إظهار الفروق والمقارنات بين الفئات.</span></p>
+  <p><b>(5) جـ- 8 أحرف</b> <span class="ans-why">| الحد الأدنى الموصى به عالمياً لكلمات المرور الآمنة.</span></p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة السؤال الثالث: صح وخطأ مع التصويب:</div>
+  <p><b>(1) ( ✗ ) خطأ.</b> التصويب: لا يمكن للحاسب معالجة البيانات أو العمل بدون وحدة المعالجة المركزية <b>CPU</b>.</p>
+  <p><b>(2) ( ✓ ) صواب.</b> تكبر النصوص وتسهل قراءتها لمن يعانون من ضعف الإبصار.</p>
+  <p><b>(3) ( ✗ ) خطأ.</b> التصويب: التنمر الإلكتروني ونشر الرسائل المجهولة من <b>السلوكيات السلبية الخطيرة</b>.</p>
+  <p><b>(4) ( ✓ ) صواب.</b> تضمن البحث عن الجملة كما هي بالضبط دون تشتت.</p>
+  <p><b>(5) ( ✓ ) صواب.</b> خط نجدة الطفل التابع للمجلس القومي للأمومة والطفولة.</p>
+</div>
+
+<div class="answer-card">
+  <div class="ans-text">إجابة الأسئلة المقالية (الرابع والخامس والسادس):</div>
+  <p><b>السؤال الرابع:</b> (1) مركب الكلام (Speech Synthesizer) | (2) علامة الناقص (-).</p>
+  <p><b>السؤال الخامس (علل):</b><br>
+  (1) تقديراً لمجهود المبدعين والمؤلفين وحفاظاً على الأمانة العلمية ومنعاً للسرقة الأدبية.<br>
+  (2) لأنه حلقة الوصل التي تمكن المستخدم والبرمجيات من التخاطب مع المكونات المادية للجهاز وتشغيلها بتناغم.</p>
+  <p><b>السؤال السادس (ماذا يحدث إذا):</b><br>
+  (1) إذا تمكن أحد المخترقين من معرفتها، فسيتمكن فوراً من السيطرة على كافة حساباتك وبريدك وملفاتك الشخصية بسهولة بالغة.</p>
+</div>
+
+</div>
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

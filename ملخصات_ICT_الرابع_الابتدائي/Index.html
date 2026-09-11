@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منظومة تكنولوجيا المعلومات والاتصالات • الصف الرابع الابتدائي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .header {
+    text-align: center;
+    background: linear-gradient(135deg, #0284c7, #0369a1);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(2, 132, 199, 0.3);
+    margin-bottom: 25px;
+  }
+  .header h1 { font-size: 26px; font-weight: 900; margin-bottom: 4px; color: #ffffff; }
+  .header p { font-size: 14px; opacity: 0.95; color: #e0f2fe; }
+
+  .banner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+    margin-bottom: 25px;
+  }
+  .special-card {
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .card-exams { background: linear-gradient(135deg, #10b981, #059669); border: 1.5px solid #34d399; }
+  .card-monthly { background: linear-gradient(135deg, #0284c7, #0369a1); border: 1.5px solid #38bdf8; }
+  .card-revision { background: linear-gradient(135deg, #6366f1, #4f46e5); border: 1.5px solid #a5b4fc; }
+  
+  .special-card h2 { font-size: 16.5px; font-weight: 900; margin-bottom: 3px; color: #ffffff; }
+  .special-card p { font-size: 11.5px; color: #e2e8f0; opacity: 0.95; }
+  .btn-group { display: flex; gap: 8px; }
+  .btn {
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+  }
+  .btn-white { background: #ffffff; color: #0369a1; }
+  .btn-white:hover { background: #f0f9ff; transform: translateY(-2px); }
+  .btn-sky { background: #38bdf8; color: #0c4a6e; }
+  .btn-sky:hover { background: #7dd3fc; transform: translateY(-2px); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s;
+  }
+  .card:hover {
+    border-color: #38bdf8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  }
+  .card-badge {
+    background: #0284c7;
+    color: white;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .card h3 { font-size: 14.5px; font-weight: 800; margin-bottom: 6px; color: #f1f5f9; }
+  .card p { font-size: 11.5px; color: #94a3b8; line-height: 1.5; margin-bottom: 12px; }
+  .card-actions { display: flex; gap: 8px; }
+  .btn-view { background: #334155; color: #e2e8f0; flex: 1; text-align: center; justify-content: center; }
+  .btn-view:hover { background: #475569; }
+  .btn-pdf { background: #0284c7; color: white; flex: 1; text-align: center; justify-content: center; }
+  .btn-pdf:hover { background: #0369a1; }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس تكنولوجيا المعلومات (ICT)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>منظومة مذكرات تكنولوجيا المعلومات والاتصالات (ICT)</h1>
+    <p>الصف الرابع الابتدائي • الفصل الدراسي الأول • إعداد احترافي متكامل (شرح + بنك أسئلة المحافظات + إجابات نموذجية)</p>
+  </div>
+
+  <div class="banner-grid">
+    <div class="special-card card-exams">
+      <div>
+        <h2>🏆 ملزمة امتحانات نهاية الترم الشاملة</h2>
+        <p>6 امتحانات محافظات رسمية كاملة (30 درجة) + نماذج الحل الرسمية</p>
+      </div>
+      <div class="btn-group">
+        <a href="Final_Term_Exams_ICT_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Final_Term_Exams_ICT_PRIM4.pdf" target="_blank" class="btn btn-sky" style="background:#34d399; color:#064e3b;">تحميل PDF</a>
+      </div>
+    </div>
+    
+    <div class="special-card card-monthly">
+      <div>
+        <h2>📅 ملزمة امتحانات الشهور (أكتوبر & نوفمبر)</h2>
+        <p>6 اختبارات شهرية نموذجية مطابقة للمواصفات (15 درجة) + الحل</p>
+      </div>
+      <div class="btn-group">
+        <a href="Monthly_Exams_ICT_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Monthly_Exams_ICT_PRIM4.pdf" target="_blank" class="btn btn-sky">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="special-card card-revision">
+      <div>
+        <h2>💡 ملزمة المراجعة النهائية ليلة الامتحان</h2>
+        <p>الكبسولة الذهبية: جداول الإدخال والإخراج، المشكلات الشائعة، والأمان</p>
+      </div>
+      <div class="btn-group">
+        <a href="Final_Revision_ICT_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Final_Revision_ICT_PRIM4.pdf" target="_blank" class="btn btn-sky" style="background:#a5b4fc; color:#1e1b4b;">تحميل PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div>
+        <span class="card-badge">المذكرة 1</span>
+        <h3>المستكشف النشط والمكونات المادية للكمبيوتر</h3>
+        <p>أدوات المستكشف ألبرت لين، وحدات الإدخال ووحدات الإخراج، وتطور أجهزة الكمبيوتر عبر العصور التاريخية.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Module1_Exploration_Hardware.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Module1_Exploration_Hardware.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">المذكرة 2</span>
+        <h3>نظام التشغيل والتكنولوجيا المساعدة</h3>
+        <p>دور نظام التشغيل ووحدة المعالجة المركزية (CPU)، وأدوات التكنولوجيا المساعدة لذوي الهمم كبرمجيات تكبير الشاشة.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Module2_OS_AssistiveTech.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Module2_OS_AssistiveTech.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">المذكرة 3</span>
+        <h3>مشكلات الكمبيوتر الشائعة وتحليل البيانات</h3>
+        <p>خطوات استكشاف الأخطاء وإصلاحها، جمع البيانات من المصادر الموثوقة، وتحليلها وعرضها باستخدام الرسم البياني في Excel.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Module3_TechProblems_DataAnalysis.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Module3_TechProblems_DataAnalysis.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">المذكرة 4</span>
+        <h3>مخاطر شبكة الإنترنت والمواطنة الرقمية</h3>
+        <p>التنمر الإلكتروني والرسائل المزعجة (Spam)، كيفية الحجب (Block)، والمسؤولية الأخلاقية وحماية الملكية الفكرية.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Module4_InternetRisks_Ethics.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Module4_InternetRisks_Ethics.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">المذكرة 5</span>
+        <h3>مهارات البحث المتقدم والأمن السيبراني</h3>
+        <p>استخدام علامات البحث الذكية (+, -, " ")، إنشاء كلمات مرور قوية ومعقدة، والحماية من الفيروسات الإلكترونية.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Module5_AdvancedSearch_CyberSecurity.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Module5_AdvancedSearch_CyberSecurity.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">المذكرة 6</span>
+        <h3>المراجعة الشاملة والمشاريع التطبيقية</h3>
+        <p>مراجعة مدمجة وتدريبات تطبيقية لإعداد العروض التقديمية في PowerPoint والتقارير الرقمية في Word مع بنك أسئلة متكامل.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Module6_ComprehensiveReview_Projects.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Module6_ComprehensiveReview_Projects.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Shared Interactive Image Lightbox Engine -->
+    <script src="shared-lightbox.js"></script>
+</body>
+</html>

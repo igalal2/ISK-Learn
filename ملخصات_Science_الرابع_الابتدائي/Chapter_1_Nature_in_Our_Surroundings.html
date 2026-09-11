@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 1: Nature in Our Surroundings - Science Primary 4</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Poppins', 'Cairo', system-ui, sans-serif;
+    color: #1e293b;
+    background: #f8fafc;
+    line-height: 1.42;
+    font-size: 11px;
+    padding: 10px;
+  }
+  .page-container {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 14px 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+
+  /* CHAPTER HEADER */
+  .chapter-header {
+    background: linear-gradient(135deg, #1e3a8a, #0284c7);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .chapter-header h1 { font-size: 18px; font-weight: 800; margin-bottom: 1px; }
+  .chapter-header .subtitle { font-size: 12px; font-family: 'Cairo', sans-serif; font-weight: 600; opacity: 0.95; }
+  .characters-bar { display: flex; justify-content: center; gap: 8px; margin-top: 3px; flex-wrap: wrap; }
+  .char-badge {
+    background: rgba(255,255,255,0.22);
+    padding: 1px 7px;
+    border-radius: 8px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+
+  /* 3-PART BANNERS */
+  .part-banner {
+    padding: 7px 12px;
+    border-radius: 8px;
+    margin: 6px 0 5px 0;
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .part-banner h2 { font-size: 13.5px; font-weight: 800; }
+  .part-banner p { font-size: 10px; opacity: 0.95; margin-top: 1px; }
+
+  .part-1-banner { background: linear-gradient(90deg, #1e3a8a, #0284c7); margin-top: 2px; }
+  .part-2-banner {
+    background: linear-gradient(90deg, #b45309, #d97706);
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 8px;
+  }
+  .part-3-banner {
+    background: linear-gradient(90deg, #15803d, #10b981);
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 8px;
+  }
+
+  .part-end-badge {
+    text-align: center;
+    padding: 5px 8px;
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    margin: 6px 0 3px;
+    font-size: 10px;
+    color: #64748b;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    break-inside: avoid !important;
+  }
+
+  .speech-bubble {
+    background: #fffde7;
+    border: 1.5px solid #fff59d;
+    border-radius: 8px;
+    padding: 4px 8px;
+    margin: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10.5px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .speech-bubble.smarty { background: #e0f2fe; border-color: #7dd3fc; }
+  .speech-bubble.genius { background: #f3e8ff; border-color: #d8b4fe; }
+  .speech-avatar { font-size: 18px; line-height: 1; flex-shrink: 0; }
+  .speech-name { font-weight: bold; font-size: 10px; color: #1e293b; }
+
+  .section-title {
+    font-size: 12.5px;
+    font-weight: 800;
+    color: #1e3a8a;
+    margin: 6px 0 4px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+  .section-title .icon { font-size: 14px; }
+
+  .card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 6px 10px;
+    margin-bottom: 6px;
+    border-left: 4px solid #0284c7;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .card-orange { border-left-color: #f59e0b; }
+  .card-green { border-left-color: #10b981; }
+  .card-purple { border-left-color: #8b5cf6; }
+  .card-blue { border-left-color: #3b82f6; }
+
+  .card h3 {
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 3px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .bilingual-box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin: 3px 0;
+    background: #f8fafc;
+    padding: 4px 6px;
+    border-radius: 6px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    font-size: 10.5px;
+  }
+  .en-side { border-right: 1.5px dashed #cbd5e1; padding-right: 5px; direction: ltr; text-align: left; }
+  .ar-side { padding-left: 5px; direction: rtl; text-align: right; font-family: 'Cairo', sans-serif; }
+  .vocab-tag {
+    display: inline-block;
+    background: #e0f2fe;
+    color: #0369a1;
+    font-weight: 700;
+    padding: 1px 4px;
+    border-radius: 4px;
+    font-size: 9px;
+    margin: 1px;
+  }
+
+  /* FIGURE BOX - HIGH QUALITY & ENLARGED FOR 4TH GRADE VISIBILITY */
+  .figure-box {
+    text-align: center;
+    margin: 6px auto 8px auto;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 10px;
+    padding: 5px 7px 6px 7px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    max-width: 96%;
+  }
+  .figure-box img {
+    width: auto;
+    max-width: 100%;
+    max-height: 215px; /* Large, crisp, easy to read */
+    object-fit: contain;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto;
+    image-rendering: -webkit-optimize-contrast;
+  }
+  .figure-box .caption {
+    font-size: 10.5px;
+    color: #1e293b;
+    margin-top: 4px;
+    font-weight: 700;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.3;
+  }
+
+  table.summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 4px 0;
+    font-size: 10px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  table.summary-table th, table.summary-table td {
+    border: 1px solid #cbd5e1;
+    padding: 3px 5px;
+    text-align: left;
+  }
+  table.summary-table th { background: #f1f5f9; color: #1e3a8a; font-weight: 700; }
+
+  .game-box {
+    background: #fffde7;
+    border: 1.5px dashed #f59e0b;
+    border-radius: 8px;
+    padding: 5px 8px;
+    margin: 5px 0;
+    direction: rtl;
+    text-align: right;
+    font-family: 'Cairo', sans-serif;
+    font-size: 10.5px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .game-box .game-title {
+    font-weight: 800;
+    color: #b45309;
+    margin-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* EXAM & ANSWER SECTIONS */
+  .exam-container, .answers-container {
+    margin-top: 6px;
+    direction: ltr;
+    text-align: left;
+  }
+  .exam-box {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 7px 10px;
+    margin-bottom: 7px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  .exam-box.highlight { border-color: #d97706; background: #fffbeb; }
+  .exam-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+  }
+  .exam-title { font-weight: 800; font-size: 11.5px; color: #b45309; }
+  .exam-badge {
+    background: #fef3c7;
+    color: #92400e;
+    font-size: 9.5px;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 4px;
+  }
+  .q-block { margin-bottom: 4px; break-inside: avoid !important; font-size: 10.5px; }
+  .q-title { font-weight: 700; color: #1e293b; margin-bottom: 2px; }
+  .q-item { margin-left: 10px; margin-bottom: 2px; color: #334155; }
+  .q-ar-hint { font-family: 'Cairo', sans-serif; color: #64748b; font-size: 9px; margin-top: 1px; }
+
+  .answer-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-right: 4px solid #10b981;
+    border-radius: 6px;
+    padding: 5px 8px;
+    margin-bottom: 4px;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+    font-size: 10px;
+  }
+  .ans-title { font-weight: 700; color: #047857; margin-bottom: 1px; }
+  .ans-why {
+    background: #f0fdf4;
+    padding: 2px 5px;
+    border-radius: 4px;
+    margin-top: 2px;
+    font-size: 9.5px;
+    color: #166534;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .print-page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    margin-top: 6px;
+  }
+
+  @media print {
+    body { background: #ffffff !important; padding: 0 !important; font-size: 10.5px !important; }
+    .page-container {
+      box-shadow: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      max-width: 100% !important;
+      width: 100% !important;
+      border-radius: 0 !important;
+    }
+    .print-page-break {
+      page-break-before: always !important;
+      break-before: page !important;
+    }
+    .figure-box img {
+      max-height: 215px !important;
+    }
+    @page {
+      size: A4 portrait;
+      margin: 8mm 11mm 8mm 11mm;
+    }
+  }
+
+  /* LIGHTBOX MODAL ENHANCEMENT */
+  .lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(15, 23, 42, 0.90);
+    backdrop-filter: blur(8px);
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.25s ease;
+  }
+  .lightbox-modal.active { display: flex; }
+  .lightbox-content {
+    position: relative;
+    max-width: 92%;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: default;
+  }
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 76vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    border: 2px solid rgba(255,255,255,0.25);
+    background: #ffffff;
+  }
+  .lightbox-caption {
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 12px;
+    text-align: center;
+    background: rgba(0,0,0,0.65);
+    padding: 6px 18px;
+    border-radius: 20px;
+    max-width: 85%;
+    line-height: 1.4;
+  }
+  .lightbox-close {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    color: #ffffff;
+    font-size: 26px;
+    font-weight: 800;
+    cursor: pointer;
+    background: rgba(255,255,255,0.2);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    border: none;
+  }
+  .lightbox-close:hover { background: #ef4444; transform: scale(1.1); }
+  @keyframes lbFadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  .figure-box img, .map-img-box img {
+    cursor: zoom-in !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .figure-box img:hover, .map-img-box img:hover {
+    transform: scale(1.025);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  }
+  @media print {
+    .lightbox-modal { display: none !important; }
+  }
+
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس العلوم (Science)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+    <!-- Nav Bar -->
+    <div class="nav-bar no-print">
+        <a href="Index.html" class="nav-btn">🏠 Main Dashboard / الفهرس الرئيسي</a>
+        <button onclick="window.print()" class="nav-btn print-btn">🖨️ Print / حفظ كـ PDF كامل بالإجابات</button>
+        <a href="Chapter_2_How_Insects_Grow.html" class="nav-btn">Next: Chapter 2 ➡️</a>
+    </div>
+
+    <!-- ================= PAGE 1 ================= -->
+    <div class="page-unit">
+        <div class="chapter-header">
+            <h1>CHAPTER 1: Nature in Our Surroundings</h1>
+            <div class="subtitle">الطبيعة في محيطنا وبيئتنا - الكائنات الحية والتكيف مع البيئة</div>
+            <div class="characters-bar">
+                <span class="char-badge">🐱 Brainy</span>
+                <span class="char-badge">🐶 Smarty</span>
+                <span class="char-badge">🐔 Genius</span>
+            </div>
+        </div>
+<div style="text-align:center; margin:4px 0 6px 0;"><img src="images/characters_all.png" alt="Brainy, Smarty, Genius" style="max-height:65px; object-fit:contain;"></div></div>
+<div class="part-banner part-1-banner">
+
+    <!-- AL-MOASSER CURATED VISUAL SECTION -->
+    <div style="background:linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border:2px solid #3b82f6; border-radius:16px; padding:18px; margin:18px 0; box-shadow:0 4px 15px rgba(37,99,235,0.08);">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+        <h3 style="font-size:15px; font-weight:900; color:#1e3a8a; display:flex; align-items:center; gap:6px;">
+          <span>🖼️</span><span>مخططات الشرح المصورة فائقة الدقة (من كتاب المعاصر ساينس):</span>
+        </h3>
+        <span style="font-size:11.5px; background:white; color:#2563eb; padding:4px 10px; border-radius:12px; font-weight:800; border:1px solid #bfdbfe;">كتاب المعاصر المعتمد</span>
+      </div>
+      
+      <!-- ORGANIZED MULTI-IMAGE MOASSER GALLERY -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; margin-bottom:14px;">
+        
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">🔍 فحص خنفساء الروث وأرجلها (Dung Beetle)</div>
+          <div style="cursor:zoom-in; height:120px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch1_dung_beetle_joints.png', 'فحص خنفساء الروث والمفاصل')">
+            <img src="images/moasser/ch1_dung_beetle_joints.png" alt="Dung beetle joints" style="max-height:110px; max-width:100%; border-radius:6px;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px;">ملاحظة مفاصل الأرجل والشعر الدقيق بالمكبرة.</div>
+        </div>
+
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">🍃 فحص عروق أوراق النبات (Plant Veins)</div>
+          <div style="cursor:zoom-in; height:120px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch1_leaf_veins_observation.png', 'عروق ورقة النبات')">
+            <img src="images/moasser/ch1_leaf_veins_observation.png" alt="Plant leaf veins" style="max-height:110px; max-width:100%; border-radius:6px;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px;">ملاحظة شبكة العروق الناقلة للماء والغذاء داخل الورقة.</div>
+        </div>
+
+        <div style="background:#ffffff; border:1.5px solid #93c5fd; border-radius:12px; padding:10px; text-align:center;">
+          <div style="font-weight:800; font-size:12.5px; color:#1e40af; margin-bottom:6px;">📋 بطاقة تسجيل الكائن الحي (Record Card)</div>
+          <div style="cursor:zoom-in; height:120px; display:flex; align-items:center; justify-content:center; background:#f8fafc; border-radius:8px;" onclick="openLightbox('images/moasser/ch1_living_organism_card.png', 'بطاقة تسجيل الكائن الحي')">
+            <img src="images/moasser/ch1_living_organism_card.png" alt="Living organism card" style="max-height:110px; max-width:100%; border-radius:6px;">
+          </div>
+          <div style="font-size:11px; color:#475569; margin-top:5px;">تدوين الحجم واللون والموطن وخصائص التكيف.</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  <h2>📘 PART 1: ILLUSTRATED EXPLANATION & CONCEPTS</h2>
+  <p>الجزء الأول: الشرح المصور والمفصل والتطبيقات العملية</p>
+</div>
+
+
+        </div>
+
+</div>
+        <h2 class="section-title"><span class="icon">🌱</span> 1-1 Living Organisms vs Non-Living Things</h2>
+<div class="figure-box"><img src="images/ch1_living_organisms.png" alt="Living Organisms and Habitats"><div class="caption">الشكل (1): الكائنات الحية والمواطن الطبيعية في مصر (Living Organisms & Habitats in Egypt)</div></div>
+<div class="card">
+            <h3>🔍 ما هو الكائن الحي؟ What is a Living Organism?</h3>
+            <div class="bilingual-box">
+                <div class="en-side">
+                    <strong style="color:var(--primary);">1. Living Organisms (الكائنات الحية):</strong>
+                    <p>Include <strong>Humans, Animals, and Plants</strong>.</p>
+                    <p>They can: <span class="vocab-tag">Eat</span> <span class="vocab-tag">Breathe</span> <span class="vocab-tag">Grow</span> <span class="vocab-tag">Reproduce</span> <span class="vocab-tag">Move</span>.</p>
+                </div>
+                <div class="ar-side">
+                    <strong>١. الكائنات الحية:</strong>
+                    <p>تشمل الإنسان، والحيوانات، والنباتات.</p>
+                    <p>صفاتها: تأكل، وتتنفس، وتكبر (تنمو)، وتتكاثر (تنتج صغاراً)، وتتحرك!</p>
+                </div>
+            </div>
+
+            <div class="bilingual-box">
+                <div class="en-side">
+                    <strong style="color:var(--accent-orange);">2. Non-Living Things (الأشياء غير الحية):</strong>
+                    <p>Include <strong>Rocks, Water, Sand, and Air</strong>.</p>
+                    <p>They DO NOT eat, breathe, grow, or reproduce!</p>
+                </div>
+                <div class="ar-side">
+                    <strong>٢. الأشياء غير الحية:</strong>
+                    <p>مثل الصخور، الماء، الرمال، والهواء. لا تتغذى، ولا تتنفس، ولا تنمو!</p>
+                </div>
+            </div>
+
+            <div class="speech-bubble smarty" style="margin-top:6px;">
+                <div class="speech-avatar">🐶</div>
+                <div class="speech-content">
+                    <div class="speech-name">Smarty's Golden Rule:</div>
+                    <p><strong>Remember:</strong> Plants ARE living organisms because they breathe, grow, and need water and sunlight to live!</p>
+                </div>
+            </div>
+        </div>
+
+        
+
+<div class="print-page-break"></div><h2 class="section-title"><span class="icon">🔬</span> 1-2 Rules of Observation (قواعد الملاحظة بالعدسة)</h2>
+        <div class="card card-blue">
+            <h3>🔎 How to use a Magnifying Glass (العدسة المكبرة):</h3>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Case (الحالة)</th>
+                        <th>How to hold the magnifying glass (طريقة الاستخدام)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Object CAN be moved</strong><br>(يمكن تحريك الشيء كحجر أو ورقة)</td>
+                        <td>Hold the magnifying glass close to your eye, and move the object back and forth until clear.<br><em>قرّب العدسة من عينك وحرّك الشيء للأمام والخلف حتى تراه بوضوح.</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Object CANNOT be moved</strong><br>(شيء ثابت كجذع شجرة)</td>
+                        <td>Hold the object still, and move the magnifying glass back and forth.<br><em>ثبّت عينك والشيء، وحرّك العدسة للأمام والخلف للضبط.</em></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 2 ================= -->
+    <div class="page-unit page-break-before">
+        <h2 class="section-title"><span class="icon">🏡</span> 1-3 Habitats in Egypt (المواطن والبيئات في مصر)</h2>
+        <div class="card card-green">
+            <h3>🌍 What is a Habitat? (ما هو الموطن / البيئة؟)</h3>
+            <div class="bilingual-box">
+                <div class="en-side">
+                    <p><strong>Habitat:</strong> The natural place where a living organism lives, finds food, water, and shelter to survive.</p>
+                </div>
+                <div class="ar-side">
+                    <p><strong>الموطن (البيئة):</strong> هو المكان الطبيعي الذي يعيش فيه الكائن الحي ويجد غذاءه ومأواه.</p>
+                </div>
+            </div>
+
+            <h4 style="margin:8px 0 4px; color:#2E7D32;">📍 Main Habitats in Egypt (أهم البيئات في مصر):</h4>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>Habitat (البيئة)</th>
+                        <th>Animals (حيوانات)</th>
+                        <th>Plants (نباتات)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Nile River & Farmlands</strong><br>حوض النيل والأراضي الزراعية</td>
+                        <td>• <strong>Cattle Egret (أبو قردان)</strong> (صديق الفلاح)<br>• <strong>Plain Tiger Butterfly</strong> (فراشة الدلتا)</td>
+                        <td>• <strong>Lotus Flower (زهرة اللوتس)</strong><br>• <strong>Papyrus (نبات البردي)</strong></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Desert Environment</strong><br>البيئة الصحراوية (حارة وجافة)</td>
+                        <td>• <strong>Fennec Fox (ثعلب الفينك)</strong><br>• <strong>Camel (الجمل)</strong><br>• <strong>Sand Lizard (سحلية الرمال)</strong><br>• <strong>Dung Beetle / Scarab (الجعران)</strong></td>
+                        <td>• <strong>Acacia Tree (شجرة السنط)</strong><br>• <strong>Palm Trees (النخيل)</strong><br>• <strong>Colocynth (الحنظل)</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h2 class="section-title"><span class="icon">🦊</span> 1-4 Secrets of Desert Adaptation (أسرار التكيف الصحراوي)</h2>
+<div class="figure-box"><img src="images/ch1_fennec_camel.png" alt="Desert Adaptations in Egypt"><div class="caption">الشكل (2): تكيف حيوانات الصحراء في مصر (ثعلب الفينك والجمل) - رسم تعليمي نقي</div></div>
+        <div class="card card-orange">
+            <h3>🛡️ What is Adaptation? (ما هو التكيف؟)</h3>
+            <p><strong>Adaptation:</strong> Changing body parts or behaviors that help living organisms survive in their environment.<br>
+            <span style="font-family:'Cairo';">تغير في تركيب الجسم أو السلوك يساعد الكائن الحي على البقاء في بيئته القاسية.</span></p>
+
+            <div class="bilingual-box" style="margin-top:8px;">
+                <div class="en-side">
+                    <strong style="color:#E65100;">1. Fennec Fox (ثعلب الفينك):</strong>
+                    <ul style="margin-left:14px;">
+                        <li><strong>Sandy fur:</strong> <span class="vocab-tag">Camouflage</span> to hide in sand.</li>
+                        <li><strong>Extra-large ears:</strong> ① Cool its body by releasing heat. ② Sharp hearing to detect insects.</li>
+                        <li><strong>Burrows:</strong> Stays in cool underground holes during hot days.</li>
+                    </ul>
+                </div>
+                <div class="ar-side">
+                    <strong style="color:#E65100;">١. ثعلب الفينك:</strong>
+                    <ul style="margin-right:14px;">
+                        <li><strong>فراء رملي:</strong> للتمويه (Camouflage) والتخفي في الرمال.</li>
+                        <li><strong>أذنان كبيرتان:</strong> لتبريد جسمه بإخراج الحرارة، وسماع الحشرات.</li>
+                        <li><strong>جحور:</strong> يختبئ نهاراً في جحور رطبة هرباً من الشمس.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bilingual-box">
+                <div class="en-side">
+                    <strong style="color:#2E7D32;">2. Camel (الجمل سفينة الصحراء):</strong>
+                    <ul style="margin-left:14px;">
+                        <li><strong>Hump (السنام):</strong> Stores fat for energy and water.</li>
+                        <li><strong>Flat padded feet (خف عريض):</strong> Prevents feet from sinking into hot soft sand.</li>
+                        <li><strong>Long eyelashes:</strong> Protect eyes from blowing sandstorms.</li>
+                    </ul>
+                </div>
+                <div class="ar-side">
+                    <strong style="color:#2E7D32;">٢. الجمل (سفينة الصحراء):</strong>
+                    <ul style="margin-right:14px;">
+                        <li><strong>السنام:</strong> يخزن الدهون ليتحول إلى طاقة وماء.</li>
+                        <li><strong>خف عريض:</strong> يمنع قدمه من الغوص في الرمال ويحميه من السخونة.</li>
+                        <li><strong>رموش طويلة:</strong> تحمي عينيه من عواصف الرمال.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 3 ================= -->
+    <div class="page-unit page-break-before">
+        <div class="card card-purple">
+            <h3>🌳 3. Acacia Tree & Desert Plants (شجرة السنط ونباتات الصحراء):</h3>
+            <div class="bilingual-box">
+                <div class="en-side">
+                    <ul>
+                        <li><strong>Very long roots (Taproots):</strong> Reach 35 meters deep searching for underground water!</li>
+                        <li><strong>Tiny leaves & sharp thorns:</strong> Prevent water evaporation and stop animals from eating them.</li>
+                    </ul>
+                </div>
+                <div class="ar-side">
+                    <ul>
+                        <li><strong>جذور وتدية طويلة:</strong> تصل لأعماق 35 متراً بحثاً عن المياه الجوفية!</li>
+                        <li><strong>أوراق صغيرة وأشواك حادة:</strong> تمنع فقدان وتبخر الماء وتمنع الحيوانات من أكلها.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="section-title"><span class="icon">✨</span> 1-5 Wonder of Nature: The Scarab Beetle (خنفساء الجعران)</h2>
+<div class="figure-box"><img src="images/ch1_scarab_beetle.png" alt="Scarab Beetle Navigation"><div class="caption">الشكل (2): خنفساء الجعران الفرعونية واهتداؤها بالنجوم (The Scarab Beetle Navigating by Stars)</div></div>
+</div>
+        <div class="card card-purple">
+            <div class="speech-bubble genius">
+                <div class="speech-avatar">🐔</div>
+                <div class="speech-content">
+                    <div class="speech-name">Genius's Scientific Wonder:</div>
+                    <p>The <strong>Scarab (Dung Beetle)</strong> is the "Desert Cleaner". At night, it rolls dung balls in straight lines by <strong>looking at the stars (Milky Way galaxy)</strong> to navigate without getting lost!</p>
+                    <p class="ar-side" style="color:#555; margin-top:2px;">خنفساء الجعران منظف الصحراء: ليلاً تنظر إلى <strong>نجوم مجرة درب التبانة</strong> لتسير في خطوط مستقيمة دون أن تضل طريقها في الظلام!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-box">
+            <div class="game-header">🎮 Play & Learn / العب واكتشف مع أصدقائك!</div>
+            <p><strong>Game: "The Desert Camouflage Challenge" (تحدي التمويه في البيت)</strong></p>
+            <p style="font-size:12px; margin-top:3px;">قص 5 أوراق صفراء بلون السجاد و5 أوراق حمراء. انثرها واطلب من أحد التقاطها في 5 ثوانٍ. ستكتشف أن اللون المطابق للسجاد يصعب جداً رؤيته، تماماً كفراء ثعلب الفينك ولون سحلية الرمال في الصحراء (Camouflage)!</p>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 4 ================= -->
+    <div class="page-unit page-break-before">
+        
+
+<div class="part-end-badge">🌟 End of Part 1: Illustrated Explanation | نهاية الجزء الأول: الشرح المصور 🌟</div>
+<div class="part-banner part-2-banner">
+  <h2>📝 PART 2: PRACTICE & GOVERNORATE EXAMS BANK</h2>
+  <p>الجزء الثاني: بنك التدريبات وأسئلة امتحانات المحافظات (مخصص لحل الطالب واختبار الفهم)</p>
+</div>
+<h2 class="section-title"><span class="icon">📝</span> Quick Practice (تدريبات سريعة لتثبيت الفهم)</h2>
+        <div class="card">
+            <p><strong>A) Choose the correct answer:</strong></p>
+            <ol style="margin-left:18px; line-height:1.7;">
+                <li>Which of the following is a living organism? &nbsp; [ a) Rock &nbsp;|&nbsp; b) Water &nbsp;|&nbsp; <strong>c) Acacia Tree</strong> &nbsp;|&nbsp; d) Sand ]</li>
+                <li>The Fennec fox's large ears help it to: &nbsp; [ a) Fly &nbsp;|&nbsp; <strong>b) Cool its body</strong> &nbsp;|&nbsp; c) Swim &nbsp;|&nbsp; d) Store food ]</li>
+                <li>Camels store fat in their: &nbsp; [ a) Feet &nbsp;|&nbsp; b) Ears &nbsp;|&nbsp; <strong>c) Hump</strong> &nbsp;|&nbsp; d) Eyes ]</li>
+            </ol>
+
+            <p style="margin-top:6px;"><strong>B) True or False:</strong></p>
+            <ol style="margin-left:18px; line-height:1.7;">
+                <li>( &nbsp;&nbsp; ) Plants are non-living things because they cannot walk.</li>
+                <li>( &nbsp;&nbsp; ) Sandy fur provides camouflage for desert animals.</li>
+                <li>( &nbsp;&nbsp; ) The scarab beetle navigates at night using star patterns.</li>
+            </ol>
+        </div>
+
+        <div class="exam-section">
+            <h2 style="color:#C62828; display:flex; align-items:center; gap:6px; margin-bottom:10px; font-size:16px;">
+                <span>🏆</span> Official Governorate Exam Questions (أسئلة امتحانات المحافظات)
+            </h2>
+
+            <div class="question-item">
+                <span class="gov-badge">Cairo 2024 / القاهرة</span>
+                <strong>Write the scientific term (المصطلح العلمي):</strong>
+                <p>1. The place where a living organism lives and finds food and shelter. &nbsp; ( .............................. )</p>
+                <p>2. Characteristics that help living organisms survive in their environment. &nbsp; ( .............................. )</p>
+            </div>
+
+            <div class="question-item">
+                <span class="gov-badge">Giza 2024 / الجيزة</span>
+                <strong>Give reasons for (علل):</strong>
+                <p>1. Fennec fox has extra-large ears. ➔ ................................................................................</p>
+                <p>2. Camel has thick flat padded feet. ➔ ................................................................................</p>
+            </div>
+
+            <div class="question-item">
+                <span class="gov-badge">Alexandria 2023 / الإسكندرية</span>
+                <strong>What happens if (ماذا يحدث إذا...):</strong>
+                <p>1. Fennec fox lived in a snowy Arctic forest with sandy fur? ➔ ........................................................</p>
+                <p>2. Acacia tree had very short roots in the desert? ➔ ...................................................................</p>
+            </div>
+
+            <div class="question-item">
+                <span class="gov-badge">Dakahlia 2024 / الدقهلية</span>
+                <strong>Complete:</strong> Cattle Egret lives in .............................. while Fennec fox lives in .............................. .
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PAGE 5 ================= -->
+    
+
+<div class="part-end-badge">📝 End of Part 2: Question Bank | نهاية الجزء الثاني: بنك الأسئلة والتدريبات 📝</div>
+<div class="part-banner part-3-banner">
+  <h2>🔑 PART 3: EXPLANATORY MODEL ANSWERS KEY</h2>
+  <p>الجزء الثالث: نموذج الإجابات النموذجية والتفسيرات العلمية (لمراجعة المعلم وولي الأمر)</p>
+</div>
+<details class="answers-box" open>
+        <summary>
+            <span>🔑 Model Answers Key (نموذج الإجابات النموذجية بالتفسير)</span>
+        </summary>
+        <div class="answers-content">
+            <h4 style="color:#2E7D32; margin-bottom:6px; border-bottom:1.5px solid #C8E6C9; padding-bottom:3px;">
+                ✅ Quick Practice Answers
+            </h4>
+            <div class="answer-row">
+                <p><strong>A) Choose:</strong> 1. <strong>c) Acacia Tree</strong> &nbsp;|&nbsp; 2. <strong>b) Cool its body</strong> &nbsp;|&nbsp; 3. <strong>c) Hump</strong></p>
+                <p><strong>B) True or False:</strong> 1. <strong>✘ False</strong> (Plants ARE living organisms) &nbsp;|&nbsp; 2. <strong>✔ True</strong> &nbsp;|&nbsp; 3. <strong>✔ True</strong></p>
+            </div>
+
+            <h4 style="color:#C62828; margin:10px 0 6px; border-bottom:1.5px solid #FFCDD2; padding-bottom:3px;">
+                🏆 Governorate Exam Model Answers
+            </h4>
+            <div class="answer-row">
+                <div class="answer-key">Cairo 2024 (Scientific Term):</div>
+                <p>1. <strong>Habitat</strong> (الموطن / البيئة) &nbsp;&nbsp;&nbsp; 2. <strong>Adaptation</strong> (التكيف)</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Giza 2024 (Give Reasons):</div>
+                <p>1. <strong>To release heat to cool its body, and to hear faint sounds of prey.</strong> (لتبريد جسمه بإخراج الحرارة وسماع الفرائس).</p>
+                <p>2. <strong>To avoid sinking into soft hot sand and protect from heat.</strong> (لحمايتها من الغوص في الرمال الساخنة).</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Alexandria 2023 (What happens if):</div>
+                <p>1. <strong>It would be easily seen by predators (cannot camouflage) and freeze.</strong> (يظهر للأعداء ويفقد التمويه).</p>
+                <p>2. <strong>It could not absorb underground water and would die of drought.</strong> (تموت لعدم وصولها للمياه الجوفية).</p>
+            </div>
+            <div class="answer-row">
+                <div class="answer-key">Dakahlia 2024 (Complete):</div>
+                <p><strong>Farmlands / Nile basin</strong> — <strong>Desert</strong>.</p>
+            </div>
+        </div>
+    </details>
+</div>
+
+
+<!-- Lightbox Modal DOM -->
+<div id="lightboxModal" class="lightbox-modal" onclick="closeLightbox(event)">
+  <div class="lightbox-content" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox(event)" title="إغلاق">✕</button>
+    <img id="lightboxImg" src="" alt="Enlarged Image">
+    <div id="lightboxCaption" class="lightbox-caption"></div>
+  </div>
+</div>
+
+<script>
+function openLightbox(imgElement) {
+  const modal = document.getElementById('lightboxModal');
+  const modalImg = document.getElementById('lightboxImg');
+  const caption = document.getElementById('lightboxCaption');
+  if (!modal || !modalImg) return;
+  
+  modalImg.src = imgElement.src;
+  const parentBox = imgElement.closest('.figure-box') || imgElement.closest('.map-container') || imgElement.parentElement;
+  const capElem = parentBox ? (parentBox.querySelector('.caption') || parentBox.querySelector('.figure-caption')) : null;
+  caption.textContent = capElem ? capElem.textContent : (imgElement.alt || 'تكبير الصورة التوضيحية');
+  
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(event) {
+  const modal = document.getElementById('lightboxModal');
+  if (!modal) return;
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.figure-box img, .map-img-box img').forEach(img => {
+    img.setAttribute('title', 'انقر لتكبير الصورة 🔍');
+    img.addEventListener('click', function() { openLightbox(this); });
+  });
+});
+</script>
+
+</body>
+</html>

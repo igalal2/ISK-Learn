@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منظومة العلوم (Science) • الصف الرابع الابتدائي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Cairo', 'Poppins', sans-serif;
+    background: #064e3b;
+    color: #f8fafc;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+  .container { max-width: 1060px; margin: 0 auto; }
+  .header {
+    text-align: center;
+    background: linear-gradient(135deg, #059669, #10b981);
+    padding: 24px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(5, 150, 105, 0.35);
+    margin-bottom: 25px;
+  }
+  .header h1 { font-size: 26px; font-weight: 900; margin-bottom: 4px; color: #ffffff; }
+  .header p { font-size: 14px; opacity: 0.95; color: #ecfdf5; }
+  
+  .banner-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 14px;
+    margin-bottom: 25px;
+  }
+  .special-card {
+    border-radius: 14px;
+    padding: 18px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .card-exams { background: linear-gradient(135deg, #047857, #065f46); border: 1.5px solid #34d399; }
+  .card-monthly { background: linear-gradient(135deg, #0284c7, #0369a1); border: 1.5px solid #38bdf8; }
+  .card-revision { background: linear-gradient(135deg, #4338ca, #3730a3); border: 1.5px solid #818cf8; }
+  
+  .special-card h2 { font-size: 16.5px; font-weight: 900; margin-bottom: 3px; color: #ffffff; }
+  .special-card p { font-size: 11.5px; color: #e2e8f0; opacity: 0.95; }
+  .btn-group { display: flex; gap: 8px; }
+  .btn {
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s;
+  }
+  .btn-white { background: #ffffff; color: #065f46; }
+  .btn-white:hover { background: #f0fdf4; transform: translateY(-2px); }
+  .btn-colored { background: #34d399; color: #064e3b; }
+  .btn-colored:hover { background: #6ee7b7; transform: translateY(-2px); }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 16px;
+  }
+  .card {
+    background: #022c22;
+    border: 1px solid #065f46;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.2s;
+  }
+  .card:hover {
+    border-color: #34d399;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  }
+  .card-badge {
+    background: #059669;
+    color: white;
+    font-size: 10.5px;
+    font-weight: 800;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .card h3 { font-size: 14.5px; font-weight: 800; margin-bottom: 6px; color: #f0fdf4; }
+  .card p { font-size: 11.5px; color: #a7f3d0; line-height: 1.5; margin-bottom: 12px; }
+  .card-actions { display: flex; gap: 8px; }
+  .btn-view { background: #065f46; color: #d1fae5; flex: 1; text-align: center; justify-content: center; }
+  .btn-view:hover { background: #047857; color: white; }
+  .btn-pdf { background: #10b981; color: #022c22; flex: 1; text-align: center; justify-content: center; }
+  .btn-pdf:hover { background: #34d399; }
+
+  /* UNIVERSAL PROMINENT STICKY BACK NAVIGATION */
+  .sticky-nav-strip {
+    position: sticky;
+    top: 12px;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.96) !important;
+    backdrop-filter: blur(10px);
+    border: 2px solid #2563eb !important;
+    padding: 12px 20px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.12) !important;
+    margin-bottom: 25px !important;
+  }
+  .nav-left { display: flex; gap: 10px; flex-wrap: wrap; }
+  .btn-portal-back {
+    background: #0f172a !important;
+    color: white !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s, background 0.2s;
+    box-shadow: 0 3px 10px rgba(15, 23, 42, 0.2);
+  }
+  .btn-portal-back:hover { background: #1e293b !important; transform: translateY(-2px); }
+  .btn-index-back {
+    background: #eff6ff !important;
+    color: #1e40af !important;
+    border: 1.5px solid #3b82f6 !important;
+    text-decoration: none !important;
+    padding: 9px 18px !important;
+    border-radius: 10px !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+  .btn-index-back:hover { background: #3b82f6 !important; color: white !important; transform: translateY(-2px); }
+  .btn-print-action {
+    background: white !important;
+    border: 1.5px solid #cbd5e1 !important;
+    color: #334155 !important;
+    padding: 9px 16px !important;
+    border-radius: 10px !important;
+    font-family: inherit !important;
+    font-size: 13.5px !important;
+    font-weight: 800 !important;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .btn-print-action:hover { border-color: #2563eb !important; color: #2563eb !important; }
+  @media print { .sticky-nav-strip, .nav-strip { display: none !important; } }
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="sticky-nav-strip">
+    <div class="nav-left">
+      <a href="../البوابة_الرئيسية_الشاملة.html" class="btn-portal-back" style="background:#2563eb !important;">🏠 البوابة الرئيسية الشاملة</a>
+      <a href="../بوابة_الصف_الرابع_الابتدائي.html" class="btn-portal-back">🏠 العودة لبوابة الصف الرابع</a>
+      <a href="Index.html" class="btn-index-back">📖 فهرس العلوم (Science)</a>
+    </div>
+    <div class="nav-right">
+      <button onclick="window.print()" class="btn-print-action">🖨️ طباعة الملخص (PDF)</button>
+    </div>
+  </div>
+
+  <div class="header">
+    <h1>منظومة مذكرات العلوم (Science) • الترم الأول</h1>
+    <p>الصف الرابع الابتدائي • شرح تفاعلي مصور + بنك أسئلة امتحانات المحافظات + نماذج الإجابة لجميع فصول المنهج</p>
+  </div>
+
+  <div class="banner-grid">
+    <div class="special-card card-exams">
+      <div>
+        <h2>🏆 ملزمة امتحانات نهاية الترم الشاملة</h2>
+        <p>6 امتحانات محافظات رسمية كاملة + نماذج الحل وتوزيع الدرجات</p>
+      </div>
+      <div class="btn-group">
+        <a href="Final_Term_Exams_Science_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Final_Term_Exams_Science_PRIM4.pdf" target="_blank" class="btn btn-colored">تحميل PDF</a>
+      </div>
+    </div>
+    
+    <div class="special-card card-monthly">
+      <div>
+        <h2>📅 ملزمة امتحانات الشهور (أكتوبر & نوفمبر)</h2>
+        <p>6 اختبارات شهرية نموذجية مطابقة للمواصفات + الإجابات</p>
+      </div>
+      <div class="btn-group">
+        <a href="Monthly_Exams_Science_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Monthly_Exams_Science_PRIM4.pdf" target="_blank" class="btn btn-colored" style="background:#38bdf8; color:#0c4a6e;">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="special-card card-revision">
+      <div>
+        <h2>💡 ملزمة المراجعة النهائية ليلة الامتحان</h2>
+        <p>الكبسولة الذهبية: أهم المفاهيم، جداول المقارنات، وأشهر أسئلة علل</p>
+      </div>
+      <div class="btn-group">
+        <a href="Final_Revision_Science_PRIM4.html" target="_blank" class="btn btn-white">عرض HTML</a>
+        <a href="Final_Revision_Science_PRIM4.pdf" target="_blank" class="btn btn-colored" style="background:#818cf8; color:#1e1b4b;">تحميل PDF</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 1</span>
+        <h3>Nature in Our Surroundings & Adaptation</h3>
+        <p>مفهوم التكيف والبقاء، مقارنة ثعلب الفنك وثعلب القطب الشمالي، وتكيف شجرة السنط وشجرة الكابوك.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_1_Nature_in_Our_Surroundings.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_1_Nature_in_Our_Surroundings_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 2</span>
+        <h3>Animal Senses & Nocturnal Animals</h3>
+        <p>الحواس الفائقة في الحيوانات، صدى الصوت عند الخفافيش، وحاسة السمع الاستثنائية لدى البوم والدولفين.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_2_How_Insects_Grow.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_2_How_Insects_Grow_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 3</span>
+        <h3>Plant Adaptations</h3>
+        <p>تكيفات النباتات المائية والصحراوية والغابات الممطرة، انتشار البذور، وجذور وجذوع الأشجار.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_3_How_Plants_Grow.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_3_How_Plants_Grow_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 4</span>
+        <h3>Light and Sight & Reflection</h3>
+        <p>طبيعة الضوء، الرؤية، البساط الشفاف في عيون قط السماك، وانعكاس الضوء المنتظم وغير المنتظم.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_4_Properties_of_Light.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_4_Properties_of_Light_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 5</span>
+        <h3>Communication & Information Transfer</h3>
+        <p>طرق التواصل في الكائنات، أغاني الحيتان الحدباء، ومضات الخنافس المضيئة، وشفرة مورس.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_5_Properties_of_Sound.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_5_Properties_of_Sound_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 6</span>
+        <h3>Starting and Stopping Motion</h3>
+        <p>القوى المتزنة وغير المتزنة، الدفع والسحب، وقوى الاحتكاك ومقاومة الهواء وتأثيرها على الحركة.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_6_The_Force_of_Wind.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_6_The_Force_of_Wind_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 7</span>
+        <h3>Energy and Motion</h3>
+        <p>طاقة الوضع وطاقة الحركة، قطار الملاهي السريع، وتحولات الطاقة من صورة لأخرى.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_7_The_Force_of_Rubber.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_7_The_Force_of_Rubber_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div>
+        <span class="card-badge">Chapter 8</span>
+        <h3>Speed and Collisions</h3>
+        <p>حساب السرعة، طاقة التصادم، وأجهزة الأمان في السيارات كحزام الأمان والوسادة الهوائية.</p>
+      </div>
+      <div class="card-actions">
+        <a href="Chapter_8_Soil_Water_and_Life_in_Egypt.html" target="_blank" class="btn btn-view">عرض HTML</a>
+        <a href="Chapter_8_Soil_Water_and_Life_in_Egypt_Illustrated.pdf" target="_blank" class="btn btn-pdf">تحميل PDF</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
