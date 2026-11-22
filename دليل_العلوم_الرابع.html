@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دليل العلوم الشامل • الصف الرابع الابتدائي</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #10b981;
+      --primary-dark: #065f46;
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --border: #e2e8f0;
+      --shadow: 0 10px 25px rgba(0,0,0,0.05);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Cairo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; padding-bottom: 80px; }
+    .en { font-family: 'Poppins', sans-serif; direction: ltr; display: inline-block; font-weight: 700; }
+    .container { max-width: 1040px; margin: 0 auto; padding: 15px 20px; }
+    .nav-bar { background: rgba(255,255,255,0.98); backdrop-filter: blur(10px); border-bottom: 2px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 12px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .nav-inner { max-width: 1040px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+    .nav-brand { font-weight: 900; font-size: 16px; color: var(--text); display: flex; align-items: center; gap: 8px; text-decoration: none; }
+    .btn-nav { text-decoration: none; padding: 6px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 800; transition: all 0.2s; }
+    .btn-home { background: #0f172a; color: white; }
+    .btn-portal { background: var(--primary); color: white; }
+    .btn-index { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    .btn-nav:hover { transform: translateY(-2px); opacity: 0.95; }
+    .hero-box { background: linear-gradient(135deg, var(--primary-dark), var(--primary)); color: white; border-radius: 24px; padding: 32px 26px; margin: 20px 0 28px; box-shadow: var(--shadow); }
+    .hero-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.2); border: 1px solid rgba(255,255,255,0.3); padding: 4px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 800; margin-bottom: 12px; }
+    .hero-title { font-size: 26px; font-weight: 900; margin-bottom: 8px; }
+    .hero-sub { font-size: 14.5px; opacity: 0.95; max-width: 860px; }
+    .unit-card { background: white; border-radius: 20px; border: 1.5px solid var(--border); padding: 24px; margin-bottom: 22px; box-shadow: var(--shadow); transition: all 0.25s ease; }
+    .unit-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .unit-title { font-size: 18px; font-weight: 900; color: var(--primary-dark); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+    .edu-img-wrap { background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 16px; overflow: hidden; margin: 14px 0; text-align: center; transition: all 0.3s ease; }
+    .edu-img-wrap:hover { border-color: var(--primary); box-shadow: 0 10px 25px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .edu-img-wrap img { max-width: 100%; height: auto; display: block; margin: 0 auto; max-height: 420px; object-fit: contain; }
+    .edu-img-caption { background: #ffffff; padding: 10px 16px; font-size: 13px; font-weight: 800; color: #334155; border-top: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .unit-actions { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .btn-action { text-decoration: none; padding: 8px 18px; border-radius: 12px; font-size: 13px; font-weight: 900; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-main { background: var(--primary); color: white; }
+    .btn-sec { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
+    @media (max-width: 768px) { .hero-title { font-size: 21px; } }
+  </style>
+</head>
+<body>
+
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand"><span>🎓</span><span>المنصة التعليمية المركزية • الصف الرابع الابتدائي</span></a>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a href="index.html" class="btn-nav btn-home">🏠 البوابة الشاملة</a>
+      <a href="بوابة_الصف_الرابع_الابتدائي.html" class="btn-nav btn-portal">🔬 بوابة الصف الرابع</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Index.html" class="btn-nav btn-index">📋 فهرس المادة</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <div class="hero-box">
+    <div class="hero-badge">✨ منهج العلوم المعتمد • الصف الرابع</div>
+    <h1 class="hero-title">دليل العلوم التفاعلي الشامل (Science Primary 4)</h1>
+    <p class="hero-sub">الفصول الثمانية كاملة مع مسرح الفراشة المجسمة المتكلمة، الصور التوضيحية من كتاب المعاصر، وروابط الشرح التفاعلي والملخصات.</p>
+  </div>
+
+  <div class="unit-card" id="viewport3D">
+    <div class="unit-title"><span>🦋 مسرح الفراشة المجسمة المتكلمة (دورة الحياة التفاعلية)</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:10px;">اسحب الفراشة لتدويرها، وشاهدها تخفق بجناحيها، ثم تنقل بين مراحل التحول الأربع واستمع لكل شخصية تحكي قصتها بصوتها!</p>
+    <div id="bf-stage" style="perspective:900px; background:linear-gradient(180deg,#e0f2fe,#f0fdf4); border:1.5px solid #cbd5e1; border-radius:18px; padding:18px; text-align:center; cursor:grab; user-select:none; touch-action:none;">
+      <div id="bf-rotor" style="display:inline-block; transform-style:preserve-3d; transition:transform 0.15s ease-out;">
+        <svg id="bf-svg" width="220" height="180" viewBox="0 0 220 180">
+          <g id="bf-wings">
+            <ellipse id="bf-wing-r" cx="70" cy="80" rx="58" ry="66" fill="#f59e0b" stroke="#b45309" stroke-width="3" opacity="0.95"/>
+            <ellipse id="bf-wing-l" cx="150" cy="80" rx="58" ry="66" fill="#fbbf24" stroke="#b45309" stroke-width="3" opacity="0.95"/>
+            <circle cx="60" cy="60" r="12" fill="#fff7ed"/>
+            <circle cx="160" cy="60" r="12" fill="#fff7ed"/>
+            <circle cx="66" cy="105" r="9" fill="#7c2d12"/>
+            <circle cx="154" cy="105" r="9" fill="#7c2d12"/>
+          </g>
+          <ellipse cx="110" cy="88" rx="12" ry="52" fill="#451a03"/>
+          <circle cx="110" cy="32" r="13" fill="#451a03"/>
+          <path d="M104 22 Q 92 4 84 6" stroke="#451a03" stroke-width="3" fill="none"/>
+          <path d="M116 22 Q 128 4 136 6" stroke="#451a03" stroke-width="3" fill="none"/>
+        </svg>
+      </div>
+      <div id="bf-shadow" style="width:120px; height:14px; margin:6px auto 0; background:radial-gradient(ellipse at center, rgba(15,23,42,0.25), transparent 70%); border-radius:50%;"></div>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; justify-content:center; margin-top:14px;">
+      <button class="btn-action btn-sec bf-stage-btn" data-stage="0" style="cursor:pointer; border:none;">🥚 البيضة</button>
+      <button class="btn-action btn-sec bf-stage-btn" data-stage="1" style="cursor:pointer; border:none;">🐛 اليرقة</button>
+      <button class="btn-action btn-sec bf-stage-btn" data-stage="2" style="cursor:pointer; border:none;">🛖 الشرنقة</button>
+      <button class="btn-action btn-sec bf-stage-btn" data-stage="3" style="cursor:pointer; border:none;">🦋 الفراشة</button>
+    </div>
+    <div style="background:#f8fafc; border:1.5px solid var(--border); border-radius:14px; padding:16px; margin-top:12px;">
+      <div id="bf-speaker" style="font-size:14px; font-weight:900; color:#065f46; margin-bottom:4px;">🦋 الفراشة لولو تحكي قصتها:</div>
+      <div id="bf-title" style="font-size:15px; font-weight:900; color:#0f172a; margin-bottom:6px;">المرحلة الأولى: أنا بيضة صغيرة (The Egg)</div>
+      <div id="bf-speech" style="font-size:13.5px; color:#334155;"></div>
+      <div class="unit-actions">
+        <button class="btn-action btn-main" style="cursor:pointer; border:none;" onclick="bfSpeak()">🔊 استمع للشخصية وهي تتكلم</button>
+        <button class="btn-action btn-sec" style="cursor:pointer;" onclick="if('speechSynthesis' in window) window.speechSynthesis.cancel();">⏹️ إيقاف الصوت</button>
+        <span id="bf-progress" style="font-size:12.5px; color:#065f46; font-weight:800; align-self:center;">مرحلة 1 من 4</span>
+      </div>
+    </div>
+  </div>
+
+<script>
+const bfStages = [
+  {icon:"🥚", speaker:"🦋 الفراشة لولو تحكي قصتها:", title:"المرحلة الأولى: أنا بيضة صغيرة (The Egg)", speech:"أهلاً بكم يا أصدقائي الشطار! أنا بيضة صغيرة جداً ولطيفة، وضعتني أمي الفراشة بعناية على ظهر ورقة شجرة خضراء طرية.. اختارت هذا المكان لتحميني من حرارة الشمس والرياح، ولأجد طعاماً لذيذاً فور أن أفقس!"},
+  {icon:"🐛", speaker:"🐛 اليرقة الشقية الجائعة:", title:"المرحلة الثانية: أنا يرقة شرهة (The Caterpillar)", speech:"يا هلا يا أبطال! لقد فقست البيضة وخرجت أنا.. يرقة صغيرة وجائعة جداً جداً! أنتم تنادونني الكاتربيلر! أقرمش أوراق الشجر اللذيذة طوال اليوم وأنمو بسرعة فائقة وأغير جلدي لأخزن طاقة هائلة لسحر التحول القادم!"},
+  {icon:"🛖", speaker:"🛖 الشرنقة الذهبية السحرية:", title:"المرحلة الثالثة: أنا في بيتي الحريري (Chrysalis)", speech:"ششش.. هدوء يا أصدقائي! أنا الآن داخل بيتي الحريري السحري (الشرنقة أو الكريزاليس)! أخلد للراحة بينما ينمو لي في الداخل أجنحة ملونة ساحرة وقرون استشعار وأرجل رشيقة في سحر التحول الكامل!"},
+  {icon:"🦋", speaker:"🦋 الفراشة البالغة الجميلة:", title:"المرحلة الرابعة: انظروا.. أصبحت فراشة محلقة! (Adult Butterfly)", speech:"وااااو! انظروا إليّ الآن! لقد خرجت أخيراً فراشة رائعة الجمال زاهية الألوان! أفرد جناحي في الهواء وأطير برقة بين الأزهار لأمتص الرحيق وألقح النباتات.. سبحان الخالق البديع!"}
+];
+let bfStage = 0, bfAngle = 0;
+function bfRender() {
+  const s = bfStages[bfStage];
+  document.getElementById('bf-speaker').textContent = s.speaker;
+  document.getElementById('bf-title').textContent = s.title;
+  document.getElementById('bf-speech').textContent = s.speech;
+  document.getElementById('bf-progress').textContent = 'مرحلة ' + (bfStage + 1) + ' من 4';
+  document.querySelectorAll('.bf-stage-btn').forEach(function(b, i) {
+    b.style.background = i === bfStage ? 'var(--primary)' : '#eff6ff';
+    b.style.color = i === bfStage ? 'white' : '#1e40af';
+  });
+  const icons = ["🥚","🐛","🛖","🦋"];
+  const svg = document.getElementById('bf-svg');
+  svg.style.display = bfStage === 3 ? 'inline-block' : 'none';
+  let iconEl = document.getElementById('bf-bigicon');
+  if (!iconEl) {
+    iconEl = document.createElement('div');
+    iconEl.id = 'bf-bigicon';
+    iconEl.style.cssText = 'font-size:110px; line-height:180px;';
+    svg.parentNode.appendChild(iconEl);
+  }
+  iconEl.style.display = bfStage === 3 ? 'none' : 'block';
+  iconEl.textContent = icons[bfStage];
+}
+function bfSpeak() { speak(bfStages[bfStage].speech, 'ar-SA'); }
+document.querySelectorAll('.bf-stage-btn').forEach(function(b) {
+  b.addEventListener('click', function() {
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+    bfStage = parseInt(b.dataset.stage, 10);
+    bfRender();
+  });
+});
+(function() {
+  const stage = document.getElementById('bf-stage');
+  const rotor = document.getElementById('bf-rotor');
+  let dragging = false, lastX = 0;
+  function apply() { rotor.style.transform = 'rotateY(' + bfAngle + 'deg)'; }
+  stage.addEventListener('pointerdown', function(e) { dragging = true; lastX = e.clientX; stage.setPointerCapture(e.pointerId); stage.style.cursor = 'grabbing'; });
+  stage.addEventListener('pointermove', function(e) { if (!dragging) return; bfAngle += (e.clientX - lastX) * 0.6; lastX = e.clientX; apply(); });
+  stage.addEventListener('pointerup', function() { dragging = false; stage.style.cursor = 'grab'; });
+  let t = 0;
+  setInterval(function() {
+    t += 0.25;
+    const flap = Math.sin(t) * 55;
+    const wR = document.getElementById('bf-wing-r');
+    const wL = document.getElementById('bf-wing-l');
+    if (wR && wL) {
+      wR.setAttribute('transform', 'translate(' + (flap * 0.4) + ',0) scale(' + (1 - Math.abs(flap) / 220) + ',1)');
+      wL.setAttribute('transform', 'translate(' + (-flap * 0.4) + ',0) scale(' + (1 - Math.abs(flap) / 220) + ',1)');
+    }
+  }, 40);
+})();
+bfRender();
+</script>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 1: Nature Around Us</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 1</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">التكيف السلوكي والتركيبي لدى ثعلب الفنك والجمل والدب القطبي.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch1_fennec_camel.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch1_living_organisms.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch1_scarab_beetle.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_1_Nature_in_Our_Surroundings.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_1_Nature_in_Our_Surroundings.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 2: Insects & Echolocation</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 2</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">دورة حياة الفراشة، صدى الصوت لدى الخفافيش، وحاسة السمع الفائقة.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch2_metamorphosis.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch2_eggs_larvae.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch2_bat_echolocation.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_2_How_Insects_Grow.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_2_How_Insects_Grow.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 3: How Plants Grow</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 3</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">أجزاء النبات، الجذور، الأوراق، البناء الضوئي، وإنبات البذور.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch3_plant_parts.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch3_plant_germination.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch3_sunflower_seeds.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_3_How_Plants_Grow.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_3_How_Plants_Grow.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 4: Properties of Light</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 4</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">طبيعة الضوء، الأجسام الشفافة والمعتمة، والرؤية الليلية وانعكاس الضوء.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch4_light_reflection.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch4_shadows_sun.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch4_pyramids_light_show.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_4_Properties_of_Light.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_4_Properties_of_Light.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 5: Properties of Sound</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 5</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">اهتزاز الأجسام، انتقال الصوت، ودرجة وشدة الصوت.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch5_sound_vibration.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch5_cup_telephone.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch5_volume_vibration.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_5_Properties_of_Sound.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_5_Properties_of_Sound.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 6: Force of Wind</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 6</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">طاقة الرياح، توربينات توليد الكهرباء، والقوة والحركة.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch6_sailboat.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch6_wind_car.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch6_sail_size.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_6_The_Force_of_Wind.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_6_The_Force_of_Wind.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 7: Force of Rubber</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 7</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">طاقة الوضع المرونية في المطاط، قطار الملاهي، وتحولات الطاقة.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch7_rubber_car.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch7_rubber_stretch.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch7_energy_rollercoaster.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_7_The_Force_of_Rubber.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_7_The_Force_of_Rubber.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>Chapter 8: Soil & Collision Safety</span><span class="en" style="font-size:13px; color:var(--primary);">Ch 8</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">أنواع التربة في مصر، طاقة التصادم والسرعة ودور الوسادة الهوائية.</p>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch8_soil_types.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch8_soil_experiment.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+  <div class="edu-img-wrap">
+    <img src="ملخصات_Science_الرابع_الابتدائي/images/ch8_car_crash_airbag.png" alt="من شرح المنهج المصور">
+    <div class="edu-img-caption"><span>📸</span><span>من شرح المنهج المصور</span></div>
+  </div>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_8_Soil_Water_and_Life_in_Egypt.html" class="btn-action btn-main">🚀 فتح شرح الدرس التفاعلي</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Chapter_8_Soil_Water_and_Life_in_Egypt.pdf" class="btn-action btn-sec" download>📥 تحميل ملخص الدرس PDF</a>
+    </div>
+  </div>
+  <div class="unit-card">
+    <div class="unit-title"><span>📚 ملازم الامتحانات والمراجعات الرسمية</span></div>
+    <p style="font-size:14px; color:#475569; margin-bottom:6px;">كل ملازم الامتحانات والمراجعة النهائية للمادة مع نماذج الإجابة التفصيلية.</p>
+    <div class="unit-actions">
+      <a href="ملخصات_Science_الرابع_الابتدائي/Monthly_Exams_Science_PRIM4.html" class="btn-action btn-sec">📝 امتحانات الشهور مع الحل</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Final_Term_Exams_Science_PRIM4.html" class="btn-action btn-sec">🎯 امتحانات نهاية الترم مع الحل</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Final_Revision_Science_PRIM4.html" class="btn-action btn-sec">🏆 المراجعة الشاملة ليلة الامتحان</a>
+      <a href="ملخصات_Science_الرابع_الابتدائي/Index.html" class="btn-action btn-main">📖 فهرس المادة الكامل</a>
+    </div>
+  </div>
+</div>
+
+<script>
+function speak(text, lang) {
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+    const u = new SpeechSynthesisUtterance(text);
+    u.lang = lang || 'ar-SA';
+    u.rate = 0.9;
+    window.speechSynthesis.speak(u);
+  } else { alert('خاصية النطق غير مدعومة في متصفحك.'); }
+}
+</script>
+<script src="shared-lightbox.js"></script>
+</body>
+</html>
